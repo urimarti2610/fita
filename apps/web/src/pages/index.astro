@@ -13,6 +13,7 @@ const targets = Object.fromEntries(LANGS.map((l) => [l, href(l)]));
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{WEB_BRAND.name}</title>
     <meta http-equiv="refresh" content={`0; url=${fallback}`} />
+    <meta name="robots" content="noindex" />
     <link rel="canonical" href={fallback} />
     <script is:inline define:vars={{ targets, fallback }}>
       const lang = (navigator.languages || [navigator.language])

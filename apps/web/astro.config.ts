@@ -12,7 +12,7 @@ export default defineConfig({
   i18n: {
     locales: LANGS,
     defaultLocale: "es",
-    routing: { prefixDefaultLocale: true, redirectToDefaultLocale: true },
+    routing: { prefixDefaultLocale: true, redirectToDefaultLocale: false },
   },
   build: { inlineStylesheets: "always" },
   vite: { resolve: { conditions: ["@fita/source"] } },

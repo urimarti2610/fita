@@ -87,3 +87,29 @@ test("who-it's-for page exists in every language and home links to each case", a
   await expect(page).toHaveURL(/\/es\/para-quien\/#logopedia$/);
   await expect(page.locator("#logopedia h2")).toBeInViewport();
 });
+
+test("SEO files and tags are published", async ({ page, request }) => {
+  const sitemap = await request.get("/sitemap.xml");
+  expect(sitemap.ok()).toBe(true);
+  expect(await sitemap.text()).toContain("<loc>https://fitaread.com/ca/fitxes/</loc>");
+  expect(await (await request.get("/robots.txt")).text()).toContain(
+    "Sitemap: https://fitaread.com/sitemap.xml",
+  );
+  expect(await (await request.get("/llms.txt")).text()).toMatch(/^# fita\n\n> /);
+  expect((await request.get("/llms-full.txt")).ok()).toBe(true);
+
+  await page.goto("/es/fichas/");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://fitaread.com/es/fichas/",
+  );
+  await expect(page.locator('link[hreflang="x-default"]')).toHaveAttribute(
+    "href",
+    "https://fitaread.com/en/worksheets/",
+  );
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    "content",
+    "https://fitaread.com/og.png",
+  );
+  await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", "es_ES");
+});

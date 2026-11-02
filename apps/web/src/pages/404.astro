@@ -1,0 +1,58 @@
+---
+// GitHub Pages serves this for any unknown URL. Language-neutral: it offers every home page.
+import { WEB_BRAND } from "../../brand";
+import { href, LANG_NAMES, LANGS, STRINGS } from "../i18n";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>404 | {WEB_BRAND.name}</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body>
+    <main class="wrap notfound">
+      <p class="code" aria-hidden="true">404</p>
+      <h1>{WEB_BRAND.name}</h1>
+      <ul>
+        {LANGS.map((l) => (
+          <li lang={l}>
+            <a href={href(l)}>{STRINGS[l].nav.home}</a> <span>{LANG_NAMES[l]}</span>
+          </li>
+        ))}
+      </ul>
+    </main>
+  </body>
+</html>
+
+<style>
+  .notfound {
+    padding-block: clamp(4rem, 15vh, 9rem);
+  }
+  .code {
+    font-size: clamp(4rem, 18vw, 9rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--forest);
+    margin: 0;
+  }
+  h1 {
+    font-size: var(--step-2);
+    margin: 1rem 0 2rem;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+  span {
+    color: var(--muted);
+  }
+</style>
