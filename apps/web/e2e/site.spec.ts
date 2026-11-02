@@ -113,3 +113,20 @@ test("SEO files and tags are published", async ({ page, request }) => {
   );
   await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", "es_ES");
 });
+
+test("who-it's-for cases are tabs that follow the URL", async ({ page }) => {
+  await page.goto("/en/who-its-for/#speech-therapy");
+  const tab = page.getByRole("tab", { name: /Speech therapists/ });
+  await expect(tab).toHaveAttribute("aria-selected", "true");
+  await expect(page.getByRole("tabpanel")).toHaveCount(1);
+  await expect(page.locator("#speech-therapy")).toBeVisible();
+  await expect(page.locator("#education")).toBeHidden();
+
+  await tab.focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("tab", { name: /Adults/ })).toBeFocused();
+  await expect(page.locator("#adults")).toBeVisible();
+  await expect(page).toHaveURL(/#adults$/);
+  await page.keyboard.press("Home");
+  await expect(page.locator("#education")).toBeVisible();
+});
