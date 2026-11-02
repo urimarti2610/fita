@@ -1,9 +1,11 @@
 import { defineConfig } from "astro/config";
+// Imported by path: the config loads before workspace packages are resolved.
+import { BRAND } from "../../packages/core/src/brand.ts";
 
-// GitHub Pages serves project sites under /<repo>/: the deploy workflow sets BASE_PATH.
+// Served from the site root on the custom domain (GitHub Pages).
 export default defineConfig({
-  site: process.env.SITE_URL ?? "https://oriolmarti.github.io",
-  base: process.env.BASE_PATH ?? "/",
+  site: BRAND.website,
+  base: "/",
   output: "static",
   trailingSlash: "always",
   i18n: {

@@ -28,15 +28,35 @@ test("live demo follows typing and controls", async ({ page }) => {
   await expect(output).toHaveAttribute("data-fita-style", "color");
 });
 
-test("demo handles a very long text without freezing", async ({ page }) => {
+test("demo handles a book-length text without freezing", async ({ page }) => {
   await page.goto("/en/");
-  const text = "Reading should feel comfortable for everyone. ".repeat(40_000); // ~240k words
-  await page.getByRole("textbox", { name: "Your text", exact: true }).fill(text);
-  // The page keeps responding while the text is processed in the background.
-  const start = Date.now();
-  await page.evaluate(() => new Promise((r) => setTimeout(r, 0)));
-  expect(Date.now() - start).toBeLessThan(1000);
+  // ~280,000 words in 2,000 paragraphs.
+  const paragraph = "Reading should feel comfortable for everyone. ".repeat(20);
+  const text = Array.from({ length: 2000 }, () => paragraph).join("\n\n");
+  // Paste-like: set the value at once (typing 2 MB through Playwright is slow on CI).
+  await page.getByRole("textbox", { name: "Your text", exact: true }).evaluate((el, value) => {
+    (el as HTMLTextAreaElement).value = value;
+    el.dispatchEvent(new Event("input", { bubbles: true }));
+  }, text);
   await expect(page.locator("#demo-output fita-e").first()).toHaveText("Readi");
+
+  // While the rest is emphasized in the background, the page keeps painting frames.
+  const maxGap = await page.evaluate(
+    () =>
+      new Promise<number>((resolve) => {
+        let max = 0;
+        let last = performance.now();
+        const end = last + 1500;
+        const tick = (now: number) => {
+          max = Math.max(max, now - last);
+          last = now;
+          if (now < end) requestAnimationFrame(tick);
+          else resolve(max);
+        };
+        requestAnimationFrame(tick);
+      }),
+  );
+  expect(maxGap).toBeLessThan(250);
 });
 
 test("root redirects to a language and text pages exist", async ({ page }) => {

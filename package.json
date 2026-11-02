@@ -2,6 +2,11 @@
   "name": "fita-monorepo",
   "private": true,
   "license": "MPL-2.0",
+  "homepage": "https://fitaread.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urimarti2610/fita.git"
+  },
   "packageManager": "pnpm@10.12.4",
   "engines": {
     "node": ">=22"

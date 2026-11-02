@@ -8,7 +8,10 @@ type Props = { lang: Lang };
 const { lang } = Astro.props;
 const t = STRINGS[lang].demo;
 // Server-rendered first result, so the demo reads correctly before (or without) JavaScript.
-const initial = `<fita-w>${toHTML(t.sample, { locale: lang }, "fita-e")}</fita-w>`;
+const initial = t.sample
+  .split("\n")
+  .map((line) => `<div class="line"><fita-w>${toHTML(line, { locale: lang }, "fita-e")}</fita-w></div>`)
+  .join("");
 ---
 
 <section class="demo wrap" aria-labelledby="demo-title">
@@ -56,7 +59,17 @@ const initial = `<fita-w>${toHTML(t.sample, { locale: lang }, "fita-e")}</fita-w
 
   function render() {
     controller?.stop();
-    output.textContent = input.value;
+    // One block per line: when a chunk gets emphasized, the browser re-lays out that
+    // line only, and lines off screen are skipped (content-visibility), so even
+    // book-length texts stay responsive.
+    output.replaceChildren(
+      ...input.value.split("\n").map((line) => {
+        const block = document.createElement("div");
+        block.className = "line";
+        block.textContent = line;
+        return block;
+      }),
+    );
     // Chunked, idle-time processing: any length, the page never freezes.
     controller = applyToElement(output, options(), { injectStyles: false, observe: false });
   }
@@ -129,6 +142,11 @@ const initial = `<fita-w>${toHTML(t.sample, { locale: lang }, "fita-e")}</fita-w
     background: var(--moss);
     white-space: pre-wrap;
     overflow-wrap: anywhere;
+  }
+  .output :global(.line) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1.65em;
+    min-height: 1lh;
   }
   .controls {
     margin-top: 1.5rem;

@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "description": "Word-emphasis reading aid: decides which part of each word to highlight.",
   "license": "MPL-2.0",
+  "homepage": "https://fitaread.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urimarti2610/fita.git",
+    "directory": "packages/core"
+  },
+  "bugs": "https://github.com/urimarti2610/fita/issues",
   "type": "module",
   "sideEffects": false,
   "exports": {
