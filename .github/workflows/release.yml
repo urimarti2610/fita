@@ -21,6 +21,13 @@ jobs:
       - run: pnpm test
       - run: pnpm build
       # Attach the zips to the GitHub release. Store submission stays manual.
-      - run: gh release create "$GITHUB_REF_NAME" apps/extension/dist/*.zip --generate-notes --verify-tag
+      # 0.x versions are previews: published as pre-releases, with install steps.
+      - name: Create the release
         env:
           GH_TOKEN: ${{ github.token }}
+        run: |
+          prerelease=""
+          [[ "$GITHUB_REF_NAME" == v0.* ]] && prerelease="--prerelease"
+          gh release create "$GITHUB_REF_NAME" apps/extension/dist/*.zip \
+            --verify-tag --generate-notes $prerelease \
+            --notes-file .github/release-notes.md
