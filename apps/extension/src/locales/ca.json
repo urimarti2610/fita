@@ -1,0 +1,106 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Ajuda de lectura: destaca suaument l'inici de cada paraula per guiar la vista. Privada, gratuïta i de codi obert."
+  },
+  "toggleLabel": {
+    "message": "Èmfasi en aquesta pàgina"
+  },
+  "statusOn": {
+    "message": "Activat en aquesta pestanya."
+  },
+  "statusOff": {
+    "message": "Desactivat en aquesta pestanya."
+  },
+  "unavailable": {
+    "message": "El navegador no permet extensions en aquesta pàgina."
+  },
+  "whereLegend": {
+    "message": "On activar-ho automàticament"
+  },
+  "alwaysOnSite": {
+    "message": "Sempre en aquest lloc"
+  },
+  "allSites": {
+    "message": "A tots els llocs"
+  },
+  "strength": {
+    "message": "Intensitat"
+  },
+  "style": {
+    "message": "Estil"
+  },
+  "styleBold": {
+    "message": "Negreta"
+  },
+  "styleColor": {
+    "message": "Color"
+  },
+  "styleUnderline": {
+    "message": "Subratllat"
+  },
+  "styleFade": {
+    "message": "Atenuar la resta"
+  },
+  "moreOptions": {
+    "message": "Més opcions"
+  },
+  "every": {
+    "message": "Destacar"
+  },
+  "everyAll": {
+    "message": "Totes les paraules"
+  },
+  "every2": {
+    "message": "1 de cada 2 paraules"
+  },
+  "every3": {
+    "message": "1 de cada 3 paraules"
+  },
+  "lineHeight": {
+    "message": "Interlineat"
+  },
+  "maxWidth": {
+    "message": "Amplada màxima de línia"
+  },
+  "pageDefault": {
+    "message": "Com la pàgina"
+  },
+  "width50": {
+    "message": "Estreta (50 caràcters)"
+  },
+  "width65": {
+    "message": "Mitjana (65 caràcters)"
+  },
+  "width80": {
+    "message": "Ampla (80 caràcters)"
+  },
+  "siteSettings": {
+    "message": "Fer servir aquests ajustos només en aquest lloc"
+  },
+  "shortcutNone": {
+    "message": "Configurar una drecera de teclat"
+  },
+  "permissionDenied": {
+    "message": "Permís no concedit: no s'ha canviat res."
+  },
+  "contextMenuEnable": {
+    "message": "Activar en aquest lloc"
+  },
+  "commandToggle": {
+    "message": "Activar o desactivar l'èmfasi"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Drecera: $SHORTCUT$ (canviar)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

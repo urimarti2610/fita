@@ -1,0 +1,106 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Ayuda de lectura: destaca suavemente el inicio de cada palabra para guiar la vista. Privada, gratuita y de código abierto."
+  },
+  "toggleLabel": {
+    "message": "Énfasis en esta página"
+  },
+  "statusOn": {
+    "message": "Activado en esta pestaña."
+  },
+  "statusOff": {
+    "message": "Desactivado en esta pestaña."
+  },
+  "unavailable": {
+    "message": "El navegador no permite extensiones en esta página."
+  },
+  "whereLegend": {
+    "message": "Dónde activarlo automáticamente"
+  },
+  "alwaysOnSite": {
+    "message": "Siempre en este sitio"
+  },
+  "allSites": {
+    "message": "En todos los sitios"
+  },
+  "strength": {
+    "message": "Intensidad"
+  },
+  "style": {
+    "message": "Estilo"
+  },
+  "styleBold": {
+    "message": "Negrita"
+  },
+  "styleColor": {
+    "message": "Color"
+  },
+  "styleUnderline": {
+    "message": "Subrayado"
+  },
+  "styleFade": {
+    "message": "Atenuar el resto"
+  },
+  "moreOptions": {
+    "message": "Más opciones"
+  },
+  "every": {
+    "message": "Destacar"
+  },
+  "everyAll": {
+    "message": "Todas las palabras"
+  },
+  "every2": {
+    "message": "1 de cada 2 palabras"
+  },
+  "every3": {
+    "message": "1 de cada 3 palabras"
+  },
+  "lineHeight": {
+    "message": "Interlineado"
+  },
+  "maxWidth": {
+    "message": "Ancho máximo de línea"
+  },
+  "pageDefault": {
+    "message": "Como la página"
+  },
+  "width50": {
+    "message": "Estrecho (50 caracteres)"
+  },
+  "width65": {
+    "message": "Medio (65 caracteres)"
+  },
+  "width80": {
+    "message": "Ancho (80 caracteres)"
+  },
+  "siteSettings": {
+    "message": "Usar estos ajustes solo en este sitio"
+  },
+  "shortcutNone": {
+    "message": "Configurar un atajo de teclado"
+  },
+  "permissionDenied": {
+    "message": "Permiso no concedido: no se ha cambiado nada."
+  },
+  "contextMenuEnable": {
+    "message": "Activar en este sitio"
+  },
+  "commandToggle": {
+    "message": "Activar o desactivar el énfasis"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Atajo: $SHORTCUT$ (cambiar)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

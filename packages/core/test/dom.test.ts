@@ -226,7 +226,7 @@ describe("applyToElement", () => {
   });
 
   it("splits one huge text node into chunks and still undoes 1:1", async () => {
-    const text = "palabra ".repeat(20_000) + "https://example.com/" + "x".repeat(5000);
+    const text = `${"palabra ".repeat(20_000)}https://example.com/${"x".repeat(5000)}`;
     const root = setup("<p></p>");
     const p = root.querySelector("p") as HTMLElement;
     p.textContent = text;

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="popup.css" />
+    <title data-i18n="extName"></title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1 data-i18n="extName"></h1>
+        <button id="toggle" class="switch" role="switch" aria-checked="false" type="button">
+          <span class="track" aria-hidden="true"><span class="thumb"></span></span>
+          <span class="switch-label" data-i18n="toggleLabel"></span>
+        </button>
+        <p id="status" class="status" role="status"></p>
+      </header>
+
+      <p id="unavailable" class="notice" hidden data-i18n="unavailable"></p>
+
+      <fieldset id="sites" class="group">
+        <legend class="visually-hidden" data-i18n="whereLegend"></legend>
+        <label class="check"><input type="checkbox" id="alwaysOn" /> <span data-i18n="alwaysOnSite"></span></label>
+        <label class="check"><input type="checkbox" id="allSites" /> <span data-i18n="allSites"></span></label>
+      </fieldset>
+
+      <div class="group">
+        <label for="strength" class="row">
+          <span data-i18n="strength"></span>
+          <output id="strengthValue" for="strength"></output>
+        </label>
+        <input type="range" id="strength" min="0.2" max="0.7" step="0.05" />
+      </div>
+
+      <fieldset class="group">
+        <legend data-i18n="style"></legend>
+        <div class="styles">
+          <label><input type="radio" name="style" value="bold" /> <span class="sample sample-bold" data-i18n="styleBold"></span></label>
+          <label><input type="radio" name="style" value="color" /> <span class="sample sample-color" data-i18n="styleColor"></span></label>
+          <label><input type="radio" name="style" value="underline" /> <span class="sample sample-underline" data-i18n="styleUnderline"></span></label>
+          <label><input type="radio" name="style" value="fade" /> <span class="sample sample-fade" data-i18n="styleFade"></span></label>
+        </div>
+      </fieldset>
+
+      <details class="group">
+        <summary data-i18n="moreOptions"></summary>
+        <label for="every" class="row"><span data-i18n="every"></span></label>
+        <select id="every">
+          <option value="1" data-i18n="everyAll"></option>
+          <option value="2" data-i18n="every2"></option>
+          <option value="3" data-i18n="every3"></option>
+        </select>
+
+        <label for="lineHeight" class="row"><span data-i18n="lineHeight"></span></label>
+        <select id="lineHeight">
+          <option value="0" data-i18n="pageDefault"></option>
+          <option value="1.6">1.6</option>
+          <option value="1.8">1.8</option>
+          <option value="2">2.0</option>
+          <option value="2.2">2.2</option>
+        </select>
+
+        <label for="maxWidth" class="row"><span data-i18n="maxWidth"></span></label>
+        <select id="maxWidth">
+          <option value="0" data-i18n="pageDefault"></option>
+          <option value="50" data-i18n="width50"></option>
+          <option value="65" data-i18n="width65"></option>
+          <option value="80" data-i18n="width80"></option>
+        </select>
+
+        <label class="check"><input type="checkbox" id="custom" /> <span data-i18n="siteSettings"></span></label>
+      </details>
+
+      <footer>
+        <a id="shortcuts" href="#" data-i18n="shortcutHint"></a>
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

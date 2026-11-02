@@ -1,0 +1,106 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Reading aid: gently emphasizes the start of each word to guide your eyes. Private, free and open source."
+  },
+  "toggleLabel": {
+    "message": "Emphasis on this page"
+  },
+  "statusOn": {
+    "message": "On in this tab."
+  },
+  "statusOff": {
+    "message": "Off in this tab."
+  },
+  "unavailable": {
+    "message": "The browser does not allow extensions on this page."
+  },
+  "whereLegend": {
+    "message": "Where to turn it on automatically"
+  },
+  "alwaysOnSite": {
+    "message": "Always on this site"
+  },
+  "allSites": {
+    "message": "On all sites"
+  },
+  "strength": {
+    "message": "Strength"
+  },
+  "style": {
+    "message": "Style"
+  },
+  "styleBold": {
+    "message": "Bold"
+  },
+  "styleColor": {
+    "message": "Colour"
+  },
+  "styleUnderline": {
+    "message": "Underline"
+  },
+  "styleFade": {
+    "message": "Fade the rest"
+  },
+  "moreOptions": {
+    "message": "More options"
+  },
+  "every": {
+    "message": "Emphasize"
+  },
+  "everyAll": {
+    "message": "Every word"
+  },
+  "every2": {
+    "message": "1 of every 2 words"
+  },
+  "every3": {
+    "message": "1 of every 3 words"
+  },
+  "lineHeight": {
+    "message": "Line spacing"
+  },
+  "maxWidth": {
+    "message": "Maximum line width"
+  },
+  "pageDefault": {
+    "message": "As the page"
+  },
+  "width50": {
+    "message": "Narrow (50 characters)"
+  },
+  "width65": {
+    "message": "Medium (65 characters)"
+  },
+  "width80": {
+    "message": "Wide (80 characters)"
+  },
+  "siteSettings": {
+    "message": "Use these settings only on this site"
+  },
+  "shortcutNone": {
+    "message": "Set a keyboard shortcut"
+  },
+  "permissionDenied": {
+    "message": "Permission not granted: nothing changed."
+  },
+  "contextMenuEnable": {
+    "message": "Turn on for this site"
+  },
+  "commandToggle": {
+    "message": "Turn emphasis on or off"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Shortcut: $SHORTCUT$ (change)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}
