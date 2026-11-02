@@ -25,8 +25,8 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     <style is:inline set:html={EMPHASIS_CSS}></style>
   </head>
   <body>
-    <a class="skip" href="#main">{t.nav.skip}</a>
-    <header class="wrap site-header">
+    <a class="skip no-print" href="#main">{t.nav.skip}</a>
+    <header class="wrap site-header no-print">
       <a class="logo" href={href(lang)} aria-label={`${WEB_BRAND.name}, ${t.nav.home}`}>
         <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
           <rect width="32" height="32" rx="7" fill="currentColor"></rect>
@@ -40,6 +40,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
       <nav>
         <ul>
           <li><a href={href(lang, "uses")} aria-current={page === "uses" ? "page" : undefined}>{t.uses.title}</a></li>
+          <li><a href={href(lang, "worksheets")} aria-current={page === "worksheets" ? "page" : undefined}>{t.worksheets.nav}</a></li>
           <li><a href={href(lang, "convert")} aria-current={page === "convert" ? "page" : undefined}>{t.nav.convert}</a></li>
           <li>
             <ul class="langs" aria-label={t.nav.language}>
@@ -58,7 +59,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     <main id="main">
       <slot />
     </main>
-    <footer class="wrap site-footer">
+    <footer class="wrap site-footer no-print">
       <p>{t.footer.license}</p>
       <ul>
         <li><a href={href(lang, "privacy")}>{t.nav.privacy}</a></li>

@@ -186,7 +186,7 @@ select {
   border-color: var(--accent);
 }
 .sample-bold-fade {
-  color: color-mix(in srgb, currentColor 55%, transparent);
+  color: color-mix(in srgb, currentColor 70%, transparent);
 }
 .sample-bold-fade::first-letter {
   font-weight: 800;

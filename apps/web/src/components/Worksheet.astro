@@ -1,0 +1,726 @@
+---
+import { BRAND, DEFAULT_OPTIONS, DEFAULT_STYLE, EMPHASIS_CSS } from "@fita/core";
+import { type Lang, STRINGS } from "../i18n";
+import {
+  LINE_COUNTS,
+  ORIENTATIONS,
+  renderSheet,
+  SHEET_CSS,
+  SIZES,
+  THEMES,
+} from "../worksheet/sheet";
+import { parseTexts } from "../worksheet/texts";
+import ca from "../worksheet/texts/ca/README.md?raw";
+import en from "../worksheet/texts/en/README.md?raw";
+import es from "../worksheet/texts/es/README.md?raw";
+import EmphasisControls from "./EmphasisControls.astro";
+
+type Props = { lang: Lang };
+const { lang } = Astro.props;
+const t = STRINGS[lang].worksheets;
+const examples = parseTexts({ es, ca, en }[lang]);
+const first = examples[0] ?? { title: "", text: "" };
+// Examples grouped by level, keeping the README order.
+const levels = [...new Set(examples.map((e) => e.level ?? ""))];
+
+const initial = renderSheet({
+  title: first.title,
+  text: first.text,
+  theme: "clouds",
+  orientation: "portrait",
+  size: SIZES[1],
+  nameDate: true,
+  lines: 0,
+  lang,
+  labels: { name: t.name, date: t.date },
+  emphasis: { strength: DEFAULT_OPTIONS.strength, every: 1, style: DEFAULT_STYLE },
+});
+const config = {
+  lang,
+  storageKey: `${BRAND.id}-worksheet-texts`,
+  labels: { name: t.name, date: t.date },
+  examples,
+  messages: {
+    myTexts: t.myTexts,
+    saved: t.saved,
+    removed: t.removed,
+    imported: t.imported,
+    importEmpty: t.importEmpty,
+    exportHeading: t.exportHeading,
+    levelKey: t.levelKey,
+    textsFileName: t.textsFileName,
+    fileName: t.fileName,
+    editTitle: t.editTitle,
+    editText: t.editText,
+  },
+  emphasisCSS: EMPHASIS_CSS,
+  sheetCSS: SHEET_CSS,
+};
+const tabs = [
+  { id: "text", label: t.tabs.text },
+  { id: "layout", label: t.tabs.layout },
+  { id: "emphasis", label: t.tabs.emphasis },
+] as const;
+---
+
+<style is:inline set:html={SHEET_CSS}></style>
+
+<div class="worksheet">
+  <form id="ws-form" class="editor no-print" aria-labelledby="ws-editor-title" data-config={JSON.stringify(config)}>
+    <h2 id="ws-editor-title">{t.editor}</h2>
+
+    <div class="tabs" role="tablist" aria-labelledby="ws-editor-title">
+      {tabs.map((tab, i) => (
+        <button
+          type="button"
+          role="tab"
+          id={`ws-tab-${tab.id}`}
+          aria-controls={`ws-panel-${tab.id}`}
+          aria-selected={i === 0 ? "true" : "false"}
+          tabindex={i === 0 ? 0 : -1}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+
+    <div class="panel" role="tabpanel" id="ws-panel-text" aria-labelledby="ws-tab-text" tabindex="0">
+      <div class="field">
+        <label for="ws-example">{t.example}</label>
+        <select id="ws-example">
+          {levels.map((level) => (
+            <optgroup label={level}>
+              {examples.map((e, i) => (e.level ?? "") === level && <option value={`ex:${i}`}>{e.title}</option>)}
+            </optgroup>
+          ))}
+          <optgroup label={t.myTexts} id="ws-mine" hidden></optgroup>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ws-title">{t.titleLabel}</label>
+        <input id="ws-title" name="title" type="text" value={first.title} />
+      </div>
+      <div class="field">
+        <label for="ws-text">{t.textLabel}</label>
+        <textarea id="ws-text" name="text" rows="10" lang={lang}>{first.text}</textarea>
+      </div>
+      <div class="library">
+        <button type="button" class="small" id="ws-save">{t.save}</button>
+        <button type="button" class="small" id="ws-remove" hidden>{t.remove}</button>
+        <button type="button" class="small" id="ws-export">{t.exportTexts}</button>
+        <label class="small file">
+          {t.importTexts}
+          <input id="ws-import" type="file" accept=".md,.markdown,.txt,text/markdown,text/plain" multiple />
+        </label>
+      </div>
+      <p class="hint">{t.libraryNote}</p>
+    </div>
+
+    <div class="panel" role="tabpanel" id="ws-panel-layout" aria-labelledby="ws-tab-layout" tabindex="0" hidden>
+      <fieldset class="field chips">
+        <legend>{t.theme}</legend>
+        {THEMES.map((theme) => (
+          <label class="chip">
+            <input type="radio" name="theme" value={theme} checked={theme === "clouds"} />
+            <span>{t.themes[theme]}</span>
+          </label>
+        ))}
+      </fieldset>
+      <fieldset class="field chips">
+        <legend>{t.orientation}</legend>
+        {ORIENTATIONS.map((o) => (
+          <label class="chip">
+            <input type="radio" name="orientation" value={o} checked={o === "portrait"} />
+            <span>{t.orientations[o]}</span>
+          </label>
+        ))}
+      </fieldset>
+      <div class="row">
+        <div class="field">
+          <label for="ws-size">{t.size}</label>
+          <select id="ws-size" name="size">
+            {SIZES.map((size, i) => <option value={size} selected={i === 1}>{t.sizes[i]}</option>)}
+          </select>
+        </div>
+        <div class="field">
+          <label for="ws-lines">{t.lines}</label>
+          <select id="ws-lines" name="lines">
+            {LINE_COUNTS.map((n, i) => <option value={n}>{t.linesOptions[i]}</option>)}
+          </select>
+        </div>
+      </div>
+      <label class="check"><input type="checkbox" name="nameDate" checked /> {t.nameDate}</label>
+    </div>
+
+    <div class="panel" role="tabpanel" id="ws-panel-emphasis" aria-labelledby="ws-tab-emphasis" tabindex="0" hidden>
+      <EmphasisControls lang={lang} id="ws" layout="compact" />
+    </div>
+
+    <p id="ws-status" class="status" role="status"></p>
+
+    <div class="actions">
+      <button type="button" class="button primary" id="ws-print">{t.print}</button>
+      <button type="button" class="button" id="ws-download">{t.download}</button>
+    </div>
+    <p class="hint">{t.printHint} {t.downloadHint}</p>
+  </form>
+
+  <section class="preview" aria-labelledby="ws-preview-title">
+    <h2 id="ws-preview-title" class="no-print">{t.preview}</h2>
+    <p id="ws-edit-hint" class="hint no-print">{t.editHint}</p>
+    <p id="ws-overflow" class="overflow no-print" role="status" hidden>{t.overflow}</p>
+    <div class="sheet-wrap" id="ws-sheet" set:html={initial} />
+  </section>
+</div>
+
+<script>
+  import type { EmphasisStyle } from "@fita/core";
+  import fontBold from "@fontsource/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-800-normal.woff2?url";
+  import fontRegular from "@fontsource/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-400-normal.woff2?url";
+  import {
+    type Orientation,
+    pageRatio,
+    renderSheet,
+    type SheetData,
+    type Theme,
+  } from "../worksheet/sheet";
+  import {
+    parsePlainText,
+    parseTexts,
+    serializeTexts,
+    type WorksheetText,
+  } from "../worksheet/texts";
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const form = $<HTMLFormElement>("ws-form");
+  const sheet = $<HTMLElement>("ws-sheet");
+  const select = $<HTMLSelectElement>("ws-example");
+  const mine = $<HTMLOptGroupElement>("ws-mine");
+  const title = $<HTMLInputElement>("ws-title");
+  const text = $<HTMLTextAreaElement>("ws-text");
+  const status = $<HTMLElement>("ws-status");
+  const overflow = $<HTMLElement>("ws-overflow");
+  const removeButton = $<HTMLButtonElement>("ws-remove");
+  const config = JSON.parse(form.dataset.config as string) as {
+    lang: string;
+    storageKey: string;
+    labels: SheetData["labels"];
+    examples: WorksheetText[];
+    messages: Record<
+      | "myTexts"
+      | "saved"
+      | "removed"
+      | "imported"
+      | "importEmpty"
+      | "exportHeading"
+      | "levelKey"
+      | "textsFileName"
+      | "fileName"
+      | "editTitle"
+      | "editText",
+      string
+    >;
+    emphasisCSS: string;
+    sheetCSS: string;
+  };
+  const m = config.messages;
+
+  // --- Tabs (WAI-ARIA pattern: arrow keys move between tabs) ---
+  const tabs = [...form.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+  function selectTab(tab: HTMLButtonElement, focus = true) {
+    for (const t of tabs) {
+      const selected = t === tab;
+      t.setAttribute("aria-selected", String(selected));
+      t.tabIndex = selected ? 0 : -1;
+      $(t.getAttribute("aria-controls") as string).hidden = !selected;
+    }
+    if (focus) tab.focus();
+  }
+  for (const tab of tabs) {
+    tab.addEventListener("click", () => selectTab(tab, false));
+    tab.addEventListener("keydown", (event) => {
+      const i = tabs.indexOf(tab);
+      const next = {
+        ArrowRight: tabs[(i + 1) % tabs.length],
+        ArrowLeft: tabs[(i - 1 + tabs.length) % tabs.length],
+        Home: tabs[0],
+        End: tabs[tabs.length - 1],
+      }[event.key];
+      if (next) {
+        event.preventDefault();
+        selectTab(next);
+      }
+    });
+  }
+
+  // --- My texts: kept in this browser only ---
+  function load(): WorksheetText[] {
+    try {
+      const stored = JSON.parse(localStorage.getItem(config.storageKey) ?? "[]");
+      return Array.isArray(stored) ? stored : [];
+    } catch {
+      return [];
+    }
+  }
+  let library = load();
+  function store() {
+    try {
+      localStorage.setItem(config.storageKey, JSON.stringify(library));
+    } catch {
+      // Storage may be unavailable (private mode): the list still works until reload.
+    }
+  }
+  function fillLibrary(selected?: number) {
+    mine.replaceChildren(...library.map((t, i) => new Option(t.title, `my:${i}`)));
+    mine.hidden = library.length === 0;
+    if (selected !== undefined) select.value = `my:${selected}`;
+    removeButton.hidden = !select.value.startsWith("my:");
+  }
+  function upsert(entry: WorksheetText): number {
+    const existing = library.findIndex((t) => t.title === entry.title);
+    if (existing >= 0) library[existing] = entry;
+    else library.push(entry);
+    return existing >= 0 ? existing : library.length - 1;
+  }
+  const say = (message: string) => {
+    status.textContent = message;
+  };
+
+  select.addEventListener("change", () => {
+    const [kind, index] = select.value.split(":");
+    const chosen = (kind === "my" ? library : config.examples)[Number(index)];
+    if (!chosen) return;
+    title.value = chosen.title;
+    text.value = chosen.text;
+    removeButton.hidden = kind !== "my";
+    render();
+  });
+
+  $("ws-save").addEventListener("click", () => {
+    const entry = { title: title.value.trim() || m.fileName, text: text.value };
+    const index = upsert(entry);
+    store();
+    fillLibrary(index);
+    say(m.saved.replace("{title}", entry.title));
+  });
+
+  removeButton.addEventListener("click", () => {
+    const index = Number(select.value.split(":")[1]);
+    const [removed] = library.splice(index, 1);
+    store();
+    select.selectedIndex = 0;
+    fillLibrary();
+    if (removed) say(m.removed.replace("{title}", removed.title));
+  });
+
+  function download(name: string, content: string, type: string) {
+    const url = URL.createObjectURL(new Blob([content], { type }));
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = name;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  $("ws-export").addEventListener("click", () => {
+    const texts = library.length ? library : [{ title: title.value, text: text.value }];
+    download(
+      `${m.textsFileName}.md`,
+      serializeTexts(m.exportHeading, m.levelKey, texts),
+      "text/markdown;charset=utf-8",
+    );
+  });
+
+  $<HTMLInputElement>("ws-import").addEventListener("change", async (event) => {
+    const input = event.target as HTMLInputElement;
+    let last: number | undefined;
+    let count = 0;
+    for (const file of input.files ?? []) {
+      const content = await file.text();
+      const stem = file.name.replace(/\.[^.]+$/, "");
+      const parsed = /\.(md|markdown)$/i.test(file.name) ? parseTexts(content) : [];
+      const texts = parsed.length ? parsed : parsePlainText(content, stem);
+      for (const t of texts) last = upsert(t);
+      count += texts.length;
+    }
+    input.value = "";
+    if (!count || last === undefined) {
+      say(m.importEmpty);
+      return;
+    }
+    store();
+    fillLibrary(last);
+    select.dispatchEvent(new Event("change"));
+    say(m.imported.replace("{n}", String(count)));
+  });
+
+  // --- Sheet ---
+  function read(): SheetData {
+    const data = new FormData(form);
+    return {
+      title: String(data.get("title") ?? ""),
+      text: String(data.get("text") ?? ""),
+      theme: String(data.get("theme")) as Theme,
+      orientation: String(data.get("orientation")) as Orientation,
+      size: Number(data.get("size")),
+      nameDate: data.get("nameDate") !== null,
+      lines: Number(data.get("lines")),
+      lang: config.lang,
+      labels: config.labels,
+      emphasis: {
+        strength: Number(data.get("strength")),
+        every: Number(data.get("every") ?? 1),
+        style: String(data.get("style")) as EmphasisStyle,
+      },
+    };
+  }
+
+  function checkOverflow(orientation: Orientation) {
+    // The sheet is at least one page tall; anything taller spills onto a second page.
+    const page = sheet.clientWidth * pageRatio(orientation);
+    overflow.hidden = (sheet.firstElementChild?.scrollHeight ?? 0) <= page + 2;
+  }
+
+  function render() {
+    const data = read();
+    sheet.innerHTML = renderSheet(data);
+    makeEditable();
+    checkOverflow(data.orientation);
+  }
+
+  // --- Typing straight onto the sheet ---
+  // While editing, the text is shown plain (emphasis would move the caret);
+  // the editor fields follow every keystroke and emphasis returns on blur.
+  const plainOnly = (() => {
+    const probe = document.createElement("div");
+    probe.contentEditable = "plaintext-only";
+    return probe.contentEditable === "plaintext-only";
+  })();
+
+  function makeEditable() {
+    const heading = sheet.querySelector<HTMLElement>(".sheet h1");
+    const story = sheet.querySelector<HTMLElement>(".sheet .story");
+    for (const [el, field, label] of [
+      [heading, title, m.editTitle],
+      [story, text, m.editText],
+    ] as const) {
+      if (!el) continue;
+      el.contentEditable = plainOnly ? "plaintext-only" : "true";
+      el.spellcheck = false;
+      el.setAttribute("aria-label", label);
+      el.setAttribute("aria-describedby", "ws-edit-hint");
+      if (el === story) {
+        el.setAttribute("role", "textbox");
+        el.setAttribute("aria-multiline", "true");
+      }
+      el.addEventListener("focus", () => {
+        el.classList.add("editing");
+        el.textContent = field.value;
+      });
+      el.addEventListener("input", () => {
+        field.value = el.innerText.replace(/\u00a0/g, " ");
+        checkOverflow(read().orientation);
+      });
+      el.addEventListener("keydown", (event) => {
+        // A title is a single line: Enter finishes editing it.
+        if (el === heading && event.key === "Enter") {
+          event.preventDefault();
+          el.blur();
+        }
+      });
+      el.addEventListener("blur", (event) => {
+        // Moving from the title to the text (or back) keeps the caret after re-rendering.
+        const next = event.relatedTarget;
+        const selector = next === heading ? ".sheet h1" : next === story ? ".sheet .story" : null;
+        render();
+        if (selector) sheet.querySelector<HTMLElement>(selector)?.focus();
+      });
+    }
+  }
+
+  form.addEventListener("input", (event) => {
+    if (event.target !== select && (event.target as HTMLElement).id !== "ws-import") render();
+  });
+  form.addEventListener("submit", (event) => event.preventDefault());
+
+  $("ws-print").addEventListener("click", () => window.print());
+
+  async function dataURL(url: string): Promise<string> {
+    const blob = await (await fetch(url)).blob();
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result));
+      reader.onerror = () => reject(reader.error);
+      reader.readAsDataURL(blob);
+    });
+  }
+
+  $("ws-download").addEventListener("click", async () => {
+    const data = read();
+    // Fonts are embedded so the file looks the same anywhere, even offline.
+    const [regular, bold] = await Promise.all([dataURL(fontRegular), dataURL(fontBold)]);
+    const fonts = [
+      [regular, 400],
+      [bold, 800],
+    ]
+      .map(
+        ([src, weight]) =>
+          `@font-face{font-family:"Atkinson Hyperlegible Next";font-weight:${weight};font-style:normal;src:url(${src}) format("woff2");}`,
+      )
+      .join("\n");
+    const pageTitle = data.title.replace(/[<&]/g, "") || m.fileName;
+    const width = data.orientation === "landscape" ? "297mm" : "210mm";
+    const html = `<!doctype html>
+<html lang="${config.lang}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${pageTitle}</title>
+<style>
+${fonts}
+html { background: #e9ecea; }
+body { margin: 0; padding: 24px 16px; }
+.sheet-wrap { max-width: ${width}; margin: 0 auto; box-shadow: 0 2px 12px rgb(0 0 0 / 0.12); }
+@media print { html { background: none; } body { padding: 0; } .sheet-wrap { box-shadow: none; } }
+${config.emphasisCSS}
+${config.sheetCSS}
+</style>
+</head>
+<body>
+<div class="sheet-wrap">${renderSheet(data)}</div>
+</body>
+</html>
+`;
+    const slug =
+      data.title
+        .normalize("NFD")
+        .replace(/\p{M}/gu, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "")
+        .slice(0, 60) || m.fileName;
+    download(`${m.fileName}-${slug}.html`, html, "text/html;charset=utf-8");
+  });
+
+  fillLibrary();
+  render();
+</script>
+
+<style>
+  .worksheet {
+    display: grid;
+    grid-template-columns: minmax(0, 25rem) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+  @media (max-width: 860px) {
+    .worksheet {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .editor {
+    display: grid;
+    gap: 1.25rem;
+  }
+  h2 {
+    font-size: var(--step-1);
+  }
+  .tabs {
+    display: flex;
+    gap: 0.25rem;
+    border-bottom: 1.5px solid var(--line);
+  }
+  [role="tab"] {
+    font: inherit;
+    font-weight: 700;
+    color: var(--muted);
+    background: none;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1.5px;
+    padding: 0.55rem 0.9rem;
+    cursor: pointer;
+  }
+  [role="tab"][aria-selected="true"] {
+    color: var(--ink);
+    border-bottom-color: var(--forest);
+  }
+  [role="tab"]:hover {
+    color: var(--ink);
+  }
+  .panel {
+    display: grid;
+    gap: 1.25rem;
+    padding-top: 0.25rem;
+  }
+  .panel[hidden] {
+    display: none;
+  }
+  .panel:focus-visible {
+    outline-offset: 6px;
+  }
+  .field {
+    display: grid;
+    gap: 0.4rem;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  label,
+  legend {
+    font-weight: 700;
+  }
+  legend {
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+  input[type="text"],
+  textarea,
+  select {
+    font: inherit;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    padding: 0.5rem 0.7rem;
+    width: 100%;
+  }
+  textarea {
+    resize: vertical;
+    line-height: 1.5;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .chips legend {
+    width: 100%;
+  }
+  .chip {
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.85rem 0.35rem 0.55rem;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .chip:has(input:checked) {
+    border-color: var(--forest);
+    background: var(--moss);
+  }
+  .chip input,
+  .check input {
+    accent-color: var(--forest);
+    margin: 0;
+  }
+  .check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+  }
+  .library {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .small {
+    font: inherit;
+    font-size: var(--step--1);
+    font-weight: 700;
+    color: var(--forest);
+    background: transparent;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+    cursor: pointer;
+  }
+  .small:hover,
+  .file:focus-within {
+    border-color: var(--forest);
+  }
+  .small[hidden] {
+    display: none;
+  }
+  .file {
+    position: relative;
+  }
+  .file input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: 100%;
+    cursor: pointer;
+  }
+  .file:focus-within {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .status:empty {
+    display: none;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .hint {
+    color: var(--muted);
+    font-size: var(--step--1);
+  }
+  .preview {
+    position: sticky;
+    top: 1rem;
+    display: grid;
+    gap: 1rem;
+  }
+  .preview :global(.sheet [contenteditable]) {
+    cursor: text;
+    border-radius: 6px;
+  }
+  .preview :global(.sheet [contenteditable]:hover) {
+    outline: 2px dashed color-mix(in srgb, var(--forest) 45%, transparent);
+    outline-offset: 6px;
+  }
+  .preview :global(.sheet [contenteditable]:focus) {
+    outline: 3px solid var(--focus);
+    outline-offset: 6px;
+  }
+  .preview :global(.sheet .story.editing) {
+    white-space: pre-wrap;
+  }
+  .overflow {
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--forest);
+    background: var(--moss);
+  }
+  .preview .sheet-wrap {
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.08),
+      0 8px 28px rgb(0 0 0 / 0.1);
+    border-radius: 4px;
+  }
+  @media print {
+    .worksheet {
+      display: block;
+      margin: 0;
+    }
+    .preview {
+      position: static;
+      display: block;
+    }
+    .preview .sheet-wrap {
+      box-shadow: none;
+    }
+  }
+</style>

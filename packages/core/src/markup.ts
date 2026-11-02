@@ -255,13 +255,13 @@ export function staticEmphasisCSS(style: EmphasisStyle = DEFAULT_STYLE): string 
   const e = `.${EMPHASIS_CLASS}`;
   switch (style) {
     case "bold-fade":
-      return `${e} { font-weight: bold; }\n.${REST_CLASS} { opacity: 0.6; }`;
+      return `${e} { font-weight: bold; }\n.${REST_CLASS} { opacity: 0.72; }`;
     case "color":
       return `${e} { color: #1f5fa8; }`;
     case "underline":
       return `${e} { text-decoration: underline; }`;
     case "fade":
-      return `.${REST_CLASS} { opacity: 0.6; }`;
+      return `.${REST_CLASS} { opacity: 0.72; }`;
     case "bold":
       return `${e} { font-weight: bold; }`;
   }

@@ -1,6 +1,7 @@
 ---
 import Converter from "../../components/Converter.astro";
 import Uses from "../../components/Uses.astro";
+import Worksheet from "../../components/Worksheet.astro";
 import { LANGS, type Lang, PAGES, type PageKey, SLUGS, STRINGS } from "../../i18n";
 import Base from "../../layouts/Base.astro";
 
@@ -41,6 +42,16 @@ const t = STRINGS[lang];
         </section>
       </article>
     </Base>
+  ) : key === "worksheets" ? (
+    <Base lang={lang} title={t.worksheets.title} page={key}>
+      <article class="wrap worksheets-page">
+        <div class="prose no-print">
+          <h1>{t.worksheets.title}</h1>
+          <p class="first">{t.worksheets.intro}</p>
+        </div>
+        <Worksheet lang={lang} />
+      </article>
+    </Base>
   ) : key === "uses" ? (
     <Base lang={lang} title={t.uses.title} page={key}>
       <article class="wrap">
@@ -74,6 +85,12 @@ const t = STRINGS[lang];
   }
   .first {
     font-size: var(--step-1);
+  }
+  @media print {
+    .worksheets-page {
+      padding: 0;
+      max-width: none;
+    }
   }
   .tool {
     margin-top: 3rem;

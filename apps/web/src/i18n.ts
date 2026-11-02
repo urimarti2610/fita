@@ -1,23 +1,26 @@
 export const LANGS = ["es", "ca", "en"] as const;
 export type Lang = (typeof LANGS)[number];
-export type PageKey = "uses" | "convert" | "privacy" | "accessibility";
+export type PageKey = "uses" | "worksheets" | "convert" | "privacy" | "accessibility";
 
 /** Localized slugs for each page. */
 export const SLUGS: Record<Lang, Record<PageKey, string>> = {
   es: {
     uses: "para-quien",
+    worksheets: "fichas",
     convert: "convertir",
     privacy: "privacidad",
     accessibility: "accesibilidad",
   },
   ca: {
     uses: "per-a-qui",
+    worksheets: "fitxes",
     convert: "convertir",
     privacy: "privacitat",
     accessibility: "accessibilitat",
   },
   en: {
     uses: "who-its-for",
+    worksheets: "worksheets",
     convert: "convert",
     privacy: "privacy",
     accessibility: "accessibility",
@@ -144,6 +147,7 @@ const es = {
           "Adapta los materiales que ya tienes: convierte lecturas, apuntes o libros en EPUB, TXT, Markdown o HTML y compártelos tal cual.",
           "En clase, proyecta la demo con el texto del día y probad juntos distintas intensidades y estilos. Que cada alumno diga qué le resulta más cómodo.",
           "En los ordenadores del centro, la extensión funciona sin cuentas ni registros y no recoge datos del alumnado.",
+          "Crea fichas de lectura con letra grande y un marco amable en «Fichas», e imprímelas o guárdalas en PDF.",
           "En casa, la misma extensión sirve para los deberes y las lecturas en la web.",
         ],
         notes: [
@@ -188,6 +192,63 @@ const es = {
         ],
       },
     ],
+  },
+  worksheets: {
+    title: "Fichas de lectura",
+    nav: "Fichas",
+    intro:
+      "Prepara fichas con letra grande, el inicio de cada palabra destacado y un marco amable. Elige un texto de ejemplo o escribe el tuyo, y luego imprímela o descárgala.",
+    editor: "Personaliza la ficha",
+    example: "Elegir texto",
+    titleLabel: "Título",
+    textLabel: "Texto",
+    theme: "Marco",
+    themes: {
+      none: "Sin marco",
+      simple: "Sencillo",
+      clouds: "Nubes",
+      garden: "Jardín",
+      stars: "Estrellas",
+      vehicles: "Coches y camiones",
+    },
+    size: "Tamaño de letra",
+    sizes: ["Grande", "Muy grande", "Enorme"],
+    nameDate: "Añadir nombre y fecha",
+    name: "Nombre",
+    date: "Fecha",
+    lines: "Líneas para escribir",
+    linesOptions: ["Ninguna", "3 líneas", "6 líneas", "10 líneas"],
+    preview: "Vista previa",
+    editHint:
+      "Puedes escribir directamente en la ficha: haz clic en el título o en el texto. El énfasis se aplica al terminar.",
+    editTitle: "Título de la ficha",
+    editText: "Texto de la ficha",
+    print: "Imprimir o guardar en PDF",
+    download: "Descargar la ficha",
+    printHint:
+      "Para guardarla en PDF, elige «Guardar como PDF» en el diálogo de impresión. Si no salen los colores del marco, activa «Gráficos de fondo».",
+    downloadHint:
+      "La descarga es una página web que puedes abrir e imprimir cuando quieras, también sin conexión.",
+    fileName: "ficha",
+    tabs: { text: "Texto", layout: "Diseño", emphasis: "Énfasis" },
+    myTexts: "Mis textos",
+    save: "Guardar en mis textos",
+    saved: "«{title}» está guardado en mis textos.",
+    remove: "Quitar de mis textos",
+    removed: "«{title}» se ha quitado de mis textos.",
+    exportTexts: "Exportar mis textos",
+    importTexts: "Importar textos",
+    imported: "Textos importados: {n}.",
+    importEmpty: "No hay ningún texto en ese archivo. Usa un .md con títulos «## » o un .txt.",
+    libraryNote:
+      "Tus textos se guardan solo en este navegador. Expórtalos para tener una copia, compartirlos o pasarlos a otro ordenador.",
+    exportHeading: "Mis textos para fichas",
+    levelKey: "Nivel",
+    textsFileName: "mis-textos-fichas",
+    orientation: "Orientación",
+    orientations: { portrait: "Vertical", landscape: "Horizontal" },
+    overflow:
+      "La ficha ocupa más de una página. Para que quepa en una, acorta el texto, reduce el tamaño de letra o quita líneas.",
   },
   convert: {
     title: "Convertir un libro",
@@ -379,6 +440,7 @@ const ca: Strings = {
           "Adapta els materials que ja tens: converteix lectures, apunts o llibres en EPUB, TXT, Markdown o HTML i comparteix-los tal com són.",
           "A classe, projecta la demo amb el text del dia i proveu junts diferents intensitats i estils. Que cada alumne digui què li resulta més còmode.",
           "Als ordinadors del centre, l'extensió funciona sense comptes ni registres i no recull dades de l'alumnat.",
+          "Crea fitxes de lectura amb lletra grossa i un marc amable a «Fitxes», i imprimeix-les o desa-les en PDF.",
           "A casa, la mateixa extensió serveix per als deures i les lectures al web.",
         ],
         notes: [
@@ -423,6 +485,64 @@ const ca: Strings = {
         ],
       },
     ],
+  },
+  worksheets: {
+    title: "Fitxes de lectura",
+    nav: "Fitxes",
+    intro:
+      "Prepara fitxes amb lletra grossa, l'inici de cada paraula destacat i un marc amable. Tria un text d'exemple o escriu el teu, i després imprimeix-la o descarrega-la.",
+    editor: "Personalitza la fitxa",
+    example: "Triar text",
+    titleLabel: "Títol",
+    textLabel: "Text",
+    theme: "Marc",
+    themes: {
+      none: "Sense marc",
+      simple: "Senzill",
+      clouds: "Núvols",
+      garden: "Jardí",
+      stars: "Estrelles",
+      vehicles: "Cotxes i camions",
+    },
+    size: "Mida de la lletra",
+    sizes: ["Grossa", "Molt grossa", "Enorme"],
+    nameDate: "Afegir nom i data",
+    name: "Nom",
+    date: "Data",
+    lines: "Línies per escriure",
+    linesOptions: ["Cap", "3 línies", "6 línies", "10 línies"],
+    preview: "Previsualització",
+    editHint:
+      "Pots escriure directament a la fitxa: fes clic al títol o al text. L'èmfasi s'aplica en acabar.",
+    editTitle: "Títol de la fitxa",
+    editText: "Text de la fitxa",
+    print: "Imprimir o desar en PDF",
+    download: "Descarregar la fitxa",
+    printHint:
+      "Per desar-la en PDF, tria «Desa com a PDF» al diàleg d'impressió. Si no surten els colors del marc, activa «Gràfics de fons».",
+    downloadHint:
+      "La descàrrega és una pàgina web que pots obrir i imprimir quan vulguis, també sense connexió.",
+    fileName: "fitxa",
+    tabs: { text: "Text", layout: "Disseny", emphasis: "Èmfasi" },
+    myTexts: "Els meus textos",
+    save: "Desar als meus textos",
+    saved: "«{title}» està desat als meus textos.",
+    remove: "Treure dels meus textos",
+    removed: "«{title}» s'ha tret dels meus textos.",
+    exportTexts: "Exportar els meus textos",
+    importTexts: "Importar textos",
+    imported: "Textos importats: {n}.",
+    importEmpty:
+      "No hi ha cap text en aquest fitxer. Fes servir un .md amb títols «## » o un .txt.",
+    libraryNote:
+      "Els teus textos es desen només en aquest navegador. Exporta'ls per tenir-ne una còpia, compartir-los o passar-los a un altre ordinador.",
+    exportHeading: "Els meus textos per a fitxes",
+    levelKey: "Nivell",
+    textsFileName: "els-meus-textos-fitxes",
+    orientation: "Orientació",
+    orientations: { portrait: "Vertical", landscape: "Horitzontal" },
+    overflow:
+      "La fitxa ocupa més d'una pàgina. Perquè hi càpiga en una, escurça el text, redueix la mida de la lletra o treu línies.",
   },
   convert: {
     title: "Convertir un llibre",
@@ -608,6 +728,7 @@ const en: Strings = {
           "Adapt the material you already have: convert readings, notes or books in EPUB, TXT, Markdown or HTML and share them as they are.",
           "In class, project the demo with the day's text and try different strengths and styles together. Let each student say what feels most comfortable.",
           "On school computers, the extension works without accounts or sign-ups and collects no student data.",
+          "Make reading worksheets with large print and a friendly frame in “Worksheets”, then print them or save them as PDF.",
           "At home, the same extension helps with homework and reading on the web.",
         ],
         notes: [
@@ -652,6 +773,63 @@ const en: Strings = {
         ],
       },
     ],
+  },
+  worksheets: {
+    title: "Reading worksheets",
+    nav: "Worksheets",
+    intro:
+      "Make worksheets with large print, the start of each word emphasized and a friendly frame. Pick a sample text or write your own, then print it or download it.",
+    editor: "Customize the worksheet",
+    example: "Choose a text",
+    titleLabel: "Title",
+    textLabel: "Text",
+    theme: "Frame",
+    themes: {
+      none: "No frame",
+      simple: "Simple",
+      clouds: "Clouds",
+      garden: "Garden",
+      stars: "Stars",
+      vehicles: "Cars and trucks",
+    },
+    size: "Text size",
+    sizes: ["Large", "Very large", "Huge"],
+    nameDate: "Add name and date",
+    name: "Name",
+    date: "Date",
+    lines: "Lines for writing",
+    linesOptions: ["None", "3 lines", "6 lines", "10 lines"],
+    preview: "Preview",
+    editHint:
+      "You can type straight onto the worksheet: click the title or the text. Emphasis is applied when you finish.",
+    editTitle: "Worksheet title",
+    editText: "Worksheet text",
+    print: "Print or save as PDF",
+    download: "Download the worksheet",
+    printHint:
+      "To save it as a PDF, choose “Save as PDF” in the print dialog. If the frame colours are missing, turn on “Background graphics”.",
+    downloadHint: "The download is a web page you can open and print any time, even offline.",
+    fileName: "worksheet",
+    tabs: { text: "Text", layout: "Layout", emphasis: "Emphasis" },
+    myTexts: "My texts",
+    save: "Save to my texts",
+    saved: "“{title}” is saved in my texts.",
+    remove: "Remove from my texts",
+    removed: "“{title}” was removed from my texts.",
+    exportTexts: "Export my texts",
+    importTexts: "Import texts",
+    imported: "Texts imported: {n}.",
+    importEmpty:
+      "There are no texts in that file. Use a .md file with “## ” titles, or a .txt file.",
+    libraryNote:
+      "Your texts are stored only in this browser. Export them to keep a copy, share them or move them to another computer.",
+    exportHeading: "My worksheet texts",
+    levelKey: "Level",
+    textsFileName: "my-worksheet-texts",
+    orientation: "Orientation",
+    orientations: { portrait: "Portrait", landscape: "Landscape" },
+    overflow:
+      "The worksheet runs onto a second page. To fit it on one, shorten the text, choose a smaller text size or remove lines.",
   },
   convert: {
     title: "Convert a book",
@@ -736,4 +914,10 @@ export function href(lang: Lang, page?: PageKey, anchor?: string): string {
 }
 
 /** Pages rendered by [lang]/[page].astro. */
-export const PAGES = ["uses", "convert", "privacy", "accessibility"] as const satisfies PageKey[];
+export const PAGES = [
+  "uses",
+  "worksheets",
+  "convert",
+  "privacy",
+  "accessibility",
+] as const satisfies PageKey[];

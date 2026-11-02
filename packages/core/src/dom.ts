@@ -33,7 +33,8 @@ const sel = (style: EmphasisStyle, selectors: string) =>
  */
 export const EMPHASIS_CSS = `
 ${WRAP_TAG}, ${EMPHASIS_TAG} { all: unset; }
-${w} { -webkit-text-fill-color: color-mix(in srgb, currentColor 55%, transparent); }
+/* 70 % keeps the faded rest above WCAG AA contrast (4.5:1) on light and dark pages. */
+${w} { -webkit-text-fill-color: color-mix(in srgb, currentColor 70%, transparent); }
 ${e} { font-weight: bolder; -webkit-text-fill-color: currentColor; }
 ${["bold", "color", "underline"].map((s) => sel(s as EmphasisStyle, w)).join(", ")} { -webkit-text-fill-color: currentColor; }
 ${sel("color", e)} { font-weight: inherit; color: color-mix(in oklab, currentColor 55%, #2f6fdd); }

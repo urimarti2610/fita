@@ -134,6 +134,15 @@ p {
   clip-path: inset(50%);
   white-space: nowrap;
 }
+@media print {
+  .no-print {
+    /* biome-ignore lint/complexity/noImportantStyles: printing must hide site chrome whatever its own rules */
+    display: none !important;
+  }
+  body {
+    background: #ffffff;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
