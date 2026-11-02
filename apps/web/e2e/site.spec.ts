@@ -18,10 +18,10 @@ test("live demo follows typing and controls", async ({ page }) => {
   await page.goto("/es/");
   const output = page.locator("#demo-output");
   await page.getByRole("textbox", { name: "Tu texto", exact: true }).fill("elefante <b>&");
-  await expect(output.locator("fita-e").first()).toHaveText("elefa");
+  await expect(output.locator("fita-e").first()).toHaveText("elef");
   await expect(output).toHaveText("elefante <b>&");
 
-  await page.getByLabel(/Intensidad/).fill("0.7");
+  await page.locator("#demo-strength").fill("0.7");
   await expect(output.locator("fita-e").first()).toHaveText("elefan");
 
   await page.getByRole("radio", { name: "Color" }).check();
@@ -38,7 +38,7 @@ test("demo handles a book-length text without freezing", async ({ page }) => {
     (el as HTMLTextAreaElement).value = value;
     el.dispatchEvent(new Event("input", { bubbles: true }));
   }, text);
-  await expect(page.locator("#demo-output fita-e").first()).toHaveText("Readi");
+  await expect(page.locator("#demo-output fita-e").first()).toHaveText("Rea");
 
   // While the rest is emphasized in the background, the page keeps painting frames.
   const maxGap = await page.evaluate(

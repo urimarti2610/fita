@@ -1,5 +1,5 @@
 export type EmphasisOptions = {
-  /** Fraction of each word to emphasize, 0.2–0.7. Default 0.65. */
+  /** Fraction of each word to emphasize, 0.2–0.7. Default 0.45. */
   strength: number;
   /** Words shorter than this (in graphemes) get exactly 1 emphasized grapheme. Default 4. */
   minWordLength: number;
@@ -14,7 +14,7 @@ export type EmphasisOptions = {
 export type Span = { text: string; emphasis: boolean };
 
 export const DEFAULT_OPTIONS: Readonly<EmphasisOptions> = Object.freeze({
-  strength: 0.65,
+  strength: 0.45,
   minWordLength: 4,
   every: 1,
   skipNumbers: true,

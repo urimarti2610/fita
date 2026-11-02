@@ -99,7 +99,7 @@ describe("createMarkupEmphasizer", () => {
 
   it("defaults to bold start and faded rest", () => {
     expect(createMarkupEmphasizer()("<p>lectura</p>")).toBe(
-      `<p>${E("lectu")}<span class="fita-r">ra</span></p>`,
+      `<p>${E("lec")}<span class="fita-r">tura</span></p>`,
     );
   });
 

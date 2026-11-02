@@ -19,7 +19,7 @@ test("activate and deactivate in a tab, leaving the page identical", async ({
 
   const on = await worker.evaluate((id) => fitaTest.setTab(id), tabId);
   expect(on.enabled).toBe(true);
-  await expect(page.locator("#p fita-e").first()).toHaveText("Hol");
+  await expect(page.locator("#p fita-e").first()).toHaveText("Ho");
   await expect(page.locator("pre fita-w")).toHaveCount(0);
   await expect(page.locator("textarea")).toHaveValue("no tocar");
   expect(await page.locator("#p").textContent()).toBe("Hola mundo, esto es un párrafo de ejemplo.");
@@ -47,7 +47,7 @@ test("Alt+B command toggles the active tab", async ({ context, worker, baseURL }
   await page.goto(baseURL);
   await page.bringToFront();
   await worker.evaluate(() => fitaTest.onCommand("toggle-emphasis"));
-  await expect(page.locator("#p fita-e").first()).toHaveText("Hol");
+  await expect(page.locator("#p fita-e").first()).toHaveText("Ho");
   await worker.evaluate(() => fitaTest.onCommand("toggle-emphasis"));
   await expect(page.locator("fita-w")).toHaveCount(0);
 

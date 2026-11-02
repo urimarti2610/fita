@@ -136,7 +136,7 @@ test("typing straight onto the worksheet updates the editor and keeps emphasis",
   await page.keyboard.type("Mi título");
   await page.keyboard.press("Enter");
   await expect(page.getByLabel("Título", { exact: true })).toHaveValue("Mi título");
-  await expect(page.locator("#ws-sheet .story fita-e").first()).toHaveText("Elefan");
+  await expect(page.locator("#ws-sheet .story fita-e").first()).toHaveText("Elef");
 });
 
 test("prints on a white background, keeping the frame", async ({ page }) => {

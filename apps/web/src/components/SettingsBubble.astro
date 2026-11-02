@@ -1,0 +1,334 @@
+---
+// Floating reading-settings bubble: the same emphasis controls as the page, plus
+// named presets. Everything is stored only in this browser (see settings/store.ts).
+import { type Lang, STRINGS } from "../i18n";
+import EmphasisControls from "./EmphasisControls.astro";
+
+type Props = { lang: Lang };
+const { lang } = Astro.props;
+const t = STRINGS[lang].settings;
+const styles = STRINGS[lang].demo.styles;
+const messages = {
+  apply: t.apply,
+  remove: t.remove,
+  saved: t.saved,
+  removed: t.removed,
+  restored: t.restored,
+  applied: t.applied,
+  styles,
+};
+---
+
+<button type="button" class="bubble no-print" popovertarget="settings-panel" aria-label={t.open}>
+  <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+    <path d="M4 7h10M18 7h2M4 17h4M12 17h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    <circle cx="16" cy="7" r="2.5" fill="none" stroke="currentColor" stroke-width="2"></circle>
+    <circle cx="10" cy="17" r="2.5" fill="none" stroke="currentColor" stroke-width="2"></circle>
+  </svg>
+  <span class="bubble-label">{t.title}</span>
+</button>
+
+<div id="settings-panel" class="panel no-print" popover aria-labelledby="settings-title" data-messages={JSON.stringify(messages)}>
+  <div class="panel-head">
+    <h2 id="settings-title">{t.title}</h2>
+    <button type="button" class="close" popovertarget="settings-panel" popovertargetaction="hide" aria-label={t.close}>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </div>
+  <p class="note">{t.note}</p>
+
+  <form class="current" aria-label={t.title}>
+    <EmphasisControls lang={lang} id="bubble" layout="compact" />
+  </form>
+
+  <section class="presets" aria-labelledby="presets-title">
+    <h3 id="presets-title">{t.presets}</h3>
+    <ul id="preset-list"></ul>
+    <p id="preset-empty" class="empty">{t.empty}</p>
+    <form id="preset-form" class="save">
+      <label for="preset-name">{t.name}</label>
+      <div class="save-row">
+        <input id="preset-name" type="text" maxlength="60" required placeholder={t.placeholder} />
+        <button type="submit" class="small primary">{t.save}</button>
+      </div>
+    </form>
+    <button type="button" id="preset-reset" class="link">{t.reset}</button>
+    <p id="preset-status" class="status" role="status"></p>
+  </section>
+</div>
+
+<script>
+  import {
+    DEFAULT_SETTINGS,
+    loadPresets,
+    loadSettings,
+    type Preset,
+    type ReadingSettings,
+    savePresets,
+    saveSettings,
+  } from "../settings/store";
+
+  const panel = document.getElementById("settings-panel") as HTMLElement;
+  const list = document.getElementById("preset-list") as HTMLUListElement;
+  const empty = document.getElementById("preset-empty") as HTMLElement;
+  const form = document.getElementById("preset-form") as HTMLFormElement;
+  const name = document.getElementById("preset-name") as HTMLInputElement;
+  const status = document.getElementById("preset-status") as HTMLElement;
+  const m = JSON.parse(panel.dataset.messages as string) as Record<
+    "apply" | "remove" | "saved" | "removed" | "restored" | "applied",
+    string
+  > & { styles: Record<string, string> };
+
+  let presets = loadPresets();
+
+  const describe = (s: ReadingSettings) => `${Math.round(s.strength * 100)} %, ${m.styles[s.style]}`;
+  const say = (text: string) => {
+    status.textContent = text;
+  };
+
+  function render() {
+    list.replaceChildren(
+      ...presets.map((preset, i) => {
+        const item = document.createElement("li");
+        const use = document.createElement("button");
+        use.type = "button";
+        use.className = "use";
+        use.innerHTML = "<strong></strong><span></span>";
+        (use.firstChild as HTMLElement).textContent = preset.name;
+        (use.lastChild as HTMLElement).textContent = describe(preset.settings);
+        use.setAttribute("aria-label", m.apply.replace("{name}", preset.name));
+        use.addEventListener("click", () => {
+          saveSettings(preset.settings);
+          say(m.applied.replace("{name}", preset.name));
+        });
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "remove";
+        remove.textContent = "×";
+        remove.setAttribute("aria-label", m.remove.replace("{name}", preset.name));
+        remove.addEventListener("click", () => {
+          presets.splice(i, 1);
+          savePresets(presets);
+          render();
+          say(m.removed.replace("{name}", preset.name));
+        });
+        item.append(use, remove);
+        return item;
+      }),
+    );
+    empty.hidden = presets.length > 0;
+  }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const label = name.value.trim();
+    if (!label) return;
+    const preset: Preset = { name: label, settings: loadSettings() };
+    const existing = presets.findIndex((p) => p.name === label);
+    if (existing >= 0) presets[existing] = preset;
+    else presets.push(preset);
+    savePresets(presets);
+    name.value = "";
+    render();
+    say(m.saved.replace("{name}", label));
+  });
+
+  document.getElementById("preset-reset")?.addEventListener("click", () => {
+    saveSettings(DEFAULT_SETTINGS);
+    say(m.restored);
+  });
+
+  render();
+</script>
+
+<style>
+  .bubble {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 20;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 3.25rem;
+    padding: 0 1.1rem 0 0.95rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--forest);
+    color: var(--on-forest);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow:
+      0 2px 4px rgb(0 0 0 / 0.12),
+      0 10px 24px rgb(0 0 0 / 0.18);
+  }
+  @media (max-width: 600px) {
+    .bubble {
+      padding: 0;
+      width: 3.25rem;
+      justify-content: center;
+    }
+    .bubble-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+  }
+  .panel {
+    position: fixed;
+    inset: auto max(1rem, env(safe-area-inset-right)) calc(max(1rem, env(safe-area-inset-bottom)) + 4rem) auto;
+    width: min(22rem, calc(100vw - 2rem));
+    max-height: min(36rem, calc(100dvh - 6rem));
+    overflow: auto;
+    margin: 0;
+    padding: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 16px 40px rgb(0 0 0 / 0.22);
+  }
+  .panel:popover-open {
+    display: grid;
+    gap: 1rem;
+  }
+  .panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .panel h2 {
+    font-size: var(--step-1);
+  }
+  .close {
+    display: inline-grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .close:hover {
+    background: var(--moss);
+  }
+  .note,
+  .empty {
+    color: var(--muted);
+    font-size: var(--step--1);
+  }
+  .empty[hidden] {
+    display: none;
+  }
+  .presets {
+    display: grid;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+  .presets h3 {
+    font-size: var(--step-0);
+  }
+  #preset-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.4rem;
+  }
+  #preset-list :global(li) {
+    display: flex;
+    gap: 0.25rem;
+  }
+  #preset-list :global(.use) {
+    flex: 1;
+    display: grid;
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+  }
+  #preset-list :global(.use:hover) {
+    border-color: var(--forest);
+    background: var(--moss);
+  }
+  #preset-list :global(.use span) {
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+  #preset-list :global(.remove) {
+    width: 2.5rem;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+  #preset-list :global(.remove:hover) {
+    background: var(--moss);
+    color: var(--ink);
+  }
+  .save {
+    display: grid;
+    gap: 0.35rem;
+  }
+  .save label {
+    font-weight: 700;
+  }
+  .save-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .save input {
+    flex: 1;
+    min-width: 0;
+    font: inherit;
+    padding: 0.45rem 0.65rem;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .small {
+    font: inherit;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.45rem 0.95rem;
+    cursor: pointer;
+    border: 1.5px solid var(--forest);
+  }
+  .small.primary {
+    background: var(--forest);
+    color: var(--on-forest);
+  }
+  .link {
+    justify-self: start;
+    font: inherit;
+    font-size: var(--step--1);
+    color: var(--forest);
+    background: none;
+    border: 0;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+  }
+  .status:empty {
+    display: none;
+  }
+  .status {
+    font-size: var(--step--1);
+  }
+</style>

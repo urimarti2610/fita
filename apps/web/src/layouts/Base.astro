@@ -2,10 +2,13 @@
 import { EMPHASIS_CSS } from "@fita/core";
 import { WEB_BRAND } from "../../brand";
 import { href, LANG_NAMES, LANGS, type Lang, type PageKey, STRINGS } from "../i18n";
+import SettingsBubble from "../components/SettingsBubble.astro";
 import "../styles/global.css";
 
 type Props = { lang: Lang; title?: string; page?: PageKey };
 const { lang, title, page } = Astro.props;
+// The reading-settings bubble only where there are tools to apply it to.
+const showSettings = page === undefined || page === "worksheets" || page === "convert";
 const t = STRINGS[lang];
 const fullTitle = title ? `${title} | ${WEB_BRAND.name}` : `${WEB_BRAND.name}: ${t.hero.headline}`;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
@@ -67,6 +70,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
         <li><a href={WEB_BRAND.repository}>{t.nav.github}</a></li>
       </ul>
     </footer>
+    {showSettings && <SettingsBubble lang={lang} />}
   </body>
 </html>
 

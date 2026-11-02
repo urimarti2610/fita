@@ -62,14 +62,55 @@ const t = STRINGS[lang].demo;
 </div>
 
 <script>
-  // Keeps every strength readout in sync with its slider.
-  for (const output of document.querySelectorAll<HTMLOutputElement>(".emphasis-controls output")) {
-    const input = document.getElementById(output.htmlFor.value) as HTMLInputElement | null;
-    const sync = () => {
-      if (input) output.textContent = `${Math.round(Number(input.value) * 100)} %`;
+  // Every group of controls on the page (demo, worksheets, converter, settings bubble)
+  // shares one stored state: changes here are saved and mirrored everywhere else.
+  import {
+    loadSettings,
+    type ReadingSettings,
+    SETTINGS_EVENT,
+    saveSettings,
+  } from "../settings/store";
+
+  for (const group of document.querySelectorAll<HTMLElement>(".emphasis-controls")) {
+    const strength = group.querySelector<HTMLInputElement>('input[name="strength"]');
+    const output = group.querySelector<HTMLOutputElement>("output");
+    const every = group.querySelector<HTMLSelectElement>('select[name="every"]');
+    const styles = [...group.querySelectorAll<HTMLInputElement>('input[name="style"]')];
+    let applying = false;
+
+    const readout = () => {
+      if (strength && output) output.textContent = `${Math.round(Number(strength.value) * 100)} %`;
     };
-    input?.addEventListener("input", sync);
-    sync();
+
+    const read = (): ReadingSettings => ({
+      strength: Number(strength?.value),
+      every: Number(every?.value ?? 1),
+      style: (styles.find((s) => s.checked)?.value ?? "bold-fade") as ReadingSettings["style"],
+    });
+
+    /** Shows `settings` and lets the host tool re-render, without saving them back. */
+    function apply(settings: ReadingSettings) {
+      applying = true;
+      if (strength) strength.value = String(settings.strength);
+      if (every) every.value = String(settings.every);
+      for (const s of styles) s.checked = s.value === settings.style;
+      readout();
+      strength?.dispatchEvent(new Event("input", { bubbles: true }));
+      strength?.dispatchEvent(new Event("change", { bubbles: true }));
+      applying = false;
+    }
+
+    const store = () => {
+      readout();
+      if (!applying) saveSettings(read(), group);
+    };
+    group.addEventListener("input", store);
+    group.addEventListener("change", store);
+    window.addEventListener(SETTINGS_EVENT, (event) => {
+      const { settings, source } = (event as CustomEvent).detail;
+      if (source !== group) apply(settings);
+    });
+    apply(loadSettings());
   }
 </script>
 

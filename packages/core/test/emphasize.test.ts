@@ -69,9 +69,9 @@ describe("defaults", () => {
         .map((s) => (s.emphasis ? `[${s.text}]` : s.text))
         .join(""),
     ).toBe(
-      "[E]s [cas]i [insultante]mente [simp]le. [Y] [qui]zá [funci]ona [precisam]ente [p]or [e]so",
+      "[E]s [ca]si [insulta]ntemente [sim]ple. [Y] [qu]izá [func]iona [preci]samente [p]or [e]so",
     );
-    expect(resolveOptions()).toMatchObject({ strength: 0.65, minWordLength: 4, every: 1 });
+    expect(resolveOptions()).toMatchObject({ strength: 0.45, minWordLength: 4, every: 1 });
   });
 });
 
@@ -117,7 +117,7 @@ describe("rules", () => {
   it("clamps and sanitizes options", () => {
     expect(resolveOptions({ strength: 5 }).strength).toBe(0.7);
     expect(resolveOptions({ strength: -1 }).strength).toBe(0.2);
-    expect(resolveOptions({ strength: Number.NaN }).strength).toBe(0.65);
+    expect(resolveOptions({ strength: Number.NaN }).strength).toBe(0.45);
     expect(resolveOptions({ every: 0 }).every).toBe(1);
     expect(resolveOptions({ minWordLength: 2.7 }).minWordLength).toBe(2);
     expect(resolveOptions({ locale: "ca" }).locale).toBe("ca");

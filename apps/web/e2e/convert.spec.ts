@@ -27,8 +27,8 @@ test("converts an EPUB step by step, with a live first-page preview", async ({ p
   await expect(preview.locator("h3")).toContainText("Primer capítol");
   await expect(preview).not.toContainText("codi"); // <pre> is not reading text
   const first = preview.locator(".fita-e").first();
-  await expect(first).toHaveText("Prim");
-  await page.getByLabel(/Intensitat/).fill("0.2");
+  await expect(first).toHaveText("Pri");
+  await page.locator("#convert-strength").fill("0.2");
   await expect(first).toHaveText("P");
   await page.getByRole("button", { name: "Convertir" }).click();
   const link = page.getByRole("link", { name: /Descarregar Llibre\.fita\.epub/ });

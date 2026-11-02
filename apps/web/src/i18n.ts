@@ -256,6 +256,25 @@ const es = {
     overflow:
       "La ficha ocupa más de una página. Para que quepa en una, acorta el texto, reduce el tamaño de letra o quita líneas.",
   },
+  settings: {
+    title: "Ajustes de lectura",
+    open: "Abrir los ajustes de lectura",
+    close: "Cerrar",
+    note: "Se aplican en la demo, las fichas y el conversor, y se guardan solo en este navegador.",
+    presets: "Mis ajustes guardados",
+    empty:
+      "Aún no has guardado ningún ajuste. Ponle nombre a los actuales para volver a ellos con un clic.",
+    name: "Nombre",
+    placeholder: "Por ejemplo: Lectura en clase",
+    save: "Guardar",
+    apply: "Usar los ajustes «{name}»",
+    remove: "Borrar «{name}»",
+    saved: "Ajustes «{name}» guardados.",
+    removed: "«{name}» se ha borrado.",
+    applied: "Ahora usas «{name}».",
+    reset: "Volver a los ajustes predeterminados",
+    restored: "Ajustes predeterminados restaurados.",
+  },
   convert: {
     title: "Convertir un libro",
     intro:
@@ -569,6 +588,24 @@ const ca: Strings = {
     overflow:
       "La fitxa ocupa més d'una pàgina. Perquè hi càpiga en una, escurça el text, redueix la mida de la lletra o treu línies.",
   },
+  settings: {
+    title: "Ajustos de lectura",
+    open: "Obrir els ajustos de lectura",
+    close: "Tancar",
+    note: "S'apliquen a la demo, les fitxes i el convertidor, i es desen només en aquest navegador.",
+    presets: "Els meus ajustos desats",
+    empty: "Encara no has desat cap ajust. Posa nom als actuals per tornar-hi amb un clic.",
+    name: "Nom",
+    placeholder: "Per exemple: Lectura a classe",
+    save: "Desar",
+    apply: "Fer servir els ajustos «{name}»",
+    remove: "Esborrar «{name}»",
+    saved: "Ajustos «{name}» desats.",
+    removed: "«{name}» s'ha esborrat.",
+    applied: "Ara fas servir «{name}».",
+    reset: "Tornar als ajustos predeterminats",
+    restored: "Ajustos predeterminats restaurats.",
+  },
   convert: {
     title: "Convertir un llibre",
     intro:
@@ -870,6 +907,25 @@ const en: Strings = {
     orientations: { portrait: "Portrait", landscape: "Landscape" },
     overflow:
       "The worksheet runs onto a second page. To fit it on one, shorten the text, choose a smaller text size or remove lines.",
+  },
+  settings: {
+    title: "Reading settings",
+    open: "Open reading settings",
+    close: "Close",
+    note: "They apply to the demo, worksheets and converter, and are stored only in this browser.",
+    presets: "My saved settings",
+    empty:
+      "You haven't saved any settings yet. Name the current ones to come back to them with one click.",
+    name: "Name",
+    placeholder: "For example: Class reading",
+    save: "Save",
+    apply: "Use the “{name}” settings",
+    remove: "Delete “{name}”",
+    saved: "“{name}” settings saved.",
+    removed: "“{name}” was deleted.",
+    applied: "Now using “{name}”.",
+    reset: "Back to the default settings",
+    restored: "Default settings restored.",
   },
   convert: {
     title: "Convert a book",
