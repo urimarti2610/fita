@@ -1,0 +1,131 @@
+---
+import { toHTML } from "@fita/core";
+import { WEB_BRAND } from "../../../brand";
+import Demo from "../../components/Demo.astro";
+import { href, LANGS, type Lang, STRINGS } from "../../i18n";
+import Base from "../../layouts/Base.astro";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const t = STRINGS[lang];
+// The headline is set with the same emphasis the tool applies: the product is the type.
+const headline = toHTML(t.hero.headline, { strength: 0.5, locale: lang }, "fita-e");
+const chrome = WEB_BRAND.chromeStore ?? WEB_BRAND.releases;
+const firefox = WEB_BRAND.firefoxStore ?? WEB_BRAND.releases;
+const preview = !WEB_BRAND.chromeStore || !WEB_BRAND.firefoxStore;
+---
+
+<Base lang={lang}>
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <h1 id="hero-title" class="headline" set:html={headline} />
+    <p class="lede">{t.hero.lede}</p>
+    <div class="install">
+      <a class="button primary" href={chrome}>{t.install.chrome}</a>
+      <a class="button" href={firefox}>{t.install.firefox}</a>
+    </div>
+    {preview && <p class="note">{t.install.preview}</p>}
+  </section>
+
+  <Demo lang={lang} />
+
+  <section class="wrap privacy" aria-labelledby="privacy-title">
+    <div class="prose">
+      <h2 id="privacy-title">{t.privacy.heading}</h2>
+      {t.privacy.body.map((p) => <p>{p}</p>)}
+      <p><a href={href(lang, "privacy")}>{t.privacy.more}</a></p>
+    </div>
+  </section>
+
+  <section class="wrap faq" aria-labelledby="faq-title">
+    <h2 id="faq-title">{t.faq.heading}</h2>
+    <div class="faq-list">
+      {t.faq.items.map((item) => (
+        <details>
+          <summary>{item.q}</summary>
+          <div class="prose">{item.a.map((p) => <p>{p}</p>)}</div>
+        </details>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-top: clamp(3rem, 10vw, 7rem);
+  }
+  .headline {
+    font-size: var(--step-5);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    max-width: 12ch;
+  }
+  .headline :global(fita-e) {
+    font-weight: 800;
+    color: var(--forest);
+  }
+  .lede {
+    margin-top: 2rem;
+    font-size: var(--step-1);
+    line-height: 1.55;
+    max-width: 38ch;
+  }
+  .install {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2.25rem;
+  }
+  .note {
+    margin-top: 1rem;
+    color: var(--muted);
+    font-size: var(--step--1);
+    max-width: var(--measure);
+  }
+  .privacy {
+    margin-top: var(--section);
+  }
+  .privacy h2 {
+    margin-bottom: 1.25rem;
+  }
+  .faq {
+    margin-top: var(--section);
+  }
+  .faq-list {
+    margin-top: 1.5rem;
+    max-width: var(--measure);
+    border-top: 1px solid var(--line);
+  }
+  details {
+    border-bottom: 1px solid var(--line);
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: var(--step-1);
+    padding-block: 1.1rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::after {
+    content: "+";
+    font-weight: 400;
+    color: var(--forest);
+    transition: transform 0.15s;
+  }
+  details[open] summary::after {
+    transform: rotate(45deg);
+  }
+  details .prose {
+    padding-bottom: 1.5rem;
+  }
+</style>

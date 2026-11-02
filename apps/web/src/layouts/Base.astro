@@ -1,0 +1,135 @@
+---
+import { EMPHASIS_CSS } from "@fita/core";
+import { WEB_BRAND } from "../../brand";
+import { href, LANG_NAMES, LANGS, type Lang, type PageKey, STRINGS } from "../i18n";
+import "../styles/global.css";
+
+type Props = { lang: Lang; title?: string; page?: PageKey };
+const { lang, title, page } = Astro.props;
+const t = STRINGS[lang];
+const fullTitle = title ? `${title} | ${WEB_BRAND.name}` : `${WEB_BRAND.name}: ${t.hero.headline}`;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={t.meta.description} />
+    <link rel="icon" type="image/png" href={`${base}favicon.png`} />
+    {LANGS.map((l) => <link rel="alternate" hreflang={l} href={new URL(href(l, page), Astro.site)} />)}
+    <meta name="theme-color" content="#f6f7f3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131a1b" media="(prefers-color-scheme: dark)" />
+    <style is:inline set:html={EMPHASIS_CSS}></style>
+  </head>
+  <body>
+    <a class="skip" href="#main">{t.nav.skip}</a>
+    <header class="wrap site-header">
+      <a class="logo" href={href(lang)} aria-label={`${WEB_BRAND.name}, ${t.nav.home}`}>
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="currentColor"></rect>
+          <rect x="6.4" y="9.6" width="7.7" height="4.5" fill="var(--paper)"></rect>
+          <rect x="14" y="10.9" width="11.5" height="1.9" fill="var(--paper)"></rect>
+          <rect x="6.4" y="17.9" width="5.8" height="4.5" fill="var(--paper)"></rect>
+          <rect x="12" y="19.2" width="9" height="1.9" fill="var(--paper)"></rect>
+        </svg>
+        <span>{WEB_BRAND.name}</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href={href(lang, "convert")} aria-current={page === "convert" ? "page" : undefined}>{t.nav.convert}</a></li>
+          <li>
+            <ul class="langs" aria-label={t.nav.language}>
+              {LANGS.map((l) => (
+                <li>
+                  <a href={href(l, page)} lang={l} hreflang={l} aria-current={l === lang ? "true" : undefined} title={LANG_NAMES[l]}>
+                    <span aria-hidden="true">{l}</span><span class="visually-hidden">{LANG_NAMES[l]}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="wrap site-footer">
+      <p>{t.footer.license}</p>
+      <ul>
+        <li><a href={href(lang, "privacy")}>{t.nav.privacy}</a></li>
+        <li><a href={href(lang, "accessibility")}>{t.nav.accessibility}</a></li>
+        <li><a href={WEB_BRAND.repository}>{t.nav.github}</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-block: 1.25rem;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 800;
+    font-size: var(--step-1);
+    text-decoration: none;
+    color: var(--forest);
+  }
+  .logo span {
+    color: var(--ink);
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .langs {
+    gap: 0.25rem;
+  }
+  .langs a {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--muted);
+  }
+  .langs a[aria-current] {
+    color: var(--ink);
+    background: var(--moss);
+    font-weight: 700;
+  }
+  .site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 3rem 2.5rem;
+    margin-top: var(--section);
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: var(--step--1);
+  }
+  .site-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+</style>

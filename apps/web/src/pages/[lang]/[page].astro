@@ -1,0 +1,38 @@
+---
+import { LANGS, type Lang, SLUGS, STRINGS, TEXT_PAGES } from "../../i18n";
+import Base from "../../layouts/Base.astro";
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    TEXT_PAGES.map((key) => ({ params: { lang, page: SLUGS[lang][key] }, props: { key } })),
+  );
+}
+
+type Props = { key: (typeof TEXT_PAGES)[number] };
+const lang = Astro.params.lang as Lang;
+const { key } = Astro.props;
+const content = STRINGS[lang].pages[key];
+---
+
+<Base lang={lang} title={content.title} page={key}>
+  <article class="wrap">
+    <div class="prose">
+      <h1>{content.title}</h1>
+      {content.body.map((p, i) => <p class={i === 0 ? "first" : undefined}>{p}</p>)}
+    </div>
+  </article>
+</Base>
+
+<style>
+  article {
+    padding-top: clamp(3rem, 8vw, 5rem);
+  }
+  h1 {
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+  .first {
+    font-size: var(--step-1);
+  }
+</style>

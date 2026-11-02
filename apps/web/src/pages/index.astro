@@ -1,0 +1,27 @@
+---
+// The site lives under /es/, /ca/ and /en/. Pick the visitor's language when possible.
+import { WEB_BRAND } from "../../brand";
+import { href } from "../i18n";
+const fallback = href("es");
+const targets = { es: href("es"), ca: href("ca"), en: href("en") };
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{WEB_BRAND.name}</title>
+    <meta http-equiv="refresh" content={`0; url=${fallback}`} />
+    <link rel="canonical" href={fallback} />
+    <script is:inline define:vars={{ targets, fallback }}>
+      const lang = (navigator.languages || [navigator.language])
+        .map((l) => l.slice(0, 2).toLowerCase())
+        .find((l) => l in targets);
+      location.replace(lang ? targets[lang] : fallback);
+    </script>
+  </head>
+  <body>
+    <ul><li><a href={targets.es}>Español</a></li><li><a href={targets.ca}>Català</a></li><li><a href={targets.en}>English</a></li></ul>
+  </body>
+</html>
