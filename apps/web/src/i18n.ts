@@ -1,12 +1,27 @@
 export const LANGS = ["es", "ca", "en"] as const;
 export type Lang = (typeof LANGS)[number];
-export type PageKey = "convert" | "privacy" | "accessibility";
+export type PageKey = "uses" | "convert" | "privacy" | "accessibility";
 
 /** Localized slugs for each page. */
 export const SLUGS: Record<Lang, Record<PageKey, string>> = {
-  es: { convert: "convertir", privacy: "privacidad", accessibility: "accesibilidad" },
-  ca: { convert: "convertir", privacy: "privacitat", accessibility: "accessibilitat" },
-  en: { convert: "convert", privacy: "privacy", accessibility: "accessibility" },
+  es: {
+    uses: "para-quien",
+    convert: "convertir",
+    privacy: "privacidad",
+    accessibility: "accesibilidad",
+  },
+  ca: {
+    uses: "per-a-qui",
+    convert: "convertir",
+    privacy: "privacitat",
+    accessibility: "accessibilitat",
+  },
+  en: {
+    uses: "who-its-for",
+    convert: "convert",
+    privacy: "privacy",
+    accessibility: "accessibility",
+  },
 };
 
 export const LANG_NAMES: Record<Lang, string> = { es: "Español", ca: "Català", en: "English" };
@@ -109,6 +124,70 @@ const es = {
   },
   footer: {
     license: "Software libre con licencia MPL-2.0.",
+  },
+  uses: {
+    title: "Para quién es",
+    intro:
+      "Cada persona lee a su manera. Estas son algunas formas de usar la herramienta según quién eres y para qué la necesitas. Todas tienen algo en común: es una ayuda opcional, que se ajusta o se apaga, y que no recoge ningún dato.",
+    homeHeading: "Para quién es",
+    how: "Cómo usarlo",
+    care: "A tener en cuenta",
+    cases: [
+      {
+        id: "educacion",
+        title: "Educación",
+        summary:
+          "Para docentes, centros y familias que quieren adaptar las lecturas sin crear materiales nuevos.",
+        link: "Ideas para el aula y para casa",
+        lede: "Para docentes, equipos de orientación y familias que quieren que leer cueste un poco menos, sin preparar materiales distintos para cada alumno.",
+        steps: [
+          "Adapta los materiales que ya tienes: convierte lecturas, apuntes o libros en EPUB, TXT, Markdown o HTML y compártelos tal cual.",
+          "En clase, proyecta la demo con el texto del día y probad juntos distintas intensidades y estilos. Que cada alumno diga qué le resulta más cómodo.",
+          "En los ordenadores del centro, la extensión funciona sin cuentas ni registros y no recoge datos del alumnado.",
+          "En casa, la misma extensión sirve para los deberes y las lecturas en la web.",
+        ],
+        notes: [
+          "Es una ayuda opcional: a unos alumnos les sirve y a otros no. Deja que cada uno elija y que pueda apagarla.",
+          "No sustituye la intervención educativa ni el diagnóstico de dificultades de aprendizaje.",
+        ],
+      },
+      {
+        id: "logopedia",
+        title: "Logopedia y otros profesionales",
+        summary:
+          "Para logopedas, psicopedagogos y orientadores que buscan una herramienta sencilla para probar en sesión.",
+        link: "Cómo usarlo en consulta",
+        lede: "Para logopedas, psicopedagogos, orientadores y otros profesionales que acompañan a personas con dificultades de lectura.",
+        steps: [
+          "En sesión, pega un texto en la demo y prueba varias configuraciones con la persona. Anota cuál le resulta más cómoda: intensidad, estilo, palabras destacadas, interlineado.",
+          "Prepara los materiales de trabajo con el conversor y entrégalos en papel, en pantalla o en el lector de libros electrónicos.",
+          "Recomienda la extensión para casa con la configuración que hayáis elegido juntos.",
+          "Todo funciona en el dispositivo: ningún texto ni dato de pacientes pasa por un servidor.",
+        ],
+        notes: [
+          "No es un tratamiento ni un método de reeducación lectora. Puede ser un apoyo dentro de tu intervención.",
+          "Los estudios no muestran que, de media, mejore la velocidad ni la comprensión. Plantéalo como una cuestión de comodidad y preferencia, y valóralo caso por caso.",
+        ],
+      },
+      {
+        id: "personas-adultas",
+        title: "Personas adultas",
+        summary:
+          "Para quien quiere volver a leer y se encuentra con que no se concentra, pierde la línea o se cansa enseguida.",
+        link: "Cómo empezar",
+        lede: "Si quieres leer más pero te cuesta empezar, pierdes la línea, lees la misma frase tres veces o te cansas a la segunda página, puede que esto te ayude. Y si no, no pasa nada.",
+        steps: [
+          "Instala la extensión y actívala con Alt+B en un artículo que te interese. Empieza por textos cortos.",
+          "Convierte un libro que tengas ganas de leer y pásalo a tu lector o a tu móvil.",
+          "Ajusta la intensidad hasta que te resulte cómodo. En «Más opciones» puedes aumentar el interlineado y estrechar las líneas: a mucha gente le ayuda tanto como el énfasis.",
+          "Si un día te cansa, apágalo. Es tu forma de leer, no una norma.",
+        ],
+        notes: [
+          "No a todo el mundo le funciona, y está bien. Pruébalo unos días antes de decidir.",
+          "Si crees que puede haber TDAH o dislexia detrás de tus dificultades, hablarlo con un profesional puede ayudarte.",
+        ],
+      },
+    ],
   },
   convert: {
     title: "Convertir un libro",
@@ -281,6 +360,70 @@ const ca: Strings = {
   footer: {
     license: "Programari lliure amb llicència MPL-2.0.",
   },
+  uses: {
+    title: "Per a qui és",
+    intro:
+      "Cada persona llegeix a la seva manera. Aquestes són algunes maneres de fer servir l'eina segons qui ets i per a què la necessites. Totes tenen una cosa en comú: és una ajuda opcional, que s'ajusta o s'apaga, i que no recull cap dada.",
+    homeHeading: "Per a qui és",
+    how: "Com fer-ho servir",
+    care: "A tenir en compte",
+    cases: [
+      {
+        id: "educacio",
+        title: "Educació",
+        summary:
+          "Per a docents, centres i famílies que volen adaptar les lectures sense crear materials nous.",
+        link: "Idees per a l'aula i per a casa",
+        lede: "Per a docents, equips d'orientació i famílies que volen que llegir costi una mica menys, sense preparar materials diferents per a cada alumne.",
+        steps: [
+          "Adapta els materials que ja tens: converteix lectures, apunts o llibres en EPUB, TXT, Markdown o HTML i comparteix-los tal com són.",
+          "A classe, projecta la demo amb el text del dia i proveu junts diferents intensitats i estils. Que cada alumne digui què li resulta més còmode.",
+          "Als ordinadors del centre, l'extensió funciona sense comptes ni registres i no recull dades de l'alumnat.",
+          "A casa, la mateixa extensió serveix per als deures i les lectures al web.",
+        ],
+        notes: [
+          "És una ajuda opcional: a uns alumnes els serveix i a d'altres no. Deixa que cadascú triï i que la pugui apagar.",
+          "No substitueix la intervenció educativa ni el diagnòstic de dificultats d'aprenentatge.",
+        ],
+      },
+      {
+        id: "logopedia",
+        title: "Logopèdia i altres professionals",
+        summary:
+          "Per a logopedes, psicopedagogs i orientadors que busquen una eina senzilla per provar en sessió.",
+        link: "Com fer-ho servir a la consulta",
+        lede: "Per a logopedes, psicopedagogs, orientadors i altres professionals que acompanyen persones amb dificultats de lectura.",
+        steps: [
+          "En sessió, enganxa un text a la demo i prova diverses configuracions amb la persona. Anota quina li resulta més còmoda: intensitat, estil, paraules destacades, interlineat.",
+          "Prepara els materials de treball amb el convertidor i lliura'ls en paper, en pantalla o al lector de llibres electrònics.",
+          "Recomana l'extensió per a casa amb la configuració que hàgiu triat junts.",
+          "Tot funciona al dispositiu: cap text ni cap dada de pacients passa per un servidor.",
+        ],
+        notes: [
+          "No és un tractament ni un mètode de reeducació lectora. Pot ser un suport dins de la teva intervenció.",
+          "Els estudis no mostren que, de mitjana, millori la velocitat ni la comprensió. Planteja-ho com una qüestió de comoditat i preferència, i valora-ho cas per cas.",
+        ],
+      },
+      {
+        id: "persones-adultes",
+        title: "Persones adultes",
+        summary:
+          "Per a qui vol tornar a llegir i es troba que no es concentra, perd la línia o es cansa de seguida.",
+        link: "Com començar",
+        lede: "Si vols llegir més però et costa començar, perds la línia, llegeixes la mateixa frase tres vegades o et canses a la segona pàgina, potser això t'ajuda. I si no, no passa res.",
+        steps: [
+          "Instal·la l'extensió i activa-la amb Alt+B en un article que t'interessi. Comença per textos curts.",
+          "Converteix un llibre que tinguis ganes de llegir i passa'l al teu lector o al mòbil.",
+          "Ajusta la intensitat fins que et resulti còmode. A «Més opcions» pots augmentar l'interlineat i estrènyer les línies: a molta gent l'ajuda tant com l'èmfasi.",
+          "Si un dia et cansa, apaga-ho. És la teva manera de llegir, no una norma.",
+        ],
+        notes: [
+          "No a tothom li funciona, i està bé. Prova-ho uns quants dies abans de decidir.",
+          "Si creus que hi pot haver TDAH o dislèxia darrere de les teves dificultats, parlar-ne amb un professional et pot ajudar.",
+        ],
+      },
+    ],
+  },
   convert: {
     title: "Convertir un llibre",
     intro:
@@ -446,6 +589,70 @@ const en: Strings = {
   footer: {
     license: "Free software under the MPL-2.0 licence.",
   },
+  uses: {
+    title: "Who it's for",
+    intro:
+      "Everyone reads in their own way. Here are some ways to use the tool depending on who you are and what you need it for. They all have one thing in common: it is an optional aid that you can tune or switch off, and it collects no data.",
+    homeHeading: "Who it's for",
+    how: "How to use it",
+    care: "Keep in mind",
+    cases: [
+      {
+        id: "education",
+        title: "Education",
+        summary:
+          "For teachers, schools and families who want to adapt reading material without creating new material.",
+        link: "Ideas for the classroom and home",
+        lede: "For teachers, learning support teams and families who want reading to take a little less effort, without preparing different material for every student.",
+        steps: [
+          "Adapt the material you already have: convert readings, notes or books in EPUB, TXT, Markdown or HTML and share them as they are.",
+          "In class, project the demo with the day's text and try different strengths and styles together. Let each student say what feels most comfortable.",
+          "On school computers, the extension works without accounts or sign-ups and collects no student data.",
+          "At home, the same extension helps with homework and reading on the web.",
+        ],
+        notes: [
+          "It is an optional aid: it helps some students and not others. Let each one choose, and switch it off if they want.",
+          "It does not replace educational support or the diagnosis of learning difficulties.",
+        ],
+      },
+      {
+        id: "speech-therapy",
+        title: "Speech therapists and other professionals",
+        summary:
+          "For speech and language therapists, educational psychologists and counsellors looking for a simple tool to try in sessions.",
+        link: "How to use it in sessions",
+        lede: "For speech and language therapists, educational psychologists, counsellors and other professionals who support people with reading difficulties.",
+        steps: [
+          "In a session, paste a text into the demo and try several settings with the person. Note which one feels most comfortable: strength, style, emphasized words, line spacing.",
+          "Prepare working material with the converter and hand it out on paper, on screen or on an ebook reader.",
+          "Recommend the extension for home use, with the settings you chose together.",
+          "Everything runs on the device: no text or patient data ever goes through a server.",
+        ],
+        notes: [
+          "It is not a treatment or a reading intervention method. It can be one support within your work.",
+          "Studies do not show an average gain in speed or comprehension. Present it as a matter of comfort and preference, and assess it case by case.",
+        ],
+      },
+      {
+        id: "adults",
+        title: "Adults",
+        summary:
+          "For people who want to get back into reading but can't focus, lose their place or tire quickly.",
+        link: "How to get started",
+        lede: "If you want to read more but struggle to get started, lose your place, read the same sentence three times or get tired by page two, this might help. And if it doesn't, that's fine.",
+        steps: [
+          "Install the extension and turn it on with Alt+B on an article you care about. Start with short texts.",
+          "Convert a book you actually want to read and put it on your ereader or phone.",
+          "Adjust the strength until it feels comfortable. Under “More options” you can add line spacing and narrow the lines: for many people that helps as much as the emphasis.",
+          "If it tires you one day, switch it off. It is your way of reading, not a rule.",
+        ],
+        notes: [
+          "It doesn't work for everyone, and that's fine. Give it a few days before deciding.",
+          "If you think ADHD or dyslexia might be behind your difficulties, talking to a professional can help.",
+        ],
+      },
+    ],
+  },
   convert: {
     title: "Convert a book",
     intro:
@@ -522,10 +729,11 @@ export function isLang(value: string | undefined): value is Lang {
 }
 
 /** URL for a page in a language, honouring the configured base path. */
-export function href(lang: Lang, page?: PageKey): string {
+export function href(lang: Lang, page?: PageKey, anchor?: string): string {
   const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
-  return page ? `${base}${lang}/${SLUGS[lang][page]}/` : `${base}${lang}/`;
+  const path = page ? `${base}${lang}/${SLUGS[lang][page]}/` : `${base}${lang}/`;
+  return anchor ? `${path}#${anchor}` : path;
 }
 
 /** Pages rendered by [lang]/[page].astro. */
-export const PAGES = ["convert", "privacy", "accessibility"] as const satisfies PageKey[];
+export const PAGES = ["uses", "convert", "privacy", "accessibility"] as const satisfies PageKey[];

@@ -39,6 +39,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
       </a>
       <nav>
         <ul>
+          <li><a href={href(lang, "uses")} aria-current={page === "uses" ? "page" : undefined}>{t.uses.title}</a></li>
           <li><a href={href(lang, "convert")} aria-current={page === "convert" ? "page" : undefined}>{t.nav.convert}</a></li>
           <li>
             <ul class="langs" aria-label={t.nav.language}>

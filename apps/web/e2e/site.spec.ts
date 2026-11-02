@@ -55,3 +55,15 @@ test("keyboard users can skip to content", async ({ page }) => {
   const skip = page.getByRole("link", { name: "Salta al contingut" });
   await expect(skip).toBeFocused();
 });
+
+test("who-it's-for page exists in every language and home links to each case", async ({ page }) => {
+  for (const path of ["/es/para-quien/", "/ca/per-a-qui/", "/en/who-its-for/"]) {
+    const response = await page.goto(path);
+    expect(response?.status()).toBe(200);
+    await expect(page.locator("main h2")).toHaveCount(3);
+  }
+  await page.goto("/es/");
+  await page.getByRole("link", { name: "Cómo usarlo en consulta" }).click();
+  await expect(page).toHaveURL(/\/es\/para-quien\/#logopedia$/);
+  await expect(page.locator("#logopedia h2")).toBeInViewport();
+});
