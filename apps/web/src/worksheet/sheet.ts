@@ -163,7 +163,8 @@ export const SHEET_CSS = `
 @media print {
   .sheet-wrap { width: 210mm; }
   .sheet-wrap:has(.landscape) { width: 297mm; }
-  .sheet { min-height: 296mm; border-radius: 0; }
+  /* Paper stays white: frames and drawings print, background tints do not (saves ink). */
+  .sheet { min-height: 296mm; border-radius: 0; background: #ffffff; }
   .sheet.landscape { min-height: 209mm; }
 }
 `.trim();

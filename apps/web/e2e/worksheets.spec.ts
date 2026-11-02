@@ -138,3 +138,13 @@ test("typing straight onto the worksheet updates the editor and keeps emphasis",
   await expect(page.getByLabel("Título", { exact: true })).toHaveValue("Mi título");
   await expect(page.locator("#ws-sheet .story fita-e").first()).toHaveText("Elefan");
 });
+
+test("prints on a white background, keeping the frame", async ({ page }) => {
+  await page.goto("/es/fichas/");
+  const sheet = page.locator("#ws-sheet .sheet");
+  await expect(sheet).toHaveCSS("background-color", "rgb(242, 248, 253)"); // clouds tint on screen
+  await page.emulateMedia({ media: "print" });
+  await expect(sheet).toHaveCSS("background-color", "rgb(255, 255, 255)");
+  const frame = await sheet.evaluate((el) => getComputedStyle(el, "::before").borderTopColor);
+  expect(frame).toBe("rgb(141, 187, 230)");
+});

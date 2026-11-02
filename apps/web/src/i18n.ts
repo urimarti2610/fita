@@ -226,7 +226,7 @@ const es = {
     print: "Imprimir o guardar en PDF",
     download: "Descargar la ficha",
     printHint:
-      "Para guardarla en PDF, elige «Guardar como PDF» en el diálogo de impresión. Si no salen los colores del marco, activa «Gráficos de fondo».",
+      "Para guardarla en PDF, elige «Guardar como PDF» en el diálogo de impresión. Se imprime sobre fondo blanco, para gastar menos tinta.",
     downloadHint:
       "La descarga es una página web que puedes abrir e imprimir cuando quieras, también sin conexión.",
     fileName: "ficha",
@@ -519,7 +519,7 @@ const ca: Strings = {
     print: "Imprimir o desar en PDF",
     download: "Descarregar la fitxa",
     printHint:
-      "Per desar-la en PDF, tria «Desa com a PDF» al diàleg d'impressió. Si no surten els colors del marc, activa «Gràfics de fons».",
+      "Per desar-la en PDF, tria «Desa com a PDF» al diàleg d'impressió. S'imprimeix sobre fons blanc, per gastar menys tinta.",
     downloadHint:
       "La descàrrega és una pàgina web que pots obrir i imprimir quan vulguis, també sense connexió.",
     fileName: "fitxa",
@@ -807,7 +807,7 @@ const en: Strings = {
     print: "Print or save as PDF",
     download: "Download the worksheet",
     printHint:
-      "To save it as a PDF, choose “Save as PDF” in the print dialog. If the frame colours are missing, turn on “Background graphics”.",
+      "To save it as a PDF, choose “Save as PDF” in the print dialog. It prints on a white background to save ink.",
     downloadHint: "The download is a web page you can open and print any time, even offline.",
     fileName: "worksheet",
     tabs: { text: "Text", layout: "Layout", emphasis: "Emphasis" },
