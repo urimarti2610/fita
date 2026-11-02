@@ -47,15 +47,15 @@ export function resolveOptions(options: Partial<EmphasisOptions> = {}): Emphasis
  */
 const PROTECTED = new RegExp(
   [
-    /`[^`\n]+`/.source, // inline code
-    /\b[a-z][a-z0-9+.-]*:\/\/[^\s<>"]+/.source, // scheme://…
-    /\bwww\.[^\s<>"]+/.source, // www.…
-    /[p{L}p{N}._%+-]+@[p{L}p{N}-]+(?:\.[p{L}p{N}-]+)+/.source, // email
-    /(?<![p{L}p{N}])(?:~|\.{1,2})?\/[p{L}p{N}._-]+(?:\/[p{L}p{N}._-]*)+/.source, // /unix/path
-    /\b[A-Za-z]:\\[^\s<>"]+/.source, // C:\windows\path
-    /[p{L}_$][p{L}p{N}_$]*(?:\.[p{L}_$][p{L}p{N}_$]*)+\([^()\s]*\)/.source, // a.b(x)
-    /[p{L}_$][p{L}p{N}_$]*\(\)/.source, // call()
-    /[p{L}p{N}]*_[p{L}p{N}_]+/.source, // snake_case
+    String.raw`\x60[^\x60\n]+\x60`, // `inline code`
+    String.raw`\b[a-z][a-z0-9+.\-]*:\/\/[^\s<>"]+`, // scheme://…
+    String.raw`\bwww\.[^\s<>"]+`, // www.…
+    String.raw`[\p{L}\p{N}._%+\-]+@[\p{L}\p{N}\-]+(?:\.[\p{L}\p{N}\-]+)+`, // email
+    String.raw`(?<![\p{L}\p{N}])(?:~|\.{1,2})?\/[\p{L}\p{N}._\-]+(?:\/[\p{L}\p{N}._\-]*)+`, // /unix/path
+    String.raw`\b[A-Za-z]:\\[^\s<>"]+`, // C:\windows\path
+    String.raw`[\p{L}_$][\p{L}\p{N}_$]*(?:\.[\p{L}_$][\p{L}\p{N}_$]*)+\([^()\s]*\)`, // a.b(x)
+    String.raw`[\p{L}_$][\p{L}\p{N}_$]*\(\)`, // call()
+    String.raw`[\p{L}\p{N}]*_[\p{L}\p{N}_]+`, // snake_case
   ].join("|"),
   "giu",
 );
