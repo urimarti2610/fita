@@ -24,3 +24,16 @@ jobs:
       - run: pnpm build
       - run: pnpm --filter @fita/extension exec playwright install --with-deps chromium
       - run: pnpm e2e
+      # The converter's EPUB output must pass the official validator.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: epubcheck
+        env:
+          EPUBCHECK: "5.2.1"
+        run: |
+          curl -fsSL -o epubcheck.zip "https://github.com/w3c/epubcheck/releases/download/v${EPUBCHECK}/epubcheck-${EPUBCHECK}.zip"
+          unzip -q epubcheck.zip
+          EPUB_SAMPLES_DIR="$PWD/epub-samples" pnpm --filter @fita/web exec vitest run test/epub-samples.test.ts
+          for f in epub-samples/*.epub; do java -jar "epubcheck-${EPUBCHECK}/epubcheck.jar" "$f"; done

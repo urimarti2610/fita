@@ -13,7 +13,9 @@
     "e2e": "playwright test"
   },
   "dependencies": {
-    "@fita/core": "workspace:*"
+    "@fita/core": "workspace:*",
+    "jszip": "3.10.2",
+    "marked": "18.1.2"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",

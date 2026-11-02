@@ -24,3 +24,9 @@ export {
   type Span,
   toHTML,
 } from "./emphasize.js";
+export {
+  createMarkupEmphasizer,
+  type MarkupConfig,
+  REST_CLASS,
+  staticEmphasisCSS,
+} from "./markup.js";

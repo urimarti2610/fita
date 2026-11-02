@@ -1,5 +1,6 @@
 ---
-import { EMPHASIS_STYLES, toHTML } from "@fita/core";
+import { toHTML } from "@fita/core";
+import EmphasisControls from "./EmphasisControls.astro";
 import type { Lang } from "../i18n";
 import { STRINGS } from "../i18n";
 
@@ -36,46 +37,7 @@ const initial = `<fita-w>${toHTML(t.sample, { locale: lang }, "fita-e")}</fita-w
   </div>
 
   <form class="controls" id="demo-controls" aria-label={t.heading}>
-    <div class="control">
-      <label for="demo-strength">{t.strength} <output id="demo-strength-value" for="demo-strength">40 %</output></label>
-      <input id="demo-strength" name="strength" type="range" min="0.2" max="0.7" step="0.05" value="0.4" />
-    </div>
-    <fieldset class="control styles">
-      <legend>{t.style}</legend>
-      {EMPHASIS_STYLES.map((style) => (
-        <label>
-          <input type="radio" name="style" value={style} checked={style === "bold"} />
-          <span>{t.styles[style]}</span>
-        </label>
-      ))}
-    </fieldset>
-    <details class="control more">
-      <summary>{t.more}</summary>
-      <div class="more-grid">
-        <label>
-          {t.every}
-          <select name="every">
-            {t.everyOptions.map((label, i) => <option value={i + 1}>{label}</option>)}
-          </select>
-        </label>
-        <label>
-          {t.lineHeight}
-          <select name="lineHeight">
-            <option value="">{t.pageDefault}</option>
-            <option value="1.8">1.8</option>
-            <option value="2">2.0</option>
-            <option value="2.2">2.2</option>
-          </select>
-        </label>
-        <label>
-          {t.maxWidth}
-          <select name="maxWidth">
-            <option value="">{t.pageDefault}</option>
-            {[50, 65, 80].map((w, i) => <option value={`${w}ch`}>{t.widths[i]}</option>)}
-          </select>
-        </label>
-      </div>
-    </details>
+    <EmphasisControls lang={lang} id="demo" layout="extended" />
   </form>
 </section>
 
@@ -85,7 +47,6 @@ const initial = `<fita-w>${toHTML(t.sample, { locale: lang }, "fita-e")}</fita-w
   const input = document.getElementById("demo-input") as HTMLTextAreaElement;
   const output = document.getElementById("demo-output") as HTMLElement;
   const form = document.getElementById("demo-controls") as HTMLFormElement;
-  const strengthValue = document.getElementById("demo-strength-value") as HTMLOutputElement;
   let controller: Controller | null = null;
 
   function options() {
@@ -105,7 +66,6 @@ const initial = `<fita-w>${toHTML(t.sample, { locale: lang }, "fita-e")}</fita-w
     output.setAttribute(STYLE_ATTRIBUTE, String(data.get("style")));
     output.style.lineHeight = String(data.get("lineHeight") ?? "");
     output.style.maxWidth = String(data.get("maxWidth") ?? "");
-    strengthValue.textContent = `${Math.round(Number(data.get("strength")) * 100)} %`;
   }
 
   let pending = 0;
@@ -144,9 +104,7 @@ const initial = `<fita-w>${toHTML(t.sample, { locale: lang }, "fita-e")}</fita-w
     grid-template-rows: auto 1fr;
   }
   label,
-  .label,
-  legend,
-  summary {
+  .label {
     font-weight: 700;
   }
   textarea,
@@ -173,75 +131,6 @@ const initial = `<fita-w>${toHTML(t.sample, { locale: lang }, "fita-e")}</fita-w
     overflow-wrap: anywhere;
   }
   .controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: start;
-    gap: 1.5rem 2.5rem;
     margin-top: 1.5rem;
-  }
-  .control {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.5rem;
-  }
-  .control output {
-    font-weight: 400;
-    color: var(--muted);
-    margin-left: 0.4rem;
-    font-variant-numeric: tabular-nums;
-  }
-  input[type="range"] {
-    width: min(16rem, 100%);
-    accent-color: var(--forest);
-  }
-  .styles {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-  .styles legend {
-    margin-bottom: 0.5rem;
-  }
-  .styles label {
-    font-weight: 400;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.35rem 0.8rem 0.35rem 0.55rem;
-    border: 1.5px solid var(--line);
-    border-radius: 999px;
-    cursor: pointer;
-  }
-  .styles label:has(input:checked) {
-    border-color: var(--forest);
-    background: var(--moss);
-  }
-  .styles input {
-    accent-color: var(--forest);
-    margin: 0;
-  }
-  .more summary {
-    cursor: pointer;
-    padding-block: 0.2rem;
-  }
-  .more-grid {
-    display: grid;
-    gap: 1rem;
-    margin-top: 0.75rem;
-  }
-  .more-grid label {
-    display: grid;
-    gap: 0.35rem;
-  }
-  select {
-    font: inherit;
-    font-weight: 400;
-    padding: 0.4rem 0.6rem;
-    border-radius: 8px;
-    border: 1.5px solid var(--line);
-    background: var(--paper);
-    color: var(--ink);
   }
 </style>

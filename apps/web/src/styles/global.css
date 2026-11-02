@@ -138,7 +138,9 @@ p {
   *,
   *::before,
   *::after {
+    /* biome-ignore lint/complexity/noImportantStyles: user preference must win */
     transition: none !important;
+    /* biome-ignore lint/complexity/noImportantStyles: user preference must win */
     animation: none !important;
   }
 }

@@ -104,6 +104,52 @@ const es = {
   footer: {
     license: "Software libre con licencia MPL-2.0.",
   },
+  convert: {
+    title: "Convertir un libro",
+    intro:
+      "Elige un libro o un documento y descarga una copia con el énfasis. El archivo no sale de tu dispositivo: todo se hace en este navegador, sin límite de tamaño.",
+    pick: "Elige un archivo",
+    drop: "o arrástralo aquí",
+    formats: "EPUB, TXT, Markdown o HTML",
+    selected: "Archivo elegido:",
+    output: "Formato del resultado",
+    outputs: { epub: "EPUB (libro electrónico)", html: "HTML (página web)", md: "Markdown" },
+    options: "Cómo destacar",
+    start: "Convertir",
+    progress: "Convirtiendo: {n} %",
+    cancel: "Cancelar",
+    cancelled: "Conversión cancelada. No se ha guardado nada.",
+    done: "Listo. El archivo está preparado.",
+    download: "Descargar {name}",
+    errors: {
+      unsupported:
+        "Este formato no se puede convertir. Elige un archivo EPUB, TXT, Markdown o HTML.",
+      drm: "Este libro tiene DRM (protección anticopia) y no se puede convertir. Si lo compraste, pregunta en la tienda si te pueden dar una copia sin DRM.",
+      invalid:
+        "No se ha podido leer este archivo. Comprueba que se abre en tu lector o prueba con otro.",
+      failed: "La conversión ha fallado ({detail}). Si vuelve a pasar, cuéntanoslo en GitHub.",
+    },
+    labels: { part: "Parte", contents: "Índice" },
+    devices: {
+      heading: "Cómo pasarlo a tu lector",
+      items: [
+        {
+          name: "Kindle",
+          text: "Usa «Enviar a Kindle» de Amazon (desde la web, la aplicación o por correo) y elige el archivo EPUB. Amazon lo adapta a tu Kindle.",
+        },
+        {
+          name: "Kobo",
+          text: "Conecta el Kobo al ordenador con el cable USB y copia el EPUB en el lector. Expúlsalo y aparecerá en tu biblioteca.",
+        },
+        {
+          name: "PocketBook",
+          text: "Cópialo por USB, igual que en un Kobo, o envíalo por correo con el servicio Send-to-PocketBook.",
+        },
+      ],
+      calibre:
+        "Si usas Calibre, añade el archivo a tu biblioteca y envíalo al lector como cualquier otro libro.",
+    },
+  },
   pages: {
     privacy: {
       title: "Privacidad",
@@ -223,6 +269,51 @@ const ca: Strings = {
   footer: {
     license: "Programari lliure amb llicència MPL-2.0.",
   },
+  convert: {
+    title: "Convertir un llibre",
+    intro:
+      "Tria un llibre o un document i descarrega'n una còpia amb l'èmfasi. El fitxer no surt del teu dispositiu: tot es fa en aquest navegador, sense límit de mida.",
+    pick: "Tria un fitxer",
+    drop: "o arrossega'l aquí",
+    formats: "EPUB, TXT, Markdown o HTML",
+    selected: "Fitxer triat:",
+    output: "Format del resultat",
+    outputs: { epub: "EPUB (llibre electrònic)", html: "HTML (pàgina web)", md: "Markdown" },
+    options: "Com destacar",
+    start: "Convertir",
+    progress: "Convertint: {n} %",
+    cancel: "Cancel·lar",
+    cancelled: "Conversió cancel·lada. No s'ha desat res.",
+    done: "Fet. El fitxer està preparat.",
+    download: "Descarregar {name}",
+    errors: {
+      unsupported: "Aquest format no es pot convertir. Tria un fitxer EPUB, TXT, Markdown o HTML.",
+      drm: "Aquest llibre té DRM (protecció anticòpia) i no es pot convertir. Si el vas comprar, pregunta a la botiga si te'n poden donar una còpia sense DRM.",
+      invalid:
+        "No s'ha pogut llegir aquest fitxer. Comprova que s'obre al teu lector o prova'n un altre.",
+      failed: "La conversió ha fallat ({detail}). Si torna a passar, explica-ho a GitHub.",
+    },
+    labels: { part: "Part", contents: "Índex" },
+    devices: {
+      heading: "Com passar-lo al teu lector",
+      items: [
+        {
+          name: "Kindle",
+          text: "Fes servir «Envia a Kindle» d'Amazon (des del web, l'aplicació o per correu) i tria el fitxer EPUB. Amazon l'adapta al teu Kindle.",
+        },
+        {
+          name: "Kobo",
+          text: "Connecta el Kobo a l'ordinador amb el cable USB i copia l'EPUB al lector. Expulsa'l i apareixerà a la teva biblioteca.",
+        },
+        {
+          name: "PocketBook",
+          text: "Copia'l per USB, igual que en un Kobo, o envia'l per correu amb el servei Send-to-PocketBook.",
+        },
+      ],
+      calibre:
+        "Si fas servir Calibre, afegeix el fitxer a la teva biblioteca i envia'l al lector com qualsevol altre llibre.",
+    },
+  },
   pages: {
     privacy: {
       title: "Privacitat",
@@ -337,6 +428,51 @@ const en: Strings = {
   footer: {
     license: "Free software under the MPL-2.0 licence.",
   },
+  convert: {
+    title: "Convert a book",
+    intro:
+      "Pick a book or a document and download a copy with emphasis. The file never leaves your device: everything happens in this browser, with no size limit.",
+    pick: "Choose a file",
+    drop: "or drop it here",
+    formats: "EPUB, TXT, Markdown or HTML",
+    selected: "Chosen file:",
+    output: "Output format",
+    outputs: { epub: "EPUB (ebook)", html: "HTML (web page)", md: "Markdown" },
+    options: "How to emphasize",
+    start: "Convert",
+    progress: "Converting: {n} %",
+    cancel: "Cancel",
+    cancelled: "Conversion cancelled. Nothing was saved.",
+    done: "Done. Your file is ready.",
+    download: "Download {name}",
+    errors: {
+      unsupported: "This format can't be converted. Choose an EPUB, TXT, Markdown or HTML file.",
+      drm: "This book has DRM (copy protection), so it can't be converted. If you bought it, ask the store whether they can give you a DRM-free copy.",
+      invalid:
+        "This file couldn't be read. Check that it opens in your reader, or try another one.",
+      failed: "The conversion failed ({detail}). If it happens again, please tell us on GitHub.",
+    },
+    labels: { part: "Part", contents: "Contents" },
+    devices: {
+      heading: "Getting it onto your reader",
+      items: [
+        {
+          name: "Kindle",
+          text: "Use Amazon's Send to Kindle (website, app or email) and choose the EPUB file. Amazon adapts it for your Kindle.",
+        },
+        {
+          name: "Kobo",
+          text: "Connect your Kobo to your computer with the USB cable and copy the EPUB onto it. Eject it and the book appears in your library.",
+        },
+        {
+          name: "PocketBook",
+          text: "Copy it over USB, as with a Kobo, or email it with the Send-to-PocketBook service.",
+        },
+      ],
+      calibre:
+        "If you use Calibre, add the file to your library and send it to your reader like any other book.",
+    },
+  },
   pages: {
     privacy: {
       title: "Privacy",
@@ -373,5 +509,5 @@ export function href(lang: Lang, page?: PageKey): string {
   return page ? `${base}${lang}/${SLUGS[lang][page]}/` : `${base}${lang}/`;
 }
 
-/** Plain text pages rendered by [lang]/[page].astro. */
-export const TEXT_PAGES = ["privacy", "accessibility"] as const satisfies PageKey[];
+/** Pages rendered by [lang]/[page].astro. */
+export const PAGES = ["convert", "privacy", "accessibility"] as const satisfies PageKey[];

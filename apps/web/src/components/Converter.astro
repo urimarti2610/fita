@@ -1,0 +1,284 @@
+---
+import { type Lang, STRINGS } from "../i18n";
+import EmphasisControls from "./EmphasisControls.astro";
+
+type Props = { lang: Lang };
+const { lang } = Astro.props;
+const t = STRINGS[lang].convert;
+// Texts the script needs, passed as data so nothing user-facing is hard-coded there.
+const messages = {
+  outputs: t.outputs,
+  progress: t.progress,
+  cancelled: t.cancelled,
+  done: t.done,
+  download: t.download,
+  errors: t.errors,
+  labels: t.labels,
+};
+---
+
+<form id="converter" class="converter" data-lang={lang} data-messages={JSON.stringify(messages)}>
+  <label class="drop" id="drop">
+    <span class="pick">{t.pick}</span>
+    <span class="hint">{t.drop}</span>
+    <span class="formats">{t.formats}</span>
+    <input
+      id="file"
+      name="file"
+      type="file"
+      accept=".epub,.txt,.text,.md,.markdown,.html,.htm,.xhtml,application/epub+zip,text/plain,text/markdown,text/html"
+    />
+  </label>
+  <p id="chosen" class="chosen" hidden>{t.selected} <strong id="chosen-name"></strong></p>
+
+  <div class="output-format" id="output-row" hidden>
+    <label for="output">{t.output}</label>
+    <select id="output" name="output"></select>
+  </div>
+
+  <fieldset class="options">
+    <legend>{t.options}</legend>
+    <EmphasisControls lang={lang} id="convert" layout="compact" />
+  </fieldset>
+
+  <div class="actions">
+    <button class="button primary" id="start" type="submit" disabled>{t.start}</button>
+    <button class="button" id="cancel" type="button" hidden>{t.cancel}</button>
+  </div>
+
+  <div class="result" aria-live="polite">
+    <progress id="progress" max="100" value="0" hidden></progress>
+    <p id="status" class="status"></p>
+    <p id="error" class="error" role="alert" hidden></p>
+    <a id="download" class="button primary" hidden href="#"></a>
+  </div>
+</form>
+
+<script>
+  import type { InputFormat, OutputFormat } from "../convert/convert";
+  import { detectFormat, OUTPUTS } from "../convert/convert";
+  import type { WorkerMessage } from "../convert/worker";
+
+  const form = document.getElementById("converter") as HTMLFormElement;
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const fileInput = $<HTMLInputElement>("file");
+  const drop = $<HTMLLabelElement>("drop");
+  const output = $<HTMLSelectElement>("output");
+  const start = $<HTMLButtonElement>("start");
+  const cancel = $<HTMLButtonElement>("cancel");
+  const progress = $<HTMLProgressElement>("progress");
+  const status = $<HTMLParagraphElement>("status");
+  const error = $<HTMLParagraphElement>("error");
+  const download = $<HTMLAnchorElement>("download");
+  const m = JSON.parse(form.dataset.messages as string) as {
+    outputs: Record<OutputFormat, string>;
+    progress: string;
+    cancelled: string;
+    done: string;
+    download: string;
+    errors: Record<"unsupported" | "drm" | "invalid" | "failed", string>;
+    labels: { part: string; contents: string };
+  };
+
+  let file: File | null = null;
+  let input: InputFormat | null = null;
+  let worker: Worker | null = null;
+  let url: string | null = null;
+
+  function reset() {
+    worker?.terminate();
+    worker = null;
+    progress.hidden = true;
+    cancel.hidden = true;
+    error.hidden = true;
+    download.hidden = true;
+    status.textContent = "";
+    if (url) URL.revokeObjectURL(url);
+    url = null;
+  }
+
+  function showError(text: string) {
+    reset();
+    error.textContent = text;
+    error.hidden = false;
+    start.disabled = !input;
+  }
+
+  function choose(chosen: File | undefined) {
+    reset();
+    file = chosen ?? null;
+    input = file ? detectFormat(file.name) : null;
+    $("chosen").hidden = !file;
+    $("chosen-name").textContent = file?.name ?? "";
+    output.replaceChildren(
+      ...(input ? OUTPUTS[input] : []).map((format) => new Option(m.outputs[format], format)),
+    );
+    $("output-row").hidden = !input || OUTPUTS[input].length < 2;
+    start.disabled = !input;
+    if (file && !input) showError(m.errors.unsupported);
+  }
+
+  fileInput.addEventListener("change", () => choose(fileInput.files?.[0]));
+  drop.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    drop.classList.add("over");
+  });
+  drop.addEventListener("dragleave", () => drop.classList.remove("over"));
+  drop.addEventListener("drop", (event) => {
+    event.preventDefault();
+    drop.classList.remove("over");
+    choose(event.dataTransfer?.files[0]);
+  });
+
+  cancel.addEventListener("click", () => {
+    reset();
+    status.textContent = m.cancelled;
+    start.disabled = false;
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!file || !input) return;
+    reset();
+    const data = new FormData(form);
+    start.disabled = true;
+    cancel.hidden = false;
+    progress.hidden = false;
+    progress.value = 0;
+    status.textContent = m.progress.replace("{n}", "0");
+    worker = new Worker(new URL("../convert/worker.ts", import.meta.url), { type: "module" });
+    worker.onmessage = (message: MessageEvent<WorkerMessage>) => {
+      const msg = message.data;
+      if (msg.type === "progress") {
+        progress.value = Math.round(msg.value * 100);
+        status.textContent = m.progress.replace("{n}", String(progress.value));
+        return;
+      }
+      if (msg.type === "error") {
+        showError(m.errors[msg.code].replace("{detail}", msg.detail ?? ""));
+        return;
+      }
+      worker?.terminate();
+      worker = null;
+      url = URL.createObjectURL(msg.blob);
+      download.href = url;
+      download.download = msg.name;
+      download.textContent = m.download.replace("{name}", msg.name);
+      download.hidden = false;
+      progress.hidden = true;
+      cancel.hidden = true;
+      status.textContent = m.done;
+      start.disabled = false;
+      download.focus();
+    };
+    worker.onerror = (e) => showError(m.errors.failed.replace("{detail}", e.message));
+    worker.postMessage({
+      file,
+      name: file.name,
+      input,
+      output: (output.value || OUTPUTS[input][0]) as OutputFormat,
+      strength: Number(data.get("strength")),
+      every: Number(data.get("every") ?? 1),
+      style: String(data.get("style") ?? "bold"),
+      lang: form.dataset.lang,
+      labels: m.labels,
+    });
+  });
+</script>
+
+<style>
+  .converter {
+    display: grid;
+    gap: 1.75rem;
+    max-width: 48rem;
+  }
+  .drop {
+    display: grid;
+    justify-items: start;
+    gap: 0.25rem;
+    padding: 2rem 1.75rem;
+    border: 2px dashed var(--line);
+    border-radius: 18px;
+    cursor: pointer;
+    background: transparent;
+  }
+  .drop:hover,
+  .drop.over,
+  .drop:focus-within {
+    border-color: var(--forest);
+    background: var(--moss);
+  }
+  .pick {
+    font-weight: 800;
+    font-size: var(--step-1);
+    color: var(--forest);
+  }
+  .formats,
+  .hint {
+    color: var(--muted);
+  }
+  .drop input {
+    margin-top: 0.75rem;
+    font: inherit;
+    font-size: var(--step--1);
+    max-width: 100%;
+  }
+  .chosen {
+    overflow-wrap: anywhere;
+  }
+  .output-format {
+    display: grid;
+    gap: 0.4rem;
+    justify-items: start;
+  }
+  .output-format label,
+  .options legend {
+    font-weight: 700;
+  }
+  .options {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .options legend {
+    font-size: var(--step-1);
+    margin-bottom: 1rem;
+    padding: 0;
+  }
+  select {
+    font: inherit;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .result {
+    display: grid;
+    gap: 0.75rem;
+    justify-items: start;
+  }
+  progress {
+    width: 100%;
+    height: 0.75rem;
+    accent-color: var(--forest);
+  }
+  .error {
+    padding: 0.9rem 1.1rem;
+    border-left: 4px solid currentColor;
+    background: var(--moss);
+    max-width: var(--measure);
+  }
+  [hidden] {
+    display: none;
+  }
+</style>
