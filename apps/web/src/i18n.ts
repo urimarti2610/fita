@@ -219,6 +219,12 @@ const es = {
     lines: "Líneas para escribir",
     linesOptions: ["Ninguna", "3 líneas", "6 líneas", "10 líneas"],
     preview: "Vista previa",
+    showPageSize: "Mostrar tamaño de página",
+    pageSizes: {
+      portrait: "A4 vertical (210 × 297 mm)",
+      landscape: "A4 horizontal (297 × 210 mm)",
+    },
+    pageN: "Página {n}",
     editHint:
       "Puedes escribir directamente en la ficha: haz clic en el título o en el texto. El énfasis se aplica al terminar.",
     editTitle: "Título de la ficha",
@@ -512,6 +518,12 @@ const ca: Strings = {
     lines: "Línies per escriure",
     linesOptions: ["Cap", "3 línies", "6 línies", "10 línies"],
     preview: "Previsualització",
+    showPageSize: "Mostrar la mida de la pàgina",
+    pageSizes: {
+      portrait: "A4 vertical (210 × 297 mm)",
+      landscape: "A4 horitzontal (297 × 210 mm)",
+    },
+    pageN: "Pàgina {n}",
     editHint:
       "Pots escriure directament a la fitxa: fes clic al títol o al text. L'èmfasi s'aplica en acabar.",
     editTitle: "Títol de la fitxa",
@@ -800,6 +812,9 @@ const en: Strings = {
     lines: "Lines for writing",
     linesOptions: ["None", "3 lines", "6 lines", "10 lines"],
     preview: "Preview",
+    showPageSize: "Show page size",
+    pageSizes: { portrait: "A4 portrait (210 × 297 mm)", landscape: "A4 landscape (297 × 210 mm)" },
+    pageN: "Page {n}",
     editHint:
       "You can type straight onto the worksheet: click the title or the text. Emphasis is applied when you finish.",
     editTitle: "Worksheet title",

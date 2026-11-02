@@ -148,3 +148,27 @@ test("prints on a white background, keeping the frame", async ({ page }) => {
   const frame = await sheet.evaluate((el) => getComputedStyle(el, "::before").borderTopColor);
   expect(frame).toBe("rgb(141, 187, 230)");
 });
+
+test("shows the page size and page breaks, and can hide them", async ({ page }) => {
+  await page.goto("/es/fichas/");
+  const size = page.locator("#ws-page-size");
+  await expect(size).toHaveText("A4 vertical (210 × 297 mm)");
+  await expect(page.locator(".page-break")).toHaveCount(0);
+
+  await page
+    .getByRole("textbox", { name: "Texto", exact: true })
+    .fill("Una frase larga para llenar la ficha. ".repeat(120));
+  await expect(page.locator(".page-break").first()).toHaveText("Página 2");
+
+  await page.getByLabel("Mostrar tamaño de página").uncheck();
+  await expect(size).toBeHidden();
+  await expect(page.locator("#ws-guides")).toBeHidden();
+  await page.reload();
+  await expect(page.getByLabel("Mostrar tamaño de página")).not.toBeChecked();
+  await expect(size).toBeHidden();
+
+  await page.getByLabel("Mostrar tamaño de página").check();
+  await page.getByRole("tab", { name: "Diseño" }).click();
+  await page.getByRole("radio", { name: "Horizontal" }).check();
+  await expect(size).toHaveText("A4 horizontal (297 × 210 mm)");
+});

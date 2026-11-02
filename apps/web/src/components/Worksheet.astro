@@ -51,6 +51,8 @@ const config = {
     textsFileName: t.textsFileName,
     fileName: t.fileName,
     editTitle: t.editTitle,
+    pageN: t.pageN,
+    pageSizes: t.pageSizes,
     editText: t.editText,
   },
   emphasisCSS: EMPHASIS_CSS,
@@ -166,10 +168,17 @@ const tabs = [
   </form>
 
   <section class="preview" aria-labelledby="ws-preview-title">
-    <h2 id="ws-preview-title" class="no-print">{t.preview}</h2>
+    <div class="preview-head no-print">
+      <h2 id="ws-preview-title">{t.preview}</h2>
+      <label class="check"><input type="checkbox" id="ws-show-size" checked /> {t.showPageSize}</label>
+    </div>
     <p id="ws-edit-hint" class="hint no-print">{t.editHint}</p>
     <p id="ws-overflow" class="overflow no-print" role="status" hidden>{t.overflow}</p>
-    <div class="sheet-wrap" id="ws-sheet" set:html={initial} />
+    <p id="ws-page-size" class="page-size no-print">{t.pageSizes.portrait}</p>
+    <div class="sheet-area">
+      <div class="sheet-wrap" id="ws-sheet" set:html={initial} />
+      <div id="ws-guides" class="guides no-print" aria-hidden="true"></div>
+    </div>
   </section>
 </div>
 
@@ -217,9 +226,10 @@ const tabs = [
       | "textsFileName"
       | "fileName"
       | "editTitle"
-      | "editText",
+      | "editText"
+      | "pageN",
       string
-    >;
+    > & { pageSizes: Record<Orientation, string> };
     emphasisCSS: string;
     sheetCSS: string;
   };
@@ -375,11 +385,48 @@ const tabs = [
     };
   }
 
-  function checkOverflow(orientation: Orientation) {
-    // The sheet is at least one page tall; anything taller spills onto a second page.
-    const page = sheet.clientWidth * pageRatio(orientation);
-    overflow.hidden = (sheet.firstElementChild?.scrollHeight ?? 0) <= page + 2;
+  // --- Page size: label and a dashed line where each printed page ends ---
+  const guides = $<HTMLElement>("ws-guides");
+  const pageSize = $<HTMLElement>("ws-page-size");
+  const showSize = $<HTMLInputElement>("ws-show-size");
+  const SHOW_SIZE_KEY = `${config.storageKey}-show-size`;
+  try {
+    showSize.checked = localStorage.getItem(SHOW_SIZE_KEY) !== "false";
+  } catch {
+    // Keep the default when storage is unavailable.
   }
+
+  function checkOverflow(orientation: Orientation) {
+    // The sheet is at least one page tall; anything taller spills onto more pages.
+    const page = sheet.clientWidth * pageRatio(orientation);
+    const height = sheet.firstElementChild?.scrollHeight ?? 0;
+    const pages = Math.max(1, Math.ceil((height - 2) / page));
+    overflow.hidden = pages === 1;
+    pageSize.textContent = m.pageSizes[orientation];
+    pageSize.hidden = !showSize.checked;
+    guides.hidden = !showSize.checked;
+    guides.replaceChildren(
+      ...Array.from({ length: pages - 1 }, (_, i) => {
+        const line = document.createElement("div");
+        line.className = "page-break";
+        line.style.top = `${page * (i + 1)}px`;
+        const label = document.createElement("span");
+        label.textContent = m.pageN.replace("{n}", String(i + 2));
+        line.append(label);
+        return line;
+      }),
+    );
+  }
+
+  showSize.addEventListener("change", () => {
+    try {
+      localStorage.setItem(SHOW_SIZE_KEY, String(showSize.checked));
+    } catch {
+      // Not remembered without storage; the toggle still works.
+    }
+    checkOverflow(read().orientation);
+  });
+  new ResizeObserver(() => checkOverflow(read().orientation)).observe(sheet);
 
   function render() {
     const data = read();
@@ -623,6 +670,9 @@ ${config.sheetCSS}
     accent-color: var(--forest);
     margin: 0;
   }
+  .preview-head .check {
+    font-size: var(--step--1);
+  }
   .check {
     display: flex;
     align-items: center;
@@ -698,6 +748,48 @@ ${config.sheetCSS}
   }
   .preview :global(.sheet .story.editing) {
     white-space: pre-wrap;
+  }
+  .preview-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+  }
+  .page-size {
+    margin: 0 0 -0.5rem;
+    font-size: var(--step--1);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .page-size[hidden],
+  .guides[hidden] {
+    display: none;
+  }
+  .sheet-area {
+    position: relative;
+  }
+  .guides {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .guides :global(.page-break) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-top: 2px dashed var(--forest);
+  }
+  .guides :global(.page-break span) {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.35rem;
+    padding: 0.05rem 0.55rem;
+    border-radius: 999px;
+    background: var(--forest);
+    color: var(--on-forest);
+    font-size: var(--step--1);
+    font-weight: 700;
   }
   .overflow {
     padding: 0.75rem 1rem;
