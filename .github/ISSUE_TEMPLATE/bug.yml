@@ -1,0 +1,27 @@
+name: Something doesn't work
+description: A bug in the extension, the website, the converter or the worksheets.
+labels: [bug]
+body:
+  - type: dropdown
+    id: part
+    attributes:
+      label: Where
+      options: [Browser extension, Website demo, Book converter, Worksheets, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Steps to reproduce help a lot. Don't attach private books or documents.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Firefox 140 on Android, Chrome 142 on Windows…
+  - type: input
+    id: language
+    attributes:
+      label: Language of the text or interface
