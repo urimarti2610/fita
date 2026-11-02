@@ -85,7 +85,7 @@ export const strings: Strings = {
       {
         q: "An gcosnaíonn sé aon rud?",
         a: [
-          "Ní chosnaíonn, agus ní chosnóidh go deo. Níl leagan íoctha ann, níl teorainn le focail ná le méid comhaid. Is bogearraí saora é faoin gceadúnas MPL-2.0.",
+          "Ní chosnaíonn, agus ní chosnóidh go deo. Níl leagan íoctha ann, níl teorainn le focail ná le méid comhaid. Is bogearraí saora é faoin gceadúnas Apache-2.0.",
         ],
       },
       {
@@ -113,7 +113,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Bogearraí saora faoin gceadúnas MPL-2.0.",
+    license: "Bogearraí saora faoin gceadúnas Apache-2.0.",
   },
   uses: {
     title: "Cé dó é",

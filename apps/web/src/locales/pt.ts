@@ -86,7 +86,7 @@ export const strings: Strings = {
       {
         q: "Tem algum custo?",
         a: [
-          "Não, e nunca terá. Sem versão paga, sem limite de palavras, sem limite de tamanho de ficheiro. É software livre com licença MPL-2.0.",
+          "Não, e nunca terá. Sem versão paga, sem limite de palavras, sem limite de tamanho de ficheiro. É software livre com licença Apache-2.0.",
         ],
       },
       {
@@ -112,7 +112,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Software livre com licença MPL-2.0.",
+    license: "Software livre com licença Apache-2.0.",
   },
   uses: {
     title: "Para quem é",

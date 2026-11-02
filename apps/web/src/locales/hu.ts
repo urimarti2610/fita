@@ -85,7 +85,7 @@ export const strings: Strings = {
       {
         q: "Kerül valamibe?",
         a: [
-          "Nem, és soha nem is fog. Nincs fizetős csomag, sem szókorlát, sem fájlméret-korlát. Szabad szoftver, MPL-2.0 licenc alatt.",
+          "Nem, és soha nem is fog. Nincs fizetős csomag, sem szókorlát, sem fájlméret-korlát. Szabad szoftver, Apache-2.0 licenc alatt.",
         ],
       },
       {
@@ -113,7 +113,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Szabad szoftver, MPL-2.0 licenc alatt.",
+    license: "Szabad szoftver, Apache-2.0 licenc alatt.",
   },
   uses: {
     title: "Kinek szól",

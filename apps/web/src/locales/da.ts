@@ -86,7 +86,7 @@ export const strings: Strings = {
       {
         q: "Koster det noget?",
         a: [
-          "Nej, og det kommer det aldrig til. Ingen betalingsversion, ingen ordgrænse, ingen grænse for filstørrelse. Det er fri software under MPL-2.0-licensen.",
+          "Nej, og det kommer det aldrig til. Ingen betalingsversion, ingen ordgrænse, ingen grænse for filstørrelse. Det er fri software under Apache-2.0-licensen.",
         ],
       },
       {
@@ -112,7 +112,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Fri software under MPL-2.0-licensen.",
+    license: "Fri software under Apache-2.0-licensen.",
   },
   uses: {
     title: "Hvem er det til",

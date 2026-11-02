@@ -85,7 +85,7 @@ export const strings: Strings = {
       {
         q: "Vai tas kaut ko maksā?",
         a: [
-          "Nē, un nekad nemaksās. Nav maksas versijas, nav vārdu ierobežojuma, nav faila izmēra ierobežojuma. Tā ir brīvā programmatūra ar MPL-2.0 licenci.",
+          "Nē, un nekad nemaksās. Nav maksas versijas, nav vārdu ierobežojuma, nav faila izmēra ierobežojuma. Tā ir brīvā programmatūra ar Apache-2.0 licenci.",
         ],
       },
       {
@@ -113,7 +113,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Brīvā programmatūra ar MPL-2.0 licenci.",
+    license: "Brīvā programmatūra ar Apache-2.0 licenci.",
   },
   uses: {
     title: "Kam tas noder",

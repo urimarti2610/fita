@@ -85,7 +85,7 @@ export const strings: Strings = {
       {
         q: "Stojí to niečo?",
         a: [
-          "Nie a nikdy nebude. Žiadna platená verzia, žiadny limit slov, žiadny limit veľkosti súboru. Je to slobodný softvér pod licenciou MPL-2.0.",
+          "Nie a nikdy nebude. Žiadna platená verzia, žiadny limit slov, žiadny limit veľkosti súboru. Je to slobodný softvér pod licenciou Apache-2.0.",
         ],
       },
       {
@@ -111,7 +111,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Slobodný softvér pod licenciou MPL-2.0.",
+    license: "Slobodný softvér pod licenciou Apache-2.0.",
   },
   uses: {
     title: "Pre koho to je",

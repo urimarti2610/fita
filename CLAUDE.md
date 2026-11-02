@@ -41,7 +41,7 @@ El nombre `fita` es provisional. Úsalo solo a través de una constante o config
 /
 ├─ CLAUDE.md                 ← este documento
 ├─ README.md                 ← en inglés, con secciones resumidas en español y catalán
-├─ LICENSE                   ← MPL-2.0
+├─ LICENSE, NOTICE           ← Apache-2.0 (código) · LICENSE-CONTENT.md ← CC BY 4.0 (textos e imágenes)
 ├─ CONTRIBUTING.md
 ├─ CODE_OF_CONDUCT.md
 ├─ PRIVACY.md                ← "no recogemos ningún dato", explicado en llano

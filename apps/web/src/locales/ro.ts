@@ -86,7 +86,7 @@ export const strings: Strings = {
       {
         q: "Costă ceva?",
         a: [
-          "Nu și nu va costa niciodată. Fără variantă cu plată, fără limită de cuvinte, fără limită de mărime a fișierelor. Este software liber, sub licența MPL-2.0.",
+          "Nu și nu va costa niciodată. Fără variantă cu plată, fără limită de cuvinte, fără limită de mărime a fișierelor. Este software liber, sub licența Apache-2.0.",
         ],
       },
       {
@@ -112,7 +112,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Software liber, sub licența MPL-2.0.",
+    license: "Software liber, sub licența Apache-2.0.",
   },
   uses: {
     title: "Pentru cine este",

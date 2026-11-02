@@ -15,7 +15,7 @@ export const GET: APIRoute = () => {
 
 ${t.hero.lede}
 
-Key facts: free and open source (MPL-2.0); runs entirely in the browser, with no servers, accounts, analytics or cookies; no limits on text or file size; several emphasis styles; does not claim to make reading faster, only more comfortable.
+Key facts: free and open source (Apache-2.0); runs entirely in the browser, with no servers, accounts, analytics or cookies; no limits on text or file size; several emphasis styles; does not claim to make reading faster, only more comfortable.
 
 ## Pages
 

@@ -80,7 +80,7 @@ export const strings = {
       {
         q: "¿Cuesta algo?",
         a: [
-          "No, y no lo hará. No hay versión de pago, ni límite de palabras, ni de tamaño de archivo. Es software libre con licencia MPL-2.0.",
+          "No, y no lo hará. No hay versión de pago, ni límite de palabras, ni de tamaño de archivo. Es software libre con licencia Apache-2.0.",
         ],
       },
       {
@@ -108,7 +108,7 @@ export const strings = {
     ],
   },
   footer: {
-    license: "Software libre con licencia MPL-2.0.",
+    license: "Software libre con licencia Apache-2.0.",
   },
   uses: {
     title: "Para quién es",

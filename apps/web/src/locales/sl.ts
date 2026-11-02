@@ -84,7 +84,7 @@ export const strings: Strings = {
       {
         q: "Ali kaj stane?",
         a: [
-          "Ne in nikoli ne bo. Brez plačljive različice, brez omejitve besed, brez omejitve velikosti datoteke. Gre za prosto programje z licenco MPL-2.0.",
+          "Ne in nikoli ne bo. Brez plačljive različice, brez omejitve besed, brez omejitve velikosti datoteke. Gre za prosto programje z licenco Apache-2.0.",
         ],
       },
       {
@@ -110,7 +110,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Prosto programje z licenco MPL-2.0.",
+    license: "Prosto programje z licenco Apache-2.0.",
   },
   uses: {
     title: "Za koga je",

@@ -84,7 +84,7 @@ export const strings: Strings = {
       {
         q: "Kas see maksab midagi?",
         a: [
-          "Ei, ega hakka kunagi maksma. Pole tasulist versiooni, sõnade arvu ega failisuuruse piirangut. See on vaba tarkvara MPL-2.0 litsentsi all.",
+          "Ei, ega hakka kunagi maksma. Pole tasulist versiooni, sõnade arvu ega failisuuruse piirangut. See on vaba tarkvara Apache-2.0 litsentsi all.",
         ],
       },
       {
@@ -110,7 +110,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Vaba tarkvara MPL-2.0 litsentsi all.",
+    license: "Vaba tarkvara Apache-2.0 litsentsi all.",
   },
   uses: {
     title: "Kellele see on",

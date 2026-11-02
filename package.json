@@ -1,7 +1,7 @@
 {
   "name": "fita-monorepo",
   "private": true,
-  "license": "MPL-2.0",
+  "license": "Apache-2.0",
   "homepage": "https://fitaread.com",
   "repository": {
     "type": "git",

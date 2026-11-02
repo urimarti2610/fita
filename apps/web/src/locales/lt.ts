@@ -84,7 +84,7 @@ export const strings: Strings = {
       {
         q: "Ar tai kainuoja?",
         a: [
-          "Ne, ir niekada nekainuos. Jokios mokamos versijos, jokio žodžių ar failo dydžio apribojimo. Tai laisvoji programinė įranga pagal MPL-2.0 licenciją.",
+          "Ne, ir niekada nekainuos. Jokios mokamos versijos, jokio žodžių ar failo dydžio apribojimo. Tai laisvoji programinė įranga pagal Apache-2.0 licenciją.",
         ],
       },
       {
@@ -112,7 +112,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Laisvoji programinė įranga pagal MPL-2.0 licenciją.",
+    license: "Laisvoji programinė įranga pagal Apache-2.0 licenciją.",
   },
   uses: {
     title: "Kam skirta",

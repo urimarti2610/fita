@@ -101,7 +101,7 @@ export function jsonLd(lang: Lang, page?: PageKey): object {
       operatingSystem: "Web, Chrome, Edge, Firefox",
       isAccessibleForFree: true,
       offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-      license: "https://www.mozilla.org/MPL/2.0/",
+      license: "https://www.apache.org/licenses/LICENSE-2.0",
       codeRepository: BRAND.repository,
     },
   ];

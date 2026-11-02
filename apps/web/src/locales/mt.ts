@@ -86,7 +86,7 @@ export const strings: Strings = {
       {
         q: "Tiswa xi ħaġa?",
         a: [
-          "Le, u qatt mhi se tiswa. M’hemmx verżjoni bi ħlas, l-ebda limitu ta’ kliem u l-ebda limitu fid-daqs tal-fajl. Hija softwer ħieles taħt il-liċenzja MPL-2.0.",
+          "Le, u qatt mhi se tiswa. M’hemmx verżjoni bi ħlas, l-ebda limitu ta’ kliem u l-ebda limitu fid-daqs tal-fajl. Hija softwer ħieles taħt il-liċenzja Apache-2.0.",
         ],
       },
       {
@@ -112,7 +112,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Softwer ħieles taħt il-liċenzja MPL-2.0.",
+    license: "Softwer ħieles taħt il-liċenzja Apache-2.0.",
   },
   uses: {
     title: "Għal min hi",

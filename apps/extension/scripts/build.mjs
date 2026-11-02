@@ -50,6 +50,8 @@ for (const browser of ["chrome", "firefox"]) {
     define: { "process.env.E2E": JSON.stringify(String(e2e)) },
   });
   cpSync(join(root, "static"), out, { recursive: true });
+  // Apache-2.0 §4: ship the licence and the attribution notice with every copy.
+  for (const file of ["LICENSE", "NOTICE"]) cpSync(join(root, "../..", file), join(out, file));
   writeFileSync(join(out, "content.css"), CONTENT_CSS);
   writeFileSync(
     join(out, "manifest.json"),
@@ -68,7 +70,10 @@ async function zip(dir, file) {
     for (const name of readdirSync(d).sort()) {
       const path = join(d, name);
       if (statSync(path).isDirectory()) walk(path);
-      else archive.file(relative(dir, path), readFileSync(path), { date: new Date(0) });
+      else
+        archive.file(relative(dir, path), readFileSync(path), {
+          date: new Date("2026-01-01T00:00:00Z"),
+        });
     }
   };
   walk(dir);

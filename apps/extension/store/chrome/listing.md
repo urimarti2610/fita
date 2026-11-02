@@ -39,7 +39,7 @@ No prometemos leer más rápido: los estudios no muestran una mejora media de ve
 
 En fitaread.com también puedes convertir tus libros electrónicos (EPUB) y preparar fichas de lectura.
 
-Software libre (MPL-2.0): https://github.com/urimarti2610/fita
+Software libre (Apache-2.0): https://github.com/urimarti2610/fita
 
 ---
 
@@ -72,7 +72,7 @@ No prometem llegir més ràpid: els estudis no mostren una millora mitjana de ve
 
 A fitaread.com també pots convertir els teus llibres electrònics (EPUB) i preparar fitxes de lectura.
 
-Programari lliure (MPL-2.0): https://github.com/urimarti2610/fita
+Programari lliure (Apache-2.0): https://github.com/urimarti2610/fita
 
 ---
 
@@ -105,4 +105,4 @@ We don't promise faster reading: studies show no average speed gain. What we off
 
 At fitaread.com you can also convert your ebooks (EPUB) and make reading worksheets.
 
-Free software (MPL-2.0): https://github.com/urimarti2610/fita
+Free software (Apache-2.0): https://github.com/urimarti2610/fita

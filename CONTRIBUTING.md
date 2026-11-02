@@ -18,3 +18,7 @@ These are not negotiable — pull requests that break them cannot be merged:
 - Code and comments in English. All user-facing strings go through the translation files (`apps/web/src/locales/`, `apps/extension/src/locales/`); see "Languages" in the README.
 - Prefer the web platform (`Intl`, `TreeWalker`, `DOMParser`) over new dependencies. Every new dependency must be justified in the commit message.
 - The provisional name lives in `packages/core/src/brand.ts` and `apps/*/brand.*`. Never hard-code it elsewhere.
+
+## Licensing of contributions
+
+By contributing, you agree that your code is licensed under the [Apache License 2.0](LICENSE) and your texts and images under [CC BY 4.0](LICENSE-CONTENT.md), the same terms as the rest of the project.

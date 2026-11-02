@@ -84,7 +84,7 @@ export const strings: Strings = {
       {
         q: "Maksaako se mitään?",
         a: [
-          "Ei, eikä tule koskaan maksamaan. Ei maksullista versiota, ei sanarajaa eikä tiedostokoon rajaa. Se on vapaata ohjelmistoa MPL-2.0-lisenssillä.",
+          "Ei, eikä tule koskaan maksamaan. Ei maksullista versiota, ei sanarajaa eikä tiedostokoon rajaa. Se on vapaata ohjelmistoa Apache-2.0-lisenssillä.",
         ],
       },
       {
@@ -110,7 +110,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Vapaata ohjelmistoa MPL-2.0-lisenssillä.",
+    license: "Vapaata ohjelmistoa Apache-2.0-lisenssillä.",
   },
   uses: {
     title: "Kenelle se on",

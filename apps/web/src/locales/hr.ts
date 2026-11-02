@@ -84,7 +84,7 @@ export const strings: Strings = {
       {
         q: "Košta li išta?",
         a: [
-          "Ne, i nikad neće. Nema plaćene verzije, ograničenja broja riječi ni ograničenja veličine datoteke. To je slobodni softver pod licencom MPL-2.0.",
+          "Ne, i nikad neće. Nema plaćene verzije, ograničenja broja riječi ni ograničenja veličine datoteke. To je slobodni softver pod licencom Apache-2.0.",
         ],
       },
       {
@@ -110,7 +110,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Slobodni softver pod licencom MPL-2.0.",
+    license: "Slobodni softver pod licencom Apache-2.0.",
   },
   uses: {
     title: "Za koga je",

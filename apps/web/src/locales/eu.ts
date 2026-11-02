@@ -84,7 +84,7 @@ export const strings: Strings = {
       {
         q: "Ordaindu behar da ezer?",
         a: [
-          "Ez, eta ez da inoiz ordaindu beharko. Ez dago ordainpeko bertsiorik, ez hitz-mugarik, ez fitxategi-tamainaren mugarik. Software librea da, MPL-2.0 lizentziapean.",
+          "Ez, eta ez da inoiz ordaindu beharko. Ez dago ordainpeko bertsiorik, ez hitz-mugarik, ez fitxategi-tamainaren mugarik. Software librea da, Apache-2.0 lizentziapean.",
         ],
       },
       {
@@ -110,7 +110,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Software librea, MPL-2.0 lizentziapean.",
+    license: "Software librea, Apache-2.0 lizentziapean.",
   },
   uses: {
     title: "Norentzat",

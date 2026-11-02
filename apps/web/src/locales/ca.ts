@@ -81,7 +81,7 @@ export const strings: Strings = {
       {
         q: "Costa alguna cosa?",
         a: [
-          "No, i no ho farà. No hi ha versió de pagament, ni límit de paraules, ni de mida de fitxer. És programari lliure amb llicència MPL-2.0.",
+          "No, i no ho farà. No hi ha versió de pagament, ni límit de paraules, ni de mida de fitxer. És programari lliure amb llicència Apache-2.0.",
         ],
       },
       {
@@ -109,7 +109,7 @@ export const strings: Strings = {
     ],
   },
   footer: {
-    license: "Programari lliure amb llicència MPL-2.0.",
+    license: "Programari lliure amb llicència Apache-2.0.",
   },
   uses: {
     title: "Per a qui és",
