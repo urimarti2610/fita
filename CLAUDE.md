@@ -59,8 +59,8 @@ El nombre `fita` es provisional. Úsalo solo a través de una constante o config
 
 ```ts
 type EmphasisOptions = {
-  strength: number; // 0.2–0.7: fracción de la palabra a destacar. Por defecto 0.4
-  minWordLength: number; // palabras más cortas: se destaca 1 grafema. Por defecto 1
+  strength: number; // 0.2–0.7: fracción de la palabra a destacar. Por defecto 0.45
+  minWordLength: number; // palabras más cortas: se destaca 1 grafema. Por defecto 4
   every: number; // destacar 1 de cada N palabras. Por defecto 1 (todas)
   skipNumbers: boolean; // por defecto true
   locale?: string; // BCP-47; si falta, autodetectar o usar el del documento
