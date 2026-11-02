@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Pripomoček za branje: nežno poudari začetek vsake besede in tako vodi pogled. Zaseben, brezplačen in z odprto kodo."
+  },
+  "toggleLabel": {
+    "message": "Poudarjanje na tej strani"
+  },
+  "statusOn": {
+    "message": "Vklopljeno v tem zavihku."
+  },
+  "statusOff": {
+    "message": "Izklopljeno v tem zavihku."
+  },
+  "unavailable": {
+    "message": "Brskalnik na tej strani ne dovoli razširitev."
+  },
+  "whereLegend": {
+    "message": "Kje naj se samodejno vklopi"
+  },
+  "alwaysOnSite": {
+    "message": "Vedno na tej strani"
+  },
+  "allSites": {
+    "message": "Na vseh straneh"
+  },
+  "strength": {
+    "message": "Jakost"
+  },
+  "style": {
+    "message": "Slog"
+  },
+  "styleBoldFade": {
+    "message": "Krepko in zatemnjeno"
+  },
+  "styleBold": {
+    "message": "Krepko"
+  },
+  "styleColor": {
+    "message": "Barva"
+  },
+  "styleUnderline": {
+    "message": "Podčrtano"
+  },
+  "styleFade": {
+    "message": "Zatemni preostanek"
+  },
+  "moreOptions": {
+    "message": "Več možnosti"
+  },
+  "every": {
+    "message": "Poudari"
+  },
+  "everyAll": {
+    "message": "Vsako besedo"
+  },
+  "every2": {
+    "message": "Vsako drugo besedo"
+  },
+  "every3": {
+    "message": "Vsako tretjo besedo"
+  },
+  "lineHeight": {
+    "message": "Razmik med vrsticami"
+  },
+  "maxWidth": {
+    "message": "Največja širina vrstice"
+  },
+  "pageDefault": {
+    "message": "Kot na strani"
+  },
+  "width50": {
+    "message": "Ozka (50 znakov)"
+  },
+  "width65": {
+    "message": "Srednja (65 znakov)"
+  },
+  "width80": {
+    "message": "Široka (80 znakov)"
+  },
+  "siteSettings": {
+    "message": "Te nastavitve uporabi samo na tej strani"
+  },
+  "shortcutNone": {
+    "message": "Nastavi bližnjico na tipkovnici"
+  },
+  "permissionDenied": {
+    "message": "Dovoljenje ni bilo odobreno: nič se ni spremenilo."
+  },
+  "contextMenuEnable": {
+    "message": "Vklopi na tej strani"
+  },
+  "commandToggle": {
+    "message": "Vklopi ali izklopi poudarjanje"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Bližnjica: $SHORTCUT$ (spremeni)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

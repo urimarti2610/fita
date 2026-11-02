@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Leeshulp: laat het begin van elk woord rustig opvallen om je ogen te leiden. Privé, gratis en open source."
+  },
+  "toggleLabel": {
+    "message": "Nadruk op deze pagina"
+  },
+  "statusOn": {
+    "message": "Aan in dit tabblad."
+  },
+  "statusOff": {
+    "message": "Uit in dit tabblad."
+  },
+  "unavailable": {
+    "message": "De browser staat geen extensies toe op deze pagina."
+  },
+  "whereLegend": {
+    "message": "Waar het automatisch aangaat"
+  },
+  "alwaysOnSite": {
+    "message": "Altijd op deze website"
+  },
+  "allSites": {
+    "message": "Op alle websites"
+  },
+  "strength": {
+    "message": "Sterkte"
+  },
+  "style": {
+    "message": "Stijl"
+  },
+  "styleBoldFade": {
+    "message": "Vet en vervaagd"
+  },
+  "styleBold": {
+    "message": "Vet"
+  },
+  "styleColor": {
+    "message": "Kleur"
+  },
+  "styleUnderline": {
+    "message": "Onderstreept"
+  },
+  "styleFade": {
+    "message": "Rest vervagen"
+  },
+  "moreOptions": {
+    "message": "Meer opties"
+  },
+  "every": {
+    "message": "Benadrukken"
+  },
+  "everyAll": {
+    "message": "Elk woord"
+  },
+  "every2": {
+    "message": "1 op de 2 woorden"
+  },
+  "every3": {
+    "message": "1 op de 3 woorden"
+  },
+  "lineHeight": {
+    "message": "Regelafstand"
+  },
+  "maxWidth": {
+    "message": "Maximale regelbreedte"
+  },
+  "pageDefault": {
+    "message": "Zoals de pagina"
+  },
+  "width50": {
+    "message": "Smal (50 tekens)"
+  },
+  "width65": {
+    "message": "Gemiddeld (65 tekens)"
+  },
+  "width80": {
+    "message": "Breed (80 tekens)"
+  },
+  "siteSettings": {
+    "message": "Deze instellingen alleen op deze website gebruiken"
+  },
+  "shortcutNone": {
+    "message": "Sneltoets instellen"
+  },
+  "permissionDenied": {
+    "message": "Geen toestemming gegeven: er is niets veranderd."
+  },
+  "contextMenuEnable": {
+    "message": "Aanzetten op deze website"
+  },
+  "commandToggle": {
+    "message": "Nadruk aan- of uitzetten"
+  },
+  "badgeOn": {
+    "message": "AAN"
+  },
+  "shortcutHint": {
+    "message": "Sneltoets: $SHORTCUT$ (wijzigen)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

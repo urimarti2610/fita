@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Aide à la lecture : met doucement en évidence le début de chaque mot pour guider vos yeux. Privée, gratuite et open source."
+  },
+  "toggleLabel": {
+    "message": "Mise en évidence sur cette page"
+  },
+  "statusOn": {
+    "message": "Activée dans cet onglet."
+  },
+  "statusOff": {
+    "message": "Désactivée dans cet onglet."
+  },
+  "unavailable": {
+    "message": "Le navigateur n’autorise pas les extensions sur cette page."
+  },
+  "whereLegend": {
+    "message": "Où l’activer automatiquement"
+  },
+  "alwaysOnSite": {
+    "message": "Toujours sur ce site"
+  },
+  "allSites": {
+    "message": "Sur tous les sites"
+  },
+  "strength": {
+    "message": "Intensité"
+  },
+  "style": {
+    "message": "Style"
+  },
+  "styleBoldFade": {
+    "message": "Gras et atténué"
+  },
+  "styleBold": {
+    "message": "Gras"
+  },
+  "styleColor": {
+    "message": "Couleur"
+  },
+  "styleUnderline": {
+    "message": "Soulignement"
+  },
+  "styleFade": {
+    "message": "Atténuer le reste"
+  },
+  "moreOptions": {
+    "message": "Plus d’options"
+  },
+  "every": {
+    "message": "Mettre en évidence"
+  },
+  "everyAll": {
+    "message": "Tous les mots"
+  },
+  "every2": {
+    "message": "1 mot sur 2"
+  },
+  "every3": {
+    "message": "1 mot sur 3"
+  },
+  "lineHeight": {
+    "message": "Interligne"
+  },
+  "maxWidth": {
+    "message": "Largeur de ligne maximale"
+  },
+  "pageDefault": {
+    "message": "Comme la page"
+  },
+  "width50": {
+    "message": "Étroite (50 caractères)"
+  },
+  "width65": {
+    "message": "Moyenne (65 caractères)"
+  },
+  "width80": {
+    "message": "Large (80 caractères)"
+  },
+  "siteSettings": {
+    "message": "Utiliser ces réglages uniquement sur ce site"
+  },
+  "shortcutNone": {
+    "message": "Définir un raccourci clavier"
+  },
+  "permissionDenied": {
+    "message": "Autorisation refusée : rien n’a changé."
+  },
+  "contextMenuEnable": {
+    "message": "Activer sur ce site"
+  },
+  "commandToggle": {
+    "message": "Activer ou désactiver la mise en évidence"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Raccourci : $SHORTCUT$ (modifier)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

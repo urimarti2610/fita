@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Помощник за четене: нежно подчертава началото на всяка дума, за да води погледа. Поверителен, безплатен и с отворен код."
+  },
+  "toggleLabel": {
+    "message": "Подчертаване на тази страница"
+  },
+  "statusOn": {
+    "message": "Включено в този раздел."
+  },
+  "statusOff": {
+    "message": "Изключено в този раздел."
+  },
+  "unavailable": {
+    "message": "Браузърът не позволява разширения на тази страница."
+  },
+  "whereLegend": {
+    "message": "Къде да се включва автоматично"
+  },
+  "alwaysOnSite": {
+    "message": "Винаги на този сайт"
+  },
+  "allSites": {
+    "message": "На всички сайтове"
+  },
+  "strength": {
+    "message": "Сила"
+  },
+  "style": {
+    "message": "Стил"
+  },
+  "styleBoldFade": {
+    "message": "Удебелено и избледнено"
+  },
+  "styleBold": {
+    "message": "Удебелено"
+  },
+  "styleColor": {
+    "message": "Цвят"
+  },
+  "styleUnderline": {
+    "message": "Подчертано"
+  },
+  "styleFade": {
+    "message": "Избледняване на останалото"
+  },
+  "moreOptions": {
+    "message": "Още настройки"
+  },
+  "every": {
+    "message": "Подчертавай"
+  },
+  "everyAll": {
+    "message": "Всяка дума"
+  },
+  "every2": {
+    "message": "1 от всеки 2 думи"
+  },
+  "every3": {
+    "message": "1 от всеки 3 думи"
+  },
+  "lineHeight": {
+    "message": "Разстояние между редовете"
+  },
+  "maxWidth": {
+    "message": "Максимална ширина на реда"
+  },
+  "pageDefault": {
+    "message": "Като на страницата"
+  },
+  "width50": {
+    "message": "Тясно (50 знака)"
+  },
+  "width65": {
+    "message": "Средно (65 знака)"
+  },
+  "width80": {
+    "message": "Широко (80 знака)"
+  },
+  "siteSettings": {
+    "message": "Използвай тези настройки само на този сайт"
+  },
+  "shortcutNone": {
+    "message": "Задай клавишна комбинация"
+  },
+  "permissionDenied": {
+    "message": "Разрешението не е дадено: нищо не е променено."
+  },
+  "contextMenuEnable": {
+    "message": "Включи за този сайт"
+  },
+  "commandToggle": {
+    "message": "Включване или изключване на подчертаването"
+  },
+  "badgeOn": {
+    "message": "ВКЛ"
+  },
+  "shortcutHint": {
+    "message": "Клавишна комбинация: $SHORTCUT$ (промени)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

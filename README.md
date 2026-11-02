@@ -12,7 +12,21 @@ fita adds _anchor points_ to text: it gently emphasizes the beginning of each wo
 | ---------------------------------- | ------------------------------------------------------------------------------------------------ |
 | [`packages/core`](packages/core)   | TypeScript library that decides which part of each word to emphasize, and applies it to the DOM. |
 | [`apps/extension`](apps/extension) | Browser extension (Chrome, Edge, Firefox — including Firefox for Android).                       |
-| [`apps/web`](apps/web) | Static website ([fitaread.com](https://fitaread.com)): live demo, reading worksheets and an in-browser ebook converter. |
+| [`apps/web`](apps/web)             | Static website ([fitaread.com](https://fitaread.com)) in 27 languages: live demo, reading worksheets and an in-browser ebook converter. |
+
+## Languages
+
+The website, the extension and the reading worksheets are available in 27 languages: Basque, Bulgarian, Catalan, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, Galician, German, Greek, Hungarian, Irish, Italian, Latvian, Lithuanian, Maltese, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish and Swedish. Emphasis itself works on text in any language with spaces between words.
+
+Many translations were drafted with AI help and still need a native speaker's review (Irish and Maltese especially). Corrections are very welcome: open an issue or a pull request.
+
+To add or fix a language, edit:
+
+- `apps/web/src/locales/<lang>.ts`: website text and page URLs (the shape is defined by `es.ts`);
+- `apps/web/src/worksheet/texts/<lang>/README.md`: children's reading texts for the worksheets;
+- `apps/extension/src/locales/<lang>.json`: extension text (same keys as `en.json`);
+
+then register the code in `apps/web/src/i18n.ts` and `apps/extension/src/build-data.ts`.
 
 ## Principles
 
@@ -37,6 +51,8 @@ pnpm e2e         # Playwright
 
 Per package: `pnpm dev:web` (local website at http://localhost:4321), `pnpm preview:web`, `pnpm build:extension` (outputs `apps/extension/dist/`), and `test:*`, `build:*`, `e2e:*` for `core`, `extension` and `web`.
 
+Brand images (social preview, favicon, extension icons) are rendered from the wordmark with `node apps/web/scripts/og-image.mjs`; the outputs are committed.
+
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
@@ -47,8 +63,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## En español
 
-**fita** ([fitaread.com](https://fitaread.com)) son ayudas de lectura libres y gratuitas para personas con TDAH y dislexia. Destaca suavemente el inicio de cada palabra (puntos de anclaje) para guiar la vista, en la web y en tus ebooks. Todo funciona en tu dispositivo: sin cuentas, sin límites y sin recoger ningún dato. No prometemos leer más rápido, sino leer más cómodo, a tu manera.
+**fita** ([fitaread.com](https://fitaread.com)) son ayudas de lectura libres y gratuitas para personas con TDAH y dislexia. Destaca suavemente el inicio de cada palabra (puntos de anclaje) para guiar la vista, en la web y en tus ebooks. Todo funciona en tu dispositivo: sin cuentas, sin límites y sin recoger ningún dato. Disponible en 27 idiomas europeos. No prometemos leer más rápido, sino leer más cómodo, a tu manera.
 
 ## En català
 
-**fita** ([fitaread.com](https://fitaread.com)) són ajudes de lectura lliures i gratuïtes per a persones amb TDAH i dislèxia. Destaca suaument l'inici de cada paraula (punts d'ancoratge) per guiar la vista, al web i als teus llibres electrònics. Tot funciona al teu dispositiu: sense comptes, sense límits i sense recollir cap dada. No prometem llegir més ràpid, sinó llegir més còmode, a la teva manera.
+**fita** ([fitaread.com](https://fitaread.com)) són ajudes de lectura lliures i gratuïtes per a persones amb TDAH i dislèxia. Destaca suaument l'inici de cada paraula (punts d'ancoratge) per guiar la vista, al web i als teus llibres electrònics. Tot funciona al teu dispositiu: sense comptes, sense límits i sense recollir cap dada. Disponible en 27 llengües europees. No prometem llegir més ràpid, sinó llegir més còmode, a la teva manera.

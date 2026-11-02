@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Pomoc w czytaniu: delikatnie wyróżnia początek każdego słowa, żeby prowadzić wzrok. Prywatna, bezpłatna i z otwartym kodem."
+  },
+  "toggleLabel": {
+    "message": "Wyróżnianie na tej stronie"
+  },
+  "statusOn": {
+    "message": "Włączone w tej karcie."
+  },
+  "statusOff": {
+    "message": "Wyłączone w tej karcie."
+  },
+  "unavailable": {
+    "message": "Przeglądarka nie pozwala na rozszerzenia na tej stronie."
+  },
+  "whereLegend": {
+    "message": "Gdzie włączać automatycznie"
+  },
+  "alwaysOnSite": {
+    "message": "Zawsze na tej stronie"
+  },
+  "allSites": {
+    "message": "Na wszystkich stronach"
+  },
+  "strength": {
+    "message": "Natężenie"
+  },
+  "style": {
+    "message": "Styl"
+  },
+  "styleBoldFade": {
+    "message": "Pogrubienie i przygaszenie"
+  },
+  "styleBold": {
+    "message": "Pogrubienie"
+  },
+  "styleColor": {
+    "message": "Kolor"
+  },
+  "styleUnderline": {
+    "message": "Podkreślenie"
+  },
+  "styleFade": {
+    "message": "Przygaś resztę"
+  },
+  "moreOptions": {
+    "message": "Więcej opcji"
+  },
+  "every": {
+    "message": "Wyróżniaj"
+  },
+  "everyAll": {
+    "message": "Każde słowo"
+  },
+  "every2": {
+    "message": "Co drugie słowo"
+  },
+  "every3": {
+    "message": "Co trzecie słowo"
+  },
+  "lineHeight": {
+    "message": "Odstęp między wierszami"
+  },
+  "maxWidth": {
+    "message": "Maksymalna szerokość wiersza"
+  },
+  "pageDefault": {
+    "message": "Tak jak na stronie"
+  },
+  "width50": {
+    "message": "Wąski (50 znaków)"
+  },
+  "width65": {
+    "message": "Średni (65 znaków)"
+  },
+  "width80": {
+    "message": "Szeroki (80 znaków)"
+  },
+  "siteSettings": {
+    "message": "Używaj tych ustawień tylko na tej stronie"
+  },
+  "shortcutNone": {
+    "message": "Ustaw skrót klawiszowy"
+  },
+  "permissionDenied": {
+    "message": "Nie udzielono uprawnienia: nic się nie zmieniło."
+  },
+  "contextMenuEnable": {
+    "message": "Włącz na tej stronie"
+  },
+  "commandToggle": {
+    "message": "Włącz lub wyłącz wyróżnianie"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Skrót: $SHORTCUT$ (zmień)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

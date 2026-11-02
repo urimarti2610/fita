@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Lukemisen apuväline: korostaa hienovaraisesti jokaisen sanan alkua ja ohjaa katsetta. Yksityinen, maksuton ja avointa lähdekoodia."
+  },
+  "toggleLabel": {
+    "message": "Korostus tällä sivulla"
+  },
+  "statusOn": {
+    "message": "Päällä tässä välilehdessä."
+  },
+  "statusOff": {
+    "message": "Pois päältä tässä välilehdessä."
+  },
+  "unavailable": {
+    "message": "Selain ei salli laajennuksia tällä sivulla."
+  },
+  "whereLegend": {
+    "message": "Missä se kytketään päälle automaattisesti"
+  },
+  "alwaysOnSite": {
+    "message": "Aina tällä sivustolla"
+  },
+  "allSites": {
+    "message": "Kaikilla sivustoilla"
+  },
+  "strength": {
+    "message": "Voimakkuus"
+  },
+  "style": {
+    "message": "Tyyli"
+  },
+  "styleBoldFade": {
+    "message": "Lihavointi ja häivytys"
+  },
+  "styleBold": {
+    "message": "Lihavointi"
+  },
+  "styleColor": {
+    "message": "Väri"
+  },
+  "styleUnderline": {
+    "message": "Alleviivaus"
+  },
+  "styleFade": {
+    "message": "Häivytä loppuosa"
+  },
+  "moreOptions": {
+    "message": "Lisää asetuksia"
+  },
+  "every": {
+    "message": "Korosta"
+  },
+  "everyAll": {
+    "message": "Jokainen sana"
+  },
+  "every2": {
+    "message": "Joka toinen sana"
+  },
+  "every3": {
+    "message": "Joka kolmas sana"
+  },
+  "lineHeight": {
+    "message": "Riviväli"
+  },
+  "maxWidth": {
+    "message": "Rivin enimmäisleveys"
+  },
+  "pageDefault": {
+    "message": "Kuten sivulla"
+  },
+  "width50": {
+    "message": "Kapea (50 merkkiä)"
+  },
+  "width65": {
+    "message": "Keskikokoinen (65 merkkiä)"
+  },
+  "width80": {
+    "message": "Leveä (80 merkkiä)"
+  },
+  "siteSettings": {
+    "message": "Käytä näitä asetuksia vain tällä sivustolla"
+  },
+  "shortcutNone": {
+    "message": "Aseta pikanäppäin"
+  },
+  "permissionDenied": {
+    "message": "Lupaa ei annettu: mitään ei muutettu."
+  },
+  "contextMenuEnable": {
+    "message": "Kytke päälle tällä sivustolla"
+  },
+  "commandToggle": {
+    "message": "Kytke korostus päälle tai pois"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Pikanäppäin: $SHORTCUT$ (vaihda)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

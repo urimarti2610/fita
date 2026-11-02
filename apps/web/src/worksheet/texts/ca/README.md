@@ -46,7 +46,7 @@ Des d'aquell dia, el drac i la nena s'expliquen acudits cada tarda.
 
 Quan la biblioteca tanca i s'apaguen els llums, els llibres es desperten.
 
-El diccionari bada i estira les pàgines. Els contes de pirates busquen un mapa perdut sota les prestatgeries. Un llibre de cuina fa olor de galetes acabades de fer.
+El diccionari badalla i estira les pàgines. Els contes de pirates busquen un mapa perdut sota les prestatgeries. Un llibre de cuina fa olor de galetes acabades de fer.
 
 Aquesta nit hi falta algú: el llibre de les estrelles no és al seu lloc. Tothom el busca pels passadissos, entre làmpades i cadires.
 

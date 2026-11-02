@@ -332,7 +332,7 @@ export const strings = {
         "El énfasis nunca cambia lo que lee un lector de pantalla: el texto es exactamente el mismo, carácter a carácter. Lo comprobamos con pruebas automáticas y con NVDA y VoiceOver antes de cada versión.",
         "Todo se puede usar solo con teclado. La extensión se activa y desactiva con Alt+B, y puedes cambiar el atajo en los ajustes del navegador.",
         "Los colores del énfasis se calculan a partir del color del propio texto, así que mantienen el contraste en modo claro, en modo oscuro y en los temas de cada web.",
-        "Esta web usa la tipografía Atkinson Hyperlegible, pensada para distinguir bien cada letra, respeta el modo oscuro del sistema y la preferencia de reducir el movimiento.",
+        "Esta web usa la tipografía Atkinson Hyperlegible, pensada para distinguir bien cada letra, y respeta el modo oscuro del sistema y la preferencia de reducir el movimiento.",
         "Si encuentras una barrera, abre una incidencia en GitHub: es un error, y lo trataremos como tal.",
       ],
     },

@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Olvasássegítő: finoman kiemeli minden szó elejét, hogy vezesse a szemed. Privát, ingyenes és nyílt forráskódú."
+  },
+  "toggleLabel": {
+    "message": "Kiemelés ezen az oldalon"
+  },
+  "statusOn": {
+    "message": "Bekapcsolva ezen a lapon."
+  },
+  "statusOff": {
+    "message": "Kikapcsolva ezen a lapon."
+  },
+  "unavailable": {
+    "message": "A böngésző ezen az oldalon nem engedélyezi a bővítményeket."
+  },
+  "whereLegend": {
+    "message": "Hol kapcsoljon be automatikusan"
+  },
+  "alwaysOnSite": {
+    "message": "Mindig ezen a webhelyen"
+  },
+  "allSites": {
+    "message": "Az összes webhelyen"
+  },
+  "strength": {
+    "message": "Erősség"
+  },
+  "style": {
+    "message": "Stílus"
+  },
+  "styleBoldFade": {
+    "message": "Félkövér és halvány"
+  },
+  "styleBold": {
+    "message": "Félkövér"
+  },
+  "styleColor": {
+    "message": "Szín"
+  },
+  "styleUnderline": {
+    "message": "Aláhúzás"
+  },
+  "styleFade": {
+    "message": "A többi halványan"
+  },
+  "moreOptions": {
+    "message": "További beállítások"
+  },
+  "every": {
+    "message": "Kiemelés"
+  },
+  "everyAll": {
+    "message": "Minden szó"
+  },
+  "every2": {
+    "message": "Minden második szó"
+  },
+  "every3": {
+    "message": "Minden harmadik szó"
+  },
+  "lineHeight": {
+    "message": "Sorköz"
+  },
+  "maxWidth": {
+    "message": "Legnagyobb sorszélesség"
+  },
+  "pageDefault": {
+    "message": "Ahogy az oldalon"
+  },
+  "width50": {
+    "message": "Keskeny (50 karakter)"
+  },
+  "width65": {
+    "message": "Közepes (65 karakter)"
+  },
+  "width80": {
+    "message": "Széles (80 karakter)"
+  },
+  "siteSettings": {
+    "message": "Ezek a beállítások csak erre a webhelyre"
+  },
+  "shortcutNone": {
+    "message": "Billentyűparancs beállítása"
+  },
+  "permissionDenied": {
+    "message": "Nem kaptunk engedélyt: semmi sem változott."
+  },
+  "contextMenuEnable": {
+    "message": "Bekapcsolás ezen a webhelyen"
+  },
+  "commandToggle": {
+    "message": "Kiemelés be- és kikapcsolása"
+  },
+  "badgeOn": {
+    "message": "BE"
+  },
+  "shortcutHint": {
+    "message": "Billentyűparancs: $SHORTCUT$ (módosítás)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

@@ -27,8 +27,12 @@ describe("manifest", () => {
   it("ships the same message keys in every language, with the brand name filled in", () => {
     const all = locales();
     const keys = Object.keys(all.en ?? {}).sort();
-    for (const lang of ["es", "ca"]) expect(Object.keys(all[lang] ?? {}).sort()).toEqual(keys);
-    expect(all.en?.extName?.message).not.toContain("{name}");
+    expect(Object.keys(all).length).toBeGreaterThan(3);
+    for (const [lang, messages] of Object.entries(all)) {
+      expect(Object.keys(messages).sort(), lang).toEqual(keys);
+      for (const { message } of Object.values(messages))
+        expect(message, lang).not.toContain("{name}");
+    }
   });
 
   it("includes emphasis and comfort styles", () => {

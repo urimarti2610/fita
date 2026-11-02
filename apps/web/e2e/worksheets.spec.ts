@@ -6,7 +6,7 @@ import { expect, test } from "@playwright/test";
 test("worksheet preview follows the editor across tabs", async ({ page }) => {
   await page.goto("/es/fichas/");
   const sheet = page.locator("#ws-sheet .sheet");
-  await expect(sheet.locator("h1")).toHaveText("El gato que quería volar");
+  await expect(sheet.locator("h1")).toHaveText("La gata que quería volar");
   await expect(sheet.locator("fita-e").first()).toBeVisible();
 
   await page.getByLabel("Elegir texto").selectOption({ label: "El faro y la gaviota" });

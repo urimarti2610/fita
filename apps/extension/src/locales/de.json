@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Lesehilfe: hebt den Anfang jedes Wortes sanft hervor, um deinen Blick zu führen. Privat, kostenlos und Open Source."
+  },
+  "toggleLabel": {
+    "message": "Hervorhebung auf dieser Seite"
+  },
+  "statusOn": {
+    "message": "In diesem Tab an."
+  },
+  "statusOff": {
+    "message": "In diesem Tab aus."
+  },
+  "unavailable": {
+    "message": "Der Browser erlaubt auf dieser Seite keine Erweiterungen."
+  },
+  "whereLegend": {
+    "message": "Wo es automatisch eingeschaltet wird"
+  },
+  "alwaysOnSite": {
+    "message": "Immer auf dieser Website"
+  },
+  "allSites": {
+    "message": "Auf allen Websites"
+  },
+  "strength": {
+    "message": "Stärke"
+  },
+  "style": {
+    "message": "Stil"
+  },
+  "styleBoldFade": {
+    "message": "Fett und blass"
+  },
+  "styleBold": {
+    "message": "Fett"
+  },
+  "styleColor": {
+    "message": "Farbe"
+  },
+  "styleUnderline": {
+    "message": "Unterstrichen"
+  },
+  "styleFade": {
+    "message": "Rest blasser"
+  },
+  "moreOptions": {
+    "message": "Weitere Optionen"
+  },
+  "every": {
+    "message": "Hervorheben"
+  },
+  "everyAll": {
+    "message": "Jedes Wort"
+  },
+  "every2": {
+    "message": "Jedes 2. Wort"
+  },
+  "every3": {
+    "message": "Jedes 3. Wort"
+  },
+  "lineHeight": {
+    "message": "Zeilenabstand"
+  },
+  "maxWidth": {
+    "message": "Maximale Zeilenbreite"
+  },
+  "pageDefault": {
+    "message": "Wie die Seite"
+  },
+  "width50": {
+    "message": "Schmal (50 Zeichen)"
+  },
+  "width65": {
+    "message": "Mittel (65 Zeichen)"
+  },
+  "width80": {
+    "message": "Breit (80 Zeichen)"
+  },
+  "siteSettings": {
+    "message": "Diese Einstellungen nur auf dieser Website verwenden"
+  },
+  "shortcutNone": {
+    "message": "Tastenkürzel festlegen"
+  },
+  "permissionDenied": {
+    "message": "Berechtigung nicht erteilt: Nichts wurde geändert."
+  },
+  "contextMenuEnable": {
+    "message": "Auf dieser Website einschalten"
+  },
+  "commandToggle": {
+    "message": "Hervorhebung ein- oder ausschalten"
+  },
+  "badgeOn": {
+    "message": "AN"
+  },
+  "shortcutHint": {
+    "message": "Tastenkürzel: $SHORTCUT$ (ändern)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

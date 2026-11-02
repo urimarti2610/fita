@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Läshjälp: framhäver varsamt början av varje ord för att vägleda blicken. Privat, gratis och med öppen källkod."
+  },
+  "toggleLabel": {
+    "message": "Framhävning på den här sidan"
+  },
+  "statusOn": {
+    "message": "På i den här fliken."
+  },
+  "statusOff": {
+    "message": "Av i den här fliken."
+  },
+  "unavailable": {
+    "message": "Webbläsaren tillåter inte tillägg på den här sidan."
+  },
+  "whereLegend": {
+    "message": "Var det ska slås på automatiskt"
+  },
+  "alwaysOnSite": {
+    "message": "Alltid på den här webbplatsen"
+  },
+  "allSites": {
+    "message": "På alla webbplatser"
+  },
+  "strength": {
+    "message": "Styrka"
+  },
+  "style": {
+    "message": "Stil"
+  },
+  "styleBoldFade": {
+    "message": "Fet och tonad"
+  },
+  "styleBold": {
+    "message": "Fet"
+  },
+  "styleColor": {
+    "message": "Färg"
+  },
+  "styleUnderline": {
+    "message": "Understruken"
+  },
+  "styleFade": {
+    "message": "Tona resten"
+  },
+  "moreOptions": {
+    "message": "Fler alternativ"
+  },
+  "every": {
+    "message": "Framhäv"
+  },
+  "everyAll": {
+    "message": "Varje ord"
+  },
+  "every2": {
+    "message": "Vartannat ord"
+  },
+  "every3": {
+    "message": "Vart tredje ord"
+  },
+  "lineHeight": {
+    "message": "Radavstånd"
+  },
+  "maxWidth": {
+    "message": "Största radbredd"
+  },
+  "pageDefault": {
+    "message": "Som sidan"
+  },
+  "width50": {
+    "message": "Smal (50 tecken)"
+  },
+  "width65": {
+    "message": "Mellan (65 tecken)"
+  },
+  "width80": {
+    "message": "Bred (80 tecken)"
+  },
+  "siteSettings": {
+    "message": "Använd de här inställningarna bara på den här webbplatsen"
+  },
+  "shortcutNone": {
+    "message": "Ställ in ett kortkommando"
+  },
+  "permissionDenied": {
+    "message": "Behörigheten gavs inte: ingenting ändrades."
+  },
+  "contextMenuEnable": {
+    "message": "Slå på för den här webbplatsen"
+  },
+  "commandToggle": {
+    "message": "Slå på eller av framhävning"
+  },
+  "badgeOn": {
+    "message": "PÅ"
+  },
+  "shortcutHint": {
+    "message": "Kortkommando: $SHORTCUT$ (ändra)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

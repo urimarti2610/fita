@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Għajnuna għall-qari: tenfasizza bil-mod il-bidu ta’ kull kelma biex tiggwida għajnejk. Privata, b’xejn u open source."
+  },
+  "toggleLabel": {
+    "message": "Enfasi f’din il-paġna"
+  },
+  "statusOn": {
+    "message": "Mixgħula f’din it-tab."
+  },
+  "statusOff": {
+    "message": "Mitfija f’din it-tab."
+  },
+  "unavailable": {
+    "message": "Il-browser ma jippermettix estensjonijiet f’din il-paġna."
+  },
+  "whereLegend": {
+    "message": "Fejn tixgħelha awtomatikament"
+  },
+  "alwaysOnSite": {
+    "message": "Dejjem fuq dan is-sit"
+  },
+  "allSites": {
+    "message": "Fuq is-siti kollha"
+  },
+  "strength": {
+    "message": "Intensità"
+  },
+  "style": {
+    "message": "Stil"
+  },
+  "styleBoldFade": {
+    "message": "Grassett u ċajpar"
+  },
+  "styleBold": {
+    "message": "Grassett"
+  },
+  "styleColor": {
+    "message": "Kulur"
+  },
+  "styleUnderline": {
+    "message": "Sottolinjar"
+  },
+  "styleFade": {
+    "message": "Ċajpar il-bqija"
+  },
+  "moreOptions": {
+    "message": "Aktar għażliet"
+  },
+  "every": {
+    "message": "Enfasizza"
+  },
+  "everyAll": {
+    "message": "Kull kelma"
+  },
+  "every2": {
+    "message": "Kelma minn kull 2"
+  },
+  "every3": {
+    "message": "Kelma minn kull 3"
+  },
+  "lineHeight": {
+    "message": "Spazju bejn il-linji"
+  },
+  "maxWidth": {
+    "message": "Wisa’ massimu tal-linja"
+  },
+  "pageDefault": {
+    "message": "Bħall-paġna"
+  },
+  "width50": {
+    "message": "Dejqa (50 karattru)"
+  },
+  "width65": {
+    "message": "Medja (65 karattru)"
+  },
+  "width80": {
+    "message": "Wiesgħa (80 karattru)"
+  },
+  "siteSettings": {
+    "message": "Uża dawn is-settings fuq dan is-sit biss"
+  },
+  "shortcutNone": {
+    "message": "Issettja shortcut tat-tastiera"
+  },
+  "permissionDenied": {
+    "message": "Il-permess ma ngħatax: ma nbidel xejn."
+  },
+  "contextMenuEnable": {
+    "message": "Ixgħel fuq dan is-sit"
+  },
+  "commandToggle": {
+    "message": "Ixgħel jew itfi l-enfasi"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Shortcut: $SHORTCUT$ (biddel)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

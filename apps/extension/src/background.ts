@@ -95,7 +95,7 @@ chrome.runtime.onMessage.addListener((message: StateMessage, sender) => {
   if (message.type !== "state" || sender.tab?.id === undefined) return;
   const tabId = sender.tab.id;
   chrome.action.setBadgeText({ tabId, text: message.enabled ? t("badgeOn") : "" });
-  chrome.action.setBadgeBackgroundColor?.({ tabId, color: "#1f5f3a" });
+  chrome.action.setBadgeBackgroundColor?.({ tabId, color: "#1d6a72" });
 });
 
 chrome.tabs.onUpdated.addListener((tabId, change) => {

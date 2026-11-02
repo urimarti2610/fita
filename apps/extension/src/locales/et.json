@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Lugemisabi: tõstab õrnalt esile iga sõna alguse, et pilku juhtida. Privaatne, tasuta ja avatud lähtekoodiga."
+  },
+  "toggleLabel": {
+    "message": "Esiletõst sellel lehel"
+  },
+  "statusOn": {
+    "message": "Selles vahekaardis sees."
+  },
+  "statusOff": {
+    "message": "Selles vahekaardis väljas."
+  },
+  "unavailable": {
+    "message": "Brauser ei luba sellel lehel laiendusi kasutada."
+  },
+  "whereLegend": {
+    "message": "Kus see automaatselt sisse lülitada"
+  },
+  "alwaysOnSite": {
+    "message": "Alati sellel saidil"
+  },
+  "allSites": {
+    "message": "Kõigil saitidel"
+  },
+  "strength": {
+    "message": "Tugevus"
+  },
+  "style": {
+    "message": "Stiil"
+  },
+  "styleBoldFade": {
+    "message": "Paks ja tuhm"
+  },
+  "styleBold": {
+    "message": "Paks kiri"
+  },
+  "styleColor": {
+    "message": "Värv"
+  },
+  "styleUnderline": {
+    "message": "Allajoonimine"
+  },
+  "styleFade": {
+    "message": "Tuhmista ülejäänu"
+  },
+  "moreOptions": {
+    "message": "Rohkem valikuid"
+  },
+  "every": {
+    "message": "Tõsta esile"
+  },
+  "everyAll": {
+    "message": "Iga sõna"
+  },
+  "every2": {
+    "message": "Iga teine sõna"
+  },
+  "every3": {
+    "message": "Iga kolmas sõna"
+  },
+  "lineHeight": {
+    "message": "Reavahe"
+  },
+  "maxWidth": {
+    "message": "Suurim rea laius"
+  },
+  "pageDefault": {
+    "message": "Nagu lehel"
+  },
+  "width50": {
+    "message": "Kitsas (50 märki)"
+  },
+  "width65": {
+    "message": "Keskmine (65 märki)"
+  },
+  "width80": {
+    "message": "Lai (80 märki)"
+  },
+  "siteSettings": {
+    "message": "Kasuta neid seadeid ainult sellel saidil"
+  },
+  "shortcutNone": {
+    "message": "Määra kiirklahv"
+  },
+  "permissionDenied": {
+    "message": "Luba ei antud: midagi ei muutunud."
+  },
+  "contextMenuEnable": {
+    "message": "Lülita sellel saidil sisse"
+  },
+  "commandToggle": {
+    "message": "Lülita esiletõst sisse või välja"
+  },
+  "badgeOn": {
+    "message": "SEES"
+  },
+  "shortcutHint": {
+    "message": "Kiirklahv: $SHORTCUT$ (muuda)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

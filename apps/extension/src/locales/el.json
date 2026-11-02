@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Βοήθημα ανάγνωσης: τονίζει απαλά την αρχή κάθε λέξης για να καθοδηγεί το βλέμμα. Ιδιωτικό, δωρεάν και ανοιχτού κώδικα."
+  },
+  "toggleLabel": {
+    "message": "Τονισμός σε αυτή τη σελίδα"
+  },
+  "statusOn": {
+    "message": "Ενεργό σε αυτή την καρτέλα."
+  },
+  "statusOff": {
+    "message": "Ανενεργό σε αυτή την καρτέλα."
+  },
+  "unavailable": {
+    "message": "Το πρόγραμμα περιήγησης δεν επιτρέπει επεκτάσεις σε αυτή τη σελίδα."
+  },
+  "whereLegend": {
+    "message": "Πού να ενεργοποιείται αυτόματα"
+  },
+  "alwaysOnSite": {
+    "message": "Πάντα σε αυτόν τον ιστότοπο"
+  },
+  "allSites": {
+    "message": "Σε όλους τους ιστότοπους"
+  },
+  "strength": {
+    "message": "Ένταση"
+  },
+  "style": {
+    "message": "Στιλ"
+  },
+  "styleBoldFade": {
+    "message": "Έντονα και ξεθώριασμα"
+  },
+  "styleBold": {
+    "message": "Έντονα"
+  },
+  "styleColor": {
+    "message": "Χρώμα"
+  },
+  "styleUnderline": {
+    "message": "Υπογράμμιση"
+  },
+  "styleFade": {
+    "message": "Ξεθώριασμα του υπόλοιπου"
+  },
+  "moreOptions": {
+    "message": "Περισσότερες επιλογές"
+  },
+  "every": {
+    "message": "Τόνισε"
+  },
+  "everyAll": {
+    "message": "Κάθε λέξη"
+  },
+  "every2": {
+    "message": "1 στις 2 λέξεις"
+  },
+  "every3": {
+    "message": "1 στις 3 λέξεις"
+  },
+  "lineHeight": {
+    "message": "Διάστιχο"
+  },
+  "maxWidth": {
+    "message": "Μέγιστο πλάτος γραμμής"
+  },
+  "pageDefault": {
+    "message": "Όπως η σελίδα"
+  },
+  "width50": {
+    "message": "Στενό (50 χαρακτήρες)"
+  },
+  "width65": {
+    "message": "Μεσαίο (65 χαρακτήρες)"
+  },
+  "width80": {
+    "message": "Φαρδύ (80 χαρακτήρες)"
+  },
+  "siteSettings": {
+    "message": "Χρήση αυτών των ρυθμίσεων μόνο σε αυτόν τον ιστότοπο"
+  },
+  "shortcutNone": {
+    "message": "Ορισμός συντόμευσης πληκτρολογίου"
+  },
+  "permissionDenied": {
+    "message": "Δεν δόθηκε άδεια: δεν άλλαξε τίποτα."
+  },
+  "contextMenuEnable": {
+    "message": "Ενεργοποίηση σε αυτόν τον ιστότοπο"
+  },
+  "commandToggle": {
+    "message": "Ενεργοποίηση ή απενεργοποίηση τονισμού"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Συντόμευση: $SHORTCUT$ (αλλαγή)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Áis léitheoireachta: cuireann sí béim bhog ar thús gach focail chun do shúile a threorú. Príobháideach, saor in aisce agus foinse oscailte."
+  },
+  "toggleLabel": {
+    "message": "Béim ar an leathanach seo"
+  },
+  "statusOn": {
+    "message": "Air sa chluaisín seo."
+  },
+  "statusOff": {
+    "message": "As sa chluaisín seo."
+  },
+  "unavailable": {
+    "message": "Ní cheadaíonn an brabhsálaí breiseáin ar an leathanach seo."
+  },
+  "whereLegend": {
+    "message": "Cá háit le cur air go huathoibríoch"
+  },
+  "alwaysOnSite": {
+    "message": "Air i gcónaí ar an suíomh seo"
+  },
+  "allSites": {
+    "message": "Ar gach suíomh"
+  },
+  "strength": {
+    "message": "Neart"
+  },
+  "style": {
+    "message": "Stíl"
+  },
+  "styleBoldFade": {
+    "message": "Trom agus éadrom"
+  },
+  "styleBold": {
+    "message": "Trom"
+  },
+  "styleColor": {
+    "message": "Dath"
+  },
+  "styleUnderline": {
+    "message": "Folíne"
+  },
+  "styleFade": {
+    "message": "Maolaigh an chuid eile"
+  },
+  "moreOptions": {
+    "message": "Tuilleadh roghanna"
+  },
+  "every": {
+    "message": "Cuir béim ar"
+  },
+  "everyAll": {
+    "message": "Gach focal"
+  },
+  "every2": {
+    "message": "1 as gach 2 fhocal"
+  },
+  "every3": {
+    "message": "1 as gach 3 fhocal"
+  },
+  "lineHeight": {
+    "message": "Spásáil línte"
+  },
+  "maxWidth": {
+    "message": "Leithead uasta na líne"
+  },
+  "pageDefault": {
+    "message": "Mar atá an leathanach"
+  },
+  "width50": {
+    "message": "Caol (50 carachtar)"
+  },
+  "width65": {
+    "message": "Meánach (65 carachtar)"
+  },
+  "width80": {
+    "message": "Leathan (80 carachtar)"
+  },
+  "siteSettings": {
+    "message": "Úsáid na socruithe seo ar an suíomh seo amháin"
+  },
+  "shortcutNone": {
+    "message": "Socraigh aicearra méarchláir"
+  },
+  "permissionDenied": {
+    "message": "Níor tugadh cead: níor athraíodh aon rud."
+  },
+  "contextMenuEnable": {
+    "message": "Cuir air don suíomh seo"
+  },
+  "commandToggle": {
+    "message": "Cuir an bhéim air nó as"
+  },
+  "badgeOn": {
+    "message": "AIR"
+  },
+  "shortcutHint": {
+    "message": "Aicearra: $SHORTCUT$ (athraigh)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

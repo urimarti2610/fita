@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Irakurtzeko laguntza: hitz bakoitzaren hasiera leunki nabarmentzen du begiak gidatzeko. Pribatua, doakoa eta kode irekikoa."
+  },
+  "toggleLabel": {
+    "message": "Nabarmentzea orri honetan"
+  },
+  "statusOn": {
+    "message": "Aktibatuta fitxa honetan."
+  },
+  "statusOff": {
+    "message": "Desaktibatuta fitxa honetan."
+  },
+  "unavailable": {
+    "message": "Nabigatzaileak ez du luzapenik onartzen orri honetan."
+  },
+  "whereLegend": {
+    "message": "Non aktibatu automatikoki"
+  },
+  "alwaysOnSite": {
+    "message": "Beti gune honetan"
+  },
+  "allSites": {
+    "message": "Gune guztietan"
+  },
+  "strength": {
+    "message": "Indarra"
+  },
+  "style": {
+    "message": "Estiloa"
+  },
+  "styleBoldFade": {
+    "message": "Lodia eta lausotua"
+  },
+  "styleBold": {
+    "message": "Lodia"
+  },
+  "styleColor": {
+    "message": "Kolorea"
+  },
+  "styleUnderline": {
+    "message": "Azpimarra"
+  },
+  "styleFade": {
+    "message": "Lausotu gainerakoa"
+  },
+  "moreOptions": {
+    "message": "Aukera gehiago"
+  },
+  "every": {
+    "message": "Nabarmendu"
+  },
+  "everyAll": {
+    "message": "Hitz guztiak"
+  },
+  "every2": {
+    "message": "2 hitzetik 1"
+  },
+  "every3": {
+    "message": "3 hitzetik 1"
+  },
+  "lineHeight": {
+    "message": "Lerroartea"
+  },
+  "maxWidth": {
+    "message": "Lerroaren gehieneko zabalera"
+  },
+  "pageDefault": {
+    "message": "Orriak bezala"
+  },
+  "width50": {
+    "message": "Estua (50 karaktere)"
+  },
+  "width65": {
+    "message": "Ertaina (65 karaktere)"
+  },
+  "width80": {
+    "message": "Zabala (80 karaktere)"
+  },
+  "siteSettings": {
+    "message": "Erabili ezarpen hauek gune honetan bakarrik"
+  },
+  "shortcutNone": {
+    "message": "Ezarri lasterbide bat"
+  },
+  "permissionDenied": {
+    "message": "Ez da baimena eman: ez da ezer aldatu."
+  },
+  "contextMenuEnable": {
+    "message": "Aktibatu gune honetan"
+  },
+  "commandToggle": {
+    "message": "Aktibatu edo desaktibatu nabarmentzea"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Lasterbidea: $SHORTCUT$ (aldatu)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

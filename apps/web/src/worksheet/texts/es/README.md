@@ -2,7 +2,7 @@
 
 Textos originales para las fichas de lectura. Formato: [README](../README.md).
 
-## El gato que quería volar
+## La gata que quería volar
 - Nivel: 6–7 años
 
 Lola es una gata pequeña y gris. Vive en una casa con un jardín muy grande.

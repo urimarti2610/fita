@@ -1,5 +1,5 @@
 ---
-import { EMPHASIS_CSS } from "@fita/core";
+import { EMPHASIS_CSS, emphasize } from "@fita/core";
 import { WEB_BRAND } from "../../brand";
 import { href, LANG_NAMES, LANGS, type Lang, type PageKey, STRINGS } from "../i18n";
 import SettingsBubble from "../components/SettingsBubble.astro";
@@ -9,6 +9,13 @@ import "../styles/global.css";
 type Props = { lang: Lang; title?: string; page?: PageKey };
 const { lang, title, page } = Astro.props;
 // The reading-settings bubble only where there are tools to apply it to.
+// The wordmark is the brand name set the way the tool sets any word: its start emphasized.
+const [lead = "", rest = ""] = (() => {
+  const spans = emphasize(WEB_BRAND.name, { strength: 0.5 });
+  const cut = spans.findIndex((s) => !s.emphasis);
+  const parts = spans.map((s) => s.text);
+  return cut === -1 ? [parts.join(""), ""] : [parts.slice(0, cut).join(""), parts.slice(cut).join("")];
+})();
 const showSettings = page === undefined || page === "worksheets" || page === "convert";
 const t = STRINGS[lang];
 const fullTitle = title ? `${title} | ${WEB_BRAND.name}` : `${WEB_BRAND.name}: ${t.hero.headline}`;
@@ -58,14 +65,12 @@ const ogImage = new URL(`${base}og.png`, WEB_BRAND.website).href;
     <a class="skip no-print" href="#main">{t.nav.skip}</a>
     <header class="wrap site-header no-print">
       <a class="logo" href={href(lang)} aria-label={`${WEB_BRAND.name}, ${t.nav.home}`}>
-        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
-          <rect width="32" height="32" rx="7" fill="currentColor"></rect>
-          <rect x="6.4" y="9.6" width="7.7" height="4.5" fill="var(--paper)"></rect>
-          <rect x="14" y="10.9" width="11.5" height="1.9" fill="var(--paper)"></rect>
-          <rect x="6.4" y="17.9" width="5.8" height="4.5" fill="var(--paper)"></rect>
-          <rect x="12" y="19.2" width="9" height="1.9" fill="var(--paper)"></rect>
-        </svg>
-        <span>{WEB_BRAND.name}</span>
+        <span class="lead">
+          <svg class="swash" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M6 9 C 30 6, 66 4, 95 6.5 C 99 7, 99.5 12, 98 20 C 97 27, 96 31, 92 32 C 62 31, 32 33, 7 35 C 2 35, 0.5 31, 1.5 24 C 2.5 15, 3 9.5, 6 9 Z"></path>
+          </svg>
+          <span>{lead}</span>
+        </span><span class="rest">{rest}</span>
       </a>
       <nav>
         <ul>
@@ -204,17 +209,43 @@ const ogImage = new URL(`${base}og.png`, WEB_BRAND.website).href;
     flex-wrap: wrap;
     padding-block: 1.25rem;
   }
+  /* Wordmark: the name's start in heavy green over a highlighter stroke, the rest light. */
   .logo {
     display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    font-weight: 800;
-    font-size: var(--step-1);
+    align-items: baseline;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
     text-decoration: none;
-    color: var(--forest);
-  }
-  .logo span {
     color: var(--ink);
+  }
+  .logo:hover {
+    color: var(--ink);
+  }
+  .lead {
+    position: relative;
+    font-weight: 800;
+    color: var(--brand);
+  }
+  .lead > span {
+    position: relative;
+  }
+  .swash {
+    position: absolute;
+    left: -0.06em;
+    bottom: 0.04em;
+    width: calc(100% + 0.16em);
+    height: 0.56em;
+    fill: var(--marker);
+    transform: rotate(-3deg);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+  }
+  .logo:hover .swash {
+    transform: rotate(-3deg) scaleX(1.1);
+  }
+  .rest {
+    font-weight: 300;
   }
   nav > ul {
     list-style: none;
@@ -248,7 +279,7 @@ const ogImage = new URL(`${base}og.png`, WEB_BRAND.website).href;
     width: 1.4em;
     height: 3px;
     border-radius: 2px;
-    background: var(--forest);
+    background: var(--brand);
   }
   /* Settings sit apart from the page links. */
   nav > ul > li:has(.theme-toggle) {
@@ -274,7 +305,7 @@ const ogImage = new URL(`${base}og.png`, WEB_BRAND.website).href;
     display: none;
   }
   .theme-toggle:hover {
-    border-color: var(--forest);
+    border-color: var(--brand);
   }
   .theme-toggle svg {
     display: none;
@@ -305,7 +336,7 @@ const ogImage = new URL(`${base}og.png`, WEB_BRAND.website).href;
   }
   .lang-menu summary:hover,
   .lang-menu[open] summary {
-    border-color: var(--forest);
+    border-color: var(--brand);
   }
   .lang-menu .chevron {
     transition: transform 0.15s;
@@ -321,7 +352,12 @@ const ogImage = new URL(`${base}og.png`, WEB_BRAND.website).href;
     list-style: none;
     margin: 0;
     padding: 0.35rem;
-    min-width: 10rem;
+    /* Many languages: a grid of columns that fits the screen, scrolling if it must. */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    width: min(30rem, calc(100vw - 2 * var(--space)));
+    max-height: min(70vh, 34rem);
+    overflow-y: auto;
     background: var(--paper);
     border: 1.5px solid var(--line);
     border-radius: 12px;
@@ -335,12 +371,12 @@ const ogImage = new URL(`${base}og.png`, WEB_BRAND.website).href;
     color: var(--ink);
   }
   .lang-menu a:hover {
-    background: var(--moss);
+    background: var(--brand-soft);
     color: var(--ink);
   }
   .lang-menu a[aria-current] {
     font-weight: 700;
-    color: var(--forest);
+    color: var(--brand);
   }
   .site-footer {
     display: flex;

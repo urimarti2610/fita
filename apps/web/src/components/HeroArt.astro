@@ -1,9 +1,10 @@
 ---
-// Decorative drawing for the hero: lines of "text" drawn like the logo (a word is a
-// short block plus a thin stroke). A wave runs through the page and each word's start
-// grows and takes its line's colour, the way the emphasis lands on real text. Purely visual.
+// Decorative drawing for the hero: a page of "text" drawn like the logo (a word is a
+// thin stroke). A highlighter band moves down line by line, like a reading guide; as it
+// passes, each word's start grows into a coloured anchor and the line stays marked.
+// Purely visual.
 
-// Word lengths per line, in drawing units. Fixed so the build is deterministic.
+// Word lengths per line, in drawing units. Fixed: the band keyframes below assume 6 lines.
 const LINES = [
   [46, 72, 30, 88, 54],
   [64, 38, 96, 50, 40],
@@ -12,44 +13,65 @@ const LINES = [
   [52, 70, 40, 84, 44],
   [76, 46, 62],
 ];
-const HUES = ["var(--forest)", "var(--sun)", "var(--coral)", "var(--sky)"];
+const HUES = ["var(--brand)", "var(--leaf)", "var(--gold)"];
 const GAP = 12;
 const ROW = 40;
-const STEP = 0.22; // seconds between one anchor and the next
+const LINE_TIME = 1.1; // seconds the band rests on each line
+const WORD_STEP = 0.12; // seconds between anchors on the same line
+const WIDTH = Math.max(...LINES.map((l) => l.reduce((a, b) => a + b + GAP, -GAP)));
 
 const words = LINES.flatMap((line, row) => {
   let x = 0;
-  return line.map((length) => {
-    const anchor = Math.max(8, Math.round(length * 0.38));
-    const word = { x, y: 20 + row * ROW, length, anchor, hue: HUES[row % HUES.length] };
+  return line.map((length, k) => {
+    const word = {
+      x,
+      y: 20 + row * ROW,
+      length,
+      anchor: Math.max(8, Math.round(length * 0.38)),
+      hue: HUES[row % HUES.length],
+      delay: (0.25 + row * LINE_TIME + k * WORD_STEP).toFixed(2),
+    };
     x += length + GAP;
     return word;
   });
-}).map((word, i) => ({ ...word, i }));
-const cycle = words.length * STEP + 4;
+});
 ---
 
 <svg
   class="hero-art"
-  viewBox={`-4 0 ${6 + Math.max(...LINES.map((l) => l.reduce((a, b) => a + b + GAP, -GAP)))} ${LINES.length * ROW}`}
+  viewBox={`-10 0 ${WIDTH + 20} ${LINES.length * ROW}`}
   aria-hidden="true"
   focusable="false"
-  style={`--cycle: ${cycle}s`}
 >
+  {LINES.map((_, row) => (
+    <rect class="trail" x="-10" y={6 + row * ROW} width={WIDTH + 20} height="28" rx="6" style={`--delay: ${(row * LINE_TIME).toFixed(2)}s`} />
+  ))}
+  <rect class="band" x="-10" y="4" width={WIDTH + 20} height="32" rx="6" />
   {words.map((w) => (
-    <g style={`--i: ${w.i}; --hue: ${w.hue}`}>
+    <g style={`--delay: ${w.delay}s; --hue: ${w.hue}`}>
       <rect class="tail" x={w.x} y={w.y - 2} width={w.length} height="4" rx="2" />
       <rect class="anchor" x={w.x} y={w.y - 8} width={w.anchor} height="16" rx="3" />
     </g>
   ))}
 </svg>
 
-<style define:vars={{ step: `${STEP}s` }}>
+<style>
   .hero-art {
+    --cycle: 14s;
     display: block;
     width: 100%;
     height: auto;
     overflow: visible;
+  }
+  .trail {
+    fill: var(--marker);
+    opacity: 0;
+    animation: mark var(--cycle) var(--delay) ease-out infinite;
+  }
+  .band {
+    fill: var(--marker);
+    opacity: 0;
+    animation: guide var(--cycle) ease-in-out infinite;
   }
   .tail {
     fill: var(--line);
@@ -60,30 +82,94 @@ const cycle = words.length * STEP + 4;
     transform-origin: left center;
     transform: scale(1, 0.25);
     opacity: 0;
-    animation: emphasize var(--cycle) calc(var(--i) * var(--step)) ease-in-out infinite;
+    animation: emphasize var(--cycle) var(--delay) ease-out infinite;
   }
-  /* Each anchor grows in, holds while the rest of the page fills, then fades for the next pass. */
+  /* The band rests on each of the 6 lines for LINE_TIME (≈ 7.9% of the cycle), then fades. */
+  @keyframes guide {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    1.5%,
+    6.5% {
+      transform: translateY(0);
+      opacity: 0.95;
+    }
+    8%,
+    14.4% {
+      transform: translateY(40px);
+      opacity: 0.95;
+    }
+    15.9%,
+    22.3% {
+      transform: translateY(80px);
+      opacity: 0.95;
+    }
+    23.8%,
+    30.1% {
+      transform: translateY(120px);
+      opacity: 0.95;
+    }
+    31.6%,
+    38% {
+      transform: translateY(160px);
+      opacity: 0.95;
+    }
+    39.5%,
+    46% {
+      transform: translateY(200px);
+      opacity: 0.95;
+    }
+    50%,
+    100% {
+      transform: translateY(200px);
+      opacity: 0;
+    }
+  }
+  /* Lines already read keep a lighter highlighter mark until the page resets. */
+  @keyframes mark {
+    0%,
+    6% {
+      opacity: 0;
+    }
+    9%,
+    50% {
+      opacity: 0.4;
+    }
+    54%,
+    100% {
+      opacity: 0;
+    }
+  }
+  /* Each anchor grows in when the band reaches it, stays while the page fills, then resets. */
   @keyframes emphasize {
     0% {
       transform: scale(1, 0.25);
       opacity: 0;
     }
-    4% {
-      transform: scale(1, 1.15);
+    2% {
+      transform: scale(1, 1.1);
       opacity: 1;
     }
-    7%,
-    78% {
+    3%,
+    50% {
       transform: scale(1, 1);
       opacity: 1;
     }
-    90%,
+    54%,
     100% {
       transform: scale(1, 0.25);
       opacity: 0;
     }
   }
   @media (prefers-reduced-motion: reduce) {
+    .trail {
+      opacity: 0.4;
+    }
+    .band {
+      transform: translateY(40px);
+      opacity: 0.95;
+    }
     .anchor {
       transform: none;
       opacity: 1;

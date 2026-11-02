@@ -8,16 +8,17 @@
   --paper: #f6f7f3;
   --ink: #1d2a2e;
   --muted: #56645f;
-  --forest: #1f5f3a;
-  --moss: #dde9df;
-  --band: #ecf1ea;
-  --line: #cfd8d2;
+  --brand: #1d6a72;
+  --brand-soft: #dcecee;
+  --band: #eaf2f2;
+  --line: #cfd9da;
   --focus: #2f6fdd;
-  --on-forest: #ffffff;
-  /* Illustration accents only (hero drawing), never text. */
-  --sun: #e9a925;
-  --coral: #e2674d;
-  --sky: #3a86d6;
+  --on-brand: #ffffff;
+  /* Highlighter: only ever behind text (the hero drawing), never as text colour. */
+  --marker: #f6d55c;
+  /* Hero drawing only: anchor colours that sit well with the brand teal. */
+  --leaf: #3d8a55;
+  --gold: #c98b12;
   --font: "Atkinson Hyperlegible Next", system-ui, sans-serif;
   --step--1: 0.9rem;
   --step-0: 1.125rem;
@@ -37,15 +38,15 @@
     --paper: #131a1b;
     --ink: #e5ece9;
     --muted: #a5b3ae;
-    --forest: #82d3a3;
-    --moss: #1e2c28;
-    --band: #18211f;
-    --line: #2f3d39;
+    --brand: #7fd0d6;
+    --brand-soft: #192d30;
+    --band: #162325;
+    --line: #2d3d3f;
     --focus: #8fb7ff;
-    --on-forest: #0f241a;
-    --sun: #f2c35b;
-    --coral: #f08a73;
-    --sky: #7cb4f0;
+    --on-brand: #0b2326;
+    --marker: #9c8236;
+    --leaf: #8fd3a3;
+    --gold: #f0c35a;
   }
 }
 :root[data-theme="dark"] {
@@ -53,15 +54,15 @@
   --paper: #131a1b;
   --ink: #e5ece9;
   --muted: #a5b3ae;
-  --forest: #82d3a3;
-  --moss: #1e2c28;
-  --band: #18211f;
-  --line: #2f3d39;
+  --brand: #7fd0d6;
+  --brand-soft: #192d30;
+  --band: #162325;
+  --line: #2d3d3f;
   --focus: #8fb7ff;
-  --on-forest: #0f241a;
-  --sun: #f2c35b;
-  --coral: #f08a73;
-  --sky: #7cb4f0;
+  --on-brand: #0b2326;
+  --marker: #9c8236;
+  --leaf: #8fd3a3;
+  --gold: #f0c35a;
 }
 
 *,
@@ -85,7 +86,7 @@ a {
   text-underline-offset: 0.2em;
 }
 a:hover {
-  color: var(--forest);
+  color: var(--brand);
 }
 :focus-visible {
   outline: 3px solid var(--focus);
@@ -121,8 +122,8 @@ p {
   position: absolute;
   left: var(--space);
   top: -100px;
-  background: var(--forest);
-  color: var(--on-forest);
+  background: var(--brand);
+  color: var(--on-brand);
   padding: 0.5rem 1rem;
   border-radius: 6px;
   z-index: 10;
@@ -137,21 +138,21 @@ p {
   min-height: 3rem;
   padding: 0.7rem 1.25rem;
   border-radius: 999px;
-  border: 2px solid var(--forest);
+  border: 2px solid var(--brand);
   text-decoration: none;
-  color: var(--forest);
+  color: var(--brand);
   background: transparent;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
 }
 .button.primary {
-  background: var(--forest);
-  color: var(--on-forest);
+  background: var(--brand);
+  color: var(--on-brand);
 }
 .button:hover {
-  color: var(--on-forest);
-  background: var(--forest);
+  color: var(--on-brand);
+  background: var(--brand);
 }
 .visually-hidden {
   position: absolute;

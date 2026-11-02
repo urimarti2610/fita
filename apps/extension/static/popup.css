@@ -4,7 +4,7 @@
   --fg: #1d1d1b;
   --muted: #5b5a55;
   --line: #d9d6cc;
-  --accent: #1f5f3a;
+  --accent: #1d6a72;
   --accent-fg: #ffffff;
   --focus: #2f6fdd;
   font:
@@ -20,8 +20,8 @@
     --fg: #ecebe6;
     --muted: #b3b1a8;
     --line: #3b3c38;
-    --accent: #7fd1a0;
-    --accent-fg: #10231a;
+    --accent: #7fd0d6;
+    --accent-fg: #0b2326;
     --focus: #8fb7ff;
   }
 }

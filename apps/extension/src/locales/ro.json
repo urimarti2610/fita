@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Ajutor de citire: evidențiază discret începutul fiecărui cuvânt ca să-ți ghideze privirea. Privat, gratuit și open source."
+  },
+  "toggleLabel": {
+    "message": "Evidențiere pe această pagină"
+  },
+  "statusOn": {
+    "message": "Pornită în această filă."
+  },
+  "statusOff": {
+    "message": "Oprită în această filă."
+  },
+  "unavailable": {
+    "message": "Browserul nu permite extensii pe această pagină."
+  },
+  "whereLegend": {
+    "message": "Unde să pornească automat"
+  },
+  "alwaysOnSite": {
+    "message": "Mereu pe acest site"
+  },
+  "allSites": {
+    "message": "Pe toate site-urile"
+  },
+  "strength": {
+    "message": "Intensitate"
+  },
+  "style": {
+    "message": "Stil"
+  },
+  "styleBoldFade": {
+    "message": "Aldin și estompat"
+  },
+  "styleBold": {
+    "message": "Aldin"
+  },
+  "styleColor": {
+    "message": "Culoare"
+  },
+  "styleUnderline": {
+    "message": "Subliniere"
+  },
+  "styleFade": {
+    "message": "Estompează restul"
+  },
+  "moreOptions": {
+    "message": "Mai multe opțiuni"
+  },
+  "every": {
+    "message": "Evidențiază"
+  },
+  "everyAll": {
+    "message": "Toate cuvintele"
+  },
+  "every2": {
+    "message": "1 din 2 cuvinte"
+  },
+  "every3": {
+    "message": "1 din 3 cuvinte"
+  },
+  "lineHeight": {
+    "message": "Spațiere între rânduri"
+  },
+  "maxWidth": {
+    "message": "Lățimea maximă a rândului"
+  },
+  "pageDefault": {
+    "message": "Ca pagina"
+  },
+  "width50": {
+    "message": "Îngust (50 de caractere)"
+  },
+  "width65": {
+    "message": "Mediu (65 de caractere)"
+  },
+  "width80": {
+    "message": "Lat (80 de caractere)"
+  },
+  "siteSettings": {
+    "message": "Folosește aceste setări doar pe acest site"
+  },
+  "shortcutNone": {
+    "message": "Setează o comandă rapidă"
+  },
+  "permissionDenied": {
+    "message": "Permisiunea nu a fost acordată: nu s-a schimbat nimic."
+  },
+  "contextMenuEnable": {
+    "message": "Pornește pe acest site"
+  },
+  "commandToggle": {
+    "message": "Pornește sau oprește evidențierea"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Comandă rapidă: $SHORTCUT$ (schimbă)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

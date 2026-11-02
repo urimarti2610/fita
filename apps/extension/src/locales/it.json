@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Aiuto alla lettura: mette delicatamente in evidenza l’inizio di ogni parola per guidare gli occhi. Privato, gratuito e open source."
+  },
+  "toggleLabel": {
+    "message": "Evidenziazione in questa pagina"
+  },
+  "statusOn": {
+    "message": "Attiva in questa scheda."
+  },
+  "statusOff": {
+    "message": "Disattivata in questa scheda."
+  },
+  "unavailable": {
+    "message": "Il browser non consente le estensioni in questa pagina."
+  },
+  "whereLegend": {
+    "message": "Dove attivarla automaticamente"
+  },
+  "alwaysOnSite": {
+    "message": "Sempre su questo sito"
+  },
+  "allSites": {
+    "message": "Su tutti i siti"
+  },
+  "strength": {
+    "message": "Intensità"
+  },
+  "style": {
+    "message": "Stile"
+  },
+  "styleBoldFade": {
+    "message": "Grassetto e attenuato"
+  },
+  "styleBold": {
+    "message": "Grassetto"
+  },
+  "styleColor": {
+    "message": "Colore"
+  },
+  "styleUnderline": {
+    "message": "Sottolineato"
+  },
+  "styleFade": {
+    "message": "Attenua il resto"
+  },
+  "moreOptions": {
+    "message": "Altre opzioni"
+  },
+  "every": {
+    "message": "Evidenzia"
+  },
+  "everyAll": {
+    "message": "Tutte le parole"
+  },
+  "every2": {
+    "message": "1 parola ogni 2"
+  },
+  "every3": {
+    "message": "1 parola ogni 3"
+  },
+  "lineHeight": {
+    "message": "Interlinea"
+  },
+  "maxWidth": {
+    "message": "Larghezza massima della riga"
+  },
+  "pageDefault": {
+    "message": "Come la pagina"
+  },
+  "width50": {
+    "message": "Stretta (50 caratteri)"
+  },
+  "width65": {
+    "message": "Media (65 caratteri)"
+  },
+  "width80": {
+    "message": "Ampia (80 caratteri)"
+  },
+  "siteSettings": {
+    "message": "Usa queste impostazioni solo su questo sito"
+  },
+  "shortcutNone": {
+    "message": "Imposta una scorciatoia da tastiera"
+  },
+  "permissionDenied": {
+    "message": "Permesso non concesso: non è cambiato nulla."
+  },
+  "contextMenuEnable": {
+    "message": "Attiva su questo sito"
+  },
+  "commandToggle": {
+    "message": "Attiva o disattiva l’evidenziazione"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Scorciatoia: $SHORTCUT$ (cambia)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

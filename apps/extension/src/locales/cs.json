@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Pomůcka pro čtení: jemně zvýrazní začátek každého slova a vede tak oči. Soukromá, zdarma a s otevřeným kódem."
+  },
+  "toggleLabel": {
+    "message": "Zvýraznění na této stránce"
+  },
+  "statusOn": {
+    "message": "Zapnuto v této kartě."
+  },
+  "statusOff": {
+    "message": "Vypnuto v této kartě."
+  },
+  "unavailable": {
+    "message": "Prohlížeč na této stránce rozšíření nepovoluje."
+  },
+  "whereLegend": {
+    "message": "Kde zapínat automaticky"
+  },
+  "alwaysOnSite": {
+    "message": "Vždy na tomto webu"
+  },
+  "allSites": {
+    "message": "Na všech webech"
+  },
+  "strength": {
+    "message": "Síla"
+  },
+  "style": {
+    "message": "Styl"
+  },
+  "styleBoldFade": {
+    "message": "Tučně a ztlumit"
+  },
+  "styleBold": {
+    "message": "Tučně"
+  },
+  "styleColor": {
+    "message": "Barva"
+  },
+  "styleUnderline": {
+    "message": "Podtržení"
+  },
+  "styleFade": {
+    "message": "Ztlumit zbytek"
+  },
+  "moreOptions": {
+    "message": "Další možnosti"
+  },
+  "every": {
+    "message": "Zvýrazňovat"
+  },
+  "everyAll": {
+    "message": "Každé slovo"
+  },
+  "every2": {
+    "message": "Každé druhé slovo"
+  },
+  "every3": {
+    "message": "Každé třetí slovo"
+  },
+  "lineHeight": {
+    "message": "Řádkování"
+  },
+  "maxWidth": {
+    "message": "Největší šířka řádku"
+  },
+  "pageDefault": {
+    "message": "Stejně jako stránka"
+  },
+  "width50": {
+    "message": "Úzký (50 znaků)"
+  },
+  "width65": {
+    "message": "Střední (65 znaků)"
+  },
+  "width80": {
+    "message": "Široký (80 znaků)"
+  },
+  "siteSettings": {
+    "message": "Použít tato nastavení jen na tomto webu"
+  },
+  "shortcutNone": {
+    "message": "Nastavit klávesovou zkratku"
+  },
+  "permissionDenied": {
+    "message": "Oprávnění nebylo uděleno: nic se nezměnilo."
+  },
+  "contextMenuEnable": {
+    "message": "Zapnout na tomto webu"
+  },
+  "commandToggle": {
+    "message": "Zapnout nebo vypnout zvýraznění"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Zkratka: $SHORTCUT$ (změnit)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Skaitymo pagalba: švelniai paryškina kiekvieno žodžio pradžią, kad vestų akis. Privatu, nemokama ir atvirojo kodo."
+  },
+  "toggleLabel": {
+    "message": "Paryškinimas šiame puslapyje"
+  },
+  "statusOn": {
+    "message": "Įjungta šiame skirtuke."
+  },
+  "statusOff": {
+    "message": "Išjungta šiame skirtuke."
+  },
+  "unavailable": {
+    "message": "Naršyklė neleidžia plėtiniams veikti šiame puslapyje."
+  },
+  "whereLegend": {
+    "message": "Kur įjungti automatiškai"
+  },
+  "alwaysOnSite": {
+    "message": "Visada šioje svetainėje"
+  },
+  "allSites": {
+    "message": "Visose svetainėse"
+  },
+  "strength": {
+    "message": "Stiprumas"
+  },
+  "style": {
+    "message": "Stilius"
+  },
+  "styleBoldFade": {
+    "message": "Paryškinta ir blankiau"
+  },
+  "styleBold": {
+    "message": "Paryškinta"
+  },
+  "styleColor": {
+    "message": "Spalva"
+  },
+  "styleUnderline": {
+    "message": "Pabraukta"
+  },
+  "styleFade": {
+    "message": "Likusi dalis blankiau"
+  },
+  "moreOptions": {
+    "message": "Daugiau parinkčių"
+  },
+  "every": {
+    "message": "Paryškinti"
+  },
+  "everyAll": {
+    "message": "Kiekvieną žodį"
+  },
+  "every2": {
+    "message": "1 iš kas 2 žodžių"
+  },
+  "every3": {
+    "message": "1 iš kas 3 žodžių"
+  },
+  "lineHeight": {
+    "message": "Tarpai tarp eilučių"
+  },
+  "maxWidth": {
+    "message": "Didžiausias eilutės plotis"
+  },
+  "pageDefault": {
+    "message": "Kaip puslapyje"
+  },
+  "width50": {
+    "message": "Siauras (50 simbolių)"
+  },
+  "width65": {
+    "message": "Vidutinis (65 simboliai)"
+  },
+  "width80": {
+    "message": "Platus (80 simbolių)"
+  },
+  "siteSettings": {
+    "message": "Naudoti šiuos nustatymus tik šioje svetainėje"
+  },
+  "shortcutNone": {
+    "message": "Nustatyti sparčiuosius klavišus"
+  },
+  "permissionDenied": {
+    "message": "Leidimas nesuteiktas: niekas nepakeista."
+  },
+  "contextMenuEnable": {
+    "message": "Įjungti šioje svetainėje"
+  },
+  "commandToggle": {
+    "message": "Įjungti arba išjungti paryškinimą"
+  },
+  "badgeOn": {
+    "message": "ĮJ"
+  },
+  "shortcutHint": {
+    "message": "Spartieji klavišai: $SHORTCUT$ (keisti)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

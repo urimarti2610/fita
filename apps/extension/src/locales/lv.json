@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Lasīšanas palīgs: maigi izceļ katra vārda sākumu, lai vadītu skatienu. Privāts, bezmaksas un ar atvērtu kodu."
+  },
+  "toggleLabel": {
+    "message": "Izcēlums šajā lapā"
+  },
+  "statusOn": {
+    "message": "Ieslēgts šajā cilnē."
+  },
+  "statusOff": {
+    "message": "Izslēgts šajā cilnē."
+  },
+  "unavailable": {
+    "message": "Pārlūks neļauj paplašinājumiem darboties šajā lapā."
+  },
+  "whereLegend": {
+    "message": "Kur ieslēgt automātiski"
+  },
+  "alwaysOnSite": {
+    "message": "Vienmēr šajā vietnē"
+  },
+  "allSites": {
+    "message": "Visās vietnēs"
+  },
+  "strength": {
+    "message": "Stiprums"
+  },
+  "style": {
+    "message": "Stils"
+  },
+  "styleBoldFade": {
+    "message": "Treknraksts un blāvums"
+  },
+  "styleBold": {
+    "message": "Treknraksts"
+  },
+  "styleColor": {
+    "message": "Krāsa"
+  },
+  "styleUnderline": {
+    "message": "Pasvītrojums"
+  },
+  "styleFade": {
+    "message": "Pārējais blāvāks"
+  },
+  "moreOptions": {
+    "message": "Vairāk iespēju"
+  },
+  "every": {
+    "message": "Izcelt"
+  },
+  "everyAll": {
+    "message": "Katru vārdu"
+  },
+  "every2": {
+    "message": "1 no katriem 2 vārdiem"
+  },
+  "every3": {
+    "message": "1 no katriem 3 vārdiem"
+  },
+  "lineHeight": {
+    "message": "Rindstarpa"
+  },
+  "maxWidth": {
+    "message": "Maksimālais rindas platums"
+  },
+  "pageDefault": {
+    "message": "Kā lapā"
+  },
+  "width50": {
+    "message": "Šaurs (50 rakstzīmes)"
+  },
+  "width65": {
+    "message": "Vidējs (65 rakstzīmes)"
+  },
+  "width80": {
+    "message": "Plats (80 rakstzīmes)"
+  },
+  "siteSettings": {
+    "message": "Izmantot šos iestatījumus tikai šajā vietnē"
+  },
+  "shortcutNone": {
+    "message": "Iestatīt īsinājumtaustiņu"
+  },
+  "permissionDenied": {
+    "message": "Atļauja netika piešķirta: nekas netika mainīts."
+  },
+  "contextMenuEnable": {
+    "message": "Ieslēgt šajā vietnē"
+  },
+  "commandToggle": {
+    "message": "Ieslēgt vai izslēgt izcēlumu"
+  },
+  "badgeOn": {
+    "message": "IESL"
+  },
+  "shortcutHint": {
+    "message": "Īsinājumtaustiņš: $SHORTCUT$ (mainīt)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

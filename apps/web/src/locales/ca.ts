@@ -280,7 +280,7 @@ export const strings: Strings = {
       drm: "Aquest llibre té DRM (protecció anticòpia) i no es pot convertir. Si el vas comprar, pregunta a la botiga si te'n poden donar una còpia sense DRM.",
       invalid:
         "No s'ha pogut llegir aquest fitxer. Comprova que s'obre al teu lector o prova'n un altre.",
-      failed: "La conversió ha fallat ({detail}). Si torna a passar, explica-ho a GitHub.",
+      failed: "La conversió ha fallat ({detail}). Si torna a passar, explica'ns-ho a GitHub.",
     },
     labels: { part: "Part", contents: "Índex" },
     steps: {

@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Læsehjælp: fremhæver blidt starten af hvert ord for at guide dine øjne. Privat, gratis og med åben kildekode."
+  },
+  "toggleLabel": {
+    "message": "Fremhævning på denne side"
+  },
+  "statusOn": {
+    "message": "Slået til i denne fane."
+  },
+  "statusOff": {
+    "message": "Slået fra i denne fane."
+  },
+  "unavailable": {
+    "message": "Browseren tillader ikke udvidelser på denne side."
+  },
+  "whereLegend": {
+    "message": "Hvor den skal slås til automatisk"
+  },
+  "alwaysOnSite": {
+    "message": "Altid på dette websted"
+  },
+  "allSites": {
+    "message": "På alle websteder"
+  },
+  "strength": {
+    "message": "Styrke"
+  },
+  "style": {
+    "message": "Stil"
+  },
+  "styleBoldFade": {
+    "message": "Fed og nedtonet"
+  },
+  "styleBold": {
+    "message": "Fed"
+  },
+  "styleColor": {
+    "message": "Farve"
+  },
+  "styleUnderline": {
+    "message": "Understreget"
+  },
+  "styleFade": {
+    "message": "Nedton resten"
+  },
+  "moreOptions": {
+    "message": "Flere indstillinger"
+  },
+  "every": {
+    "message": "Fremhæv"
+  },
+  "everyAll": {
+    "message": "Hvert ord"
+  },
+  "every2": {
+    "message": "Hvert 2. ord"
+  },
+  "every3": {
+    "message": "Hvert 3. ord"
+  },
+  "lineHeight": {
+    "message": "Linjeafstand"
+  },
+  "maxWidth": {
+    "message": "Største linjebredde"
+  },
+  "pageDefault": {
+    "message": "Som siden"
+  },
+  "width50": {
+    "message": "Smal (50 tegn)"
+  },
+  "width65": {
+    "message": "Mellem (65 tegn)"
+  },
+  "width80": {
+    "message": "Bred (80 tegn)"
+  },
+  "siteSettings": {
+    "message": "Brug kun disse indstillinger på dette websted"
+  },
+  "shortcutNone": {
+    "message": "Vælg en tastaturgenvej"
+  },
+  "permissionDenied": {
+    "message": "Tilladelsen blev ikke givet: intet er ændret."
+  },
+  "contextMenuEnable": {
+    "message": "Slå til på dette websted"
+  },
+  "commandToggle": {
+    "message": "Slå fremhævning til eller fra"
+  },
+  "badgeOn": {
+    "message": "TIL"
+  },
+  "shortcutHint": {
+    "message": "Genvej: $SHORTCUT$ (skift)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Pomôcka na čítanie: jemne zvýrazní začiatok každého slova a vedie tak oči. Súkromná, zadarmo a s otvoreným kódom."
+  },
+  "toggleLabel": {
+    "message": "Zvýraznenie na tejto stránke"
+  },
+  "statusOn": {
+    "message": "Zapnuté na tejto karte."
+  },
+  "statusOff": {
+    "message": "Vypnuté na tejto karte."
+  },
+  "unavailable": {
+    "message": "Prehliadač na tejto stránke nepovoľuje rozšírenia."
+  },
+  "whereLegend": {
+    "message": "Kde zapínať automaticky"
+  },
+  "alwaysOnSite": {
+    "message": "Vždy na tomto webe"
+  },
+  "allSites": {
+    "message": "Na všetkých weboch"
+  },
+  "strength": {
+    "message": "Sila"
+  },
+  "style": {
+    "message": "Štýl"
+  },
+  "styleBoldFade": {
+    "message": "Tučné a stlmené"
+  },
+  "styleBold": {
+    "message": "Tučné"
+  },
+  "styleColor": {
+    "message": "Farba"
+  },
+  "styleUnderline": {
+    "message": "Podčiarknutie"
+  },
+  "styleFade": {
+    "message": "Stlmiť zvyšok"
+  },
+  "moreOptions": {
+    "message": "Ďalšie možnosti"
+  },
+  "every": {
+    "message": "Zvýrazňovať"
+  },
+  "everyAll": {
+    "message": "Každé slovo"
+  },
+  "every2": {
+    "message": "Každé druhé slovo"
+  },
+  "every3": {
+    "message": "Každé tretie slovo"
+  },
+  "lineHeight": {
+    "message": "Riadkovanie"
+  },
+  "maxWidth": {
+    "message": "Najväčšia šírka riadka"
+  },
+  "pageDefault": {
+    "message": "Rovnako ako stránka"
+  },
+  "width50": {
+    "message": "Úzky (50 znakov)"
+  },
+  "width65": {
+    "message": "Stredný (65 znakov)"
+  },
+  "width80": {
+    "message": "Široký (80 znakov)"
+  },
+  "siteSettings": {
+    "message": "Použiť tieto nastavenia len na tomto webe"
+  },
+  "shortcutNone": {
+    "message": "Nastaviť klávesovú skratku"
+  },
+  "permissionDenied": {
+    "message": "Povolenie nebolo udelené: nič sa nezmenilo."
+  },
+  "contextMenuEnable": {
+    "message": "Zapnúť na tomto webe"
+  },
+  "commandToggle": {
+    "message": "Zapnúť alebo vypnúť zvýraznenie"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Skratka: $SHORTCUT$ (zmeniť)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

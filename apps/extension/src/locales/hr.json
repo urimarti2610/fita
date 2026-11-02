@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Pomagalo za čitanje: nježno ističe početak svake riječi kako bi vodilo pogled. Privatno, besplatno i otvorenog koda."
+  },
+  "toggleLabel": {
+    "message": "Isticanje na ovoj stranici"
+  },
+  "statusOn": {
+    "message": "Uključeno u ovoj kartici."
+  },
+  "statusOff": {
+    "message": "Isključeno u ovoj kartici."
+  },
+  "unavailable": {
+    "message": "Preglednik ne dopušta proširenja na ovoj stranici."
+  },
+  "whereLegend": {
+    "message": "Gdje ga automatski uključiti"
+  },
+  "alwaysOnSite": {
+    "message": "Uvijek na ovom web-mjestu"
+  },
+  "allSites": {
+    "message": "Na svim web-mjestima"
+  },
+  "strength": {
+    "message": "Jačina"
+  },
+  "style": {
+    "message": "Stil"
+  },
+  "styleBoldFade": {
+    "message": "Podebljano i prigušeno"
+  },
+  "styleBold": {
+    "message": "Podebljano"
+  },
+  "styleColor": {
+    "message": "Boja"
+  },
+  "styleUnderline": {
+    "message": "Podcrtano"
+  },
+  "styleFade": {
+    "message": "Prigušen ostatak"
+  },
+  "moreOptions": {
+    "message": "Više opcija"
+  },
+  "every": {
+    "message": "Istakni"
+  },
+  "everyAll": {
+    "message": "Svaku riječ"
+  },
+  "every2": {
+    "message": "1 od svake 2 riječi"
+  },
+  "every3": {
+    "message": "1 od svake 3 riječi"
+  },
+  "lineHeight": {
+    "message": "Prored"
+  },
+  "maxWidth": {
+    "message": "Najveća širina retka"
+  },
+  "pageDefault": {
+    "message": "Kao na stranici"
+  },
+  "width50": {
+    "message": "Usko (50 znakova)"
+  },
+  "width65": {
+    "message": "Srednje (65 znakova)"
+  },
+  "width80": {
+    "message": "Široko (80 znakova)"
+  },
+  "siteSettings": {
+    "message": "Koristi ove postavke samo na ovom web-mjestu"
+  },
+  "shortcutNone": {
+    "message": "Postavi tipkovnički prečac"
+  },
+  "permissionDenied": {
+    "message": "Dopuštenje nije dano: ništa nije promijenjeno."
+  },
+  "contextMenuEnable": {
+    "message": "Uključi na ovom web-mjestu"
+  },
+  "commandToggle": {
+    "message": "Uključi ili isključi isticanje"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Prečac: $SHORTCUT$ (promijeni)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Ajuda à leitura: destaca suavemente o início de cada palavra para guiar os olhos. Privada, gratuita e de código aberto."
+  },
+  "toggleLabel": {
+    "message": "Destaque nesta página"
+  },
+  "statusOn": {
+    "message": "Ativado neste separador."
+  },
+  "statusOff": {
+    "message": "Desativado neste separador."
+  },
+  "unavailable": {
+    "message": "O navegador não permite extensões nesta página."
+  },
+  "whereLegend": {
+    "message": "Onde ativar automaticamente"
+  },
+  "alwaysOnSite": {
+    "message": "Sempre neste site"
+  },
+  "allSites": {
+    "message": "Em todos os sites"
+  },
+  "strength": {
+    "message": "Intensidade"
+  },
+  "style": {
+    "message": "Estilo"
+  },
+  "styleBoldFade": {
+    "message": "Negrito e esbatido"
+  },
+  "styleBold": {
+    "message": "Negrito"
+  },
+  "styleColor": {
+    "message": "Cor"
+  },
+  "styleUnderline": {
+    "message": "Sublinhado"
+  },
+  "styleFade": {
+    "message": "Esbater o resto"
+  },
+  "moreOptions": {
+    "message": "Mais opções"
+  },
+  "every": {
+    "message": "Destacar"
+  },
+  "everyAll": {
+    "message": "Todas as palavras"
+  },
+  "every2": {
+    "message": "1 em cada 2 palavras"
+  },
+  "every3": {
+    "message": "1 em cada 3 palavras"
+  },
+  "lineHeight": {
+    "message": "Espaçamento entre linhas"
+  },
+  "maxWidth": {
+    "message": "Largura máxima da linha"
+  },
+  "pageDefault": {
+    "message": "Como na página"
+  },
+  "width50": {
+    "message": "Estreita (50 carateres)"
+  },
+  "width65": {
+    "message": "Média (65 carateres)"
+  },
+  "width80": {
+    "message": "Larga (80 carateres)"
+  },
+  "siteSettings": {
+    "message": "Usar estas definições só neste site"
+  },
+  "shortcutNone": {
+    "message": "Definir um atalho de teclado"
+  },
+  "permissionDenied": {
+    "message": "Permissão não concedida: nada mudou."
+  },
+  "contextMenuEnable": {
+    "message": "Ativar neste site"
+  },
+  "commandToggle": {
+    "message": "Ativar ou desativar o destaque"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Atalho: $SHORTCUT$ (alterar)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}

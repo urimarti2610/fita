@@ -1,0 +1,109 @@
+{
+  "extName": {
+    "message": "{name}"
+  },
+  "extDescription": {
+    "message": "Axuda de lectura: destaca suavemente o inicio de cada palabra para guiar a vista. Privada, gratuíta e de código aberto."
+  },
+  "toggleLabel": {
+    "message": "Énfase nesta páxina"
+  },
+  "statusOn": {
+    "message": "Activada nesta lapela."
+  },
+  "statusOff": {
+    "message": "Desactivada nesta lapela."
+  },
+  "unavailable": {
+    "message": "O navegador non permite extensións nesta páxina."
+  },
+  "whereLegend": {
+    "message": "Onde activala automaticamente"
+  },
+  "alwaysOnSite": {
+    "message": "Sempre neste sitio"
+  },
+  "allSites": {
+    "message": "En todos os sitios"
+  },
+  "strength": {
+    "message": "Intensidade"
+  },
+  "style": {
+    "message": "Estilo"
+  },
+  "styleBoldFade": {
+    "message": "Negra e atenuado"
+  },
+  "styleBold": {
+    "message": "Negra"
+  },
+  "styleColor": {
+    "message": "Cor"
+  },
+  "styleUnderline": {
+    "message": "Subliñado"
+  },
+  "styleFade": {
+    "message": "Atenuar o resto"
+  },
+  "moreOptions": {
+    "message": "Máis opcións"
+  },
+  "every": {
+    "message": "Destacar"
+  },
+  "everyAll": {
+    "message": "Todas as palabras"
+  },
+  "every2": {
+    "message": "1 de cada 2 palabras"
+  },
+  "every3": {
+    "message": "1 de cada 3 palabras"
+  },
+  "lineHeight": {
+    "message": "Espazo entre liñas"
+  },
+  "maxWidth": {
+    "message": "Largura máxima da liña"
+  },
+  "pageDefault": {
+    "message": "Como a páxina"
+  },
+  "width50": {
+    "message": "Estreita (50 caracteres)"
+  },
+  "width65": {
+    "message": "Media (65 caracteres)"
+  },
+  "width80": {
+    "message": "Ancha (80 caracteres)"
+  },
+  "siteSettings": {
+    "message": "Usar estes axustes só neste sitio"
+  },
+  "shortcutNone": {
+    "message": "Definir un atallo de teclado"
+  },
+  "permissionDenied": {
+    "message": "Non se concedeu o permiso: non cambiou nada."
+  },
+  "contextMenuEnable": {
+    "message": "Activar neste sitio"
+  },
+  "commandToggle": {
+    "message": "Activar ou desactivar a énfase"
+  },
+  "badgeOn": {
+    "message": "ON"
+  },
+  "shortcutHint": {
+    "message": "Atallo: $SHORTCUT$ (cambiar)",
+    "placeholders": {
+      "shortcut": {
+        "content": "$1"
+      }
+    }
+  }
+}
