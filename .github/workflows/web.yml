@@ -28,7 +28,7 @@ jobs:
         uses: actions/configure-pages@v6
       - run: pnpm install --frozen-lockfile
       # Site URL and base path come from BRAND.website (custom domain at the root).
-      - run: pnpm --filter @fita/web build
+      - run: pnpm --filter "@fita/web..." build
       - uses: actions/upload-pages-artifact@v5
         with:
           path: apps/web/dist
