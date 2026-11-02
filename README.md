@@ -35,6 +35,8 @@ pnpm build
 pnpm e2e         # Playwright
 ```
 
+Per package: `pnpm dev:web` (local website at http://localhost:4321), `pnpm preview:web`, `pnpm build:extension` (outputs `apps/extension/dist/`), and `test:*`, `build:*`, `e2e:*` for `core`, `extension` and `web`.
+
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License

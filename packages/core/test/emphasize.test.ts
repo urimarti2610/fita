@@ -7,15 +7,16 @@ import {
   resolveOptions,
   toHTML,
 } from "../src/index.js";
+import { CLASSIC } from "./helpers.js";
 
 /** Renders spans as text with emphasized parts in brackets. */
 const show = (text: string, options?: Partial<EmphasisOptions>) =>
-  emphasize(text, options)
+  emphasize(text, { ...CLASSIC, ...options })
     .map((s) => (s.emphasis ? `[${s.text}]` : s.text))
     .join("");
 
 const join = (text: string, options?: Partial<EmphasisOptions>) =>
-  emphasize(text, options)
+  emphasize(text, { ...CLASSIC, ...options })
     .map((s) => s.text)
     .join("");
 
@@ -56,7 +57,21 @@ describe("languages", () => {
   it("keeps RTL text in logical order", () => {
     const text = "שלום עולם";
     expect(join(text)).toBe(text);
-    expect(emphasize(text)[0]).toEqual({ text: "של", emphasis: true });
+    expect(emphasize(text, CLASSIC)[0]).toEqual({ text: "של", emphasis: true });
+  });
+});
+
+describe("defaults", () => {
+  it("bold most of long words and only the first letter of short ones", () => {
+    const text = "Es casi insultantemente simple. Y quizá funciona precisamente por eso";
+    expect(
+      emphasize(text)
+        .map((s) => (s.emphasis ? `[${s.text}]` : s.text))
+        .join(""),
+    ).toBe(
+      "[E]s [cas]i [insultante]mente [simp]le. [Y] [qui]zá [funci]ona [precisam]ente [p]or [e]so",
+    );
+    expect(resolveOptions()).toMatchObject({ strength: 0.65, minWordLength: 4, every: 1 });
   });
 });
 
@@ -92,7 +107,7 @@ describe("rules", () => {
   });
 
   it("carries the every counter across chunks", () => {
-    const run = createEmphasizer({ every: 2 });
+    const run = createEmphasizer({ ...CLASSIC, every: 2 });
     const a = run("uno dos");
     const b = run("tres cuatro");
     expect(a.map((s) => s.emphasis)).toEqual([true, false]);
@@ -102,7 +117,7 @@ describe("rules", () => {
   it("clamps and sanitizes options", () => {
     expect(resolveOptions({ strength: 5 }).strength).toBe(0.7);
     expect(resolveOptions({ strength: -1 }).strength).toBe(0.2);
-    expect(resolveOptions({ strength: Number.NaN }).strength).toBe(0.4);
+    expect(resolveOptions({ strength: Number.NaN }).strength).toBe(0.65);
     expect(resolveOptions({ every: 0 }).every).toBe(1);
     expect(resolveOptions({ minWordLength: 2.7 }).minWordLength).toBe(2);
     expect(resolveOptions({ locale: "ca" }).locale).toBe("ca");
@@ -179,15 +194,17 @@ describe("edge cases", () => {
 
 describe("toHTML", () => {
   it("wraps emphasis and escapes HTML", () => {
-    expect(toHTML("<b>Tom & Jerry</b>")).toBe(
+    expect(toHTML("<b>Tom & Jerry</b>", CLASSIC)).toBe(
       "&lt;[b]&gt;<b>T</b>om &amp; <b>Je</b>rry&lt;/<b>b</b>&gt;".replace("[b]", "<b>b</b>"),
     );
-    expect(toHTML(`"quotes" 'single'`)).toBe("&quot;<b>qu</b>otes&quot; &#39;<b>si</b>ngle&#39;");
+    expect(toHTML(`"quotes" 'single'`, CLASSIC)).toBe(
+      "&quot;<b>qu</b>otes&quot; &#39;<b>si</b>ngle&#39;",
+    );
   });
 
   it("uses a custom tag", () => {
-    expect(toHTML("hola", {}, "strong")).toBe("<strong>ho</strong>la");
-    expect(toHTML("hola", undefined, "fita-e")).toBe("<fita-e>ho</fita-e>la");
+    expect(toHTML("hola", CLASSIC, "strong")).toBe("<strong>ho</strong>la");
+    expect(toHTML("hola", CLASSIC, "fita-e")).toBe("<fita-e>ho</fita-e>la");
   });
 
   it("rejects unsafe tag names", () => {

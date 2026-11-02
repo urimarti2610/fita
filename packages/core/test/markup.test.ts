@@ -1,9 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { createMarkupEmphasizer, staticEmphasisCSS } from "../src/index.js";
+import { createMarkupEmphasizer, type MarkupConfig, staticEmphasisCSS } from "../src/index.js";
+import { CLASSIC } from "./helpers.js";
 
 const E = (s: string) => `<span class="fita-e">${s}</span>`;
-const run = (markup: string, ...args: Parameters<typeof createMarkupEmphasizer>) =>
-  createMarkupEmphasizer(...args)(markup);
+const run = (
+  markup: string,
+  options: Parameters<typeof createMarkupEmphasizer>[0] = {},
+  config: MarkupConfig = {},
+) => createMarkupEmphasizer({ ...CLASSIC, ...options }, { style: "bold", ...config })(markup);
 
 describe("createMarkupEmphasizer", () => {
   it("emphasizes text and keeps tags and attributes byte for byte", () => {
@@ -82,7 +86,7 @@ describe("createMarkupEmphasizer", () => {
   });
 
   it("carries the every counter across calls", () => {
-    const emphasize = createMarkupEmphasizer({ every: 2 });
+    const emphasize = createMarkupEmphasizer({ ...CLASSIC, every: 2 }, { style: "bold" });
     expect(emphasize("<p>uno dos</p>")).toBe(`<p>${E("u")}no dos</p>`);
     expect(emphasize("<p>tres cuatro</p>")).toBe(`<p>${E("tr")}es cuatro</p>`);
   });
@@ -90,6 +94,12 @@ describe("createMarkupEmphasizer", () => {
   it("wraps the rest of each word for the fade style", () => {
     expect(run("<p>Hola, mundo</p>", {}, { style: "fade" })).toBe(
       `<p>${E("Ho")}<span class="fita-r">la, </span>${E("mu")}<span class="fita-r">ndo</span></p>`,
+    );
+  });
+
+  it("defaults to bold start and faded rest", () => {
+    expect(createMarkupEmphasizer()("<p>lectura</p>")).toBe(
+      `<p>${E("lectu")}<span class="fita-r">ra</span></p>`,
     );
   });
 
@@ -101,10 +111,12 @@ describe("createMarkupEmphasizer", () => {
 describe("staticEmphasisCSS", () => {
   it("has reader-safe CSS for every style", () => {
     expect(staticEmphasisCSS()).toContain("font-weight: bold");
+    expect(staticEmphasisCSS()).toContain(".fita-r { opacity");
+    expect(staticEmphasisCSS("bold")).not.toContain("fita-r");
     expect(staticEmphasisCSS("color")).toContain("color:");
     expect(staticEmphasisCSS("underline")).toContain("underline");
     expect(staticEmphasisCSS("fade")).toContain(".fita-r");
-    for (const s of ["bold", "color", "underline", "fade"] as const) {
+    for (const s of ["bold-fade", "bold", "color", "underline", "fade"] as const) {
       expect(staticEmphasisCSS(s)).not.toContain("color-mix");
     }
   });

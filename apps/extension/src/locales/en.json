@@ -32,6 +32,9 @@
   "style": {
     "message": "Style"
   },
+  "styleBoldFade": {
+    "message": "Bold and fade"
+  },
   "styleBold": {
     "message": "Bold"
   },

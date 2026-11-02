@@ -1,6 +1,16 @@
 // @vitest-environment happy-dom
 import { afterEach, describe, expect, it } from "vitest";
-import { applyToElement, EMPHASIS_CSS, STYLE_ATTRIBUTE } from "../src/index.js";
+import {
+  type ApplyConfig,
+  applyToElement,
+  EMPHASIS_CSS,
+  type EmphasisOptions,
+  STYLE_ATTRIBUTE,
+} from "../src/index.js";
+import { CLASSIC } from "./helpers.js";
+
+const apply = (root: Element, options: Partial<EmphasisOptions> = {}, config?: ApplyConfig) =>
+  applyToElement(root, { ...CLASSIC, ...options }, config);
 
 const tick = () => new Promise((r) => setTimeout(r, 0));
 
@@ -19,7 +29,7 @@ describe("applyToElement", () => {
   it("wraps words and keeps textContent identical", async () => {
     const root = setup("<p>Hola <a href='#'>mundo</a> bonito</p>");
     const before = root.textContent;
-    const c = applyToElement(root);
+    const c = apply(root);
     await c.idle;
     expect(root.textContent).toBe(before);
     expect(root.querySelector("p")?.innerHTML).toBe(
@@ -49,7 +59,7 @@ describe("applyToElement", () => {
     ];
     const root = setup(skipped.join(""));
     const before = root.innerHTML;
-    const c = applyToElement(root);
+    const c = apply(root);
     await c.idle;
     expect(root.innerHTML).toBe(before);
     c.stop();
@@ -57,7 +67,7 @@ describe("applyToElement", () => {
 
   it("processes contenteditable=false and leaves empty/whitespace nodes alone", async () => {
     const root = setup("<div contenteditable='false'>texto</div><p>  </p><p>123</p>");
-    const c = applyToElement(root);
+    const c = apply(root);
     await c.idle;
     expect(root.querySelectorAll("fita-w")).toHaveLength(1);
     c.stop();
@@ -69,7 +79,7 @@ describe("applyToElement", () => {
     const root = setup(html);
     const before = root.innerHTML;
     const childCounts = [...root.querySelectorAll("*")].map((el) => el.childNodes.length);
-    const c = applyToElement(root);
+    const c = apply(root);
     await c.idle;
     expect(root.innerHTML).not.toBe(before);
     c.undo();
@@ -79,7 +89,7 @@ describe("applyToElement", () => {
 
   it("injects and removes the stylesheet", async () => {
     const root = setup("<p>hola</p>");
-    const c = applyToElement(root);
+    const c = apply(root);
     const hasSheet = () =>
       document.adoptedStyleSheets.length > 0 ||
       [...document.querySelectorAll("style")].some((s) => s.textContent === EMPHASIS_CSS);
@@ -91,7 +101,7 @@ describe("applyToElement", () => {
 
   it("can skip style injection", async () => {
     const root = setup("<p>hola</p>");
-    const c = applyToElement(root, {}, { injectStyles: false, sync: true });
+    const c = apply(root, {}, { injectStyles: false, sync: true });
     expect(document.adoptedStyleSheets).toHaveLength(0);
     expect(document.querySelectorAll("style")).toHaveLength(0);
     c.undo();
@@ -99,7 +109,7 @@ describe("applyToElement", () => {
 
   it("supports span elements for XHTML output, synchronously", () => {
     const root = setup("<p>Hola mundo</p>");
-    const c = applyToElement(root, {}, { elements: "span", sync: true, injectStyles: false });
+    const c = apply(root, {}, { elements: "span", sync: true, injectStyles: false });
     expect(root.querySelector("p")?.innerHTML).toBe(
       '<span class="fita-w"><span class="fita-e">Ho</span>la <span class="fita-e">mu</span>ndo</span>',
     );
@@ -110,7 +120,7 @@ describe("applyToElement", () => {
   it("uses the document language", async () => {
     const root = setup("<p lang='ca'>l'àvia</p>");
     const p = root.querySelector("p") as HTMLElement;
-    const c = applyToElement(p);
+    const c = apply(p);
     await c.idle;
     expect(p.innerHTML).toBe("<fita-w>l'<fita-e>àv</fita-e>ia</fita-w>");
     c.stop();
@@ -118,7 +128,7 @@ describe("applyToElement", () => {
 
   it("ignores an invalid lang attribute", async () => {
     const root = setup("<p lang='%%'>hola</p>");
-    const c = applyToElement(root.querySelector("p") as HTMLElement);
+    const c = apply(root.querySelector("p") as HTMLElement);
     await c.idle;
     expect(root.querySelector("fita-e")?.textContent).toBe("ho");
     c.stop();
@@ -126,7 +136,7 @@ describe("applyToElement", () => {
 
   it("does nothing when the root itself is skipped", async () => {
     const root = setup("<pre>texto</pre>");
-    const c = applyToElement(root.querySelector("pre") as HTMLElement);
+    const c = apply(root.querySelector("pre") as HTMLElement);
     await c.idle;
     expect(root.innerHTML).toBe("<pre>texto</pre>");
     c.stop();
@@ -134,7 +144,7 @@ describe("applyToElement", () => {
 
   it("processes added content and ignores its own mutations", async () => {
     const root = setup("<p>uno</p>");
-    const c = applyToElement(root);
+    const c = apply(root);
     await c.idle;
     const p = document.createElement("p");
     p.textContent = "nuevo párrafo";
@@ -158,7 +168,7 @@ describe("applyToElement", () => {
 
   it("stop keeps emphasis but stops observing", async () => {
     const root = setup("<p>uno</p>");
-    const c = applyToElement(root);
+    const c = apply(root);
     await c.idle;
     c.stop();
     const p = document.createElement("p");
@@ -174,7 +184,7 @@ describe("applyToElement", () => {
 
   it("update re-renders with new options", async () => {
     const root = setup("<p>elefante</p>");
-    const c = applyToElement(root, { strength: 0.2 });
+    const c = apply(root, { strength: 0.2 });
     await c.idle;
     expect(root.querySelector("fita-e")?.textContent).toBe("el");
     c.update({ strength: 0.7 });
@@ -188,7 +198,7 @@ describe("applyToElement", () => {
   it("recovers when the page removes nodes while processing", async () => {
     const paragraphs = Array.from({ length: 2000 }, (_, i) => `<p>párrafo ${i}</p>`).join("");
     const root = setup(`<section>${paragraphs}</section><p>final</p>`);
-    const c = applyToElement(root);
+    const c = apply(root);
     await tick();
     root.querySelector("section")?.remove();
     await c.idle;
@@ -213,7 +223,7 @@ describe("applyToElement", () => {
     };
     setTimeout(monitor, 0);
 
-    const c = applyToElement(root);
+    const c = apply(root);
     await c.idle;
     monitoring = false;
 
@@ -230,7 +240,7 @@ describe("applyToElement", () => {
     const root = setup("<p></p>");
     const p = root.querySelector("p") as HTMLElement;
     p.textContent = text;
-    const c = applyToElement(root);
+    const c = apply(root);
     await c.idle;
     expect(p.childNodes).toHaveLength(1);
     expect(p.textContent).toBe(text);
@@ -243,8 +253,8 @@ describe("applyToElement", () => {
     expect(p.firstChild?.nodeValue).toBe(text);
   });
 
-  it("style attribute selectors cover all styles", () => {
-    for (const style of ["color", "underline", "fade"]) {
+  it("style attribute selectors cover all non-default styles", () => {
+    for (const style of ["bold", "color", "underline", "fade"]) {
       expect(EMPHASIS_CSS).toContain(`[${STYLE_ATTRIBUTE}="${style}"]`);
     }
   });

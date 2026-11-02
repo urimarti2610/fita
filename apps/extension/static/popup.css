@@ -185,6 +185,13 @@ select {
 .styles label:has(input:checked) {
   border-color: var(--accent);
 }
+.sample-bold-fade {
+  color: color-mix(in srgb, currentColor 55%, transparent);
+}
+.sample-bold-fade::first-letter {
+  font-weight: 800;
+  color: var(--fg);
+}
 .sample-bold::first-letter {
   font-weight: 800;
 }

@@ -1,7 +1,7 @@
 export type EmphasisOptions = {
-  /** Fraction of each word to emphasize, 0.2–0.7. Default 0.4. */
+  /** Fraction of each word to emphasize, 0.2–0.7. Default 0.65. */
   strength: number;
-  /** Words shorter than this (in graphemes) get exactly 1 emphasized grapheme. Default 1. */
+  /** Words shorter than this (in graphemes) get exactly 1 emphasized grapheme. Default 4. */
   minWordLength: number;
   /** Emphasize 1 of every N processable words. Default 1 (all). */
   every: number;
@@ -14,8 +14,8 @@ export type EmphasisOptions = {
 export type Span = { text: string; emphasis: boolean };
 
 export const DEFAULT_OPTIONS: Readonly<EmphasisOptions> = Object.freeze({
-  strength: 0.4,
-  minWordLength: 1,
+  strength: 0.65,
+  minWordLength: 4,
   every: 1,
   skipNumbers: true,
 });
@@ -32,7 +32,10 @@ export function resolveOptions(options: Partial<EmphasisOptions> = {}): Emphasis
       MAX_STRENGTH,
       Math.max(MIN_STRENGTH, pick(options.strength, DEFAULT_OPTIONS.strength)),
     ),
-    minWordLength: Math.max(1, Math.floor(pick(options.minWordLength, 1))),
+    minWordLength: Math.max(
+      1,
+      Math.floor(pick(options.minWordLength, DEFAULT_OPTIONS.minWordLength)),
+    ),
     every: Math.max(1, Math.floor(pick(options.every, 1))),
     skipNumbers: options.skipNumbers ?? DEFAULT_OPTIONS.skipNumbers,
   };

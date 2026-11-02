@@ -151,7 +151,7 @@ describe("text and Markdown", () => {
       "[ref]: https://ejemplo.com",
       "",
     ].join("\n");
-    const out = emphasizeMarkdown(md, {});
+    const out = emphasizeMarkdown(md, { strength: 0.4, minWordLength: 1 });
     expect(out).toContain("title: Hola mundo");
     expect(out).toContain("# <b>Tí</b>tulo <b>d</b>el <b>li</b>bro");
     expect(out).toContain("`código en línea`");

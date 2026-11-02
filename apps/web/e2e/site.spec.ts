@@ -18,7 +18,7 @@ test("live demo follows typing and controls", async ({ page }) => {
   await page.goto("/es/");
   const output = page.locator("#demo-output");
   await page.getByRole("textbox", { name: "Tu texto", exact: true }).fill("elefante <b>&");
-  await expect(output.locator("fita-e").first()).toHaveText("ele");
+  await expect(output.locator("fita-e").first()).toHaveText("elefa");
   await expect(output).toHaveText("elefante <b>&");
 
   await page.getByLabel(/Intensidad/).fill("0.7");
@@ -36,7 +36,7 @@ test("demo handles a very long text without freezing", async ({ page }) => {
   const start = Date.now();
   await page.evaluate(() => new Promise((r) => setTimeout(r, 0)));
   expect(Date.now() - start).toBeLessThan(1000);
-  await expect(page.locator("#demo-output fita-e").first()).toHaveText("Rea");
+  await expect(page.locator("#demo-output fita-e").first()).toHaveText("Readi");
 });
 
 test("root redirects to a language and text pages exist", async ({ page }) => {

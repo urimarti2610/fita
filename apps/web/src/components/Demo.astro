@@ -1,5 +1,5 @@
 ---
-import { toHTML } from "@fita/core";
+import { DEFAULT_STYLE, toHTML } from "@fita/core";
 import EmphasisControls from "./EmphasisControls.astro";
 import type { Lang } from "../i18n";
 import { STRINGS } from "../i18n";
@@ -30,7 +30,7 @@ const initial = `<fita-w>${toHTML(t.sample, { locale: lang }, "fita-e")}</fita-w
         aria-labelledby="demo-output-label"
         aria-live="off"
         tabindex="0"
-        data-fita-style="bold"
+        data-fita-style={DEFAULT_STYLE}
         set:html={initial}
       />
     </div>

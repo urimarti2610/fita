@@ -1,4 +1,4 @@
-import type { EmphasisStyle } from "@fita/core";
+import { DEFAULT_OPTIONS, DEFAULT_STYLE, type EmphasisStyle } from "@fita/core";
 
 export type Settings = {
   strength: number;
@@ -11,9 +11,9 @@ export type Settings = {
 };
 
 export const DEFAULT_SETTINGS: Settings = {
-  strength: 0.4,
-  style: "bold",
-  every: 1,
+  strength: DEFAULT_OPTIONS.strength,
+  style: DEFAULT_STYLE,
+  every: DEFAULT_OPTIONS.every,
   lineHeight: 0,
   maxWidth: 0,
 };

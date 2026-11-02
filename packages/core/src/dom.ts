@@ -1,33 +1,44 @@
 import { BRAND, EMPHASIS_TAG, WRAP_TAG } from "./brand.js";
 import { createEmphasizer, type EmphasisOptions, type Span } from "./emphasize.js";
 
-export type EmphasisStyle = "bold" | "color" | "underline" | "fade";
-export const EMPHASIS_STYLES: readonly EmphasisStyle[] = ["bold", "color", "underline", "fade"];
+export type EmphasisStyle = "bold-fade" | "bold" | "color" | "underline" | "fade";
+export const EMPHASIS_STYLES: readonly EmphasisStyle[] = [
+  "bold-fade",
+  "bold",
+  "color",
+  "underline",
+  "fade",
+];
+/** Bold start, faded rest of the word. */
+export const DEFAULT_STYLE: EmphasisStyle = "bold-fade";
 
-/** Set on an ancestor (usually <html>) to pick the emphasis style. Absent means bold. */
+/** Set on an ancestor (usually <html>) to pick the emphasis style. Absent means DEFAULT_STYLE. */
 export const STYLE_ATTRIBUTE = `data-${BRAND.id}-style`;
 /** Class names used when wrapping with plain spans (EPUB output must be valid XHTML). */
 export const WRAP_CLASS = `${BRAND.id}-w`;
 export const EMPHASIS_CLASS = `${BRAND.id}-e`;
 
 const e = `${EMPHASIS_TAG}, .${EMPHASIS_CLASS}`;
-const sel = (style: EmphasisStyle) =>
-  e
+const w = `${WRAP_TAG}, .${WRAP_CLASS}`;
+const sel = (style: EmphasisStyle, selectors: string) =>
+  selectors
     .split(", ")
     .map((s) => `[${STYLE_ATTRIBUTE}="${style}"] ${s}`)
     .join(", ");
 
 /**
- * Emphasis styles. Every style derives its colours from the text's own colour,
- * so contrast holds on light, dark and custom page themes.
+ * Emphasis styles. Without a style attribute the default applies: bold start and
+ * faded rest. Every colour derives from the text's own colour, so contrast holds on
+ * light, dark and custom page themes.
  */
 export const EMPHASIS_CSS = `
 ${WRAP_TAG}, ${EMPHASIS_TAG} { all: unset; }
-${e} { font-weight: bolder; }
-${sel("color")} { font-weight: inherit; color: color-mix(in oklab, currentColor 55%, #2f6fdd); }
-${sel("underline")} { font-weight: inherit; text-decoration: underline; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; text-decoration-color: color-mix(in srgb, currentColor 50%, transparent); }
-[${STYLE_ATTRIBUTE}="fade"] ${WRAP_TAG}, [${STYLE_ATTRIBUTE}="fade"] .${WRAP_CLASS} { -webkit-text-fill-color: color-mix(in srgb, currentColor 55%, transparent); }
-${sel("fade")} { font-weight: inherit; -webkit-text-fill-color: currentColor; }
+${w} { -webkit-text-fill-color: color-mix(in srgb, currentColor 55%, transparent); }
+${e} { font-weight: bolder; -webkit-text-fill-color: currentColor; }
+${["bold", "color", "underline"].map((s) => sel(s as EmphasisStyle, w)).join(", ")} { -webkit-text-fill-color: currentColor; }
+${sel("color", e)} { font-weight: inherit; color: color-mix(in oklab, currentColor 55%, #2f6fdd); }
+${sel("underline", e)} { font-weight: inherit; text-decoration: underline; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; text-decoration-color: color-mix(in srgb, currentColor 50%, transparent); }
+${sel("fade", e)} { font-weight: inherit; }
 `.trim();
 
 /** Elements whose content is never touched. */

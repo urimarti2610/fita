@@ -32,6 +32,9 @@
   "style": {
     "message": "Estilo"
   },
+  "styleBoldFade": {
+    "message": "Negrita y atenuar"
+  },
   "styleBold": {
     "message": "Negrita"
   },

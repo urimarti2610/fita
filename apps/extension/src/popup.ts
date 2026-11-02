@@ -1,4 +1,4 @@
-import type { EmphasisStyle } from "@fita/core";
+import { DEFAULT_STYLE, type EmphasisStyle } from "@fita/core";
 import {
   ALL_SITES_KEY,
   ALL_SITES_PATTERN,
@@ -44,7 +44,7 @@ let enabled = false;
 function readSettings(): Settings {
   return {
     strength: Number(strength.value),
-    style: (styleInputs.find((i) => i.checked)?.value ?? "bold") as EmphasisStyle,
+    style: (styleInputs.find((i) => i.checked)?.value ?? DEFAULT_STYLE) as EmphasisStyle,
     every: Number(every.value),
     lineHeight: Number(lineHeight.value),
     maxWidth: Number(maxWidth.value),

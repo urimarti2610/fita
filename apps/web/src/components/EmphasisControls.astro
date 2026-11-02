@@ -1,7 +1,7 @@
 ---
 // Strength, style and "every" controls shared by the demo and the converter.
 // Render inside a <form>: values are read with FormData by name.
-import { EMPHASIS_STYLES } from "@fita/core";
+import { DEFAULT_OPTIONS, DEFAULT_STYLE, EMPHASIS_STYLES } from "@fita/core";
 import { type Lang, STRINGS } from "../i18n";
 
 type Props = { lang: Lang; id: string; layout: "extended" | "compact" };
@@ -11,14 +11,14 @@ const t = STRINGS[lang].demo;
 
 <div class="emphasis-controls">
   <div class="control">
-    <label for={`${id}-strength`}>{t.strength} <output id={`${id}-strength-value`} for={`${id}-strength`}>40 %</output></label>
-    <input id={`${id}-strength`} name="strength" type="range" min="0.2" max="0.7" step="0.05" value="0.4" />
+    <label for={`${id}-strength`}>{t.strength} <output id={`${id}-strength-value`} for={`${id}-strength`}>{Math.round(DEFAULT_OPTIONS.strength * 100)} %</output></label>
+    <input id={`${id}-strength`} name="strength" type="range" min="0.2" max="0.7" step="0.05" value={DEFAULT_OPTIONS.strength} />
   </div>
   <fieldset class="control styles">
     <legend>{t.style}</legend>
     {EMPHASIS_STYLES.map((style) => (
       <label>
-        <input type="radio" name="style" value={style} checked={style === "bold"} />
+        <input type="radio" name="style" value={style} checked={style === DEFAULT_STYLE} />
         <span>{t.styles[style]}</span>
       </label>
     ))}

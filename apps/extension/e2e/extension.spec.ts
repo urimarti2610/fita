@@ -19,7 +19,7 @@ test("activate and deactivate in a tab, leaving the page identical", async ({
 
   const on = await worker.evaluate((id) => fitaTest.setTab(id), tabId);
   expect(on.enabled).toBe(true);
-  await expect(page.locator("#p fita-e").first()).toHaveText("Ho");
+  await expect(page.locator("#p fita-e").first()).toHaveText("Hol");
   await expect(page.locator("pre fita-w")).toHaveCount(0);
   await expect(page.locator("textarea")).toHaveValue("no tocar");
   expect(await page.locator("#p").textContent()).toBe("Hola mundo, esto es un párrafo de ejemplo.");
@@ -47,7 +47,7 @@ test("Alt+B command toggles the active tab", async ({ context, worker, baseURL }
   await page.goto(baseURL);
   await page.bringToFront();
   await worker.evaluate(() => fitaTest.onCommand("toggle-emphasis"));
-  await expect(page.locator("#p fita-e").first()).toHaveText("Ho");
+  await expect(page.locator("#p fita-e").first()).toHaveText("Hol");
   await worker.evaluate(() => fitaTest.onCommand("toggle-emphasis"));
   await expect(page.locator("fita-w")).toHaveCount(0);
 
@@ -63,13 +63,13 @@ test("always on this site activates automatically after reload", async ({
   await worker.evaluate(async (origin) => {
     await chrome.storage.sync.set({
       [`site:${origin}`]: { on: true },
-      settings: { strength: 0.7 },
+      settings: { strength: 0.2 },
     });
     await fitaTest.syncRegistration();
   }, baseURL);
   const page = await context.newPage();
   await page.goto(baseURL);
-  await expect(page.locator("#p fita-e").first()).toHaveText("Hol");
+  await expect(page.locator("#p fita-e").first()).toHaveText("H");
 
   // Turning the site off unregisters the automatic script.
   await worker.evaluate(async (origin) => {
@@ -88,7 +88,7 @@ test("popup is translated and keyboard-usable", async ({ context, extensionId })
   const toggle = popup.getByRole("switch");
   await expect(toggle).toHaveAccessibleName(/.+/);
   await expect(popup.getByRole("slider")).toHaveCount(1);
-  await expect(popup.getByRole("radio")).toHaveCount(4);
+  await expect(popup.getByRole("radio")).toHaveCount(5);
   await popup.keyboard.press("Tab");
   await expect(toggle).toBeFocused();
 });

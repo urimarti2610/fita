@@ -1,5 +1,5 @@
 import { BRAND } from "./brand.js";
-import { EMPHASIS_CLASS, type EmphasisStyle } from "./dom.js";
+import { DEFAULT_STYLE, EMPHASIS_CLASS, type EmphasisStyle } from "./dom.js";
 import { createEmphasizer, type EmphasisOptions } from "./emphasize.js";
 
 /**
@@ -9,7 +9,7 @@ import { createEmphasizer, type EmphasisOptions } from "./emphasize.js";
  * elements pass through byte for byte.
  */
 
-/** Class of the non-emphasized text when the style needs it ("fade"). */
+/** Class of the non-emphasized text, for the styles that fade it. */
 export const REST_CLASS = `${BRAND.id}-r`;
 
 /** Elements whose content is copied verbatim, as in SKIP_SELECTOR. */
@@ -137,7 +137,7 @@ function encode(text: string, opaque: string[]): string {
 }
 
 export type MarkupConfig = {
-  /** Wrap the plain parts too, needed by the "fade" style in static output. */
+  /** Emphasis style; the fading styles also wrap the plain parts. Default DEFAULT_STYLE. */
   style?: EmphasisStyle;
 };
 
@@ -150,7 +150,8 @@ export function createMarkupEmphasizer(
   config: MarkupConfig = {},
 ) {
   const emphasizer = createEmphasizer(options);
-  const restOpen = config.style === "fade" ? `<span class="${REST_CLASS}">` : "";
+  const style = config.style ?? DEFAULT_STYLE;
+  const restOpen = style === "fade" || style === "bold-fade" ? `<span class="${REST_CLASS}">` : "";
   const restClose = restOpen ? "</span>" : "";
 
   function text(raw: string): string {
@@ -250,16 +251,18 @@ function findClose(markup: string, name: string, from: number): number {
  * Stylesheet for static documents (ebooks, exported HTML). Uses only CSS that
  * e-readers support: no color-mix, no custom elements.
  */
-export function staticEmphasisCSS(style: EmphasisStyle = "bold"): string {
+export function staticEmphasisCSS(style: EmphasisStyle = DEFAULT_STYLE): string {
   const e = `.${EMPHASIS_CLASS}`;
   switch (style) {
+    case "bold-fade":
+      return `${e} { font-weight: bold; }\n.${REST_CLASS} { opacity: 0.6; }`;
     case "color":
       return `${e} { color: #1f5fa8; }`;
     case "underline":
       return `${e} { text-decoration: underline; }`;
     case "fade":
       return `.${REST_CLASS} { opacity: 0.6; }`;
-    default:
+    case "bold":
       return `${e} { font-weight: bold; }`;
   }
 }

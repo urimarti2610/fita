@@ -3,6 +3,7 @@ export {
   type ApplyConfig,
   applyToElement,
   type Controller,
+  DEFAULT_STYLE,
   EMPHASIS_CLASS,
   EMPHASIS_CSS,
   EMPHASIS_STYLES,
