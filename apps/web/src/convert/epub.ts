@@ -70,7 +70,8 @@ async function readPackage(zip: JSZip) {
     if (item && /x?html/.test(item.type) && zip.file(item.href)) spine.push(item.href);
   }
   const language = opf.match(/<dc:language[^>]*>\s*([^<\s]+)/)?.[1];
-  return { spine, language };
+  const title = opf.match(/<dc:title[^>]*>([^<]+)</)?.[1]?.trim();
+  return { spine, language, title };
 }
 
 /** Adds the emphasis stylesheet to a chapter's <head>. */

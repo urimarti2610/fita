@@ -14,11 +14,22 @@ async function save(name: string, blob: Blob) {
   return path;
 }
 
-test("converts an EPUB and offers it for download", async ({ page }) => {
+test("converts an EPUB step by step, with a live first-page preview", async ({ page }) => {
   const path = await save("Llibre.epub", await makeEpub());
   await page.goto("/ca/convertir/");
+  await expect(page.getByRole("button", { name: "Convertir" })).toBeDisabled();
   await page.getByLabel(/Tria un fitxer/).setInputFiles(path);
   await expect(page.getByText("Llibre.epub")).toBeVisible();
+
+  // Preview: the book title and its first text, with emphasis, follow the controls.
+  const preview = page.locator("#cv-preview");
+  await expect(page.locator("#cv-book-title")).toHaveText("Llibre");
+  await expect(preview.locator("h3")).toContainText("Primer capítol");
+  await expect(preview).not.toContainText("codi"); // <pre> is not reading text
+  const first = preview.locator(".fita-e").first();
+  await expect(first).toHaveText("Prim");
+  await page.getByLabel(/Intensitat/).fill("0.2");
+  await expect(first).toHaveText("P");
   await page.getByRole("button", { name: "Convertir" }).click();
   const link = page.getByRole("link", { name: /Descarregar Llibre\.fita\.epub/ });
   await expect(link).toBeVisible();
@@ -36,8 +47,9 @@ test("explains DRM kindly", async ({ page }) => {
   );
   await page.goto("/es/convertir/");
   await page.getByLabel(/Elige un archivo/).setInputFiles(path);
-  await page.getByRole("button", { name: "Convertir" }).click();
+  // Detected as soon as the file is chosen, before converting.
   await expect(page.getByRole("alert")).toContainText("DRM");
+  await expect(page.getByRole("button", { name: "Convertir" })).toBeDisabled();
 });
 
 test("rejects unsupported formats before converting", async ({ page }) => {

@@ -1,4 +1,5 @@
 ---
+import { DEFAULT_STYLE, staticEmphasisCSS } from "@fita/core";
 import { type Lang, STRINGS } from "../i18n";
 import EmphasisControls from "./EmphasisControls.astro";
 
@@ -14,63 +15,105 @@ const messages = {
   download: t.download,
   errors: t.errors,
   labels: t.labels,
+  previewEmpty: t.previewEmpty,
+  previewLoading: t.previewLoading,
+  previewNone: t.previewNone,
 };
 ---
 
-<form id="converter" class="converter" data-lang={lang} data-messages={JSON.stringify(messages)}>
-  <label class="drop" id="drop">
-    <span class="pick">{t.pick}</span>
-    <span class="hint">{t.drop}</span>
-    <span class="formats">{t.formats}</span>
-    <input
-      id="file"
-      name="file"
-      type="file"
-      accept=".epub,.txt,.text,.md,.markdown,.html,.htm,.xhtml,application/epub+zip,text/plain,text/markdown,text/html"
-    />
-  </label>
-  <p id="chosen" class="chosen" hidden>{t.selected} <strong id="chosen-name"></strong></p>
+<style id="cv-preview-style" is:inline set:html={staticEmphasisCSS(DEFAULT_STYLE)}></style>
 
-  <div class="output-format" id="output-row" hidden>
-    <label for="output">{t.output}</label>
-    <select id="output" name="output"></select>
-  </div>
+<div class="converter-layout">
+  <form id="converter" class="converter" data-lang={lang} data-messages={JSON.stringify(messages)}>
+    <ol class="steps">
+      <li class="step" id="cv-step-1">
+        <h2><span class="num" aria-hidden="true">1</span>{t.steps.choose}</h2>
+        <label class="drop" id="drop">
+          <span class="pick">{t.pick}</span>
+          <span class="hint">{t.drop}</span>
+          <span class="formats">{t.formats}</span>
+          <input
+            id="file"
+            name="file"
+            type="file"
+            accept=".epub,.txt,.text,.md,.markdown,.html,.htm,.xhtml,application/epub+zip,text/plain,text/markdown,text/html"
+          />
+        </label>
+        <div id="chosen" class="chosen" hidden>
+          <p>{t.selected} <strong id="chosen-name"></strong></p>
+          <button type="button" class="link" id="change">{t.change}</button>
+        </div>
+        <p id="error" class="error" role="alert" hidden></p>
+      </li>
 
-  <fieldset class="options">
-    <legend>{t.options}</legend>
-    <EmphasisControls lang={lang} id="convert" layout="compact" />
-  </fieldset>
+      <li class="step" id="cv-step-2">
+        <h2><span class="num" aria-hidden="true">2</span>{t.steps.adjust}</h2>
+        <fieldset id="cv-adjust" class="plain" disabled>
+          <legend class="visually-hidden">{t.steps.adjust}</legend>
+          <EmphasisControls lang={lang} id="convert" layout="compact" />
+        </fieldset>
+      </li>
 
-  <div class="actions">
-    <button class="button primary" id="start" type="submit" disabled>{t.start}</button>
-    <button class="button" id="cancel" type="button" hidden>{t.cancel}</button>
-  </div>
+      <li class="step" id="cv-step-3">
+        <h2><span class="num" aria-hidden="true">3</span>{t.steps.convert}</h2>
+        <fieldset id="cv-run" class="plain" disabled>
+          <legend class="visually-hidden">{t.steps.convert}</legend>
+          <div class="output-format" id="output-row" hidden>
+            <label for="output">{t.output}</label>
+            <select id="output" name="output"></select>
+          </div>
+          <div class="actions">
+            <button class="button primary" id="start" type="submit">{t.start}</button>
+            <button class="button" id="cancel" type="button" hidden>{t.cancel}</button>
+          </div>
+        </fieldset>
+        <div class="result" aria-live="polite">
+          <progress id="progress" max="100" value="0" hidden></progress>
+          <p id="status" class="status"></p>
+          <a id="download" class="button primary" hidden href="#"></a>
+        </div>
+      </li>
+    </ol>
+  </form>
 
-  <div class="result" aria-live="polite">
-    <progress id="progress" max="100" value="0" hidden></progress>
-    <p id="status" class="status"></p>
-    <p id="error" class="error" role="alert" hidden></p>
-    <a id="download" class="button primary" hidden href="#"></a>
-  </div>
-</form>
+  <aside class="book-preview" aria-labelledby="cv-preview-title">
+    <h2 id="cv-preview-title">{t.previewTitle}</h2>
+    <div class="page" id="cv-page">
+      <p class="book-title" id="cv-book-title" hidden></p>
+      <div class="page-body" id="cv-preview" aria-live="polite">
+        <p class="placeholder">{t.previewEmpty}</p>
+      </div>
+      <span class="page-number" aria-hidden="true">1</span>
+    </div>
+    <p class="hint">{t.previewNote}</p>
+  </aside>
+</div>
 
 <script>
+  import { type EmphasisStyle, staticEmphasisCSS } from "@fita/core";
   import type { InputFormat, OutputFormat } from "../convert/convert";
-  import { DEFAULT_STYLE } from "@fita/core";
   import { detectFormat, OUTPUTS } from "../convert/convert";
+  import { ConvertError } from "../convert/epub";
+  import { extractPreview, type Preview, renderPreview } from "../convert/preview";
   import type { WorkerMessage } from "../convert/worker";
 
   const form = document.getElementById("converter") as HTMLFormElement;
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
   const fileInput = $<HTMLInputElement>("file");
   const drop = $<HTMLLabelElement>("drop");
+  const chosen = $<HTMLElement>("chosen");
   const output = $<HTMLSelectElement>("output");
-  const start = $<HTMLButtonElement>("start");
+  const adjust = $<HTMLFieldSetElement>("cv-adjust");
+  const run = $<HTMLFieldSetElement>("cv-run");
   const cancel = $<HTMLButtonElement>("cancel");
   const progress = $<HTMLProgressElement>("progress");
   const status = $<HTMLParagraphElement>("status");
   const error = $<HTMLParagraphElement>("error");
   const download = $<HTMLAnchorElement>("download");
+  const previewBody = $<HTMLElement>("cv-preview");
+  const bookTitle = $<HTMLElement>("cv-book-title");
+  const previewStyle = $<HTMLStyleElement>("cv-preview-style");
+  const lang = form.dataset.lang as string;
   const m = JSON.parse(form.dataset.messages as string) as {
     outputs: Record<OutputFormat, string>;
     progress: string;
@@ -79,19 +122,46 @@ const messages = {
     download: string;
     errors: Record<"unsupported" | "drm" | "invalid" | "failed", string>;
     labels: { part: string; contents: string };
+    previewEmpty: string;
+    previewLoading: string;
+    previewNone: string;
   };
 
   let file: File | null = null;
   let input: InputFormat | null = null;
+  let preview: Preview | null = null;
   let worker: Worker | null = null;
   let url: string | null = null;
 
-  function reset() {
+  const placeholder = (text: string) => {
+    const p = document.createElement("p");
+    p.className = "placeholder";
+    p.textContent = text;
+    previewBody.replaceChildren(p);
+  };
+
+  function settings() {
+    const data = new FormData(form);
+    return {
+      strength: Number(data.get("strength")),
+      every: Number(data.get("every") ?? 1),
+      style: String(data.get("style")) as EmphasisStyle,
+    };
+  }
+
+  function renderPreviewNow() {
+    const s = settings();
+    previewStyle.textContent = staticEmphasisCSS(s.style);
+    if (!preview) return;
+    if (!preview.blocks.length) return placeholder(m.previewNone);
+    previewBody.innerHTML = renderPreview(preview, { ...s, lang });
+  }
+
+  function resetRun() {
     worker?.terminate();
     worker = null;
     progress.hidden = true;
     cancel.hidden = true;
-    error.hidden = true;
     download.hidden = true;
     status.textContent = "";
     if (url) URL.revokeObjectURL(url);
@@ -99,51 +169,84 @@ const messages = {
   }
 
   function showError(text: string) {
-    reset();
     error.textContent = text;
     error.hidden = false;
-    start.disabled = !input;
   }
 
-  function choose(chosen: File | undefined) {
-    reset();
-    file = chosen ?? null;
+  async function choose(picked: File | undefined) {
+    resetRun();
+    error.hidden = true;
+    file = picked ?? null;
     input = file ? detectFormat(file.name) : null;
-    $("chosen").hidden = !file;
+    preview = null;
+    bookTitle.hidden = true;
+    drop.hidden = !!file;
+    chosen.hidden = !file;
     $("chosen-name").textContent = file?.name ?? "";
     output.replaceChildren(
       ...(input ? OUTPUTS[input] : []).map((format) => new Option(m.outputs[format], format)),
     );
     $("output-row").hidden = !input || OUTPUTS[input].length < 2;
-    start.disabled = !input;
-    if (file && !input) showError(m.errors.unsupported);
+    adjust.disabled = run.disabled = true;
+    if (!file) return placeholder(m.previewEmpty);
+    if (!input) {
+      showError(m.errors.unsupported);
+      return placeholder(m.previewEmpty);
+    }
+    placeholder(m.previewLoading);
+    const current = file;
+    try {
+      const result = await extractPreview(current, input);
+      if (current !== file) return; // another file was picked meanwhile
+      preview = result;
+      if (result.title) {
+        bookTitle.textContent = result.title;
+        bookTitle.hidden = false;
+      }
+      adjust.disabled = run.disabled = false;
+      renderPreviewNow();
+    } catch (e) {
+      if (current !== file) return;
+      const code = e instanceof ConvertError ? e.code : "invalid";
+      showError(m.errors[code]);
+      placeholder(m.previewEmpty);
+    }
   }
 
   fileInput.addEventListener("change", () => choose(fileInput.files?.[0]));
-  drop.addEventListener("dragover", (event) => {
-    event.preventDefault();
-    drop.classList.add("over");
-  });
+  $("change").addEventListener("click", () => fileInput.click());
+  for (const target of [drop, form]) {
+    target.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      drop.classList.add("over");
+    });
+  }
   drop.addEventListener("dragleave", () => drop.classList.remove("over"));
-  drop.addEventListener("drop", (event) => {
+  form.addEventListener("drop", (event) => {
     event.preventDefault();
     drop.classList.remove("over");
     choose(event.dataTransfer?.files[0]);
   });
 
+  adjust.addEventListener("input", renderPreviewNow);
+  adjust.addEventListener("change", renderPreviewNow);
+
   cancel.addEventListener("click", () => {
-    reset();
+    resetRun();
     status.textContent = m.cancelled;
-    start.disabled = false;
+    run.disabled = false;
   });
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (!file || !input) return;
-    reset();
-    const data = new FormData(form);
-    start.disabled = true;
+    resetRun();
+    error.hidden = true;
+    const s = settings();
+    run.disabled = true;
     cancel.hidden = false;
+    // The cancel button lives outside the disabled fieldset's controls.
+    cancel.disabled = false;
     progress.hidden = false;
     progress.value = 0;
     status.textContent = m.progress.replace("{n}", "0");
@@ -156,6 +259,8 @@ const messages = {
         return;
       }
       if (msg.type === "error") {
+        resetRun();
+        run.disabled = false;
         showError(m.errors[msg.code].replace("{detail}", msg.detail ?? ""));
         return;
       }
@@ -169,29 +274,84 @@ const messages = {
       progress.hidden = true;
       cancel.hidden = true;
       status.textContent = m.done;
-      start.disabled = false;
+      run.disabled = false;
       download.focus();
     };
-    worker.onerror = (e) => showError(m.errors.failed.replace("{detail}", e.message));
+    worker.onerror = (e) => {
+      resetRun();
+      run.disabled = false;
+      showError(m.errors.failed.replace("{detail}", e.message));
+    };
     worker.postMessage({
       file,
       name: file.name,
       input,
       output: (output.value || OUTPUTS[input][0]) as OutputFormat,
-      strength: Number(data.get("strength")),
-      every: Number(data.get("every") ?? 1),
-      style: String(data.get("style") ?? DEFAULT_STYLE),
-      lang: form.dataset.lang,
+      ...s,
+      lang,
       labels: m.labels,
     });
   });
 </script>
 
 <style>
-  .converter {
+  .converter-layout {
     display: grid;
-    gap: 1.75rem;
-    max-width: 48rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .converter-layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2.5rem;
+  }
+  .step {
+    display: grid;
+    gap: 1rem;
+  }
+  .step h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: var(--step-1);
+  }
+  .num {
+    display: inline-grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    flex: none;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--on-forest);
+    font-size: var(--step-0);
+    font-weight: 800;
+  }
+  .step:has(fieldset:disabled) h2 {
+    color: var(--muted);
+  }
+  .step:has(fieldset:disabled) .num {
+    background: var(--line);
+    color: var(--muted);
+  }
+  .plain {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+  .plain:disabled {
+    opacity: 0.5;
   }
   .drop {
     display: grid;
@@ -201,10 +361,12 @@ const messages = {
     border: 2px dashed var(--line);
     border-radius: 18px;
     cursor: pointer;
-    background: transparent;
+  }
+  .drop[hidden] {
+    display: none;
   }
   .drop:hover,
-  .drop.over,
+  .drop:global(.over),
   .drop:focus-within {
     border-color: var(--forest);
     background: var(--moss);
@@ -225,26 +387,39 @@ const messages = {
     max-width: 100%;
   }
   .chosen {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+    background: var(--moss);
     overflow-wrap: anywhere;
+  }
+  .chosen[hidden] {
+    display: none;
+  }
+  .link {
+    font: inherit;
+    color: var(--forest);
+    font-weight: 700;
+    background: none;
+    border: 0;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
   }
   .output-format {
     display: grid;
     gap: 0.4rem;
     justify-items: start;
   }
-  .output-format label,
-  .options legend {
+  .output-format[hidden] {
+    display: none;
+  }
+  .output-format label {
     font-weight: 700;
-  }
-  .options {
-    border: 0;
-    margin: 0;
-    padding: 0;
-  }
-  .options legend {
-    font-size: var(--step-1);
-    margin-bottom: 1rem;
-    padding: 0;
   }
   select {
     font: inherit;
@@ -268,6 +443,9 @@ const messages = {
     gap: 0.75rem;
     justify-items: start;
   }
+  .result:empty {
+    display: none;
+  }
   progress {
     width: 100%;
     height: 0.75rem;
@@ -279,7 +457,80 @@ const messages = {
     background: var(--moss);
     max-width: var(--measure);
   }
-  [hidden] {
+  .error[hidden],
+  .result [hidden] {
     display: none;
+  }
+  .book-preview {
+    position: sticky;
+    top: 1rem;
+    display: grid;
+    gap: 0.9rem;
+  }
+  .book-preview h2 {
+    font-size: var(--step-1);
+  }
+  /* An ebook page: paper-white in both themes, a reader-like serif. */
+  .page {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    padding: 2rem 1.75rem 2.75rem;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #1d2a2e;
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.08),
+      0 10px 30px rgb(0 0 0 / 0.12);
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .page::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2.25rem;
+    height: 3rem;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 0), #ffffff);
+  }
+  .book-title {
+    margin: 0 0 1rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    color: #5b6668;
+    text-align: center;
+  }
+  .book-title[hidden] {
+    display: none;
+  }
+  .page-body :global(p) {
+    margin: 0 0 0.6em;
+    text-indent: 1.2em;
+  }
+  .page-body :global(p:first-child),
+  .page-body :global(h3 + p) {
+    text-indent: 0;
+  }
+  .page-body :global(h3) {
+    font-size: 1.25rem;
+    margin: 0.4em 0 0.8em;
+  }
+  .page-body :global(.placeholder) {
+    text-indent: 0;
+    color: #5b6668;
+    font-family: var(--font);
+    margin-top: 40%;
+    text-align: center;
+  }
+  .page-number {
+    position: absolute;
+    bottom: 0.9rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #5b6668;
   }
 </style>

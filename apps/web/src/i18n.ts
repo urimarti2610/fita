@@ -282,6 +282,19 @@ const es = {
       failed: "La conversión ha fallado ({detail}). Si vuelve a pasar, cuéntanoslo en GitHub.",
     },
     labels: { part: "Parte", contents: "Índice" },
+    steps: {
+      choose: "Elige el libro",
+      adjust: "Ajusta cómo se ve",
+      convert: "Convierte y descarga",
+    },
+    previewTitle: "Así empezará tu libro",
+    previewEmpty: "Elige un archivo y aquí verás su primera página con el énfasis.",
+    previewLoading: "Preparando la vista previa…",
+    previewNote: "Vista aproximada: cada lector muestra el libro con su propia letra y tamaño.",
+    previewNone:
+      "No se ha encontrado texto al principio del archivo, pero puedes convertirlo igualmente.",
+    change: "Elegir otro archivo",
+
     devices: {
       heading: "Cómo pasarlo a tu lector",
       items: [
@@ -581,6 +594,18 @@ const ca: Strings = {
       failed: "La conversió ha fallat ({detail}). Si torna a passar, explica-ho a GitHub.",
     },
     labels: { part: "Part", contents: "Índex" },
+    steps: {
+      choose: "Tria el llibre",
+      adjust: "Ajusta com es veu",
+      convert: "Converteix i descarrega",
+    },
+    previewTitle: "Així començarà el teu llibre",
+    previewEmpty: "Tria un fitxer i aquí en veuràs la primera pàgina amb l'èmfasi.",
+    previewLoading: "Preparant la previsualització…",
+    previewNote: "Vista aproximada: cada lector mostra el llibre amb la seva pròpia lletra i mida.",
+    previewNone: "No s'ha trobat text al principi del fitxer, però el pots convertir igualment.",
+    change: "Triar un altre fitxer",
+
     devices: {
       heading: "Com passar-lo al teu lector",
       items: [
@@ -871,6 +896,18 @@ const en: Strings = {
       failed: "The conversion failed ({detail}). If it happens again, please tell us on GitHub.",
     },
     labels: { part: "Part", contents: "Contents" },
+    steps: {
+      choose: "Choose your book",
+      adjust: "Adjust how it looks",
+      convert: "Convert and download",
+    },
+    previewTitle: "How your book will start",
+    previewEmpty: "Choose a file and its first page will appear here, with emphasis.",
+    previewLoading: "Preparing the preview…",
+    previewNote: "Approximate view: every reader shows the book with its own font and size.",
+    previewNone: "No text was found at the start of the file, but you can still convert it.",
+    change: "Choose another file",
+
     devices: {
       heading: "Getting it onto your reader",
       items: [
