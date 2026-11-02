@@ -10,15 +10,19 @@ import {
   THEMES,
 } from "../worksheet/sheet";
 import { parseTexts } from "../worksheet/texts";
-import ca from "../worksheet/texts/ca/README.md?raw";
-import en from "../worksheet/texts/en/README.md?raw";
-import es from "../worksheet/texts/es/README.md?raw";
+
+// Sample texts, one README.md per language (src/worksheet/texts/<lang>/README.md).
+const TEXTS = import.meta.glob<string>("../worksheet/texts/*/README.md", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
 import EmphasisControls from "./EmphasisControls.astro";
 
 type Props = { lang: Lang };
 const { lang } = Astro.props;
 const t = STRINGS[lang].worksheets;
-const examples = parseTexts({ es, ca, en }[lang]);
+const examples = parseTexts(TEXTS[`../worksheet/texts/${lang}/README.md`] ?? "");
 const first = examples[0] ?? { title: "", text: "" };
 // Examples grouped by level, keeping the README order.
 const levels = [...new Set(examples.map((e) => e.level ?? ""))];

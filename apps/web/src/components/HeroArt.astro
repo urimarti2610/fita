@@ -1,0 +1,92 @@
+---
+// Decorative drawing for the hero: lines of "text" drawn like the logo (a word is a
+// short block plus a thin stroke). A wave runs through the page and each word's start
+// grows and takes its line's colour, the way the emphasis lands on real text. Purely visual.
+
+// Word lengths per line, in drawing units. Fixed so the build is deterministic.
+const LINES = [
+  [46, 72, 30, 88, 54],
+  [64, 38, 96, 50, 40],
+  [34, 80, 58, 44, 74],
+  [90, 42, 66, 36, 52],
+  [52, 70, 40, 84, 44],
+  [76, 46, 62],
+];
+const HUES = ["var(--forest)", "var(--sun)", "var(--coral)", "var(--sky)"];
+const GAP = 12;
+const ROW = 40;
+const STEP = 0.22; // seconds between one anchor and the next
+
+const words = LINES.flatMap((line, row) => {
+  let x = 0;
+  return line.map((length) => {
+    const anchor = Math.max(8, Math.round(length * 0.38));
+    const word = { x, y: 20 + row * ROW, length, anchor, hue: HUES[row % HUES.length] };
+    x += length + GAP;
+    return word;
+  });
+}).map((word, i) => ({ ...word, i }));
+const cycle = words.length * STEP + 4;
+---
+
+<svg
+  class="hero-art"
+  viewBox={`-4 0 ${6 + Math.max(...LINES.map((l) => l.reduce((a, b) => a + b + GAP, -GAP)))} ${LINES.length * ROW}`}
+  aria-hidden="true"
+  focusable="false"
+  style={`--cycle: ${cycle}s`}
+>
+  {words.map((w) => (
+    <g style={`--i: ${w.i}; --hue: ${w.hue}`}>
+      <rect class="tail" x={w.x} y={w.y - 2} width={w.length} height="4" rx="2" />
+      <rect class="anchor" x={w.x} y={w.y - 8} width={w.anchor} height="16" rx="3" />
+    </g>
+  ))}
+</svg>
+
+<style define:vars={{ step: `${STEP}s` }}>
+  .hero-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .tail {
+    fill: var(--line);
+  }
+  .anchor {
+    fill: var(--hue);
+    transform-box: fill-box;
+    transform-origin: left center;
+    transform: scale(1, 0.25);
+    opacity: 0;
+    animation: emphasize var(--cycle) calc(var(--i) * var(--step)) ease-in-out infinite;
+  }
+  /* Each anchor grows in, holds while the rest of the page fills, then fades for the next pass. */
+  @keyframes emphasize {
+    0% {
+      transform: scale(1, 0.25);
+      opacity: 0;
+    }
+    4% {
+      transform: scale(1, 1.15);
+      opacity: 1;
+    }
+    7%,
+    78% {
+      transform: scale(1, 1);
+      opacity: 1;
+    }
+    90%,
+    100% {
+      transform: scale(1, 0.25);
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .anchor {
+      transform: none;
+      opacity: 1;
+    }
+  }
+</style>

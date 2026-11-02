@@ -4,15 +4,20 @@
 @import "@fontsource/atkinson-hyperlegible-next/800.css";
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --paper: #f6f7f3;
   --ink: #1d2a2e;
   --muted: #56645f;
   --forest: #1f5f3a;
   --moss: #dde9df;
+  --band: #ecf1ea;
   --line: #cfd8d2;
   --focus: #2f6fdd;
   --on-forest: #ffffff;
+  /* Illustration accents only (hero drawing), never text. */
+  --sun: #e9a925;
+  --coral: #e2674d;
+  --sky: #3a86d6;
   --font: "Atkinson Hyperlegible Next", system-ui, sans-serif;
   --step--1: 0.9rem;
   --step-0: 1.125rem;
@@ -24,17 +29,39 @@
   --measure: 62ch;
   --wide: 72rem;
 }
+/* Dark tokens apply when the system asks for them (unless the visitor picked light)
+   or when the visitor picked dark. The theme toggle sets [data-theme] on <html>. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --paper: #131a1b;
     --ink: #e5ece9;
     --muted: #a5b3ae;
     --forest: #82d3a3;
     --moss: #1e2c28;
+    --band: #18211f;
     --line: #2f3d39;
     --focus: #8fb7ff;
     --on-forest: #0f241a;
+    --sun: #f2c35b;
+    --coral: #f08a73;
+    --sky: #7cb4f0;
   }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #131a1b;
+  --ink: #e5ece9;
+  --muted: #a5b3ae;
+  --forest: #82d3a3;
+  --moss: #1e2c28;
+  --band: #18211f;
+  --line: #2f3d39;
+  --focus: #8fb7ff;
+  --on-forest: #0f241a;
+  --sun: #f2c35b;
+  --coral: #f08a73;
+  --sky: #7cb4f0;
 }
 
 *,

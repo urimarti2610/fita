@@ -313,34 +313,55 @@ const messages = {
     display: grid;
     gap: 2.5rem;
   }
+  /* A timeline: the numbers sit on one line that runs through every step. */
   .step {
+    --dot: 2.75rem;
+    position: relative;
     display: grid;
     gap: 1rem;
+    padding-left: calc(var(--dot) + 1.25rem);
+  }
+  .step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--dot) / 2 - 1.5px);
+    top: var(--dot);
+    bottom: -2.5rem;
+    width: 3px;
+    border-radius: 2px;
+    background: var(--forest);
+  }
+  .step:has(+ .step fieldset:disabled)::before {
+    background: var(--line);
   }
   .step h2 {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    min-height: var(--dot);
     font-size: var(--step-1);
   }
   .num {
-    display: inline-grid;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: grid;
     place-items: center;
-    width: 2rem;
-    height: 2rem;
-    flex: none;
+    width: var(--dot);
+    height: var(--dot);
     border-radius: 50%;
     background: var(--forest);
     color: var(--on-forest);
-    font-size: var(--step-0);
+    font-size: var(--step-1);
     font-weight: 800;
+    box-shadow: 0 0 0 6px var(--paper);
   }
   .step:has(fieldset:disabled) h2 {
     color: var(--muted);
   }
   .step:has(fieldset:disabled) .num {
-    background: var(--line);
+    background: var(--paper);
     color: var(--muted);
+    border: 3px solid var(--line);
   }
   .plain {
     border: 0;

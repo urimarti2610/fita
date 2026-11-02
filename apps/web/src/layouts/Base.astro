@@ -25,6 +25,13 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     {LANGS.map((l) => <link rel="alternate" hreflang={l} href={new URL(href(l, page), Astro.site)} />)}
     <meta name="theme-color" content="#f6f7f3" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#131a1b" media="(prefers-color-scheme: dark)" />
+    <script is:inline>
+      // Apply the visitor's saved theme before first paint, so there is no flash.
+      try {
+        const theme = localStorage.getItem("fita-theme");
+        if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
     <style is:inline set:html={EMPHASIS_CSS}></style>
   </head>
   <body>
@@ -46,15 +53,54 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
           <li><a href={href(lang, "worksheets")} aria-current={page === "worksheets" ? "page" : undefined}>{t.worksheets.nav}</a></li>
           <li><a href={href(lang, "convert")} aria-current={page === "convert" ? "page" : undefined}>{t.nav.convert}</a></li>
           <li>
-            <ul class="langs" aria-label={t.nav.language}>
-              {LANGS.map((l) => (
-                <li>
-                  <a href={href(l, page)} lang={l} hreflang={l} aria-current={l === lang ? "true" : undefined} title={LANG_NAMES[l]}>
-                    <span aria-hidden="true">{l}</span><span class="visually-hidden">{LANG_NAMES[l]}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <button
+              type="button"
+              class="theme-toggle"
+              id="theme-toggle"
+              hidden
+              data-label={t.nav.theme.label}
+              data-light={t.nav.theme.light}
+              data-dark={t.nav.theme.dark}
+            >
+              <svg class="icon-light" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <circle cx="12" cy="12" r="4.5" fill="currentColor"></circle>
+                <path
+                  d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"></path>
+              </svg>
+              <svg class="icon-dark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z" fill="currentColor"></path>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <details class="lang-menu">
+              <summary aria-label={`${t.nav.language}: ${LANG_NAMES[lang]}`}>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+                  <path
+                    d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"></path>
+                </svg>
+                <span aria-hidden="true">{lang.toUpperCase()}</span>
+                <svg class="chevron" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
+                  <path d="M2 4.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                </svg>
+              </summary>
+              <ul>
+                {LANGS.map((l) => (
+                  <li>
+                    <a href={href(l, page)} lang={l} hreflang={l} aria-current={l === lang ? "true" : undefined}>
+                      {LANG_NAMES[l]}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
           </li>
         </ul>
       </nav>
@@ -73,6 +119,61 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     {showSettings && <SettingsBubble lang={lang} />}
   </body>
 </html>
+
+<script>
+  // Theme toggle: every click flips what is on screen. Until the visitor picks one the
+  // page follows the system; picking the system's own theme goes back to following it.
+  // Stored only in this browser.
+  type Theme = "light" | "dark";
+  const KEY = "fita-theme";
+  const button = document.getElementById("theme-toggle") as HTMLButtonElement;
+  const root = document.documentElement;
+  const system = matchMedia("(prefers-color-scheme: dark)");
+
+  function shown(): Theme {
+    const chosen = root.dataset.theme;
+    if (chosen === "light" || chosen === "dark") return chosen;
+    return system.matches ? "dark" : "light";
+  }
+
+  function show() {
+    const theme = shown();
+    button.dataset.state = theme;
+    button.setAttribute("aria-label", `${button.dataset.label}: ${button.dataset[theme]}`);
+    button.title = button.getAttribute("aria-label") ?? "";
+  }
+
+  button.addEventListener("click", () => {
+    const next: Theme = shown() === "dark" ? "light" : "dark";
+    const followsSystem = next === (system.matches ? "dark" : "light");
+    if (followsSystem) delete root.dataset.theme;
+    else root.dataset.theme = next;
+    try {
+      if (followsSystem) localStorage.removeItem(KEY);
+      else localStorage.setItem(KEY, next);
+    } catch {
+      // Storage blocked: the choice still applies to this page.
+    }
+    show();
+  });
+  system.addEventListener("change", show);
+  show();
+  button.hidden = false;
+
+  // Language menu: native <details>; also close it on Escape or a click elsewhere.
+  const langMenu = document.querySelector<HTMLDetailsElement>(".lang-menu");
+  if (langMenu) {
+    document.addEventListener("click", (event) => {
+      if (langMenu.open && !langMenu.contains(event.target as Node)) langMenu.open = false;
+    });
+    langMenu.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && langMenu.open) {
+        langMenu.open = false;
+        langMenu.querySelector("summary")?.focus();
+      }
+    });
+  }
+</script>
 
 <style>
   .site-header {
@@ -95,29 +196,131 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
   .logo span {
     color: var(--ink);
   }
-  nav ul {
+  nav > ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 0.25rem 1.5rem;
     flex-wrap: wrap;
   }
-  .langs {
-    gap: 0.25rem;
-  }
-  .langs a {
+  nav > ul > li > a {
+    position: relative;
     display: inline-block;
-    padding: 0.2rem 0.5rem;
-    border-radius: 6px;
-    text-decoration: none;
+    padding-block: 0.4rem;
     color: var(--muted);
+    text-decoration: none;
   }
-  .langs a[aria-current] {
+  nav > ul > li > a:hover {
     color: var(--ink);
-    background: var(--moss);
+  }
+  /* Current page: a short bar under the start of the word, like the emphasis itself. */
+  nav > ul > li > a[aria-current="page"] {
+    color: var(--ink);
     font-weight: 700;
+  }
+  nav > ul > li > a[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 1.4em;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--forest);
+  }
+  /* Settings sit apart from the page links. */
+  nav > ul > li:has(.theme-toggle) {
+    margin-left: 0.5rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--line);
+  }
+  nav > ul > li:has(.theme-toggle[hidden]) {
+    display: none;
+  }
+  .theme-toggle {
+    display: inline-grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .theme-toggle[hidden] {
+    display: none;
+  }
+  .theme-toggle:hover {
+    border-color: var(--forest);
+  }
+  .theme-toggle svg {
+    display: none;
+  }
+  .theme-toggle[data-state="light"] .icon-light,
+  .theme-toggle[data-state="dark"] .icon-dark {
+    display: block;
+  }
+  .lang-menu {
+    position: relative;
+  }
+  .lang-menu summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 2.5rem;
+    padding-inline: 0.8rem;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: var(--step--1);
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+  }
+  .lang-menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .lang-menu summary:hover,
+  .lang-menu[open] summary {
+    border-color: var(--forest);
+  }
+  .lang-menu .chevron {
+    transition: transform 0.15s;
+  }
+  .lang-menu[open] .chevron {
+    transform: rotate(180deg);
+  }
+  .lang-menu ul {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.4rem);
+    z-index: 20;
+    list-style: none;
+    margin: 0;
+    padding: 0.35rem;
+    min-width: 10rem;
+    background: var(--paper);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.12);
+  }
+  .lang-menu a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .lang-menu a:hover {
+    background: var(--moss);
+    color: var(--ink);
+  }
+  .lang-menu a[aria-current] {
+    font-weight: 700;
+    color: var(--forest);
   }
   .site-footer {
     display: flex;

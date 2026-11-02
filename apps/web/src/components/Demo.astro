@@ -14,7 +14,8 @@ const initial = t.sample
   .join("");
 ---
 
-<section class="demo wrap" aria-labelledby="demo-title">
+<section class="demo" aria-labelledby="demo-title">
+  <div class="wrap">
   <h2 id="demo-title">{t.heading}</h2>
   <p class="intro">{t.intro}</p>
 
@@ -42,6 +43,7 @@ const initial = t.sample
   <form class="controls" id="demo-controls" aria-label={t.heading}>
     <EmphasisControls lang={lang} id="demo" layout="extended" />
   </form>
+  </div>
 </section>
 
 <script>
@@ -97,8 +99,12 @@ const initial = t.sample
 </script>
 
 <style>
+  /* A full-width band so the hands-on part stands apart from the reading parts. */
   .demo {
     margin-top: var(--section);
+    padding-block: clamp(3rem, 8vw, 5rem);
+    background: var(--band);
+    border-block: 1px solid var(--line);
   }
   .intro {
     margin-top: 0.5rem;
@@ -135,7 +141,7 @@ const initial = t.sample
   }
   textarea {
     resize: vertical;
-    background: transparent;
+    background: var(--paper);
     border: 1.5px solid var(--line);
   }
   .output {

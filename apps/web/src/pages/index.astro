@@ -1,9 +1,9 @@
 ---
-// The site lives under /es/, /ca/ and /en/. Pick the visitor's language when possible.
+// The site lives under /<lang>/. Pick the visitor's language when possible.
 import { WEB_BRAND } from "../../brand";
-import { href } from "../i18n";
+import { href, LANG_NAMES, LANGS } from "../i18n";
 const fallback = href("es");
-const targets = { es: href("es"), ca: href("ca"), en: href("en") };
+const targets = Object.fromEntries(LANGS.map((l) => [l, href(l)]));
 ---
 
 <!doctype html>
@@ -22,6 +22,6 @@ const targets = { es: href("es"), ca: href("ca"), en: href("en") };
     </script>
   </head>
   <body>
-    <ul><li><a href={targets.es}>Español</a></li><li><a href={targets.ca}>Català</a></li><li><a href={targets.en}>English</a></li></ul>
+    <ul>{LANGS.map((l) => <li><a href={targets[l]} lang={l}>{LANG_NAMES[l]}</a></li>)}</ul>
   </body>
 </html>
