@@ -1,0 +1,27 @@
+{
+  "name": "@fita/core",
+  "version": "0.1.0",
+  "description": "Word-emphasis reading aid: decides which part of each word to highlight.",
+  "license": "MPL-2.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "5.0.5",
+    "happy-dom": "21.0.4",
+    "vitest": "5.0.5"
+  }
+}
