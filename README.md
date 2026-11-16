@@ -32,6 +32,8 @@ Regenerate the images with `node apps/extension/scripts/store-assets.mjs` (exten
 | [`fonts`](fonts)                   | **Fita Sans**, a font that emphasizes word starts by itself (OpenType `calt`), for computers and e-readers. |
 | [`apps/web`](apps/web)             | Static website ([fitaread.com](https://fitaread.com)) in 27 languages: live demo, reading worksheets and an in-browser ebook converter. |
 | [`plugins/calibre`](plugins/calibre) | [calibre](https://calibre-ebook.com) plugin: adds emphasis to the EPUB books in your library. Install: download `fita-calibre-<version>.zip` from the [releases](https://github.com/urimarti2610/fita/releases), then **Preferences → Plugins → Load plugin from file**. |
+| [`addons/google-docs`](addons/google-docs) | Google Docs add-on (Apps Script): emphasize the document or a selection, and remove it again. |
+| [`addons/libreoffice`](addons/libreoffice) | LibreOffice Writer extension (`.oxt`, Python): the same, with a character style you can edit. |
 
 ## Languages
 
@@ -44,6 +46,7 @@ To add or fix a language, edit:
 - `apps/web/src/locales/<lang>.ts`: website text and page URLs (the shape is defined by `es.ts`);
 - `apps/web/src/worksheet/texts/<lang>/README.md`: children's reading texts for the worksheets;
 - `apps/extension/src/locales/<lang>.json`: extension text (same keys as `en.json`);
+- `addons/google-docs/src/locales/<lang>.json` and `addons/libreoffice/extension/pythonpath/wordanchor/i18n.py`: Google Docs and LibreOffice add-ons (English, Spanish and Catalan so far);
 
 then register the code in `apps/web/src/i18n.ts` and `apps/extension/src/build-data.ts`.
 

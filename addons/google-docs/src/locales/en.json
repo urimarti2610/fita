@@ -1,0 +1,21 @@
+{
+  "menuSettings": "Settings…",
+  "menuDocument": "Emphasize document",
+  "menuSelection": "Emphasize selection",
+  "menuRemove": "Remove emphasis",
+  "intro": "Gently emphasizes the start of each word to give your eyes an anchor. Read more comfortably, your way.",
+  "strength": "Strength",
+  "lighter": "Lighter",
+  "stronger": "Stronger",
+  "style": "Style",
+  "styleBold": "Bold",
+  "styleColor": "Colour",
+  "styleUnderline": "Underline",
+  "working": "Working…",
+  "done": "Done: {count} words emphasized.",
+  "removed": "Emphasis removed.",
+  "noSelection": "Select some text first.",
+  "error": "Something went wrong: {message}",
+  "privacy": "Everything happens inside this document. Nothing is sent anywhere.",
+  "help": "Remove emphasis only removes what this add-on added: your own bold, colours and underlines stay."
+}

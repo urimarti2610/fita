@@ -1,0 +1,21 @@
+{
+  "menuSettings": "Ajustes…",
+  "menuDocument": "Destacar el documento",
+  "menuSelection": "Destacar la selección",
+  "menuRemove": "Quitar el énfasis",
+  "intro": "Destaca suavemente el inicio de cada palabra para que la vista encuentre dónde apoyarse. Lee más cómodo, a tu manera.",
+  "strength": "Intensidad",
+  "lighter": "Más suave",
+  "stronger": "Más intensa",
+  "style": "Estilo",
+  "styleBold": "Negrita",
+  "styleColor": "Color",
+  "styleUnderline": "Subrayado",
+  "working": "Procesando…",
+  "done": "Hecho: {count} palabras destacadas.",
+  "removed": "Énfasis quitado.",
+  "noSelection": "Selecciona primero un texto.",
+  "error": "Algo ha fallado: {message}",
+  "privacy": "Todo ocurre dentro de este documento. No se envía nada a ningún sitio.",
+  "help": "Quitar el énfasis solo quita lo que añadió este complemento: tus negritas, colores y subrayados se quedan."
+}

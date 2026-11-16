@@ -7,7 +7,7 @@ Each item becomes a GitHub issue labelled `roadmap` once the repository exists.
 | Mobile app | Android/iOS reader with the same emphasis engine (`@fita/core`). |
 | KOReader plugin | Lua port of the algorithm or a CSS-based approach. |
 | PDF conversion | PDF needs a different strategy (reflow to EPUB/HTML or overlay). |
-| Word, LibreOffice and Google Docs add-ons | |
+| Word, LibreOffice and Google Docs add-ons | Google Docs add-on and LibreOffice Writer extension: built in [`addons/`](../addons). Word add-in: separate pull request, waiting for a decision on loading `office.js` from Microsoft's CDN (required by Office). Store publishing (Google Workspace Marketplace, LibreOffice extensions site) is manual. |
 | Font variants | Fita Sans ([`fonts/`](../fonts)) ships one strength and only bold; variants for other strengths, Greek/Cyrillic coverage. |
 
 ## Done

@@ -25,4 +25,8 @@ Adds reading emphasis to the EPUB books in your calibre library.
 2. In calibre: **Preferences → Plugins → Load plugin from file** and choose the zip, then restart calibre.
 3. Select books and click **Reading emphasis**.
 
+**LibreOffice Writer**
+1. Download `fita-libreoffice-<version>.oxt`.
+2. In LibreOffice, open **Tools → Extension Manager → Add…**, choose the file and restart.
+
 Found a problem? [Open an issue](https://github.com/urimarti2610/fita/issues/new/choose).
