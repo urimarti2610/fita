@@ -91,7 +91,7 @@ export const strings: Strings = {
       {
         q: "Ali ga lahko uporabljam s svojimi e-knjigami?",
         a: [
-          "Da. V razdelku „Pretvori knjigo“ izbereš datoteko EPUB, DOCX, TXT, Markdown ali HTML in preneseš kopijo s poudarki. Pretvorba poteka v tvojem brskalniku. Knjig z DRM ni mogoče pretvoriti.",
+          "Da. V razdelku „Pretvori knjigo“ izbereš datoteko EPUB, DOCX, PDF, TXT, Markdown ali HTML in preneseš kopijo s poudarki. Pretvorba poteka v tvojem brskalniku. Knjig z DRM ni mogoče pretvoriti.",
         ],
       },
       {
@@ -129,7 +129,7 @@ export const strings: Strings = {
         link: "Zamisli za razred in dom",
         lede: "Za učitelje, svetovalne službe in družine, ki želijo, da bi branje zahtevalo malo manj napora, ne da bi za vsakega učenca pripravljali drugačno gradivo.",
         steps: [
-          "Prilagodi gradivo, ki ga že imaš: pretvori berila, zapiske ali knjige v obliki EPUB, DOCX, TXT, Markdown ali HTML in jih deli takšne, kot so.",
+          "Prilagodi gradivo, ki ga že imaš: pretvori berila, zapiske ali knjige v obliki EPUB, DOCX, PDF, TXT, Markdown ali HTML in jih deli takšne, kot so.",
           "Pri pouku projiciraj predstavitev z besedilom dneva in skupaj preizkusite različne jakosti in sloge. Naj vsak učenec pove, kaj mu je najbolj udobno.",
           "Na šolskih računalnikih razširitev deluje brez računov in registracije ter ne zbira nobenih podatkov o učencih.",
           "V razdelku „Delovni listi“ pripraviš liste za branje z velikimi črkami in prijaznim okvirjem ter jih natisneš ali shraniš kot PDF.",
@@ -263,10 +263,12 @@ export const strings: Strings = {
       "Izberi knjigo ali dokument in prenesi kopijo s poudarki. Datoteka nikoli ne zapusti tvoje naprave: vse se zgodi v tem brskalniku, brez omejitve velikosti.",
     pick: "Izberi datoteko",
     drop: "ali jo spusti sem",
-    formats: "EPUB, DOCX, TXT, Markdown ali HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown ali HTML",
     pickFolder: "Izberi mapo",
     folderHint: "Markdown s slikami? Izberi njegovo mapo ali .zip in slike bodo vključene.",
     bundleDocument: "Pretvoril se bo {name}, skupaj s slikami.",
+    pdfNote:
+      "Iz PDF-ja se izlušči besedilo in pretvori v knjigo EPUB ali stran HTML. Postavitev, slike in tabele se ne ohranijo.",
     selected: "Izbrana datoteka:",
     output: "Izhodna oblika",
     outputs: {
@@ -284,13 +286,17 @@ export const strings: Strings = {
     download: "Prenesi {name}",
     errors: {
       unsupported:
-        "Te oblike ni mogoče pretvoriti. Izberi datoteko EPUB, DOCX, TXT, Markdown ali HTML.",
+        "Te oblike ni mogoče pretvoriti. Izberi datoteko EPUB, DOCX, PDF, TXT, Markdown ali HTML.",
       drm: "Ta knjiga ima DRM (zaščito pred kopiranjem), zato je ni mogoče pretvoriti. Če je kupljena, vprašaj v trgovini, ali ti lahko dajo kopijo brez DRM.",
       invalid:
         "Te datoteke ni bilo mogoče prebrati. Preveri, ali se odpre v tvojem bralniku, ali poskusi z drugo.",
       noMarkdown: "V tej mapi ali .zip ni nobene datoteke Markdown (.md).",
       locked:
         "Ta dokument ima geslo ali je v starem Wordovem zapisu (.doc), zato ga ni mogoče pretvoriti. Odpri ga, shrani kot .docx brez gesla in poskusi znova.",
+      noText:
+        "V tem PDF-ju nismo našli besedila. Če je to skeniran dokument (fotografije strani), najprej potrebuje prepoznavanje besedila (OCR).",
+      pdfLocked:
+        "Ta PDF ima geslo, zato ga ni mogoče pretvoriti. Odpri ga, shrani brez gesla in poskusi znova.",
       failed: "Pretvorba ni uspela ({detail}). Če se zgodi znova, nam prosim sporoči na GitHubu.",
     },
     labels: { part: "Del", contents: "Kazalo" },

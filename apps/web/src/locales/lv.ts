@@ -91,7 +91,7 @@ export const strings: Strings = {
       {
         q: "Vai to var izmantot ar manām e-grāmatām?",
         a: [
-          "Jā. Sadaļā „Konvertēt grāmatu” izvēlies EPUB, DOCX, TXT, Markdown vai HTML failu un lejupielādē kopiju ar izcēlumu. Konvertēšana notiek tavā pārlūkā. Grāmatas ar DRM konvertēt nevar.",
+          "Jā. Sadaļā „Konvertēt grāmatu” izvēlies EPUB, DOCX, PDF, TXT, Markdown vai HTML failu un lejupielādē kopiju ar izcēlumu. Konvertēšana notiek tavā pārlūkā. Grāmatas ar DRM konvertēt nevar.",
         ],
       },
       {
@@ -131,7 +131,7 @@ export const strings: Strings = {
         link: "Idejas klasei un mājām",
         lede: "Skolotājiem, atbalsta personālam un ģimenēm, kas vēlas, lai lasīšana prasītu mazliet mazāk pūļu, negatavojot atšķirīgus materiālus katram skolēnam.",
         steps: [
-          "Pielāgo materiālus, kas tev jau ir: konvertē lasāmos tekstus, pierakstus vai grāmatas EPUB, DOCX, TXT, Markdown vai HTML formātā un dalies ar tiem, kā ir.",
+          "Pielāgo materiālus, kas tev jau ir: konvertē lasāmos tekstus, pierakstus vai grāmatas EPUB, DOCX, PDF, TXT, Markdown vai HTML formātā un dalies ar tiem, kā ir.",
           "Stundā projicē demonstrāciju ar dienas tekstu un kopā izmēģiniet dažādu stiprumu un stilus. Ļauj katram skolēnam pateikt, kas šķiet visērtākais.",
           "Skolas datoros paplašinājums darbojas bez kontiem un reģistrācijas un nevāc nekādus skolēnu datus.",
           "Sadaļā „Darba lapas” veido lasīšanas lapas ar lielu burtu izmēru un jauku rāmīti, tad izdrukā tās vai saglabā kā PDF.",
@@ -268,10 +268,12 @@ export const strings: Strings = {
       "Izvēlies grāmatu vai dokumentu un lejupielādē kopiju ar izcēlumu. Fails nekad neatstāj tavu ierīci: viss notiek šajā pārlūkā, bez izmēra ierobežojuma.",
     pick: "Izvēlēties failu",
     drop: "vai ievelc to šeit",
-    formats: "EPUB, DOCX, TXT, Markdown vai HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown vai HTML",
     pickFolder: "Izvēlies mapi",
     folderHint: "Markdown ar attēliem? Izvēlies tā mapi vai .zip, un attēli tiks iekļauti.",
     bundleDocument: "Tiks pārveidots {name} kopā ar attēliem.",
+    pdfNote:
+      "No PDF tiek izņemts teksts un pārveidots par EPUB grāmatu vai HTML lapu. Makets, attēli un tabulas netiek saglabāti.",
     selected: "Izvēlētais fails:",
     output: "Izvades formāts",
     outputs: {
@@ -288,13 +290,18 @@ export const strings: Strings = {
     done: "Gatavs. Tavs fails ir sagatavots.",
     download: "Lejupielādēt {name}",
     errors: {
-      unsupported: "Šo formātu nevar konvertēt. Izvēlies EPUB, DOCX, TXT, Markdown vai HTML failu.",
+      unsupported:
+        "Šo formātu nevar konvertēt. Izvēlies EPUB, DOCX, PDF, TXT, Markdown vai HTML failu.",
       drm: "Šai grāmatai ir DRM (aizsardzība pret kopēšanu), tāpēc to nevar konvertēt. Ja to iegādājies, pajautā veikalam, vai viņi var dot kopiju bez DRM.",
       invalid:
         "Šo failu neizdevās nolasīt. Pārbaudi, vai tas atveras tavā lasītājā, vai izmēģini citu.",
       noMarkdown: "Šajā mapē vai .zip failā nav neviena Markdown (.md) faila.",
       locked:
         "Šim dokumentam ir parole vai tas ir vecajā Word formātā (.doc), tāpēc to nevar pārveidot. Atver to, saglabā kā .docx bez paroles un mēģini vēlreiz.",
+      noText:
+        "Šajā PDF mēs neatradām tekstu. Ja tas ir skenēts dokuments (lapu fotogrāfijas), vispirms vajadzīga teksta atpazīšana (OCR).",
+      pdfLocked:
+        "Šim PDF ir parole, tāpēc to nevar pārveidot. Atver to, saglabā bez paroles un mēģini vēlreiz.",
       failed: "Konvertēšana neizdevās ({detail}). Ja tas atkārtojas, lūdzu, pastāsti mums GitHub.",
     },
     labels: { part: "Daļa", contents: "Saturs" },

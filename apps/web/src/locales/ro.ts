@@ -92,7 +92,7 @@ export const strings: Strings = {
       {
         q: "Îl pot folosi cu cărțile mele electronice?",
         a: [
-          "Da. În „Convertește o carte” alegi un fișier EPUB, DOCX, TXT, Markdown sau HTML și descarci o copie cu evidențiere. Conversia are loc în browserul tău. Cărțile cu DRM nu pot fi convertite.",
+          "Da. În „Convertește o carte” alegi un fișier EPUB, DOCX, PDF, TXT, Markdown sau HTML și descarci o copie cu evidențiere. Conversia are loc în browserul tău. Cărțile cu DRM nu pot fi convertite.",
         ],
       },
       {
@@ -130,7 +130,7 @@ export const strings: Strings = {
         link: "Idei pentru clasă și acasă",
         lede: "Pentru cadre didactice, profesori de sprijin și familii care vor ca cititul să ceară ceva mai puțin efort, fără să pregătească materiale diferite pentru fiecare elev.",
         steps: [
-          "Adaptează materialele pe care le ai deja: convertește lecturi, notițe sau cărți în EPUB, DOCX, TXT, Markdown sau HTML și împarte-le așa cum sunt.",
+          "Adaptează materialele pe care le ai deja: convertește lecturi, notițe sau cărți în EPUB, DOCX, PDF, TXT, Markdown sau HTML și împarte-le așa cum sunt.",
           "La clasă, proiectează demonstrația cu textul zilei și încercați împreună intensități și stiluri diferite. Lasă fiecare elev să spună ce i se pare mai confortabil.",
           "Pe calculatoarele școlii, extensia funcționează fără conturi sau înregistrare și nu colectează date despre elevi.",
           "Creează fișe de citire cu litere mari și un chenar prietenos în „Fișe”, apoi tipărește-le sau salvează-le ca PDF.",
@@ -265,10 +265,12 @@ export const strings: Strings = {
       "Alege o carte sau un document și descarcă o copie cu evidențiere. Fișierul nu iese niciodată de pe dispozitivul tău: totul se întâmplă în acest browser, fără limită de mărime.",
     pick: "Alege un fișier",
     drop: "sau trage-l aici",
-    formats: "EPUB, DOCX, TXT, Markdown sau HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown sau HTML",
     pickFolder: "Alege un dosar",
     folderHint: "Markdown cu imagini? Alege-i dosarul sau un .zip și imaginile vor fi incluse.",
     bundleDocument: "Se va converti {name}, împreună cu imaginile.",
+    pdfNote:
+      "Din PDF se extrage textul și se transformă într-o carte EPUB sau o pagină HTML. Aranjarea în pagină, imaginile și tabelele nu se păstrează.",
     selected: "Fișier ales:",
     output: "Formatul rezultatului",
     outputs: {
@@ -286,13 +288,17 @@ export const strings: Strings = {
     download: "Descarcă {name}",
     errors: {
       unsupported:
-        "Formatul acesta nu poate fi convertit. Alege un fișier EPUB, DOCX, TXT, Markdown sau HTML.",
+        "Formatul acesta nu poate fi convertit. Alege un fișier EPUB, DOCX, PDF, TXT, Markdown sau HTML.",
       drm: "Cartea aceasta are DRM (protecție la copiere), așa că nu poate fi convertită. Dacă ai cumpărat-o, întreabă magazinul dacă îți poate da o copie fără DRM.",
       invalid:
         "Fișierul acesta nu a putut fi citit. Verifică dacă se deschide în cititorul tău sau încearcă altul.",
       noMarkdown: "Nu există niciun fișier Markdown (.md) în acest dosar sau .zip.",
       locked:
         "Acest document are parolă sau este în formatul vechi Word (.doc), așa că nu poate fi convertit. Deschide-l, salvează-l ca .docx fără parolă și încearcă din nou.",
+      noText:
+        "Nu am găsit text în acest PDF. Dacă este un document scanat (fotografii ale paginilor), are nevoie mai întâi de recunoaștere a textului (OCR).",
+      pdfLocked:
+        "Acest PDF are parolă, așa că nu poate fi convertit. Deschide-l, salvează-l fără parolă și încearcă din nou.",
       failed: "Conversia a eșuat ({detail}). Dacă se mai întâmplă, te rugăm să ne spui pe GitHub.",
     },
     labels: { part: "Partea", contents: "Cuprins" },

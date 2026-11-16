@@ -4,3 +4,6 @@ packages:
   - addons/*
 onlyBuiltDependencies:
   - esbuild
+ignoredOptionalDependencies:
+  # Optional dependency of pdfjs-dist for rendering in Node; the converter only reads text in the browser.
+  - "@napi-rs/canvas"

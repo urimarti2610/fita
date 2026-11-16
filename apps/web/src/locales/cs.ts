@@ -91,7 +91,7 @@ export const strings: Strings = {
       {
         q: "Můžu to používat se svými e-knihami?",
         a: [
-          "Ano. V části „Převést knihu“ vybereš soubor EPUB, DOCX, TXT, Markdown nebo HTML a stáhneš si kopii se zvýrazněním. Převod probíhá ve tvém prohlížeči. Knihy s DRM převést nejde.",
+          "Ano. V části „Převést knihu“ vybereš soubor EPUB, DOCX, PDF, TXT, Markdown nebo HTML a stáhneš si kopii se zvýrazněním. Převod probíhá ve tvém prohlížeči. Knihy s DRM převést nejde.",
         ],
       },
       {
@@ -129,7 +129,7 @@ export const strings: Strings = {
         link: "Nápady do třídy i domů",
         lede: "Pro učitele, školní poradenská pracoviště a rodiny, které chtějí, aby čtení stálo o trochu méně námahy, a přitom nechystat jiné materiály pro každého žáka.",
         steps: [
-          "Uprav materiály, které už máš: převeď čítanky, poznámky nebo knihy ve formátu EPUB, DOCX, TXT, Markdown nebo HTML a sdílej je tak, jak jsou.",
+          "Uprav materiály, které už máš: převeď čítanky, poznámky nebo knihy ve formátu EPUB, DOCX, PDF, TXT, Markdown nebo HTML a sdílej je tak, jak jsou.",
           "Ve třídě promítni ukázku s textem na daný den a společně vyzkoušejte různé síly a styly. Ať každý žák řekne, co mu nejvíc vyhovuje.",
           "Na školních počítačích rozšíření funguje bez účtů a registrace a nesbírá žádná data o žácích.",
           "V části „Pracovní listy“ připravíš listy ke čtení s velkým písmem a přívětivým rámečkem a pak je vytiskneš nebo uložíš jako PDF.",
@@ -264,10 +264,12 @@ export const strings: Strings = {
       "Vyber knihu nebo dokument a stáhni si kopii se zvýrazněním. Soubor nikdy neopustí tvoje zařízení: všechno se děje v tomhle prohlížeči, bez omezení velikosti.",
     pick: "Vybrat soubor",
     drop: "nebo ho sem přetáhni",
-    formats: "EPUB, DOCX, TXT, Markdown nebo HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown nebo HTML",
     pickFolder: "Vybrat složku",
     folderHint: "Markdown s obrázky? Vyber jeho složku nebo .zip a obrázky půjdou dovnitř.",
     bundleDocument: "Převede se {name} i s obrázky.",
+    pdfNote:
+      "Z PDF se vytáhne text a udělá se z něj kniha EPUB nebo stránka HTML. Rozvržení, obrázky a tabulky se nezachovají.",
     selected: "Vybraný soubor:",
     output: "Výstupní formát",
     outputs: {
@@ -284,13 +286,18 @@ export const strings: Strings = {
     done: "Hotovo. Tvůj soubor je připravený.",
     download: "Stáhnout {name}",
     errors: {
-      unsupported: "Tenhle formát převést nejde. Vyber soubor EPUB, DOCX, TXT, Markdown nebo HTML.",
+      unsupported:
+        "Tenhle formát převést nejde. Vyber soubor EPUB, DOCX, PDF, TXT, Markdown nebo HTML.",
       drm: "Tahle kniha má DRM (ochranu proti kopírování), takže ji převést nejde. Pokud je koupená, zeptej se v obchodě, jestli ti můžou dát kopii bez DRM.",
       invalid:
         "Tenhle soubor se nepodařilo přečíst. Zkontroluj, jestli se otevře ve tvé čtečce, nebo zkus jiný.",
       noMarkdown: "V téhle složce ani .zipu není žádný soubor Markdown (.md).",
       locked:
         "Tenhle dokument má heslo nebo je ve starém formátu Wordu (.doc), takže ho převést nejde. Otevři ho, ulož jako .docx bez hesla a zkus to znovu.",
+      noText:
+        "V tomhle PDF jsme nenašli žádný text. Pokud je to naskenovaný dokument (fotky stránek), potřebuje nejdřív rozpoznání textu (OCR).",
+      pdfLocked:
+        "Tohle PDF má heslo, takže ho převést nejde. Otevři ho, ulož bez hesla a zkus to znovu.",
       failed:
         "Převod se nepovedl ({detail}). Pokud se to stane znovu, dej nám prosím vědět na GitHubu.",
     },

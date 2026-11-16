@@ -90,7 +90,7 @@ export const strings: Strings = {
       {
         q: "Kas saan seda kasutada oma e-raamatutega?",
         a: [
-          "Jah. Jaotises „Teisenda raamat” valid EPUB-, DOCX-, TXT-, Markdown- või HTML-faili ja laadid alla esiletõstetud koopia. Teisendamine toimub sinu brauseris. DRM-kaitsega raamatuid teisendada ei saa.",
+          "Jah. Jaotises „Teisenda raamat” valid EPUB-, DOCX-, PDF-, TXT-, Markdown- või HTML-faili ja laadid alla esiletõstetud koopia. Teisendamine toimub sinu brauseris. DRM-kaitsega raamatuid teisendada ei saa.",
         ],
       },
       {
@@ -128,7 +128,7 @@ export const strings: Strings = {
         link: "Ideid klassiruumi ja koju",
         lede: "Õpetajatele, tugispetsialistidele ja peredele, kes soovivad, et lugemine nõuaks veidi vähem pingutust, ilma et peaks iga õpilase jaoks eraldi materjali ette valmistama.",
         steps: [
-          "Kohanda olemasolevat materjali: teisenda lugemistekstid, konspektid või raamatud EPUB-, DOCX-, TXT-, Markdown- või HTML-vormingus ja jaga neid nii, nagu need on.",
+          "Kohanda olemasolevat materjali: teisenda lugemistekstid, konspektid või raamatud EPUB-, DOCX-, PDF-, TXT-, Markdown- või HTML-vormingus ja jaga neid nii, nagu need on.",
           "Näita tunnis demot päeva tekstiga suurel ekraanil ja proovige koos eri tugevusi ja stiile. Las iga õpilane ütleb, mis talle kõige mugavam on.",
           "Kooliarvutites töötab laiendus ilma kontode ja registreerimiseta ega kogu õpilaste kohta mingeid andmeid.",
           "Tee jaotises „Töölehed” suure kirja ja sõbraliku raamiga lugemistöölehti, siis prindi need või salvesta PDF-ina.",
@@ -262,10 +262,12 @@ export const strings: Strings = {
       "Vali raamat või dokument ja laadi alla esiletõstetud koopia. Fail ei lahku kunagi sinu seadmest: kõik toimub selles brauseris ja suurusepiirangut pole.",
     pick: "Vali fail",
     drop: "või lohista see siia",
-    formats: "EPUB, DOCX, TXT, Markdown või HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown või HTML",
     pickFolder: "Vali kaust",
     folderHint: "Piltidega Markdown? Vali selle kaust või .zip ja pildid tulevad kaasa.",
     bundleDocument: "Teisendatakse {name} koos piltidega.",
+    pdfNote:
+      "PDF-ist võetakse tekst ja sellest tehakse EPUB-raamat või HTML-leht. Küljendus, pildid ja tabelid ei säili.",
     selected: "Valitud fail:",
     output: "Väljundvorming",
     outputs: {
@@ -283,13 +285,17 @@ export const strings: Strings = {
     download: "Laadi alla {name}",
     errors: {
       unsupported:
-        "Seda vormingut ei saa teisendada. Vali EPUB-, DOCX-, TXT-, Markdown- või HTML-fail.",
+        "Seda vormingut ei saa teisendada. Vali EPUB-, DOCX-, PDF-, TXT-, Markdown- või HTML-fail.",
       drm: "Sellel raamatul on DRM (kopeerimiskaitse), seega seda ei saa teisendada. Kui ostsid selle, küsi poest, kas nad saavad anda DRM-ita koopia.",
       invalid:
         "Seda faili ei õnnestunud lugeda. Kontrolli, kas see avaneb sinu e-lugeris, või proovi mõnda teist.",
       noMarkdown: "Selles kaustas või .zip-failis pole ühtegi Markdowni faili (.md).",
       locked:
         "Sellel dokumendil on parool või on see Wordi vanas vormingus (.doc), seega ei saa seda teisendada. Ava see, salvesta .docx-failina ilma paroolita ja proovi uuesti.",
+      noText:
+        "Sellest PDF-ist ei leidnud me teksti. Kui see on skannitud dokument (lehekülgede pildid), vajab see kõigepealt tekstituvastust (OCR).",
+      pdfLocked:
+        "Sellel PDF-il on parool, seega ei saa seda teisendada. Ava see, salvesta ilma paroolita ja proovi uuesti.",
       failed:
         "Teisendamine ebaõnnestus ({detail}). Kui see juhtub uuesti, anna meile palun GitHubis teada.",
     },
