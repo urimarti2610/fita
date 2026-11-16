@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Estompează restul"
   },
+  "readAloud": {
+    "message": "Citire cu voce tare"
+  },
+  "speechPlay": {
+    "message": "Pornește"
+  },
+  "speechPause": {
+    "message": "Pauză"
+  },
+  "speechResume": {
+    "message": "Continuă"
+  },
+  "speechStop": {
+    "message": "Oprește"
+  },
+  "speechRate": {
+    "message": "Viteză"
+  },
+  "speechVoice": {
+    "message": "Voce"
+  },
+  "voiceAuto": {
+    "message": "Automată"
+  },
+  "voiceOther": {
+    "message": "Alte limbi"
+  },
+  "speechHint": {
+    "message": "Selectează text sau dă clic unde vrei să înceapă. Se folosesc doar vocile de pe acest dispozitiv."
+  },
+  "speechReading": {
+    "message": "Se citește cu voce tare…"
+  },
+  "speechPaused": {
+    "message": "În pauză."
+  },
+  "speechNoVoice": {
+    "message": "Acest dispozitiv nu are nicio voce pentru această limbă. Poți adăuga voci din setările de vorbire ale sistemului."
+  },
+  "speechNoText": {
+    "message": "Aici nu există text de citit."
+  },
+  "speechUnsupported": {
+    "message": "Acest browser nu poate citi cu voce tare."
+  },
+  "contextMenuRead": {
+    "message": "Citește cu voce tare"
+  },
+  "commandReadAloud": {
+    "message": "Citește cu voce tare, pune pauză sau continuă"
+  },
   "moreOptions": {
     "message": "Mai multe opțiuni"
   },

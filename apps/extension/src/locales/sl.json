@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Zatemni preostanek"
   },
+  "readAloud": {
+    "message": "Branje na glas"
+  },
+  "speechPlay": {
+    "message": "Začni"
+  },
+  "speechPause": {
+    "message": "Premor"
+  },
+  "speechResume": {
+    "message": "Nadaljuj"
+  },
+  "speechStop": {
+    "message": "Ustavi"
+  },
+  "speechRate": {
+    "message": "Hitrost"
+  },
+  "speechVoice": {
+    "message": "Glas"
+  },
+  "voiceAuto": {
+    "message": "Samodejno"
+  },
+  "voiceOther": {
+    "message": "Drugi jeziki"
+  },
+  "speechHint": {
+    "message": "Izberite besedilo ali kliknite, kjer želite začeti. Uporabljajo se le glasovi v tej napravi."
+  },
+  "speechReading": {
+    "message": "Berem na glas …"
+  },
+  "speechPaused": {
+    "message": "Začasno ustavljeno."
+  },
+  "speechNoVoice": {
+    "message": "Ta naprava nima glasu za ta jezik. Glasove lahko dodate v nastavitvah govora sistema."
+  },
+  "speechNoText": {
+    "message": "Tu ni besedila za branje."
+  },
+  "speechUnsupported": {
+    "message": "Ta brskalnik ne zna brati na glas."
+  },
+  "contextMenuRead": {
+    "message": "Beri na glas"
+  },
+  "commandReadAloud": {
+    "message": "Beri na glas, ustavi ali nadaljuj"
+  },
   "moreOptions": {
     "message": "Več možnosti"
   },

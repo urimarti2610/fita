@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Tona resten"
   },
+  "readAloud": {
+    "message": "Läs upp"
+  },
+  "speechPlay": {
+    "message": "Starta"
+  },
+  "speechPause": {
+    "message": "Pausa"
+  },
+  "speechResume": {
+    "message": "Fortsätt"
+  },
+  "speechStop": {
+    "message": "Stoppa"
+  },
+  "speechRate": {
+    "message": "Hastighet"
+  },
+  "speechVoice": {
+    "message": "Röst"
+  },
+  "voiceAuto": {
+    "message": "Automatisk"
+  },
+  "voiceOther": {
+    "message": "Andra språk"
+  },
+  "speechHint": {
+    "message": "Markera text eller klicka där du vill börja. Bara röster på den här enheten används."
+  },
+  "speechReading": {
+    "message": "Läser upp …"
+  },
+  "speechPaused": {
+    "message": "Pausad."
+  },
+  "speechNoVoice": {
+    "message": "Den här enheten har ingen röst för det här språket. Du kan lägga till röster i systemets talinställningar."
+  },
+  "speechNoText": {
+    "message": "Det finns ingen text att läsa här."
+  },
+  "speechUnsupported": {
+    "message": "Den här webbläsaren kan inte läsa upp text."
+  },
+  "contextMenuRead": {
+    "message": "Läs upp"
+  },
+  "commandReadAloud": {
+    "message": "Läs upp, pausa eller fortsätt"
+  },
   "moreOptions": {
     "message": "Fler alternativ"
   },

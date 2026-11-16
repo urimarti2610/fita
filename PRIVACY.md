@@ -6,6 +6,7 @@
 - Text you read and files you convert are never sent anywhere. There is no server to send them to.
 - No analytics, no cookies, no telemetry, no tracking pixels, no third-party fonts or scripts.
 - The extension stores your settings (strength, style, sites where it is always on) with your browser's own `storage.sync`. If you are signed in to your browser, the browser vendor may sync those settings between your devices; we never see them.
+- Read aloud uses only the voices installed on your device (the browser's `speechSynthesis`). Some browsers also list online voices that send the text to the vendor's servers; the extension never uses them.
 - The extension asks only for the permissions it needs: `storage`, `contextMenus`, `activeTab` and `scripting`. Access to specific sites is requested only when you choose "Always on this site" or "On all sites", and you can revoke it at any time.
 
 ## En español

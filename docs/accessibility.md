@@ -33,3 +33,13 @@ An optional reading guide in the extension ("More options" → "Line ruler"): it
 - It follows the pointer (or a tap on touch screens), the text cursor when caret browsing is on (`F7` in Chrome and Firefox: move line by line with `↑/↓`), and keyboard focus (`Tab`).
 - It is a fixed overlay in a closed shadow root, outside `<body>`: page text, layout and the accessibility tree are untouched. It is `aria-hidden`, ignores the pointer (`pointer-events: none`) and is removed completely when emphasis is turned off.
 - Light and dark colour schemes have their own tints; in forced-colours mode (Windows high contrast) the band becomes a `Highlight` outline. With `prefers-reduced-motion: reduce` it jumps from line to line without animating.
+
+## Read aloud
+
+The extension popup can read the page aloud with the browser's own text-to-speech (`speechSynthesis`), without any server.
+
+- **What it reads:** the selected text; otherwise from the word where you clicked (the text caret); otherwise from the first paragraph in view. It skips scripts, form fields, hidden and `aria-hidden` content, and goes block by block, so very long pages work.
+- **Controls:** Start / Pause / Resume and Stop buttons, speed (0.5×–2×) and voice in the popup; "Read aloud" in the right-click menu; an optional keyboard shortcut ("Read aloud, pause or resume"), unassigned by default — set one in the browser's shortcut settings.
+- **Voices:** only on-device voices (`localService: true`). Chrome lists online "Google" voices and Edge lists online "Natural" voices that send the text to the vendor's servers; they are never offered or used. The voice is picked by the language of the page (or of the element's `lang`), and you can choose one per language. If the device has no voice for the language, the popup says so: add voices in the operating system's speech settings (Windows: Settings → Time & language → Speech; macOS: System Settings → Accessibility → Spoken content; Android: Text-to-speech output; Linux: speech-dispatcher with e.g. espeak-ng).
+- **Following along:** the word being read is marked with the CSS Custom Highlight API (`::highlight`, system colours `Mark`/`MarkText`, so it works in dark and forced-colours modes) and scrolled into view when it leaves the screen (without smooth scrolling under `prefers-reduced-motion`). The page's DOM and text are not modified. Browsers without the Highlight API, or engines that send no word boundaries, still read but without marking words.
+- **Screen readers:** if you use one, it already reads the page; this feature is meant for people who read visually and want to hear the text at the same time.

@@ -1,5 +1,6 @@
 import { DEFAULT_OPTIONS, DEFAULT_STYLE, type EmphasisStyle } from "@fita/core";
 import type { RulerMode } from "./ruler.js";
+import type { SpeechAction, SpeechState } from "./speech.js";
 
 export type Settings = {
   strength: number;
@@ -103,6 +104,10 @@ export type ContentMessage =
   | { type: "set"; enabled?: boolean }
   | { type: "preview"; settings: Settings };
 export type ContentReply = { enabled: boolean };
+/** Read aloud: popup/background → content script. Replies with the new SpeechState. */
+export type SpeechMessage = { type: "speech"; action: SpeechAction };
+/** Content script → popup, whenever reading starts, pauses or ends. */
+export type SpeechStateMessage = { type: "speech-state"; state: SpeechState };
 /** Sent by the content script so the background can update the badge. */
 export type StateMessage = { type: "state"; enabled: boolean };
 

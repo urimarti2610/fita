@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "A többi halványan"
   },
+  "readAloud": {
+    "message": "Felolvasás"
+  },
+  "speechPlay": {
+    "message": "Indítás"
+  },
+  "speechPause": {
+    "message": "Szünet"
+  },
+  "speechResume": {
+    "message": "Folytatás"
+  },
+  "speechStop": {
+    "message": "Leállítás"
+  },
+  "speechRate": {
+    "message": "Sebesség"
+  },
+  "speechVoice": {
+    "message": "Hang"
+  },
+  "voiceAuto": {
+    "message": "Automatikus"
+  },
+  "voiceOther": {
+    "message": "Más nyelvek"
+  },
+  "speechHint": {
+    "message": "Jelölj ki szöveget, vagy kattints oda, ahol kezdeni szeretnéd. Csak az eszközön lévő hangok működnek."
+  },
+  "speechReading": {
+    "message": "Felolvasás…"
+  },
+  "speechPaused": {
+    "message": "Szüneteltetve."
+  },
+  "speechNoVoice": {
+    "message": "Ezen az eszközön nincs hang ehhez a nyelvhez. Hangokat a rendszer beszédbeállításaiban adhatsz hozzá."
+  },
+  "speechNoText": {
+    "message": "Itt nincs felolvasható szöveg."
+  },
+  "speechUnsupported": {
+    "message": "Ez a böngésző nem tud felolvasni."
+  },
+  "contextMenuRead": {
+    "message": "Felolvasás"
+  },
+  "commandReadAloud": {
+    "message": "Felolvasás, szünet vagy folytatás"
+  },
   "moreOptions": {
     "message": "További beállítások"
   },

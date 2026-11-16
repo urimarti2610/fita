@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Lausotu gainerakoa"
   },
+  "readAloud": {
+    "message": "Ozen irakurri"
+  },
+  "speechPlay": {
+    "message": "Hasi"
+  },
+  "speechPause": {
+    "message": "Pausatu"
+  },
+  "speechResume": {
+    "message": "Jarraitu"
+  },
+  "speechStop": {
+    "message": "Gelditu"
+  },
+  "speechRate": {
+    "message": "Abiadura"
+  },
+  "speechVoice": {
+    "message": "Ahotsa"
+  },
+  "voiceAuto": {
+    "message": "Automatikoa"
+  },
+  "voiceOther": {
+    "message": "Beste hizkuntza batzuk"
+  },
+  "speechHint": {
+    "message": "Hautatu testua edo egin klik hasi nahi duzun lekuan. Gailu honetako ahotsak bakarrik erabiltzen dira."
+  },
+  "speechReading": {
+    "message": "Ozen irakurtzen…"
+  },
+  "speechPaused": {
+    "message": "Pausatuta."
+  },
+  "speechNoVoice": {
+    "message": "Gailu honek ez du hizkuntza honetarako ahotsik. Ahotsak sistemaren hizketa-ezarpenetan gehi ditzakezu."
+  },
+  "speechNoText": {
+    "message": "Hemen ez dago irakurtzeko testurik."
+  },
+  "speechUnsupported": {
+    "message": "Nabigatzaile honek ezin du ozen irakurri."
+  },
+  "contextMenuRead": {
+    "message": "Ozen irakurri"
+  },
+  "commandReadAloud": {
+    "message": "Ozen irakurri, pausatu edo jarraitu"
+  },
   "moreOptions": {
     "message": "Aukera gehiago"
   },

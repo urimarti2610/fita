@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Atténuer le reste"
   },
+  "readAloud": {
+    "message": "Lecture à voix haute"
+  },
+  "speechPlay": {
+    "message": "Démarrer"
+  },
+  "speechPause": {
+    "message": "Pause"
+  },
+  "speechResume": {
+    "message": "Reprendre"
+  },
+  "speechStop": {
+    "message": "Arrêter"
+  },
+  "speechRate": {
+    "message": "Vitesse"
+  },
+  "speechVoice": {
+    "message": "Voix"
+  },
+  "voiceAuto": {
+    "message": "Automatique"
+  },
+  "voiceOther": {
+    "message": "Autres langues"
+  },
+  "speechHint": {
+    "message": "Sélectionnez du texte ou cliquez là où commencer. Seules les voix de cet appareil sont utilisées."
+  },
+  "speechReading": {
+    "message": "Lecture en cours…"
+  },
+  "speechPaused": {
+    "message": "En pause."
+  },
+  "speechNoVoice": {
+    "message": "Cet appareil n’a aucune voix pour cette langue. Vous pouvez en ajouter dans les réglages vocaux du système."
+  },
+  "speechNoText": {
+    "message": "Il n’y a pas de texte à lire ici."
+  },
+  "speechUnsupported": {
+    "message": "Ce navigateur ne peut pas lire à voix haute."
+  },
+  "contextMenuRead": {
+    "message": "Lire à voix haute"
+  },
+  "commandReadAloud": {
+    "message": "Lire à voix haute, mettre en pause ou reprendre"
+  },
   "moreOptions": {
     "message": "Plus d’options"
   },

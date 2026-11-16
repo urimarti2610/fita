@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Maolaigh an chuid eile"
   },
+  "readAloud": {
+    "message": "Léigh os ard"
+  },
+  "speechPlay": {
+    "message": "Tosaigh"
+  },
+  "speechPause": {
+    "message": "Sos"
+  },
+  "speechResume": {
+    "message": "Lean ar aghaidh"
+  },
+  "speechStop": {
+    "message": "Stop"
+  },
+  "speechRate": {
+    "message": "Luas"
+  },
+  "speechVoice": {
+    "message": "Guth"
+  },
+  "voiceAuto": {
+    "message": "Uathoibríoch"
+  },
+  "voiceOther": {
+    "message": "Teangacha eile"
+  },
+  "speechHint": {
+    "message": "Roghnaigh téacs nó cliceáil san áit ar mhaith leat tosú. Ní úsáidtear ach guthanna an ghléis seo."
+  },
+  "speechReading": {
+    "message": "Á léamh os ard…"
+  },
+  "speechPaused": {
+    "message": "Ar sos."
+  },
+  "speechNoVoice": {
+    "message": "Níl aon ghuth don teanga seo ar an ngléas seo. Is féidir guthanna a chur leis i socruithe cainte an chórais."
+  },
+  "speechNoText": {
+    "message": "Níl aon téacs le léamh anseo."
+  },
+  "speechUnsupported": {
+    "message": "Ní féidir leis an mbrabhsálaí seo léamh os ard."
+  },
+  "contextMenuRead": {
+    "message": "Léigh os ard"
+  },
+  "commandReadAloud": {
+    "message": "Léigh os ard, cuir ar sos nó lean ar aghaidh"
+  },
   "moreOptions": {
     "message": "Tuilleadh roghanna"
   },

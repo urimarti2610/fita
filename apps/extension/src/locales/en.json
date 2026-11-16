@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Fade the rest"
   },
+  "readAloud": {
+    "message": "Read aloud"
+  },
+  "speechPlay": {
+    "message": "Start"
+  },
+  "speechPause": {
+    "message": "Pause"
+  },
+  "speechResume": {
+    "message": "Resume"
+  },
+  "speechStop": {
+    "message": "Stop"
+  },
+  "speechRate": {
+    "message": "Speed"
+  },
+  "speechVoice": {
+    "message": "Voice"
+  },
+  "voiceAuto": {
+    "message": "Automatic"
+  },
+  "voiceOther": {
+    "message": "Other languages"
+  },
+  "speechHint": {
+    "message": "Select text or click where to start. Only voices on this device are used."
+  },
+  "speechReading": {
+    "message": "Reading aloud…"
+  },
+  "speechPaused": {
+    "message": "Paused."
+  },
+  "speechNoVoice": {
+    "message": "This device has no voice for this language. You can add voices in your system's speech settings."
+  },
+  "speechNoText": {
+    "message": "There is no text to read here."
+  },
+  "speechUnsupported": {
+    "message": "This browser cannot read aloud."
+  },
+  "contextMenuRead": {
+    "message": "Read aloud"
+  },
+  "commandReadAloud": {
+    "message": "Read aloud, pause or resume"
+  },
   "moreOptions": {
     "message": "More options"
   },

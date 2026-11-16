@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Ξεθώριασμα του υπόλοιπου"
   },
+  "readAloud": {
+    "message": "Ανάγνωση φωναχτά"
+  },
+  "speechPlay": {
+    "message": "Έναρξη"
+  },
+  "speechPause": {
+    "message": "Παύση"
+  },
+  "speechResume": {
+    "message": "Συνέχεια"
+  },
+  "speechStop": {
+    "message": "Διακοπή"
+  },
+  "speechRate": {
+    "message": "Ταχύτητα"
+  },
+  "speechVoice": {
+    "message": "Φωνή"
+  },
+  "voiceAuto": {
+    "message": "Αυτόματα"
+  },
+  "voiceOther": {
+    "message": "Άλλες γλώσσες"
+  },
+  "speechHint": {
+    "message": "Επιλέξτε κείμενο ή κάντε κλικ εκεί που θέλετε να ξεκινήσει. Χρησιμοποιούνται μόνο οι φωνές αυτής της συσκευής."
+  },
+  "speechReading": {
+    "message": "Ανάγνωση…"
+  },
+  "speechPaused": {
+    "message": "Σε παύση."
+  },
+  "speechNoVoice": {
+    "message": "Αυτή η συσκευή δεν έχει φωνή για αυτή τη γλώσσα. Μπορείτε να προσθέσετε φωνές στις ρυθμίσεις ομιλίας του συστήματος."
+  },
+  "speechNoText": {
+    "message": "Δεν υπάρχει κείμενο για ανάγνωση εδώ."
+  },
+  "speechUnsupported": {
+    "message": "Αυτό το πρόγραμμα περιήγησης δεν μπορεί να διαβάσει φωναχτά."
+  },
+  "contextMenuRead": {
+    "message": "Ανάγνωση φωναχτά"
+  },
+  "commandReadAloud": {
+    "message": "Ανάγνωση φωναχτά, παύση ή συνέχεια"
+  },
   "moreOptions": {
     "message": "Περισσότερες επιλογές"
   },

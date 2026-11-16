@@ -28,6 +28,7 @@ import ro from "./locales/ro.json";
 import sk from "./locales/sk.json";
 import sl from "./locales/sl.json";
 import sv from "./locales/sv.json";
+import { SPEECH_HIGHLIGHT } from "./speech.js";
 
 export type Browser = "chrome" | "firefox";
 
@@ -59,6 +60,8 @@ export function manifest(browser: Browser, version: string, e2e = false) {
         suggested_key: { default: "Alt+B" },
         description: "__MSG_commandToggle__",
       },
+      // No default key: free combinations differ per page and keyboard; users pick one.
+      "read-aloud": { description: "__MSG_commandReadAloud__" },
     },
     // Chrome 110: registerContentScripts, optional host permissions and color-mix().
     ...(browser === "chrome" ? { minimum_chrome_version: "110" } : {}),
@@ -129,6 +132,7 @@ const id = BRAND.id;
 export const CONTENT_CSS = `${EMPHASIS_CSS}
 html[data-${id}-lh] :is(p, li, dd, dt, blockquote, td, th, figcaption, h1, h2, h3, h4, h5, h6) { line-height: var(--${id}-lh) !important; }
 html[data-${id}-mw] :is(p, li, dd, blockquote, figcaption) { max-width: var(--${id}-mw) !important; }
+::highlight(${SPEECH_HIGHLIGHT}) { background-color: Mark; color: MarkText; }
 `;
 
 /** Prefix for release archives. */

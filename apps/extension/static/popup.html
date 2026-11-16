@@ -44,6 +44,22 @@
         </div>
       </fieldset>
 
+      <fieldset id="speech" class="group">
+        <legend data-i18n="readAloud"></legend>
+        <div class="buttons">
+          <button type="button" id="speechPlay" class="button primary" data-i18n="speechPlay"></button>
+          <button type="button" id="speechStop" class="button" data-i18n="speechStop" disabled></button>
+        </div>
+        <p id="speechStatus" class="hint" role="status"></p>
+        <label for="speechRate" class="row">
+          <span data-i18n="speechRate"></span>
+          <output id="speechRateValue" for="speechRate"></output>
+        </label>
+        <input type="range" id="speechRate" min="0.5" max="2" step="0.1" />
+        <label for="speechVoice" class="row"><span data-i18n="speechVoice"></span></label>
+        <select id="speechVoice"></select>
+      </fieldset>
+
       <details class="group">
         <summary data-i18n="moreOptions"></summary>
         <label for="every" class="row"><span data-i18n="every"></span></label>
