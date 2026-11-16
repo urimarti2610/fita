@@ -31,6 +31,7 @@ Regenerate the images with `node apps/extension/scripts/store-assets.mjs` (exten
 | [`apps/extension`](apps/extension) | Browser extension (Chrome, Edge, Firefox — including Firefox for Android).                       |
 | [`fonts`](fonts)                   | **Fita Sans**, a font that emphasizes word starts by itself (OpenType `calt`), for computers and e-readers. |
 | [`apps/web`](apps/web)             | Static website ([fitaread.com](https://fitaread.com)) in 27 languages: live demo, reading worksheets and an in-browser ebook converter. |
+| [`plugins/calibre`](plugins/calibre) | [calibre](https://calibre-ebook.com) plugin: adds emphasis to the EPUB books in your library. Install: download `fita-calibre-<version>.zip` from the [releases](https://github.com/urimarti2610/fita/releases), then **Preferences → Plugins → Load plugin from file**. |
 
 ## Languages
 
@@ -66,6 +67,8 @@ pnpm test        # Vitest
 pnpm build
 pnpm e2e         # Playwright
 ```
+
+calibre plugin (Python 3, no dependencies): `python3 -m unittest discover -s plugins/calibre/tests` and `python3 plugins/calibre/build.py`.
 
 Per package: `pnpm dev:web` (local website at http://localhost:4321), `pnpm preview:web`, `pnpm build:extension` (outputs `apps/extension/dist/`), and `test:*`, `build:*`, `e2e:*` for `core`, `extension` and `web`.
 

@@ -22,6 +22,10 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
+      - name: calibre plugin
+        run: |
+          python3 -m unittest discover -s plugins/calibre/tests -v
+          python3 plugins/calibre/build.py
       - run: pnpm --filter @fita/extension exec playwright install --with-deps chromium
       - run: pnpm e2e
       # The converter's EPUB output must pass the official validator.
@@ -37,6 +41,12 @@ jobs:
           unzip -q epubcheck.zip
           EPUB_SAMPLES_DIR="$PWD/epub-samples" pnpm --filter @fita/web exec vitest run test/epub-samples.test.ts
           for f in epub-samples/*.epub; do java -jar "epubcheck-${EPUBCHECK}/epubcheck.jar" "$f"; done
+          # The calibre plugin's output too (it re-emphasizes the samples).
+          mkdir -p calibre-samples
+          for f in epub-samples/*.epub; do
+            python3 plugins/calibre/convert.py "$f" "calibre-samples/$(basename "$f")" --style fade
+            java -jar "epubcheck-${EPUBCHECK}/epubcheck.jar" "calibre-samples/$(basename "$f")"
+          done
 
   # The OpenType emphasis font (fonts/): build it and shape test text with HarfBuzz.
   font:

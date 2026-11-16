@@ -1,0 +1,83 @@
+# es translation of the fita calibre plugin.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+
+msgid "Reading aids for ADHD and dyslexia: gently emphasizes the start of each word in your EPUB books. Everything happens on your computer."
+msgstr "Ayudas de lectura para TDAH y dislexia: destaca con suavidad el inicio de cada palabra en tus libros EPUB. Todo ocurre en tu ordenador."
+
+msgid "Reading emphasis"
+msgstr "Énfasis de lectura"
+
+msgid "Emphasize the start of each word in the selected EPUB books"
+msgstr "Destacar el inicio de cada palabra en los libros EPUB seleccionados"
+
+msgid "Add reading emphasis"
+msgstr "Añadir énfasis de lectura"
+
+msgid "Remove reading emphasis"
+msgstr "Quitar el énfasis de lectura"
+
+msgid "Settings…"
+msgstr "Ajustes…"
+
+msgid "Select one or more books first."
+msgstr "Primero selecciona uno o más libros."
+
+msgid "None of the selected books has an EPUB format. Convert them to EPUB with calibre first."
+msgstr "Ninguno de los libros seleccionados tiene formato EPUB. Conviértelos antes a EPUB con calibre."
+
+msgid "Adding reading emphasis (%d)"
+msgstr "Añadiendo énfasis de lectura (%d)"
+
+msgid "Removing reading emphasis (%d)"
+msgstr "Quitando el énfasis de lectura (%d)"
+
+msgid "protected with DRM; it cannot be converted"
+msgstr "protegido con DRM; no se puede convertir"
+
+msgid "not a valid EPUB file"
+msgstr "no es un archivo EPUB válido"
+
+msgid "unexpected error, see the job details"
+msgstr "error inesperado, consulta los detalles de la tarea"
+
+msgid "Books updated: %d. Some books could not be converted."
+msgstr "Libros actualizados: %d. Algunos libros no se han podido convertir."
+
+msgid "Books updated: %d"
+msgstr "Libros actualizados: %d"
+
+msgid "Bold start, faded rest"
+msgstr "Inicio en negrita, resto atenuado"
+
+msgid "Bold"
+msgstr "Negrita"
+
+msgid "Colour"
+msgstr "Color"
+
+msgid "Soft underline"
+msgstr "Subrayado suave"
+
+msgid "Faded rest of the word"
+msgstr "Resto de la palabra atenuado"
+
+msgid "&Strength"
+msgstr "&Intensidad"
+
+msgid "St&yle"
+msgstr "&Estilo"
+
+msgid "Emphasize one word in &every"
+msgstr "Destacar una palabra de &cada"
+
+msgid "Preview"
+msgstr "Vista previa"
+
+msgid "The untouched book is kept as ORIGINAL_EPUB the first time. Converting again replaces the previous emphasis."
+msgstr "La primera vez se guarda el libro sin cambios como ORIGINAL_EPUB. Si vuelves a convertir, se sustituye el énfasis anterior."
+
+msgid "Reading calmly, your way, with anchors that guide your eyes."
+msgstr "Leer con calma, a tu manera, con anclas que guían la vista."
