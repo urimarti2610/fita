@@ -268,6 +268,10 @@ export const strings: Strings = {
     pick: "Aukeratu fitxategi bat",
     drop: "edo ekarri hona",
     formats: "EPUB, TXT, Markdown edo HTML",
+    pickFolder: "Aukeratu karpeta bat",
+    folderHint:
+      "Markdown irudiekin? Aukeratu haren karpeta edo .zip bat, eta irudiak barruan joango dira.",
+    bundleDocument: "{name} bihurtuko da, bere irudiekin.",
     selected: "Aukeratutako fitxategia:",
     output: "Irteerako formatua",
     outputs: { epub: "EPUB (liburu elektronikoa)", html: "HTML (web-orria)", md: "Markdown" },
@@ -284,6 +288,7 @@ export const strings: Strings = {
       drm: "Liburu honek DRM du (kopien aurkako babesa), eta, beraz, ezin da bihurtu. Erosi baduzu, galdetu dendari DRMrik gabeko kopia bat eman diezazuketen.",
       invalid:
         "Ezin izan da fitxategi hau irakurri. Egiaztatu zure irakurgailuan irekitzen dela, edo probatu beste batekin.",
+      noMarkdown: "Ez dago Markdown fitxategirik (.md) karpeta edo .zip honetan.",
       failed:
         "Bihurketak huts egin du ({detail}). Berriro gertatzen bada, jakinarazi iezaguzu GitHub-en, mesedez.",
     },

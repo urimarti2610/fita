@@ -266,6 +266,10 @@ export const strings: Strings = {
     pick: "Choisir un fichier",
     drop: "ou déposez-le ici",
     formats: "EPUB, TXT, Markdown ou HTML",
+    pickFolder: "Choisir un dossier",
+    folderHint:
+      "Du Markdown avec des images ? Choisissez son dossier ou un .zip et les images seront incluses.",
+    bundleDocument: "{name} sera converti, avec ses images.",
     selected: "Fichier choisi :",
     output: "Format de sortie",
     outputs: { epub: "EPUB (livre numérique)", html: "HTML (page web)", md: "Markdown" },
@@ -282,6 +286,7 @@ export const strings: Strings = {
       drm: "Ce livre est protégé par un DRM (protection contre la copie) : il ne peut donc pas être converti. Si vous l’avez acheté, demandez à la boutique si elle peut vous fournir une copie sans DRM.",
       invalid:
         "Ce fichier n’a pas pu être lu. Vérifiez qu’il s’ouvre dans votre liseuse, ou essayez-en un autre.",
+      noMarkdown: "Ce dossier ou ce .zip ne contient aucun fichier Markdown (.md).",
       failed:
         "La conversion a échoué ({detail}). Si cela se reproduit, merci de nous le signaler sur GitHub.",
     },

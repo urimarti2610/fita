@@ -264,6 +264,9 @@ export const strings: Strings = {
     pick: "Odaberi datoteku",
     drop: "ili je ispusti ovdje",
     formats: "EPUB, TXT, Markdown ili HTML",
+    pickFolder: "Odaberi mapu",
+    folderHint: "Markdown sa slikama? Odaberi njegovu mapu ili .zip i slike idu unutra.",
+    bundleDocument: "Pretvorit će se {name}, zajedno sa slikama.",
     selected: "Odabrana datoteka:",
     output: "Izlazni format",
     outputs: { epub: "EPUB (e-knjiga)", html: "HTML (web-stranica)", md: "Markdown" },
@@ -280,6 +283,7 @@ export const strings: Strings = {
       drm: "Ova knjiga ima DRM (zaštitu od kopiranja), pa se ne može pretvoriti. Ako je knjiga kupljena, pitaj trgovinu mogu li ti dati kopiju bez DRM-a.",
       invalid:
         "Ova datoteka nije se mogla pročitati. Provjeri otvara li se u tvom čitaču ili pokušaj s drugom.",
+      noMarkdown: "U ovoj mapi ili .zipu nema datoteke Markdown (.md).",
       failed: "Pretvaranje nije uspjelo ({detail}). Ako se ponovi, javi nam na GitHubu.",
     },
     labels: { part: "Dio", contents: "Sadržaj" },

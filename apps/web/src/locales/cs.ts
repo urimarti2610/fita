@@ -265,6 +265,9 @@ export const strings: Strings = {
     pick: "Vybrat soubor",
     drop: "nebo ho sem přetáhni",
     formats: "EPUB, TXT, Markdown nebo HTML",
+    pickFolder: "Vybrat složku",
+    folderHint: "Markdown s obrázky? Vyber jeho složku nebo .zip a obrázky půjdou dovnitř.",
+    bundleDocument: "Převede se {name} i s obrázky.",
     selected: "Vybraný soubor:",
     output: "Výstupní formát",
     outputs: { epub: "EPUB (e-kniha)", html: "HTML (webová stránka)", md: "Markdown" },
@@ -280,6 +283,7 @@ export const strings: Strings = {
       drm: "Tahle kniha má DRM (ochranu proti kopírování), takže ji převést nejde. Pokud je koupená, zeptej se v obchodě, jestli ti můžou dát kopii bez DRM.",
       invalid:
         "Tenhle soubor se nepodařilo přečíst. Zkontroluj, jestli se otevře ve tvé čtečce, nebo zkus jiný.",
+      noMarkdown: "V téhle složce ani .zipu není žádný soubor Markdown (.md).",
       failed:
         "Převod se nepovedl ({detail}). Pokud se to stane znovu, dej nám prosím vědět na GitHubu.",
     },

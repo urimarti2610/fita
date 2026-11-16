@@ -268,6 +268,9 @@ export const strings: Strings = {
     pick: "Kies een bestand",
     drop: "of sleep het hierheen",
     formats: "EPUB, TXT, Markdown of HTML",
+    pickFolder: "Kies een map",
+    folderHint: "Markdown met afbeeldingen? Kies de map of een .zip en de afbeeldingen gaan mee.",
+    bundleDocument: "{name} wordt omgezet, met de afbeeldingen.",
     selected: "Gekozen bestand:",
     output: "Uitvoerformaat",
     outputs: { epub: "EPUB (e-book)", html: "HTML (webpagina)", md: "Markdown" },
@@ -284,6 +287,7 @@ export const strings: Strings = {
       drm: "Dit boek heeft DRM (kopieerbeveiliging) en kan daarom niet worden omgezet. Heb je het gekocht, vraag dan aan de winkel of je een kopie zonder DRM kunt krijgen.",
       invalid:
         "Dit bestand kon niet worden gelezen. Kijk of het opent in je e-reader, of probeer een ander bestand.",
+      noMarkdown: "Er staat geen Markdown-bestand (.md) in deze map of .zip.",
       failed:
         "Het omzetten is mislukt ({detail}). Gebeurt het nog eens, laat het ons dan weten op GitHub.",
     },

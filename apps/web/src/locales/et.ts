@@ -263,6 +263,9 @@ export const strings: Strings = {
     pick: "Vali fail",
     drop: "või lohista see siia",
     formats: "EPUB, TXT, Markdown või HTML",
+    pickFolder: "Vali kaust",
+    folderHint: "Piltidega Markdown? Vali selle kaust või .zip ja pildid tulevad kaasa.",
+    bundleDocument: "Teisendatakse {name} koos piltidega.",
     selected: "Valitud fail:",
     output: "Väljundvorming",
     outputs: { epub: "EPUB (e-raamat)", html: "HTML (veebileht)", md: "Markdown" },
@@ -278,6 +281,7 @@ export const strings: Strings = {
       drm: "Sellel raamatul on DRM (kopeerimiskaitse), seega seda ei saa teisendada. Kui ostsid selle, küsi poest, kas nad saavad anda DRM-ita koopia.",
       invalid:
         "Seda faili ei õnnestunud lugeda. Kontrolli, kas see avaneb sinu e-lugeris, või proovi mõnda teist.",
+      noMarkdown: "Selles kaustas või .zip-failis pole ühtegi Markdowni faili (.md).",
       failed:
         "Teisendamine ebaõnnestus ({detail}). Kui see juhtub uuesti, anna meile palun GitHubis teada.",
     },

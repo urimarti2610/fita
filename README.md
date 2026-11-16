@@ -17,7 +17,7 @@ fita adds _anchor points_ to text: it gently emphasizes the beginning of each wo
 | ![Home page of fitaread.com](docs/screenshots/web-home.png) | ![Live demo: paste any text and see it with emphasis](docs/screenshots/web-demo.png) |
 | **Website**: fitaread.com, in 27 languages. | **Live demo**: paste any text, no length limit. |
 | ![Reading worksheet editor with a cars-and-trucks frame](docs/screenshots/web-worksheets.png) | ![Book converter showing a live preview of the first page](docs/screenshots/web-converter.png) |
-| **Reading worksheets** for children: frames, large print, print or download. | **Book converter**: EPUB, TXT, Markdown or HTML, with a first-page preview. |
+| **Reading worksheets** for children: frames, large print, print or download. | **Book converter**: EPUB, TXT, Markdown (also a folder or .zip with its images) or HTML, with a first-page preview. |
 | ![Who it's for: education, professionals and adults](docs/screenshots/web-who-its-for.png) | |
 | **Who it's for**: ideas for classrooms, speech therapists and adults. | |
 

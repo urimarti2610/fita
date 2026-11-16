@@ -268,6 +268,10 @@ export const strings: Strings = {
     pick: "Pasirinkti failą",
     drop: "arba nutempk jį čia",
     formats: "EPUB, TXT, Markdown arba HTML",
+    pickFolder: "Pasirink aplanką",
+    folderHint:
+      "Markdown su paveikslėliais? Pasirink jo aplanką arba .zip ir paveikslėliai bus įdėti.",
+    bundleDocument: "Bus konvertuotas {name} kartu su paveikslėliais.",
     selected: "Pasirinktas failas:",
     output: "Išvesties formatas",
     outputs: { epub: "EPUB (el. knyga)", html: "HTML (tinklalapis)", md: "Markdown" },
@@ -283,6 +287,7 @@ export const strings: Strings = {
       drm: "Ši knyga turi DRM (apsaugą nuo kopijavimo), todėl jos konvertuoti negalima. Jei ją pirkai, paklausk parduotuvės, ar ji gali duoti kopiją be DRM.",
       invalid:
         "Šio failo nepavyko perskaityti. Patikrink, ar jis atsidaro tavo skaityklėje, arba pabandyk kitą.",
+      noMarkdown: "Šiame aplanke ar .zip faile nėra Markdown (.md) failo.",
       failed: "Konvertuoti nepavyko ({detail}). Jei tai pasikartos, parašyk mums GitHub.",
     },
     labels: { part: "Dalis", contents: "Turinys" },

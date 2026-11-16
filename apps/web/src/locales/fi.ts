@@ -264,6 +264,9 @@ export const strings: Strings = {
     pick: "Valitse tiedosto",
     drop: "tai pudota se tähän",
     formats: "EPUB, TXT, Markdown tai HTML",
+    pickFolder: "Valitse kansio",
+    folderHint: "Markdown kuvineen? Valitse sen kansio tai .zip, niin kuvat tulevat mukaan.",
+    bundleDocument: "{name} muunnetaan kuvineen.",
     selected: "Valittu tiedosto:",
     output: "Tallennusmuoto",
     outputs: { epub: "EPUB (e-kirja)", html: "HTML (verkkosivu)", md: "Markdown" },
@@ -279,6 +282,7 @@ export const strings: Strings = {
       drm: "Tässä kirjassa on DRM (kopiosuojaus), joten sitä ei voi muuntaa. Jos ostit sen, kysy kaupasta, voivatko he antaa sinulle DRM-vapaan kopion.",
       invalid:
         "Tiedostoa ei voitu lukea. Tarkista, avautuuko se lukulaitteessasi tai -sovelluksessasi, tai kokeile toista.",
+      noMarkdown: "Tässä kansiossa tai .zip-tiedostossa ei ole Markdown-tiedostoa (.md).",
       failed:
         "Muunnos epäonnistui ({detail}). Jos niin käy uudelleen, kerro siitä meille GitHubissa.",
     },

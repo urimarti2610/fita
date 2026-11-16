@@ -1,8 +1,10 @@
 import JSZip from "jszip";
 
 /** Thrown for books we must not or cannot convert; `code` maps to a UI message. */
+export type ConvertErrorCode = "drm" | "invalid" | "noMarkdown";
+
 export class ConvertError extends Error {
-  constructor(public readonly code: "drm" | "invalid") {
+  constructor(public readonly code: ConvertErrorCode) {
     super(code);
   }
 }
@@ -138,6 +140,12 @@ export async function convertEpub(
 }
 
 export type Chapter = { title: string; body: string };
+/** A file packaged next to the chapters (an image), with its href relative to them. */
+export type Resource = {
+  href: string;
+  type: string;
+  data: Blob | Uint8Array | Promise<Uint8Array>;
+};
 
 /** Escapes text for XML content and attributes. */
 export function xml(text: string): string {
@@ -171,8 +179,10 @@ export async function buildEpub(options: {
   css: string;
   contentsLabel: string;
   progress: Progress;
+  resources?: Resource[];
 }): Promise<Blob> {
   const { title, lang, chapters, css, contentsLabel, progress } = options;
+  const resources = options.resources ?? [];
   const zip = new JSZip();
   zip.file("mimetype", "application/epub+zip", { compression: "STORE" });
   zip.file(
@@ -189,6 +199,12 @@ export async function buildEpub(options: {
     zip.file(`OEBPS/${files[i]}`, xhtmlDocument(chapter.title, lang, chapter.body, link));
   });
   zip.file("OEBPS/style.css", css);
+  for (const resource of resources) {
+    zip.file(`OEBPS/${resource.href}`, resource.data, {
+      compression: STORED.test(resource.href) ? "STORE" : "DEFLATE",
+      createFolders: false,
+    });
+  }
   const toc = chapters
     .map((c, i) => `<li><a href="${files[i]}">${xml(c.title)}</a></li>`)
     .join("\n");
@@ -216,6 +232,7 @@ export async function buildEpub(options: {
 <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
 <item id="css" href="style.css" media-type="text/css"/>
 ${files.map((f, i) => `<item id="c${i + 1}" href="${f}" media-type="application/xhtml+xml"/>`).join("\n")}
+${resources.map((r, i) => `<item id="r${i + 1}" href="${xml(r.href)}" media-type="${xml(r.type)}"/>`).join("\n")}
 </manifest>
 <spine>
 ${files.map((_, i) => `<itemref idref="c${i + 1}"/>`).join("\n")}

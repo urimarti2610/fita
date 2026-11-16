@@ -270,6 +270,10 @@ export const strings: Strings = {
     pick: "Roghnaigh comhad",
     drop: "nó scaoil anseo é",
     formats: "EPUB, TXT, Markdown nó HTML",
+    pickFolder: "Roghnaigh fillteán",
+    folderHint:
+      "Markdown le híomhánna? Roghnaigh a fhillteán nó .zip agus rachaidh na híomhánna isteach.",
+    bundleDocument: "Tiontófar {name}, lena íomhánna.",
     selected: "Comhad roghnaithe:",
     output: "Formáid aschuir",
     outputs: { epub: "EPUB (ríomhleabhar)", html: "HTML (leathanach gréasáin)", md: "Markdown" },
@@ -286,6 +290,7 @@ export const strings: Strings = {
       drm: "Tá DRM (cosaint ar chóipeáil) ar an leabhar seo, mar sin ní féidir é a thiontú. Má cheannaigh tú é, fiafraigh den siopa an féidir leo cóip gan DRM a thabhairt duit.",
       invalid:
         "Níorbh fhéidir an comhad seo a léamh. Seiceáil go n-osclaíonn sé i do léitheoir, nó bain triail as ceann eile.",
+      noMarkdown: "Níl aon chomhad Markdown (.md) san fhillteán ná sa .zip seo.",
       failed:
         "Theip ar an tiontú ({detail}). Má tharlaíonn sé arís, inis dúinn ar GitHub, le do thoil.",
     },
