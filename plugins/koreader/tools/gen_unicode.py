@@ -17,6 +17,9 @@ sys.path.insert(0, os.path.join(HERE, "..", "..", "calibre", "plugin"))
 
 from engine import emphasis  # noqa: E402
 
+#: Unicode version of the committed table (Python 3.12). Another version gives a
+#: different table; regenerate on purpose with --update-version.
+UNICODE_VERSION = "15.0.0"
 TARGET = os.path.join(HERE, "..", "fita.koplugin", "fita_unicode.lua")
 
 # Bit layout of each value (see fita_unicode.lua's header).
@@ -45,6 +48,12 @@ def value(cp):
 
 
 def main():
+    if unicodedata.unidata_version != UNICODE_VERSION and "--update-version" not in sys.argv:
+        sys.exit(
+            f"This Python has Unicode {unicodedata.unidata_version}, the table uses "
+            f"{UNICODE_VERSION}. Run it with Python 3.12, or pass --update-version "
+            "and change UNICODE_VERSION to move to a new Unicode version."
+        )
     starts, values = [], []
     previous = None
     for cp in range(0x110000):
