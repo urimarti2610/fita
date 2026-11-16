@@ -29,6 +29,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       # Site URL and base path come from BRAND.website (custom domain at the root).
       - run: pnpm --filter "@fita/web..." build
+      # The reader app's web build, installable as a web app (PWA) at /app/.
+      - run: pnpm --filter @fita/mobile build && cp -r apps/mobile/dist apps/web/dist/app
       - uses: actions/upload-pages-artifact@v5
         with:
           path: apps/web/dist

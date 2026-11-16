@@ -61,10 +61,16 @@ async function readPackage(zip: JSZip) {
   if (!opfPath || !opf) throw new ConvertError("invalid");
   const base = opfPath.includes("/") ? opfPath.slice(0, opfPath.lastIndexOf("/") + 1) : "";
   const items = new Map<string, { href: string; type: string }>();
+  // Table of contents: the EPUB 3 navigation document, or the EPUB 2 NCX.
+  let nav: string | undefined;
+  let ncx: string | undefined;
   for (const m of opf.matchAll(/<(?:\w+:)?item\b[^>]*>/g)) {
     const a = attributes(m[0]);
-    if (a.id && a.href)
-      items.set(a.id, { href: resolve(base, a.href), type: a["media-type"] ?? "" });
+    if (!a.id || !a.href) continue;
+    const href = resolve(base, a.href);
+    items.set(a.id, { href, type: a["media-type"] ?? "" });
+    if (/(?:^|\s)nav(?:\s|$)/.test(a.properties ?? "")) nav = href;
+    if (a["media-type"] === "application/x-dtbncx+xml") ncx = href;
   }
   const spine: string[] = [];
   for (const m of opf.matchAll(/<(?:\w+:)?itemref\b[^>]*>/g)) {
@@ -73,7 +79,7 @@ async function readPackage(zip: JSZip) {
   }
   const language = opf.match(/<dc:language[^>]*>\s*([^<\s]+)/)?.[1];
   const title = opf.match(/<dc:title[^>]*>([^<]+)</)?.[1]?.trim();
-  return { spine, language, title };
+  return { spine, language, title, nav, ncx };
 }
 
 /** Adds the emphasis stylesheet to a chapter's <head>. */

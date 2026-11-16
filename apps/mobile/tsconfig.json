@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "types": ["node", "vite/client"],
+    "paths": { "@web/*": ["../web/src/*"] }
+  },
+  "include": ["src", "test", "e2e", "*.ts"],
+  "exclude": ["dist", "android", "ios"]
+}
