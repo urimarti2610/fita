@@ -31,6 +31,7 @@ Regenerate the images with `node apps/extension/scripts/store-assets.mjs` (exten
 | [`apps/extension`](apps/extension) | Browser extension (Chrome, Edge, Firefox — including Firefox for Android).                       |
 | [`fonts`](fonts)                   | **Fita Sans**, a font that emphasizes word starts by itself (OpenType `calt`), for computers and e-readers. |
 | [`apps/web`](apps/web)             | Static website ([fitaread.com](https://fitaread.com)) in 27 languages: live demo, reading worksheets and an in-browser ebook converter. |
+| [`plugins/koreader`](plugins/koreader) | [KOReader](https://koreader.rocks) plugin: creates an emphasized copy of EPUB, HTML and TXT files on your e-reader. Install: unzip `fita-koreader-<version>.zip` from the [releases](https://github.com/urimarti2610/fita/releases) into KOReader's `plugins` folder and restart. |
 | [`plugins/calibre`](plugins/calibre) | [calibre](https://calibre-ebook.com) plugin: adds emphasis to the EPUB books in your library. Install: download `fita-calibre-<version>.zip` from the [releases](https://github.com/urimarti2610/fita/releases), then **Preferences → Plugins → Load plugin from file**. |
 | [`addons/google-docs`](addons/google-docs) | Google Docs add-on (Apps Script): emphasize the document or a selection, and remove it again. |
 | [`addons/libreoffice`](addons/libreoffice) | LibreOffice Writer extension (`.oxt`, Python): the same, with a character style you can edit. |
@@ -73,7 +74,7 @@ pnpm build
 pnpm e2e         # Playwright
 ```
 
-calibre plugin (Python 3, no dependencies): `python3 -m unittest discover -s plugins/calibre/tests` and `python3 plugins/calibre/build.py`.
+calibre plugin (Python 3, no dependencies): `python3 -m unittest discover -s plugins/calibre/tests` and `python3 plugins/calibre/build.py`. KOReader plugin (LuaJIT or Lua 5.1): `luajit plugins/koreader/spec/run.lua` and `python3 plugins/koreader/build.py`.
 
 Per package: `pnpm dev:web` (local website at http://localhost:4321), `pnpm preview:web`, `pnpm build:extension` (outputs `apps/extension/dist/`), and `test:*`, `build:*`, `e2e:*` for `core`, `extension` and `web`. The reader app: `pnpm --filter @fita/mobile dev`; Android and iOS builds are described in [docs/mobile.md](docs/mobile.md).
 
