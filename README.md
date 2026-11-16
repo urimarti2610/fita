@@ -36,6 +36,7 @@ Regenerate the images with `node apps/extension/scripts/store-assets.mjs` (exten
 | [`addons/google-docs`](addons/google-docs) | Google Docs add-on (Apps Script): emphasize the document or a selection, and remove it again. |
 | [`addons/libreoffice`](addons/libreoffice) | LibreOffice Writer extension (`.oxt`, Python): the same, with a character style you can edit. |
 | [`apps/mobile`](apps/mobile)       | Reader app for Android and iOS (Capacitor) and installable web app: opens EPUB, TXT, Markdown and HTML with emphasis. See [docs/mobile.md](docs/mobile.md). |
+| [`addons/word`](addons/word) | Microsoft Word add-in (Office.js task pane, served from fitaread.com/addins/word/). Loads `office.js` from Microsoft's CDN, as Office requires. |
 
 ## Languages
 
@@ -50,6 +51,7 @@ To add or fix a language, edit:
 - `apps/extension/src/locales/<lang>.json`: extension text (same keys as `en.json`);
 - `addons/google-docs/src/locales/<lang>.json` and `addons/libreoffice/extension/pythonpath/wordanchor/i18n.py`: Google Docs and LibreOffice add-ons (English, Spanish and Catalan so far);
 - `apps/mobile/src/locales/<lang>.ts`: reader app text (the shape is defined by `en.ts`);
+- `addons/google-docs/src/locales/<lang>.json`, `addons/word/src/locales/<lang>.json` and `addons/libreoffice/extension/pythonpath/wordanchor/i18n.py`: Google Docs, Word and LibreOffice add-ons (English, Spanish and Catalan so far);
 
 then register the code in `apps/web/src/i18n.ts` and `apps/extension/src/build-data.ts`.
 

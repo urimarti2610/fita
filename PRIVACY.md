@@ -8,6 +8,7 @@
 - The extension stores your settings (strength, style, sites where it is always on) with your browser's own `storage.sync`. If you are signed in to your browser, the browser vendor may sync those settings between your devices; we never see them.
 - Read aloud uses only the voices installed on your device (the browser's `speechSynthesis`). Some browsers also list online voices that send the text to the vendor's servers; the extension never uses them.
 - The reader app (Android, iOS and the installable web app at fitaread.com/app) keeps the books and texts you open, where you stopped reading and your settings in the app's own storage on your device. It makes no network requests at all, has no accounts and opts out of Android's cloud backup, so your library never leaves the phone. Removing a book or uninstalling the app deletes it.
+- The Word add-in is the one exception to "no third-party scripts": Microsoft requires Office add-ins to load `office.js`, the Office host API, from Microsoft's own servers. Your documents still never leave Word, and the add-in sends nothing to us.
 - The extension asks only for the permissions it needs: `storage`, `contextMenus`, `activeTab` and `scripting`. Access to specific sites is requested only when you choose "Always on this site" or "On all sites", and you can revoke it at any time.
 
 ## En español

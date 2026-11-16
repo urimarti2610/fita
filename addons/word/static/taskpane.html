@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<!--
+  Office.js is the Office host API. Microsoft requires add-ins to load it from its
+  CDN (it cannot be bundled), so this is the only external script. It is not
+  analytics; see addons/word/README.md.
+-->
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+<link rel="stylesheet" href="taskpane.css">
+<script src="taskpane.js" defer></script>
+</head>
+<body>
+<main>
+<p data-i18n="intro"></p>
+<fieldset>
+<legend><label for="strength" data-i18n="strength"></label></legend>
+<input id="strength" type="range" step="0.05" value="0.45">
+<div class="scale" aria-hidden="true"><span data-i18n="lighter"></span><span data-i18n="stronger"></span></div>
+</fieldset>
+<fieldset>
+<legend data-i18n="style"></legend>
+<label class="choice"><input type="radio" name="style" value="bold" checked> <span data-i18n="styleBold"></span></label>
+<label class="choice"><input type="radio" name="style" value="color"> <span data-i18n="styleColor"></span></label>
+<label class="choice"><input type="radio" name="style" value="underline"> <span data-i18n="styleUnderline"></span></label>
+</fieldset>
+<button type="button" data-action="document" data-i18n="document"></button>
+<button type="button" data-action="selection" data-i18n="selection"></button>
+<button type="button" data-action="remove" class="secondary" data-i18n="remove"></button>
+<p id="status" role="status" aria-live="polite"></p>
+<p class="muted" data-i18n="help"></p>
+<p class="muted" data-i18n="privacy"></p>
+</main>
+</body>
+</html>
