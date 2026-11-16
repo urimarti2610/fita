@@ -6,6 +6,8 @@ The fita website ships the following third-party components to visitors' browser
 | --- | --- | --- |
 | [JSZip](https://stuk.github.io/jszip/) | Reading and writing EPUB files in the converter | MIT (dual-licensed MIT or GPLv3; used under MIT) |
 | [marked](https://marked.js.org/) | Markdown to HTML in the converter | MIT |
+| [PDF.js](https://mozilla.github.io/pdf.js/) | Reading the text of PDF files in the converter (loaded only when a PDF is converted) | Apache License 2.0 |
+| Adobe CMap resources (shipped with PDF.js) | Reading text in PDFs that use Chinese, Japanese or Korean fonts | BSD 3-Clause |
 | [Atkinson Hyperlegible Next](https://github.com/googlefonts/atkinson-hyperlegible-next) | Typeface of the website and downloaded worksheets; base of the Fita Sans font in `fonts/` | SIL Open Font License 1.1 |
 
 ---
@@ -83,6 +85,31 @@ Redistribution and use in source and binary forms, with or without modification,
 * Neither the name “Markdown” nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 
 This software is provided by the copyright holders and contributors “as is” and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall the copyright owner or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
+
+---
+
+## PDF.js
+
+Copyright Mozilla Foundation and contributors.
+
+Licensed under the Apache License, Version 2.0, the same licence as fita itself (see `LICENSE` in the repository, or https://www.apache.org/licenses/LICENSE-2.0).
+
+---
+
+## Adobe CMap resources
+
+Copyright 1990-2009 Adobe Systems Incorporated.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+- Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+- Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+- Neither the name of Adobe Systems Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ---
 

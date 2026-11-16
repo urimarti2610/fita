@@ -92,7 +92,7 @@ export const strings: Strings = {
       {
         q: "Kann ich es mit meinen E-Books nutzen?",
         a: [
-          "Ja. Unter „Buch umwandeln“ wählst du eine EPUB-, DOCX-, TXT-, Markdown- oder HTML-Datei aus und lädst eine Kopie mit Hervorhebung herunter. Die Umwandlung passiert in deinem Browser. Bücher mit DRM können nicht umgewandelt werden.",
+          "Ja. Unter „Buch umwandeln“ wählst du eine EPUB-, DOCX-, PDF-, TXT-, Markdown- oder HTML-Datei aus und lädst eine Kopie mit Hervorhebung herunter. Die Umwandlung passiert in deinem Browser. Bücher mit DRM können nicht umgewandelt werden.",
         ],
       },
       {
@@ -132,7 +132,7 @@ export const strings: Strings = {
         link: "Ideen für Unterricht und Zuhause",
         lede: "Für Lehrkräfte, Förderteams und Familien, die möchten, dass Lesen etwas weniger Mühe kostet, ohne für jedes Kind eigenes Material vorzubereiten.",
         steps: [
-          "Pass das Material an, das du schon hast: Wandle Lesetexte, Notizen oder Bücher im Format EPUB, DOCX, TXT, Markdown oder HTML um und teile sie einfach so.",
+          "Pass das Material an, das du schon hast: Wandle Lesetexte, Notizen oder Bücher im Format EPUB, DOCX, PDF, TXT, Markdown oder HTML um und teile sie einfach so.",
           "Zeig im Unterricht die Demo mit dem Text des Tages und probiert gemeinsam verschiedene Stärken und Stile aus. Lass jedes Kind sagen, was sich am angenehmsten anfühlt.",
           "Auf Schulcomputern funktioniert die Erweiterung ohne Konten oder Anmeldung und sammelt keine Daten der Schülerinnen und Schüler.",
           "Erstelle unter „Arbeitsblätter“ Leseblätter mit großer Schrift und einem freundlichen Rahmen, und drucke sie aus oder speichere sie als PDF.",
@@ -270,11 +270,13 @@ export const strings: Strings = {
       "Wähle ein Buch oder ein Dokument aus und lade eine Kopie mit Hervorhebung herunter. Die Datei verlässt nie dein Gerät: Alles passiert in diesem Browser, ohne Größenbegrenzung.",
     pick: "Datei auswählen",
     drop: "oder hier ablegen",
-    formats: "EPUB, DOCX, TXT, Markdown oder HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown oder HTML",
     pickFolder: "Ordner auswählen",
     folderHint:
       "Markdown mit Bildern? Wähle den Ordner oder eine .zip-Datei, dann kommen die Bilder mit hinein.",
     bundleDocument: "{name} wird mit seinen Bildern umgewandelt.",
+    pdfNote:
+      "Der Text wird aus dem PDF geholt und zu einem EPUB-Buch oder einer HTML-Seite. Layout, Bilder und Tabellen bleiben nicht erhalten.",
     selected: "Ausgewählte Datei:",
     output: "Ausgabeformat",
     outputs: {
@@ -292,13 +294,17 @@ export const strings: Strings = {
     download: "{name} herunterladen",
     errors: {
       unsupported:
-        "Dieses Format kann nicht umgewandelt werden. Wähle eine EPUB-, DOCX-, TXT-, Markdown- oder HTML-Datei.",
+        "Dieses Format kann nicht umgewandelt werden. Wähle eine EPUB-, DOCX-, PDF-, TXT-, Markdown- oder HTML-Datei.",
       drm: "Dieses Buch hat DRM (Kopierschutz) und kann deshalb nicht umgewandelt werden. Wenn du es gekauft hast, frag im Shop, ob du eine Kopie ohne DRM bekommen kannst.",
       invalid:
         "Diese Datei konnte nicht gelesen werden. Prüfe, ob sie sich in deinem Reader öffnen lässt, oder versuch eine andere.",
       noMarkdown: "In diesem Ordner oder dieser .zip-Datei gibt es keine Markdown-Datei (.md).",
       locked:
         "Dieses Dokument hat ein Passwort oder ist im alten Word-Format (.doc) und kann nicht umgewandelt werden. Öffne es, speichere es als .docx ohne Passwort und versuche es noch einmal.",
+      noText:
+        "In diesem PDF haben wir keinen Text gefunden. Wenn es ein gescanntes Dokument ist (Fotos von Seiten), braucht es zuerst eine Texterkennung (OCR).",
+      pdfLocked:
+        "Dieses PDF hat ein Passwort und kann nicht umgewandelt werden. Öffne es, speichere es ohne Passwort und versuche es noch einmal.",
       failed:
         "Die Umwandlung ist fehlgeschlagen ({detail}). Wenn es wieder passiert, sag uns bitte auf GitHub Bescheid.",
     },

@@ -15,5 +15,9 @@ export default defineConfig({
     routing: { prefixDefaultLocale: true, redirectToDefaultLocale: false },
   },
   build: { inlineStylesheets: "always" },
-  vite: { resolve: { conditions: ["@fita/source"] } },
+  vite: {
+    resolve: { conditions: ["@fita/source"] },
+    // ES module workers can load code on demand (pdf.js only when a PDF is converted).
+    worker: { format: "es" },
+  },
 });

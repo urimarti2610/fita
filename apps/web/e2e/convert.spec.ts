@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { expect, test } from "@playwright/test";
 import JSZip from "jszip";
 import { CHAPTER, makeDocx, makeEpub, wordRun } from "../test/fixtures.js";
+import { makePdf, page as pdfPage } from "../test/pdf-fixture.js";
 
 const dir = mkdtempSync(join(tmpdir(), "fita-e2e-"));
 
@@ -79,6 +80,46 @@ test("converts a Word document and keeps it a Word document", async ({ page }) =
   const zip = await JSZip.loadAsync(readFileSync(await download.path()));
   const xml = (await zip.file("word/document.xml")?.async("string")) ?? "";
   expect(xml).toContain('<w:rPr><w:b/><w:bCs/><w:i/></w:rPr><w:t xml:space="preserve">U</w:t>');
+});
+
+test("a PDF is reflowed into an EPUB, off the main thread and without other sites", async ({
+  page,
+  baseURL,
+}) => {
+  const external: string[] = [];
+  page.on("request", (request) => {
+    if (!request.url().startsWith(baseURL ?? "")) external.push(request.url());
+  });
+  const pdf = makePdf(
+    [
+      pdfPage([
+        { text: "The journey", y: 770, size: 22 },
+        { text: "Reading is a journey that starts", y: 730 },
+        "with one word and ends with a book.",
+      ]),
+      pdfPage(["Second page of the document.", { text: "中文阅读", y: 700, cjk: true }]),
+    ],
+    { title: "A small book" },
+  );
+  const path = await save("small.pdf", pdf);
+  await page.goto("/en/convert/");
+  await page.getByLabel(/Choose a file/).setInputFiles(path);
+  await expect(page.locator("#cv-book-title")).toHaveText("A small book");
+  await expect(page.locator("#cv-preview h3")).toContainText("The journey");
+  await expect(page.getByText("Layout, images and tables are not kept")).toBeVisible();
+  await page.getByRole("button", { name: "Convert" }).click();
+  const link = page.getByRole("link", { name: /small\.fita\.epub/ });
+  const [download] = await Promise.all([page.waitForEvent("download"), link.click()]);
+  const zip = await JSZip.loadAsync(readFileSync(await download.path()));
+  const chapter = (await zip.file("OEBPS/chapter-0001.xhtml")?.async("string")) ?? "";
+  // The two lines became one paragraph, with emphasis.
+  expect(chapter.replace(/<\/?span[^>]*>/g, "")).toContain(
+    "<p>Reading is a journey that starts with one word and ends with a book.</p>",
+  );
+  expect(chapter).toContain('<span class="fita-e">Sec</span>');
+  // The Chinese line needs a bundled CMap, loaded from this site.
+  expect(chapter).toContain("中文阅读");
+  expect(external).toEqual([]);
 });
 
 test("explains password-protected Word documents", async ({ page }) => {

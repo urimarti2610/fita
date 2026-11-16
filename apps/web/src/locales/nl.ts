@@ -92,7 +92,7 @@ export const strings: Strings = {
       {
         q: "Kan ik het gebruiken met mijn e-books?",
         a: [
-          "Ja. Bij “Boek omzetten” kies je een EPUB-, DOCX-, TXT-, Markdown- of HTML-bestand en download je een kopie met nadruk. Het omzetten gebeurt in je browser. Boeken met DRM kunnen niet worden omgezet.",
+          "Ja. Bij “Boek omzetten” kies je een EPUB-, DOCX-, PDF-, TXT-, Markdown- of HTML-bestand en download je een kopie met nadruk. Het omzetten gebeurt in je browser. Boeken met DRM kunnen niet worden omgezet.",
         ],
       },
       {
@@ -132,7 +132,7 @@ export const strings: Strings = {
         link: "Ideeën voor de klas en thuis",
         lede: "Voor leerkrachten, intern begeleiders, remedial teachers en gezinnen die willen dat lezen wat minder moeite kost, zonder voor elke leerling apart materiaal voor te bereiden.",
         steps: [
-          "Pas het materiaal aan dat je al hebt: zet leesteksten, aantekeningen of boeken in EPUB, DOCX, TXT, Markdown of HTML om en deel ze zoals ze zijn.",
+          "Pas het materiaal aan dat je al hebt: zet leesteksten, aantekeningen of boeken in EPUB, DOCX, PDF, TXT, Markdown of HTML om en deel ze zoals ze zijn.",
           "Laat in de klas de demo zien met de tekst van de dag en probeer samen verschillende sterktes en stijlen. Laat elke leerling zeggen wat het prettigst voelt.",
           "Op schoolcomputers werkt de extensie zonder accounts of aanmelden, en ze verzamelt geen gegevens van leerlingen.",
           "Maak bij “Werkbladen” leesbladen met grote letters en een vrolijke rand, en print ze of bewaar ze als pdf.",
@@ -267,10 +267,12 @@ export const strings: Strings = {
       "Kies een boek of document en download een kopie met nadruk. Het bestand verlaat nooit je apparaat: alles gebeurt in deze browser, zonder limiet op de grootte.",
     pick: "Kies een bestand",
     drop: "of sleep het hierheen",
-    formats: "EPUB, DOCX, TXT, Markdown of HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown of HTML",
     pickFolder: "Kies een map",
     folderHint: "Markdown met afbeeldingen? Kies de map of een .zip en de afbeeldingen gaan mee.",
     bundleDocument: "{name} wordt omgezet, met de afbeeldingen.",
+    pdfNote:
+      "De tekst wordt uit de pdf gehaald en wordt een EPUB-boek of een HTML-pagina. Opmaak, afbeeldingen en tabellen blijven niet behouden.",
     selected: "Gekozen bestand:",
     output: "Uitvoerformaat",
     outputs: {
@@ -288,13 +290,17 @@ export const strings: Strings = {
     download: "{name} downloaden",
     errors: {
       unsupported:
-        "Dit formaat kan niet worden omgezet. Kies een EPUB-, DOCX-, TXT-, Markdown- of HTML-bestand.",
+        "Dit formaat kan niet worden omgezet. Kies een EPUB-, DOCX-, PDF-, TXT-, Markdown- of HTML-bestand.",
       drm: "Dit boek heeft DRM (kopieerbeveiliging) en kan daarom niet worden omgezet. Heb je het gekocht, vraag dan aan de winkel of je een kopie zonder DRM kunt krijgen.",
       invalid:
         "Dit bestand kon niet worden gelezen. Kijk of het opent in je e-reader, of probeer een ander bestand.",
       noMarkdown: "Er staat geen Markdown-bestand (.md) in deze map of .zip.",
       locked:
         "Dit document heeft een wachtwoord of gebruikt het oude Word-formaat (.doc), dus het kan niet worden omgezet. Open het, sla het op als .docx zonder wachtwoord en probeer het opnieuw.",
+      noText:
+        "We hebben geen tekst gevonden in deze pdf. Als het een gescand document is (foto's van pagina's), heeft het eerst tekstherkenning (OCR) nodig.",
+      pdfLocked:
+        "Deze pdf heeft een wachtwoord, dus hij kan niet worden omgezet. Open hem, sla hem op zonder wachtwoord en probeer het opnieuw.",
       failed:
         "Het omzetten is mislukt ({detail}). Gebeurt het nog eens, laat het ons dan weten op GitHub.",
     },

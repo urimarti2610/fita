@@ -92,7 +92,7 @@ export const strings: Strings = {
       {
         q: "Puis-je l’utiliser avec mes livres numériques ?",
         a: [
-          "Oui. Dans « Convertir un livre », choisissez un fichier EPUB, DOCX, TXT, Markdown ou HTML et téléchargez une copie avec la mise en évidence. La conversion se fait dans votre navigateur. Les livres avec DRM ne peuvent pas être convertis.",
+          "Oui. Dans « Convertir un livre », choisissez un fichier EPUB, DOCX, PDF, TXT, Markdown ou HTML et téléchargez une copie avec la mise en évidence. La conversion se fait dans votre navigateur. Les livres avec DRM ne peuvent pas être convertis.",
         ],
       },
       {
@@ -130,7 +130,7 @@ export const strings: Strings = {
         link: "Idées pour la classe et la maison",
         lede: "Pour le personnel enseignant, les équipes d’accompagnement et les familles qui veulent que la lecture demande un peu moins d’effort, sans préparer un matériel différent pour chaque élève.",
         steps: [
-          "Adaptez le matériel que vous avez déjà : convertissez des lectures, des notes de cours ou des livres en EPUB, DOCX, TXT, Markdown ou HTML et partagez-les tels quels.",
+          "Adaptez le matériel que vous avez déjà : convertissez des lectures, des notes de cours ou des livres en EPUB, DOCX, PDF, TXT, Markdown ou HTML et partagez-les tels quels.",
           "En classe, projetez la démo avec le texte du jour et essayez ensemble différentes intensités et différents styles. Laissez chaque élève dire ce qui lui convient le mieux.",
           "Sur les ordinateurs de l’école, l’extension fonctionne sans compte ni inscription et ne collecte aucune donnée sur les élèves.",
           "Créez des fiches de lecture en gros caractères avec un cadre sympathique dans « Fiches », puis imprimez-les ou enregistrez-les en PDF.",
@@ -265,11 +265,13 @@ export const strings: Strings = {
       "Choisissez un livre ou un document et téléchargez une copie avec la mise en évidence. Le fichier ne quitte jamais votre appareil : tout se passe dans ce navigateur, sans limite de taille.",
     pick: "Choisir un fichier",
     drop: "ou déposez-le ici",
-    formats: "EPUB, DOCX, TXT, Markdown ou HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown ou HTML",
     pickFolder: "Choisir un dossier",
     folderHint:
       "Du Markdown avec des images ? Choisissez son dossier ou un .zip et les images seront incluses.",
     bundleDocument: "{name} sera converti, avec ses images.",
+    pdfNote:
+      "Le texte est extrait du PDF et transformé en livre EPUB ou en page HTML. La mise en page, les images et les tableaux ne sont pas conservés.",
     selected: "Fichier choisi :",
     output: "Format de sortie",
     outputs: {
@@ -287,13 +289,17 @@ export const strings: Strings = {
     download: "Télécharger {name}",
     errors: {
       unsupported:
-        "Ce format ne peut pas être converti. Choisissez un fichier EPUB, DOCX, TXT, Markdown ou HTML.",
+        "Ce format ne peut pas être converti. Choisissez un fichier EPUB, DOCX, PDF, TXT, Markdown ou HTML.",
       drm: "Ce livre est protégé par un DRM (protection contre la copie) : il ne peut donc pas être converti. Si vous l’avez acheté, demandez à la boutique si elle peut vous fournir une copie sans DRM.",
       invalid:
         "Ce fichier n’a pas pu être lu. Vérifiez qu’il s’ouvre dans votre liseuse, ou essayez-en un autre.",
       noMarkdown: "Ce dossier ou ce .zip ne contient aucun fichier Markdown (.md).",
       locked:
         "Ce document est protégé par un mot de passe ou utilise l’ancien format Word (.doc) : il ne peut pas être converti. Ouvrez-le, enregistrez-le en .docx sans mot de passe et réessayez.",
+      noText:
+        "Nous n’avons trouvé aucun texte dans ce PDF. S’il s’agit d’un document numérisé (photos de pages), il lui faut d’abord une reconnaissance de texte (OCR).",
+      pdfLocked:
+        "Ce PDF est protégé par un mot de passe et ne peut pas être converti. Ouvrez-le, enregistrez-le sans mot de passe et réessayez.",
       failed:
         "La conversion a échoué ({detail}). Si cela se reproduit, merci de nous le signaler sur GitHub.",
     },

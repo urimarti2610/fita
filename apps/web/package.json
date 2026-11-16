@@ -15,7 +15,8 @@
   "dependencies": {
     "@fita/core": "workspace:*",
     "jszip": "3.10.2",
-    "marked": "18.2.0"
+    "marked": "18.2.0",
+    "pdfjs-dist": "6.5.438"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",

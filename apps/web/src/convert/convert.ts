@@ -10,10 +10,11 @@ import {
   type Resource,
   xhtmlDocument,
 } from "./epub.js";
+import { blocksToXhtml } from "./reflow.js";
 import { emphasizeMarkdown, markdownToXhtml, splitChapters, textToXhtml } from "./text.js";
 
 /** "zip" and "folder" hold a Markdown document together with its images. */
-export type InputFormat = "epub" | "txt" | "md" | "html" | "zip" | "folder" | "docx";
+export type InputFormat = "epub" | "txt" | "md" | "html" | "zip" | "folder" | "docx" | "pdf";
 export type OutputFormat = "epub" | "html" | "md" | "docx";
 
 /** Output formats offered for each input. Plain text cannot hold emphasis, so TXT has no TXT output. */
@@ -25,6 +26,8 @@ export const OUTPUTS: Record<InputFormat, OutputFormat[]> = {
   zip: ["epub", "html"],
   folder: ["epub", "html"],
   docx: ["docx"],
+  // A PDF has no paragraphs to keep: its text is reflowed into a book or a page.
+  pdf: ["epub", "html"],
 };
 
 export function detectFormat(name: string): InputFormat | null {
@@ -35,6 +38,7 @@ export function detectFormat(name: string): InputFormat | null {
   if (ext === "html" || ext === "htm" || ext === "xhtml") return "html";
   if (ext === "zip") return "zip";
   if (ext === "docx") return "docx";
+  if (ext === "pdf") return "pdf";
   return null;
 }
 
@@ -93,6 +97,15 @@ export async function convert(request: ConvertRequest, progress: Progress): Prom
     return { blob: await convertEpub(book, transform, css, progress), name };
   }
 
+  if (input === "pdf") {
+    // pdf.js is large: it is only loaded when a PDF is converted.
+    const { readPdf } = await import("./pdf.js");
+    const text = await readPdf(request.file, (f) => progress(f * 0.3));
+    const docLang = text.language ?? lang;
+    const transform = createMarkupEmphasizer({ ...options, locale: docLang }, { style });
+    return packageBody(blocksToXhtml(text.blocks), [], text.title ?? stem, docLang, transform);
+  }
+
   let source: string;
   let bundle: Awaited<ReturnType<typeof zipBundle>> | null = null;
   if (input === "zip" || input === "folder") {
@@ -122,26 +135,39 @@ export async function convert(request: ConvertRequest, progress: Progress): Prom
   let body = input === "txt" ? textToXhtml(source) : markdownToXhtml(source);
   let resources: Resource[] = [];
   progress(0.3);
-  if (output === "html") {
-    if (bundle) body = await inlineImagesForHtml(body, bundle);
-    const html = xhtmlDocument(stem, lang, transform(body), `<style>${css}</style>\n`);
-    return { blob: new Blob([html], { type: MIME.html }), name };
+  if (bundle) {
+    if (output === "html") body = await inlineImagesForHtml(body, bundle);
+    else ({ body, resources } = bundleImagesForEpub(body, bundle));
   }
-  if (bundle) ({ body, resources } = bundleImagesForEpub(body, bundle));
-  const chapters = splitChapters(body, (n) => `${request.labels.part} ${n}`).map((c, i, all) => {
-    progress(0.3 + (0.5 * (i + 1)) / all.length);
-    return { ...c, body: transform(c.body) };
-  });
-  const blob = await buildEpub({
-    title: stem,
-    lang,
-    chapters,
-    css,
-    contentsLabel: request.labels.contents,
-    progress,
-    resources,
-  });
-  return { blob, name };
+  return packageBody(body, resources, stem, lang, transform);
+
+  /** An XHTML body as a standalone HTML page or as an EPUB split into chapters. */
+  async function packageBody(
+    body: string,
+    resources: Resource[],
+    title: string,
+    docLang: string,
+    transform: (markup: string) => string,
+  ): Promise<ConvertResult> {
+    if (output === "html") {
+      const html = xhtmlDocument(title, docLang, transform(body), `<style>${css}</style>\n`);
+      return { blob: new Blob([html], { type: MIME.html }), name };
+    }
+    const chapters = splitChapters(body, (n) => `${request.labels.part} ${n}`).map((c, i, all) => {
+      progress(0.3 + (0.5 * (i + 1)) / all.length);
+      return { ...c, body: transform(c.body) };
+    });
+    const blob = await buildEpub({
+      title,
+      lang: docLang,
+      chapters,
+      css,
+      contentsLabel: request.labels.contents,
+      progress,
+      resources,
+    });
+    return { blob, name };
+  }
 }
 
 function addStyleOrPrepend(html: string, css: string): string {
