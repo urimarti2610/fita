@@ -2,6 +2,7 @@ import { createMarkupEmphasizer, type EmphasisStyle, escapeHTML } from "@fita/co
 import { marked } from "marked";
 import { folderBundle, zipBundle } from "./bundle.js";
 import type { InputFormat } from "./convert.js";
+import { docxParagraphs, openDocx } from "./docx.js";
 import { openEpub } from "./epub.js";
 
 /**
@@ -54,6 +55,13 @@ export async function extractPreview(
   input: InputFormat,
   assets: { path: string; file: Blob }[] = [],
 ): Promise<Preview> {
+  if (input === "docx") {
+    const docx = await openDocx(file);
+    const xml = (await docx.zip.file(docx.parts[0] as string)?.async("string")) ?? "";
+    const preview: Preview = { blocks: firstPage(docxParagraphs(xml, PAGE_CHARS)) };
+    if (docx.language) preview.lang = docx.language;
+    return preview;
+  }
   if (input === "zip" || input === "folder") {
     const bundle = input === "zip" ? await zipBundle(file) : await folderBundle(assets);
     const markdown = bundle.markdown.slice(0, HEAD_BYTES);

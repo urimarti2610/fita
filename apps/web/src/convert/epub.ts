@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 
 /** Thrown for books we must not or cannot convert; `code` maps to a UI message. */
-export type ConvertErrorCode = "drm" | "invalid" | "noMarkdown";
+export type ConvertErrorCode = "drm" | "invalid" | "noMarkdown" | "locked";
 
 export class ConvertError extends Error {
   constructor(public readonly code: ConvertErrorCode) {

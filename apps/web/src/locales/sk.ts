@@ -91,7 +91,7 @@ export const strings: Strings = {
       {
         q: "Môžem to používať so svojimi e-knihami?",
         a: [
-          "Áno. V časti „Konvertovať knihu“ vyberieš súbor EPUB, TXT, Markdown alebo HTML a stiahneš si kópiu so zvýraznením. Konverzia prebieha v tvojom prehliadači. Knihy s DRM sa konvertovať nedajú.",
+          "Áno. V časti „Konvertovať knihu“ vyberieš súbor EPUB, DOCX, TXT, Markdown alebo HTML a stiahneš si kópiu so zvýraznením. Konverzia prebieha v tvojom prehliadači. Knihy s DRM sa konvertovať nedajú.",
         ],
       },
       {
@@ -129,7 +129,7 @@ export const strings: Strings = {
         link: "Nápady do triedy aj domov",
         lede: "Pre učiteľov, školské podporné tímy a rodiny, ktoré chcú, aby čítanie stálo o trochu menej námahy, a pritom nepripravovať iné materiály pre každého žiaka.",
         steps: [
-          "Uprav materiály, ktoré už máš: skonvertuj čítanky, poznámky alebo knihy vo formáte EPUB, TXT, Markdown alebo HTML a zdieľaj ich tak, ako sú.",
+          "Uprav materiály, ktoré už máš: skonvertuj čítanky, poznámky alebo knihy vo formáte EPUB, DOCX, TXT, Markdown alebo HTML a zdieľaj ich tak, ako sú.",
           "Na hodine premietni ukážku s textom na daný deň a spoločne vyskúšajte rôzne sily a štýly. Nech každý žiak povie, čo mu najviac vyhovuje.",
           "Na školských počítačoch rozšírenie funguje bez účtov a registrácie a nezbiera žiadne údaje o žiakoch.",
           "V časti „Pracovné listy“ pripravíš listy na čítanie s veľkým písmom a prívetivým rámčekom a potom ich vytlačíš alebo uložíš ako PDF.",
@@ -264,13 +264,18 @@ export const strings: Strings = {
       "Vyber knihu alebo dokument a stiahni si kópiu so zvýraznením. Súbor nikdy neopustí tvoje zariadenie: všetko sa deje v tomto prehliadači, bez obmedzenia veľkosti.",
     pick: "Vybrať súbor",
     drop: "alebo ho sem pretiahni",
-    formats: "EPUB, TXT, Markdown alebo HTML",
+    formats: "EPUB, DOCX, TXT, Markdown alebo HTML",
     pickFolder: "Vybrať priečinok",
     folderHint: "Markdown s obrázkami? Vyber jeho priečinok alebo .zip a obrázky pôjdu dovnútra.",
     bundleDocument: "Prevedie sa {name} aj s obrázkami.",
     selected: "Vybraný súbor:",
     output: "Výstupný formát",
-    outputs: { epub: "EPUB (e-kniha)", html: "HTML (webová stránka)", md: "Markdown" },
+    outputs: {
+      epub: "EPUB (e-kniha)",
+      html: "HTML (webová stránka)",
+      md: "Markdown",
+      docx: "Word (DOCX)",
+    },
     options: "Ako zvýrazňovať",
     start: "Konvertovať",
     progress: "Konvertuje sa: {n} %",
@@ -279,11 +284,14 @@ export const strings: Strings = {
     done: "Hotovo. Tvoj súbor je pripravený.",
     download: "Stiahnuť {name}",
     errors: {
-      unsupported: "Tento formát sa nedá konvertovať. Vyber súbor EPUB, TXT, Markdown alebo HTML.",
+      unsupported:
+        "Tento formát sa nedá konvertovať. Vyber súbor EPUB, DOCX, TXT, Markdown alebo HTML.",
       drm: "Táto kniha má DRM (ochranu proti kopírovaniu), takže sa nedá konvertovať. Ak je kúpená, opýtaj sa v obchode, či ti môžu dať kópiu bez DRM.",
       invalid:
         "Tento súbor sa nepodarilo prečítať. Skontroluj, či sa otvorí v tvojej čítačke, alebo skús iný.",
       noMarkdown: "V tomto priečinku ani .zipe nie je žiadny súbor Markdown (.md).",
+      locked:
+        "Tento dokument má heslo alebo je v starom formáte Wordu (.doc), takže ho nemožno previesť. Otvor ho, ulož ako .docx bez hesla a skús to znova.",
       failed:
         "Konverzia sa nepodarila ({detail}). Ak sa to stane znova, daj nám, prosím, vedieť na GitHube.",
     },

@@ -91,7 +91,7 @@ export const strings: Strings = {
       {
         q: "Nire liburu elektronikoekin erabil dezaket?",
         a: [
-          "Bai. «Bihurtu liburu bat» atalean EPUB, TXT, Markdown edo HTML fitxategi bat aukeratzen duzu, eta nabarmentzedun kopia bat deskargatzen duzu. Bihurketa zure nabigatzailean egiten da. DRM duten liburuak ezin dira bihurtu.",
+          "Bai. «Bihurtu liburu bat» atalean EPUB, DOCX, TXT, Markdown edo HTML fitxategi bat aukeratzen duzu, eta nabarmentzedun kopia bat deskargatzen duzu. Bihurketa zure nabigatzailean egiten da. DRM duten liburuak ezin dira bihurtu.",
         ],
       },
       {
@@ -129,7 +129,7 @@ export const strings: Strings = {
         link: "Ideiak ikasgelarako eta etxerako",
         lede: "Irakurtzea pixka bat gutxiago kostatzea nahi duten irakasle, laguntza-talde eta familientzat, ikasle bakoitzarentzat material desberdinik prestatu gabe.",
         steps: [
-          "Egokitu dagoeneko duzun materiala: bihurtu irakurgaiak, apunteak edo liburuak EPUB, TXT, Markdown edo HTML formatuan, eta partekatu dauden bezala.",
+          "Egokitu dagoeneko duzun materiala: bihurtu irakurgaiak, apunteak edo liburuak EPUB, DOCX, TXT, Markdown edo HTML formatuan, eta partekatu dauden bezala.",
           "Ikasgelan, proiektatu demoa eguneko testuarekin eta probatu taldean indar eta estilo desberdinak. Utzi ikasle bakoitzari esaten zein zaion erosoena.",
           "Ikastetxeko ordenagailuetan, luzapenak konturik eta izen-ematerik gabe funtzionatzen du, eta ez du ikasleen daturik biltzen.",
           "Egin letra handiko eta marko atsegineko irakurketa-fitxak «Fitxak» atalean, eta inprimatu edo gorde PDF gisa.",
@@ -267,14 +267,19 @@ export const strings: Strings = {
       "Aukeratu liburu edo dokumentu bat eta deskargatu nabarmentzedun kopia bat. Fitxategia ez da inoiz zure gailutik ateratzen: dena nabigatzaile honetan gertatzen da, tamaina-mugarik gabe.",
     pick: "Aukeratu fitxategi bat",
     drop: "edo ekarri hona",
-    formats: "EPUB, TXT, Markdown edo HTML",
+    formats: "EPUB, DOCX, TXT, Markdown edo HTML",
     pickFolder: "Aukeratu karpeta bat",
     folderHint:
       "Markdown irudiekin? Aukeratu haren karpeta edo .zip bat, eta irudiak barruan joango dira.",
     bundleDocument: "{name} bihurtuko da, bere irudiekin.",
     selected: "Aukeratutako fitxategia:",
     output: "Irteerako formatua",
-    outputs: { epub: "EPUB (liburu elektronikoa)", html: "HTML (web-orria)", md: "Markdown" },
+    outputs: {
+      epub: "EPUB (liburu elektronikoa)",
+      html: "HTML (web-orria)",
+      md: "Markdown",
+      docx: "Word (DOCX)",
+    },
     options: "Nola nabarmendu",
     start: "Bihurtu",
     progress: "Bihurtzen: % {n}",
@@ -284,11 +289,13 @@ export const strings: Strings = {
     download: "Deskargatu {name}",
     errors: {
       unsupported:
-        "Formatu hau ezin da bihurtu. Aukeratu EPUB, TXT, Markdown edo HTML fitxategi bat.",
+        "Formatu hau ezin da bihurtu. Aukeratu EPUB, DOCX, TXT, Markdown edo HTML fitxategi bat.",
       drm: "Liburu honek DRM du (kopien aurkako babesa), eta, beraz, ezin da bihurtu. Erosi baduzu, galdetu dendari DRMrik gabeko kopia bat eman diezazuketen.",
       invalid:
         "Ezin izan da fitxategi hau irakurri. Egiaztatu zure irakurgailuan irekitzen dela, edo probatu beste batekin.",
       noMarkdown: "Ez dago Markdown fitxategirik (.md) karpeta edo .zip honetan.",
+      locked:
+        "Dokumentu honek pasahitza du edo Word-en formatu zaharrean dago (.doc), eta ezin da bihurtu. Ireki, gorde .docx gisa pasahitzik gabe eta saiatu berriro.",
       failed:
         "Bihurketak huts egin du ({detail}). Berriro gertatzen bada, jakinarazi iezaguzu GitHub-en, mesedez.",
     },

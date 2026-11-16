@@ -91,7 +91,7 @@ export const strings: Strings = {
       {
         q: "Használhatom az e-könyveimmel?",
         a: [
-          "Igen. A „Könyv átalakítása” részben kiválasztasz egy EPUB-, TXT-, Markdown- vagy HTML-fájlt, és letöltöd a kiemelt változatát. Az átalakítás a böngésződben történik. A DRM-mel védett könyvek nem alakíthatók át.",
+          "Igen. A „Könyv átalakítása” részben kiválasztasz egy EPUB-, DOCX-, TXT-, Markdown- vagy HTML-fájlt, és letöltöd a kiemelt változatát. Az átalakítás a böngésződben történik. A DRM-mel védett könyvek nem alakíthatók át.",
         ],
       },
       {
@@ -131,7 +131,7 @@ export const strings: Strings = {
         link: "Ötletek az osztályterembe és otthonra",
         lede: "Pedagógusoknak, fejlesztő szakembereknek és családoknak, akik szeretnék, ha az olvasás egy kicsit kevesebb erőfeszítésbe kerülne, anélkül hogy minden gyereknek külön anyagot kellene készíteniük.",
         steps: [
-          "Alakítsd át a meglévő anyagaidat: az olvasmányokat, jegyzeteket vagy könyveket EPUB, TXT, Markdown vagy HTML formátumban, és oszd meg őket úgy, ahogy vannak.",
+          "Alakítsd át a meglévő anyagaidat: az olvasmányokat, jegyzeteket vagy könyveket EPUB, DOCX, TXT, Markdown vagy HTML formátumban, és oszd meg őket úgy, ahogy vannak.",
           "Az órán vetítsd ki a bemutatót a napi szöveggel, és próbáljatok ki közösen különböző erősségeket és stílusokat. Mindenki mondja el, neki mi a legkényelmesebb.",
           "Az iskolai gépeken a bővítmény fiók és regisztráció nélkül működik, és semmilyen adatot nem gyűjt a diákokról.",
           "A „Feladatlapok” részben nagy betűs, barátságos keretes olvasási feladatlapokat készíthetsz, majd kinyomtathatod vagy PDF-be mentheted őket.",
@@ -266,14 +266,19 @@ export const strings: Strings = {
       "Válassz egy könyvet vagy dokumentumot, és töltsd le a kiemelt változatát. A fájl soha nem hagyja el az eszközödet: minden ebben a böngészőben történik, méretkorlát nélkül.",
     pick: "Fájl kiválasztása",
     drop: "vagy húzd ide",
-    formats: "EPUB, TXT, Markdown vagy HTML",
+    formats: "EPUB, DOCX, TXT, Markdown vagy HTML",
     pickFolder: "Mappa kiválasztása",
     folderHint:
       "Markdown képekkel? Válaszd ki a mappáját vagy egy .zip fájlt, és a képek is bekerülnek.",
     bundleDocument: "A(z) {name} a képeivel együtt lesz átalakítva.",
     selected: "Kiválasztott fájl:",
     output: "Kimeneti formátum",
-    outputs: { epub: "EPUB (e-könyv)", html: "HTML (weboldal)", md: "Markdown" },
+    outputs: {
+      epub: "EPUB (e-könyv)",
+      html: "HTML (weboldal)",
+      md: "Markdown",
+      docx: "Word (DOCX)",
+    },
     options: "A kiemelés módja",
     start: "Átalakítás",
     progress: "Átalakítás: {n} %",
@@ -283,11 +288,13 @@ export const strings: Strings = {
     download: "{name} letöltése",
     errors: {
       unsupported:
-        "Ez a formátum nem alakítható át. Válassz EPUB-, TXT-, Markdown- vagy HTML-fájlt.",
+        "Ez a formátum nem alakítható át. Válassz EPUB-, DOCX-, TXT-, Markdown- vagy HTML-fájlt.",
       drm: "Ez a könyv DRM-mel (másolásvédelemmel) van ellátva, ezért nem alakítható át. Ha megvásároltad, kérdezd meg az áruházat, adhatnak-e DRM-mentes példányt.",
       invalid:
         "Ezt a fájlt nem sikerült beolvasni. Ellenőrizd, hogy megnyílik-e az olvasódban, vagy próbálj meg egy másikat.",
       noMarkdown: "Ebben a mappában vagy .zip fájlban nincs Markdown (.md) fájl.",
+      locked:
+        "Ez a dokumentum jelszóval védett, vagy a Word régi formátumában (.doc) van, ezért nem alakítható át. Nyisd meg, mentsd .docx formátumban jelszó nélkül, és próbáld újra.",
       failed:
         "Az átalakítás nem sikerült ({detail}). Ha újra előfordul, kérjük, jelezd nekünk a GitHubon.",
     },

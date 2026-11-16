@@ -87,7 +87,7 @@ export const strings: Strings = {
       {
         q: "El puc fer servir amb els meus llibres electrònics?",
         a: [
-          "Sí. A «Convertir un llibre» tries un EPUB, TXT, Markdown o HTML i en descarregues una còpia amb l'èmfasi. La conversió es fa al teu navegador. Els llibres amb DRM no es poden convertir.",
+          "Sí. A «Convertir un llibre» tries un EPUB, DOCX, TXT, Markdown o HTML i en descarregues una còpia amb l'èmfasi. La conversió es fa al teu navegador. Els llibres amb DRM no es poden convertir.",
         ],
       },
       {
@@ -127,7 +127,7 @@ export const strings: Strings = {
         link: "Idees per a l'aula i per a casa",
         lede: "Per a docents, equips d'orientació i famílies que volen que llegir costi una mica menys, sense preparar materials diferents per a cada alumne.",
         steps: [
-          "Adapta els materials que ja tens: converteix lectures, apunts o llibres en EPUB, TXT, Markdown o HTML i comparteix-los tal com són.",
+          "Adapta els materials que ja tens: converteix lectures, apunts o llibres en EPUB, DOCX, TXT, Markdown o HTML i comparteix-los tal com són.",
           "A classe, projecta la demo amb el text del dia i proveu junts diferents intensitats i estils. Que cada alumne digui què li resulta més còmode.",
           "Als ordinadors del centre, l'extensió funciona sense comptes ni registres i no recull dades de l'alumnat.",
           "Crea fitxes de lectura amb lletra grossa i un marc amable a «Fitxes», i imprimeix-les o desa-les en PDF.",
@@ -264,13 +264,18 @@ export const strings: Strings = {
       "Tria un llibre o un document i descarrega'n una còpia amb l'èmfasi. El fitxer no surt del teu dispositiu: tot es fa en aquest navegador, sense límit de mida.",
     pick: "Tria un fitxer",
     drop: "o arrossega'l aquí",
-    formats: "EPUB, TXT, Markdown o HTML",
+    formats: "EPUB, DOCX, TXT, Markdown o HTML",
     pickFolder: "Tria una carpeta",
     folderHint: "Markdown amb imatges? Tria'n la carpeta o un .zip i les imatges hi aniran a dins.",
     bundleDocument: "Es convertirà {name}, amb les seves imatges.",
     selected: "Fitxer triat:",
     output: "Format del resultat",
-    outputs: { epub: "EPUB (llibre electrònic)", html: "HTML (pàgina web)", md: "Markdown" },
+    outputs: {
+      epub: "EPUB (llibre electrònic)",
+      html: "HTML (pàgina web)",
+      md: "Markdown",
+      docx: "Word (DOCX)",
+    },
     options: "Com destacar",
     start: "Convertir",
     progress: "Convertint: {n} %",
@@ -279,11 +284,14 @@ export const strings: Strings = {
     done: "Fet. El fitxer està preparat.",
     download: "Descarregar {name}",
     errors: {
-      unsupported: "Aquest format no es pot convertir. Tria un fitxer EPUB, TXT, Markdown o HTML.",
+      unsupported:
+        "Aquest format no es pot convertir. Tria un fitxer EPUB, DOCX, TXT, Markdown o HTML.",
       drm: "Aquest llibre té DRM (protecció anticòpia) i no es pot convertir. Si el vas comprar, pregunta a la botiga si te'n poden donar una còpia sense DRM.",
       invalid:
         "No s'ha pogut llegir aquest fitxer. Comprova que s'obre al teu lector o prova'n un altre.",
       noMarkdown: "No hi ha cap fitxer Markdown (.md) en aquesta carpeta o .zip.",
+      locked:
+        "Aquest document té contrasenya o és del format antic de Word (.doc), i no es pot convertir. Obre'l, desa'l com a .docx sense contrasenya i torna-ho a provar.",
       failed: "La conversió ha fallat ({detail}). Si torna a passar, explica'ns-ho a GitHub.",
     },
     labels: { part: "Part", contents: "Índex" },
