@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fita Sans demo</title>
+<style>
+  /* Build the font first: python fonts/build.py (writes fonts/dist/). */
+  @font-face {
+    font-family: "Fita Sans";
+    src: url("dist/FitaSans-Regular.woff2") format("woff2"),
+      url("dist/FitaSans-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  :root {
+    color-scheme: light dark;
+    --bg: #fbfaf7;
+    --fg: #1d1d1b;
+    --muted: #5c5b57;
+    --line: #d9d6cf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161614;
+      --fg: #ecebe6;
+      --muted: #a9a79f;
+      --line: #3a3935;
+    }
+  }
+  body {
+    margin: 0 auto;
+    max-width: 44rem;
+    padding: 2rem 1rem 4rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 1.25rem/1.7 "Fita Sans", system-ui, sans-serif;
+  }
+  h1 { font-size: 2rem; line-height: 1.2; }
+  h2 { font-size: 1rem; color: var(--muted); margin: 2rem 0 0.25rem; font-weight: normal; }
+  p { margin: 0 0 1rem; }
+  .note { color: var(--muted); font-size: 1rem; }
+  label { display: inline-flex; gap: 0.5rem; align-items: center; cursor: pointer; }
+  input[type="checkbox"] { width: 1.25rem; height: 1.25rem; }
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 8rem;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+  }
+  :focus-visible { outline: 3px solid #2f6fdf; outline-offset: 2px; }
+  /* Switching the feature off shows the same text, unchanged, in the regular font. */
+  body:has(#plain:checked) main { font-feature-settings: "calt" 0; }
+</style>
+</head>
+<body>
+<h1>Fita Sans</h1>
+<p class="note">A font that emphasizes the start of each word by itself, through OpenType
+contextual alternates. The text is not modified: select it, copy it or read it with a
+screen reader and it is exactly what you typed.</p>
+<p><label><input type="checkbox" id="plain"> Show without emphasis (<code>calt</code> off)</label></p>
+
+<main>
+  <h2>English</h2>
+  <p lang="en">Reading is more comfortable when your eyes have somewhere to land. Each word
+  starts with a few bold letters; the rest stays light, so you can read at your own pace.</p>
+
+  <h2>Español</h2>
+  <p lang="es">Leer es más cómodo cuando la vista tiene dónde apoyarse. Cada palabra empieza
+  con unas letras en negrita y el resto queda suave, para que leas a tu manera.</p>
+
+  <h2>Català</h2>
+  <p lang="ca">L'àvia d'una amiga guarda una col·lecció de llibres il·lustrats que llegeix
+  cada tarda, sense pressa.</p>
+
+  <h2>Français, Deutsch, Polski</h2>
+  <p lang="fr">L'écriture d'aujourd'hui reste lisible quand l'œil sait où se poser.</p>
+  <p lang="de">Die Straße war ruhig, und das Lesen fühlte sich leichter an.</p>
+  <p lang="pl">Żółw czyta książkę powoli, zdanie po zdaniu.</p>
+
+  <h2>Numbers stay plain</h2>
+  <p>Chapter 12 starts on page 345; the 3rd edition came out in 2024.</p>
+
+  <h2>Try your own text</h2>
+  <label for="own" class="note">Type or paste here:</label>
+  <textarea id="own">Paste a paragraph here to see how it looks.</textarea>
+</main>
+</body>
+</html>

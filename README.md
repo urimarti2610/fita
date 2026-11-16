@@ -29,6 +29,7 @@ Regenerate the images with `node apps/extension/scripts/store-assets.mjs` (exten
 | ---------------------------------- | ------------------------------------------------------------------------------------------------ |
 | [`packages/core`](packages/core)   | TypeScript library that decides which part of each word to emphasize, and applies it to the DOM. |
 | [`apps/extension`](apps/extension) | Browser extension (Chrome, Edge, Firefox — including Firefox for Android).                       |
+| [`fonts`](fonts)                   | **Fita Sans**, a font that emphasizes word starts by itself (OpenType `calt`), for computers and e-readers. |
 | [`apps/web`](apps/web)             | Static website ([fitaread.com](https://fitaread.com)) in 27 languages: live demo, reading worksheets and an in-browser ebook converter. |
 
 ## Languages
@@ -67,6 +68,8 @@ pnpm e2e         # Playwright
 ```
 
 Per package: `pnpm dev:web` (local website at http://localhost:4321), `pnpm preview:web`, `pnpm build:extension` (outputs `apps/extension/dist/`), and `test:*`, `build:*`, `e2e:*` for `core`, `extension` and `web`.
+
+The font in `fonts/` is built with Python: `pip install -r fonts/requirements.txt && python fonts/build.py` (see [fonts/README.md](fonts/README.md)).
 
 Brand images (social preview, favicon, extension icons) are rendered from the wordmark with `node apps/web/scripts/og-image.mjs`; the outputs are committed.
 

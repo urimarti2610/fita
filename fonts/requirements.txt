@@ -1,0 +1,7 @@
+# Build-time only; nothing here ships to users or makes network requests.
+# fontTools: reads the source fonts, merges glyphs, compiles the calt feature.
+fonttools==4.68.0
+# brotli: WOFF2 compression for fontTools.
+brotli==1.2.1
+# uharfbuzz: HarfBuzz bindings, used by the tests to shape text like browsers do.
+uharfbuzz==0.57.0

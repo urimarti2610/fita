@@ -6,7 +6,7 @@ The fita website ships the following third-party components to visitors' browser
 | --- | --- | --- |
 | [JSZip](https://stuk.github.io/jszip/) | Reading and writing EPUB files in the converter | MIT (dual-licensed MIT or GPLv3; used under MIT) |
 | [marked](https://marked.js.org/) | Markdown to HTML in the converter | MIT |
-| [Atkinson Hyperlegible Next](https://github.com/googlefonts/atkinson-hyperlegible-next) | Typeface of the website and downloaded worksheets | SIL Open Font License 1.1 |
+| [Atkinson Hyperlegible Next](https://github.com/googlefonts/atkinson-hyperlegible-next) | Typeface of the website and downloaded worksheets; base of the Fita Sans font in `fonts/` | SIL Open Font License 1.1 |
 
 ---
 
