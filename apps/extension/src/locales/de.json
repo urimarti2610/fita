@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Diese Einstellungen nur auf dieser Website verwenden"
   },
+  "readingMode": {
+    "message": "Lesemodus"
+  },
+  "readerClose": {
+    "message": "Lesemodus schließen"
+  },
+  "readerNoArticle": {
+    "message": "Auf dieser Seite wurde kein Artikel gefunden."
+  },
+  "commandReadingMode": {
+    "message": "Lesemodus öffnen oder schließen"
+  },
   "shortcutNone": {
     "message": "Tastenkürzel festlegen"
   },

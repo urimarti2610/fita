@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Fer servir aquests ajustos només en aquest lloc"
   },
+  "readingMode": {
+    "message": "Mode lectura"
+  },
+  "readerClose": {
+    "message": "Tanca el mode lectura"
+  },
+  "readerNoArticle": {
+    "message": "No s'ha trobat cap article en aquesta pàgina."
+  },
+  "commandReadingMode": {
+    "message": "Obrir o tancar el mode lectura"
+  },
   "shortcutNone": {
     "message": "Configurar una drecera de teclat"
   },

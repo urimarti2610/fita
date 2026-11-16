@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Úsáid na socruithe seo ar an suíomh seo amháin"
   },
+  "readingMode": {
+    "message": "Mód léitheoireachta"
+  },
+  "readerClose": {
+    "message": "Dún an mód léitheoireachta"
+  },
+  "readerNoArticle": {
+    "message": "Níor aimsíodh aon alt ar an leathanach seo."
+  },
+  "commandReadingMode": {
+    "message": "Oscail nó dún an mód léitheoireachta"
+  },
   "shortcutNone": {
     "message": "Socraigh aicearra méarchláir"
   },

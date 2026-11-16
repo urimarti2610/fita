@@ -106,6 +106,9 @@ export type ContentMessage =
 export type ContentReply = { enabled: boolean };
 /** Read aloud: popup/background → content script. Replies with the new SpeechState. */
 export type SpeechMessage = { type: "speech"; action: SpeechAction };
+/** Reading mode: open (true), close (false) or toggle (absent). */
+export type ReaderMessage = { type: "reader"; open?: boolean };
+export type ReaderReply = { open: boolean; error?: "noArticle" };
 /** Content script → popup, whenever reading starts, pauses or ends. */
 export type SpeechStateMessage = { type: "speech-state"; state: SpeechState };
 /** Sent by the content script so the background can update the badge. */

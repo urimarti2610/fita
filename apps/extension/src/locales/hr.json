@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Koristi ove postavke samo na ovom web-mjestu"
   },
+  "readingMode": {
+    "message": "Način čitanja"
+  },
+  "readerClose": {
+    "message": "Zatvori način čitanja"
+  },
+  "readerNoArticle": {
+    "message": "Na ovoj stranici nije pronađen članak."
+  },
+  "commandReadingMode": {
+    "message": "Otvori ili zatvori način čitanja"
+  },
   "shortcutNone": {
     "message": "Postavi tipkovnički prečac"
   },

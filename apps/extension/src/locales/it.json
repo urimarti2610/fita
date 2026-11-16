@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Usa queste impostazioni solo su questo sito"
   },
+  "readingMode": {
+    "message": "Modalità lettura"
+  },
+  "readerClose": {
+    "message": "Chiudi la modalità lettura"
+  },
+  "readerNoArticle": {
+    "message": "Nessun articolo trovato in questa pagina."
+  },
+  "commandReadingMode": {
+    "message": "Apri o chiudi la modalità lettura"
+  },
   "shortcutNone": {
     "message": "Imposta una scorciatoia da tastiera"
   },

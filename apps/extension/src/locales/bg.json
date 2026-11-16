@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Използвай тези настройки само на този сайт"
   },
+  "readingMode": {
+    "message": "Режим за четене"
+  },
+  "readerClose": {
+    "message": "Затваряне на режима за четене"
+  },
+  "readerNoArticle": {
+    "message": "На тази страница не е намерена статия."
+  },
+  "commandReadingMode": {
+    "message": "Отваряне или затваряне на режима за четене"
+  },
   "shortcutNone": {
     "message": "Задай клавишна комбинация"
   },

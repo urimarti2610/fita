@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Uża dawn is-settings fuq dan is-sit biss"
   },
+  "readingMode": {
+    "message": "Mod tal-qari"
+  },
+  "readerClose": {
+    "message": "Agħlaq il-mod tal-qari"
+  },
+  "readerNoArticle": {
+    "message": "Ma nstab l-ebda artiklu f'din il-paġna."
+  },
+  "commandReadingMode": {
+    "message": "Iftaħ jew agħlaq il-mod tal-qari"
+  },
   "shortcutNone": {
     "message": "Issettja shortcut tat-tastiera"
   },

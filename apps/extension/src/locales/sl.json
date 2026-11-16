@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Te nastavitve uporabi samo na tej strani"
   },
+  "readingMode": {
+    "message": "Bralni način"
+  },
+  "readerClose": {
+    "message": "Zapri bralni način"
+  },
+  "readerNoArticle": {
+    "message": "Na tej strani ni bilo najdenega članka."
+  },
+  "commandReadingMode": {
+    "message": "Odpri ali zapri bralni način"
+  },
   "shortcutNone": {
     "message": "Nastavi bližnjico na tipkovnici"
   },

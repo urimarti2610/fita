@@ -43,3 +43,13 @@ The extension popup can read the page aloud with the browser's own text-to-speec
 - **Voices:** only on-device voices (`localService: true`). Chrome lists online "Google" voices and Edge lists online "Natural" voices that send the text to the vendor's servers; they are never offered or used. The voice is picked by the language of the page (or of the element's `lang`), and you can choose one per language. If the device has no voice for the language, the popup says so: add voices in the operating system's speech settings (Windows: Settings → Time & language → Speech; macOS: System Settings → Accessibility → Spoken content; Android: Text-to-speech output; Linux: speech-dispatcher with e.g. espeak-ng).
 - **Following along:** the word being read is marked with the CSS Custom Highlight API (`::highlight`, system colours `Mark`/`MarkText`, so it works in dark and forced-colours modes) and scrolled into view when it leaves the screen (without smooth scrolling under `prefers-reduced-motion`). The page's DOM and text are not modified. Browsers without the Highlight API, or engines that send no word boundaries, still read but without marking words.
 - **Screen readers:** if you use one, it already reads the page; this feature is meant for people who read visually and want to hear the text at the same time.
+
+## Reading mode
+
+"More options" → "Reading mode" (or an optional keyboard shortcut, unassigned by default) shows the page's main article in a clean view, extracted on the device with Mozilla's Readability (bundled; no network).
+
+- It is a full-page modal `<dialog>` in a closed shadow root: the page underneath becomes inert, focus moves to the "Close reading mode" button, `Esc` closes it and focus returns to the page. The page's DOM is not modified.
+- Emphasis is applied with the same settings as the extension: strength, style, "1 of every N words", line spacing and maximum line width (65 characters when the page default is chosen). Changes in the popup apply while the view is open.
+- Its own light and dark themes follow `prefers-color-scheme`; the dialog is labelled by the article title and keeps the article's language and direction (`lang`, `dir`) for screen readers and right-to-left scripts.
+- The article is sanitized before display: scripts, frames, forms, inline styles, event handlers and `javascript:` links are removed.
+- Known limits: the line ruler and read aloud work on the page, not inside the reading view; pages without a recognisable article show "No article found on this page."

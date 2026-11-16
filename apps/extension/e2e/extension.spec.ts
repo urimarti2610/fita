@@ -8,6 +8,7 @@ type TestHooks = {
     tabId: number,
     action: string,
   ): Promise<{ status: string; lang: string; error?: string } | null>;
+  setReader(tabId: number, open?: boolean): Promise<{ open: boolean; error?: string }>;
 };
 declare const fitaTest: TestHooks;
 
@@ -97,6 +98,8 @@ test("popup is translated and keyboard-usable", async ({ context, extensionId })
   await expect(popup.getByRole("radio")).toHaveCount(5);
   await popup.keyboard.press("Tab");
   await expect(toggle).toBeFocused();
+  await popup.getByText("More options").click();
+  await expect(popup.getByRole("button", { name: "Reading mode" })).toBeVisible();
 });
 
 test("line ruler follows the pointer and keyboard, and goes away with emphasis", async ({
@@ -157,4 +160,40 @@ test("read aloud starts and stops from the extension, leaving the page untouched
   expect(stopped?.status).toBe("idle");
   expect(await page.locator("body").innerHTML()).toBe(before);
   await expect(page.locator("fita-w")).toHaveCount(0);
+});
+
+test("reading mode shows the article in its own view and closes with Escape", async ({
+  context,
+  worker,
+  baseURL,
+}) => {
+  const page = await context.newPage();
+  await page.goto(baseURL);
+  await page.evaluate(() => {
+    const main = document.querySelector("main") as HTMLElement;
+    for (let i = 0; i < 6; i++) {
+      const p = document.createElement("p");
+      p.textContent = `Párrafo ${i}: el río atraviesa la ciudad y cada verano las familias bajan a pasear, a leer y a escuchar el agua bajo los puentes viejos.`;
+      main.append(p);
+    }
+  });
+  const before = await page.locator("body").innerHTML();
+  const tabId = await tabIdOf(worker, baseURL);
+
+  const reply = await worker.evaluate((id) => fitaTest.setReader(id, true), tabId);
+  expect(reply.open).toBe(true);
+  const view = page.locator("fita-reader");
+  await expect(view).toHaveCount(1);
+  // The modal dialog takes focus (its close button) away from the page.
+  expect(await page.evaluate(() => document.activeElement?.localName)).toBe("fita-reader");
+  expect(await page.locator("body").innerHTML()).toBe(before);
+
+  await page.keyboard.press("Escape");
+  await expect(view).toHaveCount(0);
+  expect(await page.locator("body").innerHTML()).toBe(before);
+
+  // Without an argument it toggles.
+  expect((await worker.evaluate((id) => fitaTest.setReader(id), tabId)).open).toBe(true);
+  expect((await worker.evaluate((id) => fitaTest.setReader(id), tabId)).open).toBe(false);
+  await expect(view).toHaveCount(0);
 });

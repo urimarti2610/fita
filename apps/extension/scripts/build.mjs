@@ -9,12 +9,14 @@ import {
   statSync,
   writeFileSync,
 } from "node:fs";
+import { createRequire } from "node:module";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as esbuild from "esbuild";
 import JSZip from "jszip";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const require = createRequire(import.meta.url);
 const e2e = process.argv.includes("--e2e");
 const dist = join(root, e2e ? "dist-e2e" : "dist");
 const { version } = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
@@ -39,7 +41,9 @@ for (const browser of ["chrome", "firefox"]) {
   const out = join(dist, browser);
   mkdirSync(out, { recursive: true });
   await esbuild.build({
-    entryPoints: ["background", "content", "popup"].map((n) => join(root, "src", `${n}.ts`)),
+    entryPoints: ["background", "content", "popup", "reader"].map((n) =>
+      join(root, "src", `${n}.ts`),
+    ),
     outdir: out,
     bundle: true,
     format: "iife",
@@ -52,6 +56,11 @@ for (const browser of ["chrome", "firefox"]) {
   cpSync(join(root, "static"), out, { recursive: true });
   // Apache-2.0 §4: ship the licence and the attribution notice with every copy.
   for (const file of ["LICENSE", "NOTICE"]) cpSync(join(root, "../..", file), join(out, file));
+  // Bundled third-party code (reader.js): Readability, Apache-2.0.
+  cpSync(
+    join(dirname(require.resolve("@mozilla/readability/package.json")), "LICENSE.md"),
+    join(out, "LICENSE-readability.md"),
+  );
   writeFileSync(join(out, "content.css"), CONTENT_CSS);
   writeFileSync(
     join(out, "manifest.json"),

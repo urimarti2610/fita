@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Použít tato nastavení jen na tomto webu"
   },
+  "readingMode": {
+    "message": "Režim čtení"
+  },
+  "readerClose": {
+    "message": "Zavřít režim čtení"
+  },
+  "readerNoArticle": {
+    "message": "Na této stránce nebyl nalezen žádný článek."
+  },
+  "commandReadingMode": {
+    "message": "Otevřít nebo zavřít režim čtení"
+  },
   "shortcutNone": {
     "message": "Nastavit klávesovou zkratku"
   },

@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Naudoti šiuos nustatymus tik šioje svetainėje"
   },
+  "readingMode": {
+    "message": "Skaitymo režimas"
+  },
+  "readerClose": {
+    "message": "Uždaryti skaitymo režimą"
+  },
+  "readerNoArticle": {
+    "message": "Šiame puslapyje straipsnio nerasta."
+  },
+  "commandReadingMode": {
+    "message": "Atidaryti arba uždaryti skaitymo režimą"
+  },
   "shortcutNone": {
     "message": "Nustatyti sparčiuosius klavišus"
   },
