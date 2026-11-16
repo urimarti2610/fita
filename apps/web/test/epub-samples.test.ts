@@ -29,7 +29,31 @@ describe.runIf(dir)("epubcheck samples", () => {
     );
     // Round trip: convert an already valid EPUB.
     const converted = await convert(base(fromTxt.blob, "valid.epub", "epub"), () => {});
+    // Markdown with images, from a folder: real 1×1 PNG and GIF files.
+    const bytes = (b64: string) => Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+    const png = bytes(
+      "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==",
+    );
+    const gif = bytes("R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+    const withImages = await convert(
+      {
+        ...base(new Blob(), "llibre", "epub"),
+        input: "folder",
+        assets: [
+          {
+            path: "llibre.md",
+            file: new Blob([
+              "# Fotos\n\n![Mar](img/mar.png) ![Punt](img/punt.gif)\n\n![Lluny](https://example.com/x.png) ![Fora](../x.png)\n\n# Segon\n\n![Mar](img/mar.png)\n",
+            ]),
+          },
+          { path: "img/mar.png", file: new Blob([png]) },
+          { path: "img/punt.gif", file: new Blob([gif]) },
+        ],
+      },
+      () => {},
+    );
     for (const [name, result] of [
+      ["from-markdown-images.epub", withImages],
       ["from-markdown.epub", fromMd],
       ["from-text.epub", fromTxt],
       ["converted.epub", converted],

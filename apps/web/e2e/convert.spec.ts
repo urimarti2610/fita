@@ -1,5 +1,5 @@
 import { randomBytes } from "node:crypto";
-import { mkdtempSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { expect, test } from "@playwright/test";
@@ -69,6 +69,47 @@ test("Markdown can be exported as EPUB", async ({ page }) => {
   await page.getByLabel("Output format").selectOption("epub");
   await page.getByRole("button", { name: "Convert" }).click();
   await expect(page.getByRole("link", { name: /notes\.fita\.epub/ })).toBeVisible();
+});
+
+const PNG = Buffer.from(
+  "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==",
+  "base64",
+);
+
+test("Markdown in a folder keeps its images in the EPUB", async ({ page }) => {
+  const folder = join(dir, "trip");
+  mkdirSync(join(folder, "img"), { recursive: true });
+  writeFileSync(join(folder, "trip.md"), "# Trip\n\nThe sea: ![Sea](img/sea.png)\n");
+  writeFileSync(join(folder, "img", "sea.png"), PNG);
+  await page.goto("/en/convert/");
+  await page.locator("#folder").setInputFiles(folder);
+  await expect(page.getByText("trip.md will be converted, with its images.")).toBeVisible();
+  await expect(page.locator("#cv-preview h3")).toContainText("Trip");
+  await page.getByRole("button", { name: "Convert" }).click();
+  const link = page.getByRole("link", { name: /trip\.fita\.epub/ });
+  const [download] = await Promise.all([page.waitForEvent("download"), link.click()]);
+  const zip = await JSZip.loadAsync(readFileSync(await download.path()));
+  expect(await zip.file("OEBPS/images/image-0001.png")?.async("nodebuffer")).toEqual(PNG);
+  expect(await zip.file("OEBPS/chapter-0001.xhtml")?.async("string")).toContain(
+    'src="images/image-0001.png"',
+  );
+});
+
+test("a .zip with Markdown and images can become a single HTML page", async ({ page }) => {
+  const archive = new JSZip();
+  archive.file("notes/index.md", "# Notes\n\n![Dot](pics/dot.png)\n");
+  archive.file("notes/pics/dot.png", PNG);
+  const path = await save("notes.zip", await archive.generateAsync({ type: "blob" }));
+  await page.goto("/en/convert/");
+  await page.getByLabel(/Choose a file/).setInputFiles(path);
+  await expect(page.getByText("notes/index.md will be converted")).toBeVisible();
+  await page.getByLabel("Output format").selectOption("html");
+  await page.getByRole("button", { name: "Convert" }).click();
+  const link = page.getByRole("link", { name: /notes\.fita\.html/ });
+  const [download] = await Promise.all([page.waitForEvent("download"), link.click()]);
+  expect(readFileSync(await download.path(), "utf8")).toContain(
+    `src="data:image/png;base64,${PNG.toString("base64")}"`,
+  );
 });
 
 test("a 50+ MB EPUB converts without freezing the tab, and can be cancelled", async ({ page }) => {

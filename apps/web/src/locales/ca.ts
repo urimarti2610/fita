@@ -265,6 +265,9 @@ export const strings: Strings = {
     pick: "Tria un fitxer",
     drop: "o arrossega'l aquí",
     formats: "EPUB, TXT, Markdown o HTML",
+    pickFolder: "Tria una carpeta",
+    folderHint: "Markdown amb imatges? Tria'n la carpeta o un .zip i les imatges hi aniran a dins.",
+    bundleDocument: "Es convertirà {name}, amb les seves imatges.",
     selected: "Fitxer triat:",
     output: "Format del resultat",
     outputs: { epub: "EPUB (llibre electrònic)", html: "HTML (pàgina web)", md: "Markdown" },
@@ -280,6 +283,7 @@ export const strings: Strings = {
       drm: "Aquest llibre té DRM (protecció anticòpia) i no es pot convertir. Si el vas comprar, pregunta a la botiga si te'n poden donar una còpia sense DRM.",
       invalid:
         "No s'ha pogut llegir aquest fitxer. Comprova que s'obre al teu lector o prova'n un altre.",
+      noMarkdown: "No hi ha cap fitxer Markdown (.md) en aquesta carpeta o .zip.",
       failed: "La conversió ha fallat ({detail}). Si torna a passar, explica'ns-ho a GitHub.",
     },
     labels: { part: "Part", contents: "Índex" },

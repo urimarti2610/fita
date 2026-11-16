@@ -269,6 +269,9 @@ export const strings: Strings = {
     pick: "Izvēlēties failu",
     drop: "vai ievelc to šeit",
     formats: "EPUB, TXT, Markdown vai HTML",
+    pickFolder: "Izvēlies mapi",
+    folderHint: "Markdown ar attēliem? Izvēlies tā mapi vai .zip, un attēli tiks iekļauti.",
+    bundleDocument: "Tiks pārveidots {name} kopā ar attēliem.",
     selected: "Izvēlētais fails:",
     output: "Izvades formāts",
     outputs: { epub: "EPUB (e-grāmata)", html: "HTML (tīmekļa lapa)", md: "Markdown" },
@@ -284,6 +287,7 @@ export const strings: Strings = {
       drm: "Šai grāmatai ir DRM (aizsardzība pret kopēšanu), tāpēc to nevar konvertēt. Ja to iegādājies, pajautā veikalam, vai viņi var dot kopiju bez DRM.",
       invalid:
         "Šo failu neizdevās nolasīt. Pārbaudi, vai tas atveras tavā lasītājā, vai izmēģini citu.",
+      noMarkdown: "Šajā mapē vai .zip failā nav neviena Markdown (.md) faila.",
       failed: "Konvertēšana neizdevās ({detail}). Ja tas atkārtojas, lūdzu, pastāsti mums GitHub.",
     },
     labels: { part: "Daļa", contents: "Saturs" },

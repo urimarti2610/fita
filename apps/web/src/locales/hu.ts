@@ -267,6 +267,10 @@ export const strings: Strings = {
     pick: "Fájl kiválasztása",
     drop: "vagy húzd ide",
     formats: "EPUB, TXT, Markdown vagy HTML",
+    pickFolder: "Mappa kiválasztása",
+    folderHint:
+      "Markdown képekkel? Válaszd ki a mappáját vagy egy .zip fájlt, és a képek is bekerülnek.",
+    bundleDocument: "A(z) {name} a képeivel együtt lesz átalakítva.",
     selected: "Kiválasztott fájl:",
     output: "Kimeneti formátum",
     outputs: { epub: "EPUB (e-könyv)", html: "HTML (weboldal)", md: "Markdown" },
@@ -283,6 +287,7 @@ export const strings: Strings = {
       drm: "Ez a könyv DRM-mel (másolásvédelemmel) van ellátva, ezért nem alakítható át. Ha megvásároltad, kérdezd meg az áruházat, adhatnak-e DRM-mentes példányt.",
       invalid:
         "Ezt a fájlt nem sikerült beolvasni. Ellenőrizd, hogy megnyílik-e az olvasódban, vagy próbálj meg egy másikat.",
+      noMarkdown: "Ebben a mappában vagy .zip fájlban nincs Markdown (.md) fájl.",
       failed:
         "Az átalakítás nem sikerült ({detail}). Ha újra előfordul, kérjük, jelezd nekünk a GitHubon.",
     },

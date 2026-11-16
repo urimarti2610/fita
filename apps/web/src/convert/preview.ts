@@ -1,5 +1,6 @@
 import { createMarkupEmphasizer, type EmphasisStyle, escapeHTML } from "@fita/core";
 import { marked } from "marked";
+import { folderBundle, zipBundle } from "./bundle.js";
 import type { InputFormat } from "./convert.js";
 import { openEpub } from "./epub.js";
 
@@ -9,7 +10,13 @@ import { openEpub } from "./epub.js";
  * beginning of the file.
  */
 export type PreviewBlock = { heading: boolean; text: string };
-export type Preview = { title?: string; lang?: string; blocks: PreviewBlock[] };
+export type Preview = {
+  title?: string;
+  lang?: string;
+  blocks: PreviewBlock[];
+  /** For a folder or .zip: the Markdown document that will be converted. */
+  document?: string;
+};
 
 /** About one printed page. */
 const PAGE_CHARS = 1400;
@@ -42,7 +49,17 @@ function firstPage(blocks: PreviewBlock[]): PreviewBlock[] {
 const html = (markup: string, type: DOMParserSupportedType = "text/html") =>
   new DOMParser().parseFromString(markup, type);
 
-export async function extractPreview(file: Blob, input: InputFormat): Promise<Preview> {
+export async function extractPreview(
+  file: Blob,
+  input: InputFormat,
+  assets: { path: string; file: Blob }[] = [],
+): Promise<Preview> {
+  if (input === "zip" || input === "folder") {
+    const bundle = input === "zip" ? await zipBundle(file) : await folderBundle(assets);
+    const markdown = bundle.markdown.slice(0, HEAD_BYTES);
+    const doc = html(marked.parse(markdown, { async: false }) as string);
+    return { blocks: firstPage(blocksFrom(doc)), document: bundle.path };
+  }
   if (input === "epub") {
     const book = await openEpub(file);
     const blocks: PreviewBlock[] = [];

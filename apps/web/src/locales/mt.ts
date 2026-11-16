@@ -268,6 +268,9 @@ export const strings: Strings = {
     pick: "Agħżel fajl",
     drop: "jew waqqgħu hawn",
     formats: "EPUB, TXT, Markdown jew HTML",
+    pickFolder: "Agħżel folder",
+    folderHint: "Markdown bl-istampi? Agħżel il-folder tiegħu jew .zip u l-istampi jidħlu ġewwa.",
+    bundleDocument: "{name} se jinbidel, flimkien mal-istampi tiegħu.",
     selected: "Fajl magħżul:",
     output: "Format tar-riżultat",
     outputs: { epub: "EPUB (ktieb elettroniku)", html: "HTML (paġna web)", md: "Markdown" },
@@ -284,6 +287,7 @@ export const strings: Strings = {
       drm: "Dan il-ktieb għandu d-DRM (protezzjoni kontra l-ikkupjar), għalhekk ma jistax jiġi kkonvertit. Jekk xtrajtu, staqsi lill-ħanut jekk jistgħux jagħtuk kopja mingħajr DRM.",
       invalid:
         "Dan il-fajl ma setax jinqara. Iċċekkja li jinfetaħ fil-qarrej tiegħek, jew ipprova ieħor.",
+      noMarkdown: "M’hemm l-ebda fajl Markdown (.md) f’dan il-folder jew .zip.",
       failed:
         "Il-konverżjoni ma rnexxietx ({detail}). Jekk jerġa’ jiġri, jekk jogħġbok għidilna fuq GitHub.",
     },

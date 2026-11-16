@@ -266,6 +266,9 @@ export const strings: Strings = {
     pick: "Alege un fișier",
     drop: "sau trage-l aici",
     formats: "EPUB, TXT, Markdown sau HTML",
+    pickFolder: "Alege un dosar",
+    folderHint: "Markdown cu imagini? Alege-i dosarul sau un .zip și imaginile vor fi incluse.",
+    bundleDocument: "Se va converti {name}, împreună cu imaginile.",
     selected: "Fișier ales:",
     output: "Formatul rezultatului",
     outputs: { epub: "EPUB (carte electronică)", html: "HTML (pagină web)", md: "Markdown" },
@@ -282,6 +285,7 @@ export const strings: Strings = {
       drm: "Cartea aceasta are DRM (protecție la copiere), așa că nu poate fi convertită. Dacă ai cumpărat-o, întreabă magazinul dacă îți poate da o copie fără DRM.",
       invalid:
         "Fișierul acesta nu a putut fi citit. Verifică dacă se deschide în cititorul tău sau încearcă altul.",
+      noMarkdown: "Nu există niciun fișier Markdown (.md) în acest dosar sau .zip.",
       failed: "Conversia a eșuat ({detail}). Dacă se mai întâmplă, te rugăm să ne spui pe GitHub.",
     },
     labels: { part: "Partea", contents: "Cuprins" },

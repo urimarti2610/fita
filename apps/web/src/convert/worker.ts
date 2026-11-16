@@ -1,12 +1,12 @@
 /// <reference lib="webworker" />
 
 import { type ConvertRequest, convert } from "./convert.js";
-import { ConvertError } from "./epub.js";
+import { ConvertError, type ConvertErrorCode } from "./epub.js";
 
 export type WorkerMessage =
   | { type: "progress"; value: number }
   | { type: "done"; blob: Blob; name: string }
-  | { type: "error"; code: "drm" | "invalid" | "failed"; detail?: string };
+  | { type: "error"; code: ConvertErrorCode | "failed"; detail?: string };
 
 const post = (message: WorkerMessage) => self.postMessage(message);
 

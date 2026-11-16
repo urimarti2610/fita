@@ -265,6 +265,9 @@ export const strings: Strings = {
     pick: "Vybrať súbor",
     drop: "alebo ho sem pretiahni",
     formats: "EPUB, TXT, Markdown alebo HTML",
+    pickFolder: "Vybrať priečinok",
+    folderHint: "Markdown s obrázkami? Vyber jeho priečinok alebo .zip a obrázky pôjdu dovnútra.",
+    bundleDocument: "Prevedie sa {name} aj s obrázkami.",
     selected: "Vybraný súbor:",
     output: "Výstupný formát",
     outputs: { epub: "EPUB (e-kniha)", html: "HTML (webová stránka)", md: "Markdown" },
@@ -280,6 +283,7 @@ export const strings: Strings = {
       drm: "Táto kniha má DRM (ochranu proti kopírovaniu), takže sa nedá konvertovať. Ak je kúpená, opýtaj sa v obchode, či ti môžu dať kópiu bez DRM.",
       invalid:
         "Tento súbor sa nepodarilo prečítať. Skontroluj, či sa otvorí v tvojej čítačke, alebo skús iný.",
+      noMarkdown: "V tomto priečinku ani .zipe nie je žiadny súbor Markdown (.md).",
       failed:
         "Konverzia sa nepodarila ({detail}). Ak sa to stane znova, daj nám, prosím, vedieť na GitHube.",
     },

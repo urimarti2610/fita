@@ -1,15 +1,18 @@
 import { BRAND, createMarkupEmphasizer, type EmphasisStyle, staticEmphasisCSS } from "@fita/core";
+import { bundleImagesForEpub, folderBundle, inlineImagesForHtml, zipBundle } from "./bundle.js";
 import {
   addStyle,
   buildEpub,
   convertEpub,
   openEpub,
   type Progress,
+  type Resource,
   xhtmlDocument,
 } from "./epub.js";
 import { emphasizeMarkdown, markdownToXhtml, splitChapters, textToXhtml } from "./text.js";
 
-export type InputFormat = "epub" | "txt" | "md" | "html";
+/** "zip" and "folder" hold a Markdown document together with its images. */
+export type InputFormat = "epub" | "txt" | "md" | "html" | "zip" | "folder";
 export type OutputFormat = "epub" | "html" | "md";
 
 /** Output formats offered for each input. Plain text cannot hold emphasis, so TXT has no TXT output. */
@@ -18,6 +21,8 @@ export const OUTPUTS: Record<InputFormat, OutputFormat[]> = {
   txt: ["epub", "html"],
   md: ["md", "epub", "html"],
   html: ["html"],
+  zip: ["epub", "html"],
+  folder: ["epub", "html"],
 };
 
 export function detectFormat(name: string): InputFormat | null {
@@ -26,12 +31,17 @@ export function detectFormat(name: string): InputFormat | null {
   if (ext === "txt" || ext === "text") return "txt";
   if (ext === "md" || ext === "markdown") return "md";
   if (ext === "html" || ext === "htm" || ext === "xhtml") return "html";
+  if (ext === "zip") return "zip";
   return null;
 }
 
 export type ConvertRequest = {
+  /** The file to convert; for a folder, any placeholder (the files are in `assets`). */
   file: Blob;
+  /** File name, or the folder's name for a folder. */
   name: string;
+  /** Every file of a picked folder, with its path relative to that folder. */
+  assets?: { path: string; file: Blob }[];
   input: InputFormat;
   output: OutputFormat;
   strength: number;
@@ -53,7 +63,8 @@ const MIME: Record<OutputFormat, string> = {
 /** Converts one file. Runs anywhere without a DOM (the converter's Web Worker, tests). */
 export async function convert(request: ConvertRequest, progress: Progress): Promise<ConvertResult> {
   const { input, output, style, lang } = request;
-  const stem = request.name.replace(/\.[^.]+$/, "") || BRAND.id;
+  const stem =
+    (input === "folder" ? request.name : request.name.replace(/\.[^.]+$/, "")) || BRAND.id;
   const name = `${stem}.${BRAND.id}.${output}`;
   const css = `${staticEmphasisCSS(style)}\n`;
   const options = { strength: request.strength, every: request.every };
@@ -67,7 +78,15 @@ export async function convert(request: ConvertRequest, progress: Progress): Prom
     return { blob: await convertEpub(book, transform, css, progress), name };
   }
 
-  const source = await request.file.text();
+  let source: string;
+  let bundle: Awaited<ReturnType<typeof zipBundle>> | null = null;
+  if (input === "zip" || input === "folder") {
+    bundle =
+      input === "zip" ? await zipBundle(request.file) : await folderBundle(request.assets ?? []);
+    source = bundle.markdown;
+  } else {
+    source = await request.file.text();
+  }
   progress(0.1);
   if (input === "md" && output === "md") {
     const blob = new Blob([emphasizeMarkdown(source, { ...options, locale: lang })], {
@@ -85,12 +104,15 @@ export async function convert(request: ConvertRequest, progress: Progress): Prom
     return { blob: new Blob([addStyleOrPrepend(html, css)], { type: MIME.html }), name };
   }
 
-  const body = input === "md" ? markdownToXhtml(source) : textToXhtml(source);
+  let body = input === "txt" ? textToXhtml(source) : markdownToXhtml(source);
+  let resources: Resource[] = [];
   progress(0.3);
   if (output === "html") {
+    if (bundle) body = await inlineImagesForHtml(body, bundle);
     const html = xhtmlDocument(stem, lang, transform(body), `<style>${css}</style>\n`);
     return { blob: new Blob([html], { type: MIME.html }), name };
   }
+  if (bundle) ({ body, resources } = bundleImagesForEpub(body, bundle));
   const chapters = splitChapters(body, (n) => `${request.labels.part} ${n}`).map((c, i, all) => {
     progress(0.3 + (0.5 * (i + 1)) / all.length);
     return { ...c, body: transform(c.body) };
@@ -102,6 +124,7 @@ export async function convert(request: ConvertRequest, progress: Progress): Prom
     css,
     contentsLabel: request.labels.contents,
     progress,
+    resources,
   });
   return { blob, name };
 }

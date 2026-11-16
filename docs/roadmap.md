@@ -12,4 +12,3 @@ Each item becomes a GitHub issue labelled `roadmap` once the repository exists.
 | Word, LibreOffice and Google Docs add-ons | |
 | Read aloud | Text-to-speech with the browser's own voices (no servers). |
 | Reading mode in the extension | Clean article view with `@mozilla/readability` (optional in v1, not built yet). |
-| Images in Markdown → EPUB | Relative images cannot be bundled from a single `.md` file; accept a folder or zip. |
