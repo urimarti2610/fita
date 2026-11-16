@@ -11,7 +11,7 @@ Paste these into **Privacy** in the Developer Dashboard. The store requires Engl
 | Permission | Justification |
 | --- | --- |
 | `activeTab` | Applies word emphasis to the current tab only when the user turns it on (toolbar button, keyboard shortcut or context menu), without permanent access to any site. |
-| `scripting` | Injects the extension's own bundled content script and stylesheet into the current tab to apply and remove the emphasis, and registers them for the sites where the user chose "Always on". No remote code. |
+| `scripting` | Injects the extension's own bundled content script and stylesheet into the current tab to apply and remove the emphasis, to read aloud and to show the reading mode, and registers them for the sites where the user chose "Always on". No remote code. |
 | `storage` | Saves the user's settings (strength, style, sites where it is always on) with chrome.storage.sync. Nothing is sent to us. |
 | `contextMenus` | Adds "Turn on for this site" and "Read aloud" items to the right-click menu. |
 | Host permissions (optional, `*://*/*`) | Requested at runtime, only when the user chooses "Always on this site" (that site only) or "On all sites", so the emphasis can be applied automatically when those pages load. Not requested at install. The user can revoke it at any time. |

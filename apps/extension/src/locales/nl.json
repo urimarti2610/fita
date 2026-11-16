@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Deze instellingen alleen op deze website gebruiken"
   },
+  "readingMode": {
+    "message": "Leesmodus"
+  },
+  "readerClose": {
+    "message": "Leesmodus sluiten"
+  },
+  "readerNoArticle": {
+    "message": "Geen artikel gevonden op deze pagina."
+  },
+  "commandReadingMode": {
+    "message": "Leesmodus openen of sluiten"
+  },
   "shortcutNone": {
     "message": "Sneltoets instellen"
   },

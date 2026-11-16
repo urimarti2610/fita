@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Use these settings only on this site"
   },
+  "readingMode": {
+    "message": "Reading mode"
+  },
+  "readerClose": {
+    "message": "Close reading mode"
+  },
+  "readerNoArticle": {
+    "message": "No article found on this page."
+  },
+  "commandReadingMode": {
+    "message": "Open or close reading mode"
+  },
   "shortcutNone": {
     "message": "Set a keyboard shortcut"
   },

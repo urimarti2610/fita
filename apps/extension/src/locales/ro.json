@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Folosește aceste setări doar pe acest site"
   },
+  "readingMode": {
+    "message": "Mod de citire"
+  },
+  "readerClose": {
+    "message": "Închide modul de citire"
+  },
+  "readerNoArticle": {
+    "message": "Nu s-a găsit niciun articol pe această pagină."
+  },
+  "commandReadingMode": {
+    "message": "Deschide sau închide modul de citire"
+  },
   "shortcutNone": {
     "message": "Setează o comandă rapidă"
   },

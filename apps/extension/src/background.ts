@@ -8,13 +8,14 @@ import {
   siteOrigin,
   updateSite,
 } from "./settings.js";
-import { CONTENT_CSS, CONTENT_JS, setTab, speakTab } from "./tabs.js";
+import { CONTENT_CSS, CONTENT_JS, setReader, setTab, speakTab } from "./tabs.js";
 
 const AUTO_SCRIPT_ID = "auto";
 const MENU_ID = "enable-site";
 const MENU_READ = "read-aloud";
 const COMMAND = "toggle-emphasis";
 const COMMAND_READ = "read-aloud";
+const COMMAND_READER = "reading-mode";
 
 const t = (key: string) => chrome.i18n.getMessage(key);
 
@@ -81,11 +82,12 @@ chrome.runtime.onStartup.addListener(() => {
 });
 
 async function onCommand(command: string, tab?: chrome.tabs.Tab) {
-  if (command !== COMMAND && command !== COMMAND_READ) return;
+  if (![COMMAND, COMMAND_READ, COMMAND_READER].includes(command)) return;
   const target = tab?.id !== undefined ? tab : await activeTab();
   if (target?.id === undefined) return;
   if (command === COMMAND) await setTab(target.id).catch(() => {});
-  else await speakTab(target.id, "toggle").catch(() => {});
+  else if (command === COMMAND_READ) await speakTab(target.id, "toggle").catch(() => {});
+  else await setReader(target.id).catch(() => {});
 }
 chrome.commands?.onCommand.addListener(onCommand);
 
@@ -134,5 +136,7 @@ chrome.permissions.onAdded.addListener(() => {
 
 // Test hook: lets the Playwright suite drive the same code paths as the UI.
 if (process.env.E2E === "true") {
-  Object.assign(globalThis, { fitaTest: { setTab, speakTab, syncRegistration, onCommand } });
+  Object.assign(globalThis, {
+    fitaTest: { setTab, speakTab, setReader, syncRegistration, onCommand },
+  });
 }

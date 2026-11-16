@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Använd de här inställningarna bara på den här webbplatsen"
   },
+  "readingMode": {
+    "message": "Läsläge"
+  },
+  "readerClose": {
+    "message": "Stäng läsläget"
+  },
+  "readerNoArticle": {
+    "message": "Ingen artikel hittades på den här sidan."
+  },
+  "commandReadingMode": {
+    "message": "Öppna eller stäng läsläget"
+  },
   "shortcutNone": {
     "message": "Ställ in ett kortkommando"
   },

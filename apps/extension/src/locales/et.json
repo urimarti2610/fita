@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Kasuta neid seadeid ainult sellel saidil"
   },
+  "readingMode": {
+    "message": "Lugemisrežiim"
+  },
+  "readerClose": {
+    "message": "Sulge lugemisrežiim"
+  },
+  "readerNoArticle": {
+    "message": "Sellelt lehelt ei leitud artiklit."
+  },
+  "commandReadingMode": {
+    "message": "Ava või sulge lugemisrežiim"
+  },
   "shortcutNone": {
     "message": "Määra kiirklahv"
   },

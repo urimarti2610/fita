@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Käytä näitä asetuksia vain tällä sivustolla"
   },
+  "readingMode": {
+    "message": "Lukutila"
+  },
+  "readerClose": {
+    "message": "Sulje lukutila"
+  },
+  "readerNoArticle": {
+    "message": "Tältä sivulta ei löytynyt artikkelia."
+  },
+  "commandReadingMode": {
+    "message": "Avaa tai sulje lukutila"
+  },
   "shortcutNone": {
     "message": "Aseta pikanäppäin"
   },

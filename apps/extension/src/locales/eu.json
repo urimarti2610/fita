@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Erabili ezarpen hauek gune honetan bakarrik"
   },
+  "readingMode": {
+    "message": "Irakurtzeko modua"
+  },
+  "readerClose": {
+    "message": "Itxi irakurtzeko modua"
+  },
+  "readerNoArticle": {
+    "message": "Ez da artikulurik aurkitu orri honetan."
+  },
+  "commandReadingMode": {
+    "message": "Ireki edo itxi irakurtzeko modua"
+  },
   "shortcutNone": {
     "message": "Ezarri lasterbide bat"
   },

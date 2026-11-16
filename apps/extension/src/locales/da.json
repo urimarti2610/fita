@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Brug kun disse indstillinger på dette websted"
   },
+  "readingMode": {
+    "message": "Læsetilstand"
+  },
+  "readerClose": {
+    "message": "Luk læsetilstand"
+  },
+  "readerNoArticle": {
+    "message": "Der blev ikke fundet nogen artikel på denne side."
+  },
+  "commandReadingMode": {
+    "message": "Åbn eller luk læsetilstand"
+  },
   "shortcutNone": {
     "message": "Vælg en tastaturgenvej"
   },

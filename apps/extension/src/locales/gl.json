@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Usar estes axustes só neste sitio"
   },
+  "readingMode": {
+    "message": "Modo lectura"
+  },
+  "readerClose": {
+    "message": "Pechar o modo lectura"
+  },
+  "readerNoArticle": {
+    "message": "Non se atopou ningún artigo nesta páxina."
+  },
+  "commandReadingMode": {
+    "message": "Abrir ou pechar o modo lectura"
+  },
   "shortcutNone": {
     "message": "Definir un atallo de teclado"
   },

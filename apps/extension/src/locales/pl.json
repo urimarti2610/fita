@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Używaj tych ustawień tylko na tej stronie"
   },
+  "readingMode": {
+    "message": "Tryb czytania"
+  },
+  "readerClose": {
+    "message": "Zamknij tryb czytania"
+  },
+  "readerNoArticle": {
+    "message": "Na tej stronie nie znaleziono artykułu."
+  },
+  "commandReadingMode": {
+    "message": "Otwórz lub zamknij tryb czytania"
+  },
   "shortcutNone": {
     "message": "Ustaw skrót klawiszowy"
   },

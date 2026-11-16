@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Izmantot šos iestatījumus tikai šajā vietnē"
   },
+  "readingMode": {
+    "message": "Lasīšanas režīms"
+  },
+  "readerClose": {
+    "message": "Aizvērt lasīšanas režīmu"
+  },
+  "readerNoArticle": {
+    "message": "Šajā lapā netika atrasts raksts."
+  },
+  "commandReadingMode": {
+    "message": "Atvērt vai aizvērt lasīšanas režīmu"
+  },
   "shortcutNone": {
     "message": "Iestatīt īsinājumtaustiņu"
   },

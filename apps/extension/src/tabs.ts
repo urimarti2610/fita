@@ -1,8 +1,15 @@
-import type { ContentMessage, ContentReply, SpeechMessage } from "./settings.js";
+import type {
+  ContentMessage,
+  ContentReply,
+  ReaderMessage,
+  ReaderReply,
+  SpeechMessage,
+} from "./settings.js";
 import type { SpeechAction, SpeechState } from "./speech.js";
 
 export const CONTENT_JS = "content.js";
 export const CONTENT_CSS = "content.css";
+export const READER_JS = "reader.js";
 
 /** Current state of the content script in a tab, or null if it is not running there. */
 export async function getTabState(tabId: number): Promise<ContentReply | null> {
@@ -41,4 +48,11 @@ export async function speakTab(tabId: number, action: SpeechAction): Promise<Spe
   }
   await ensureContent(tabId);
   return (await chrome.tabs.sendMessage(tabId, message)) as SpeechState;
+}
+
+/** Opens, closes or toggles reading mode, injecting its script on demand. */
+export async function setReader(tabId: number, open?: boolean): Promise<ReaderReply> {
+  await chrome.scripting.executeScript({ target: { tabId }, files: [READER_JS] });
+  const message: ReaderMessage = open === undefined ? { type: "reader" } : { type: "reader", open };
+  return (await chrome.tabs.sendMessage(tabId, message)) as ReaderReply;
 }

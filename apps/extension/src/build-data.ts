@@ -62,6 +62,7 @@ export function manifest(browser: Browser, version: string, e2e = false) {
       },
       // No default key: free combinations differ per page and keyboard; users pick one.
       "read-aloud": { description: "__MSG_commandReadAloud__" },
+      "reading-mode": { description: "__MSG_commandReadingMode__" },
     },
     // Chrome 110: registerContentScripts, optional host permissions and color-mix().
     ...(browser === "chrome" ? { minimum_chrome_version: "110" } : {}),

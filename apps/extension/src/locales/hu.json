@@ -149,6 +149,18 @@
   "siteSettings": {
     "message": "Ezek a beállítások csak erre a webhelyre"
   },
+  "readingMode": {
+    "message": "Olvasó mód"
+  },
+  "readerClose": {
+    "message": "Olvasó mód bezárása"
+  },
+  "readerNoArticle": {
+    "message": "Ezen az oldalon nem található cikk."
+  },
+  "commandReadingMode": {
+    "message": "Olvasó mód megnyitása vagy bezárása"
+  },
   "shortcutNone": {
     "message": "Billentyűparancs beállítása"
   },

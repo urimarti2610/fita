@@ -9,7 +9,6 @@ Each item becomes a GitHub issue labelled `roadmap` once the repository exists.
 | KOReader plugin | Lua port of the algorithm or a CSS-based approach. |
 | PDF conversion | PDF needs a different strategy (reflow to EPUB/HTML or overlay). |
 | Word, LibreOffice and Google Docs add-ons | |
-| Reading mode in the extension | Clean article view with `@mozilla/readability` (optional in v1, not built yet). |
 | Font variants | Fita Sans ([`fonts/`](../fonts)) ships one strength and only bold; variants for other strengths, Greek/Cyrillic coverage. |
 
 ## Done
@@ -17,3 +16,6 @@ Each item becomes a GitHub issue labelled `roadmap` once the repository exists.
 - **OpenType font with built-in emphasis** (#5): [`fonts/`](../fonts), Fita Sans.
 - **Images in Markdown → EPUB** (#10): the converter accepts a folder or a `.zip` with the Markdown and its images.
 - **DOCX conversion** (part of #4): Word documents in, emphasized Word documents out.
+- **Line ruler / focus line** (#8): extension, "More options" → "Line ruler".
+- **Read aloud** (#7): extension popup, on-device voices only.
+- **Reading mode in the extension** (#9): extension, "More options" → "Reading mode".

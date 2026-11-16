@@ -22,7 +22,7 @@ import {
   type SpeechState,
   saveSpeech,
 } from "./speech.js";
-import { getTabState, setTab, speakTab } from "./tabs.js";
+import { getTabState, setReader, setTab, speakTab } from "./tabs.js";
 
 const t = (key: string, subs?: string) => chrome.i18n.getMessage(key, subs);
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -40,6 +40,8 @@ const maxWidth = $<HTMLSelectElement>("maxWidth");
 const ruler = $<HTMLSelectElement>("ruler");
 const custom = $<HTMLInputElement>("custom");
 const shortcuts = $<HTMLAnchorElement>("shortcuts");
+const readingMode = $<HTMLButtonElement>("readingMode");
+const readerStatus = $<HTMLParagraphElement>("readerStatus");
 const speechPlay = $<HTMLButtonElement>("speechPlay");
 const speechStop = $<HTMLButtonElement>("speechStop");
 const speechStatus = $<HTMLParagraphElement>("speechStatus");
@@ -196,6 +198,7 @@ async function setupSpeech() {
   if (!globalThis.speechSynthesis) {
     speechState = { status: "idle", lang: "", error: "unsupported" };
     speechPlay.disabled = true;
+    readingMode.disabled = true;
     speechRate.disabled = true;
     speechVoice.disabled = true;
     renderSpeech();
@@ -227,6 +230,13 @@ async function tabLanguage(): Promise<string> {
     return "";
   }
 }
+
+readingMode.addEventListener("click", async () => {
+  if (tabId === undefined) return;
+  const reply = await setReader(tabId, true).catch(() => null);
+  if (reply?.open) window.close();
+  else readerStatus.textContent = t(reply ? "readerNoArticle" : "unavailable");
+});
 
 speechPlay.addEventListener("click", () => speechAction());
 speechStop.addEventListener("click", async () => {
