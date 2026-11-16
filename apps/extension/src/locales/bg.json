@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Избледняване на останалото"
   },
+  "readAloud": {
+    "message": "Четене на глас"
+  },
+  "speechPlay": {
+    "message": "Начало"
+  },
+  "speechPause": {
+    "message": "Пауза"
+  },
+  "speechResume": {
+    "message": "Продължаване"
+  },
+  "speechStop": {
+    "message": "Спиране"
+  },
+  "speechRate": {
+    "message": "Скорост"
+  },
+  "speechVoice": {
+    "message": "Глас"
+  },
+  "voiceAuto": {
+    "message": "Автоматично"
+  },
+  "voiceOther": {
+    "message": "Други езици"
+  },
+  "speechHint": {
+    "message": "Маркирайте текст или щракнете там, откъдето да започне. Използват се само гласовете на това устройство."
+  },
+  "speechReading": {
+    "message": "Чете се на глас…"
+  },
+  "speechPaused": {
+    "message": "На пауза."
+  },
+  "speechNoVoice": {
+    "message": "На това устройство няма глас за този език. Можете да добавите гласове в настройките за реч на системата."
+  },
+  "speechNoText": {
+    "message": "Тук няма текст за четене."
+  },
+  "speechUnsupported": {
+    "message": "Този браузър не може да чете на глас."
+  },
+  "contextMenuRead": {
+    "message": "Четене на глас"
+  },
+  "commandReadAloud": {
+    "message": "Четене на глас, пауза или продължаване"
+  },
   "moreOptions": {
     "message": "Още настройки"
   },

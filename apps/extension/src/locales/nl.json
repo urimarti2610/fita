@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Rest vervagen"
   },
+  "readAloud": {
+    "message": "Voorlezen"
+  },
+  "speechPlay": {
+    "message": "Starten"
+  },
+  "speechPause": {
+    "message": "Pauzeren"
+  },
+  "speechResume": {
+    "message": "Hervatten"
+  },
+  "speechStop": {
+    "message": "Stoppen"
+  },
+  "speechRate": {
+    "message": "Snelheid"
+  },
+  "speechVoice": {
+    "message": "Stem"
+  },
+  "voiceAuto": {
+    "message": "Automatisch"
+  },
+  "voiceOther": {
+    "message": "Andere talen"
+  },
+  "speechHint": {
+    "message": "Selecteer tekst of klik waar je wilt beginnen. Alleen stemmen op dit apparaat worden gebruikt."
+  },
+  "speechReading": {
+    "message": "Bezig met voorlezen…"
+  },
+  "speechPaused": {
+    "message": "Gepauzeerd."
+  },
+  "speechNoVoice": {
+    "message": "Dit apparaat heeft geen stem voor deze taal. Je kunt stemmen toevoegen in de spraakinstellingen van je systeem."
+  },
+  "speechNoText": {
+    "message": "Hier is geen tekst om voor te lezen."
+  },
+  "speechUnsupported": {
+    "message": "Deze browser kan niet voorlezen."
+  },
+  "contextMenuRead": {
+    "message": "Voorlezen"
+  },
+  "commandReadAloud": {
+    "message": "Voorlezen, pauzeren of hervatten"
+  },
   "moreOptions": {
     "message": "Meer opties"
   },

@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Ztlumit zbytek"
   },
+  "readAloud": {
+    "message": "Předčítání"
+  },
+  "speechPlay": {
+    "message": "Spustit"
+  },
+  "speechPause": {
+    "message": "Pozastavit"
+  },
+  "speechResume": {
+    "message": "Pokračovat"
+  },
+  "speechStop": {
+    "message": "Zastavit"
+  },
+  "speechRate": {
+    "message": "Rychlost"
+  },
+  "speechVoice": {
+    "message": "Hlas"
+  },
+  "voiceAuto": {
+    "message": "Automaticky"
+  },
+  "voiceOther": {
+    "message": "Jiné jazyky"
+  },
+  "speechHint": {
+    "message": "Označte text nebo klikněte, kde začít. Používají se jen hlasy z tohoto zařízení."
+  },
+  "speechReading": {
+    "message": "Předčítám…"
+  },
+  "speechPaused": {
+    "message": "Pozastaveno."
+  },
+  "speechNoVoice": {
+    "message": "Toto zařízení nemá hlas pro tento jazyk. Hlasy můžete přidat v nastavení řeči systému."
+  },
+  "speechNoText": {
+    "message": "Není tu žádný text ke čtení."
+  },
+  "speechUnsupported": {
+    "message": "Tento prohlížeč neumí předčítat."
+  },
+  "contextMenuRead": {
+    "message": "Předčítat"
+  },
+  "commandReadAloud": {
+    "message": "Předčítat, pozastavit nebo pokračovat"
+  },
   "moreOptions": {
     "message": "Další možnosti"
   },

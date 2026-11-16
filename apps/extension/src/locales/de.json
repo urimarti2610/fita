@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Rest blasser"
   },
+  "readAloud": {
+    "message": "Vorlesen"
+  },
+  "speechPlay": {
+    "message": "Starten"
+  },
+  "speechPause": {
+    "message": "Pause"
+  },
+  "speechResume": {
+    "message": "Fortsetzen"
+  },
+  "speechStop": {
+    "message": "Stoppen"
+  },
+  "speechRate": {
+    "message": "Tempo"
+  },
+  "speechVoice": {
+    "message": "Stimme"
+  },
+  "voiceAuto": {
+    "message": "Automatisch"
+  },
+  "voiceOther": {
+    "message": "Andere Sprachen"
+  },
+  "speechHint": {
+    "message": "Markiere Text oder klicke dorthin, wo es losgehen soll. Es werden nur Stimmen dieses Geräts verwendet."
+  },
+  "speechReading": {
+    "message": "Wird vorgelesen …"
+  },
+  "speechPaused": {
+    "message": "Pausiert."
+  },
+  "speechNoVoice": {
+    "message": "Auf diesem Gerät gibt es keine Stimme für diese Sprache. Stimmen kannst du in den Spracheinstellungen des Systems hinzufügen."
+  },
+  "speechNoText": {
+    "message": "Hier gibt es keinen Text zum Vorlesen."
+  },
+  "speechUnsupported": {
+    "message": "Dieser Browser kann nicht vorlesen."
+  },
+  "contextMenuRead": {
+    "message": "Vorlesen"
+  },
+  "commandReadAloud": {
+    "message": "Vorlesen, pausieren oder fortsetzen"
+  },
   "moreOptions": {
     "message": "Weitere Optionen"
   },

@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Przygaś resztę"
   },
+  "readAloud": {
+    "message": "Czytanie na głos"
+  },
+  "speechPlay": {
+    "message": "Start"
+  },
+  "speechPause": {
+    "message": "Pauza"
+  },
+  "speechResume": {
+    "message": "Wznów"
+  },
+  "speechStop": {
+    "message": "Zatrzymaj"
+  },
+  "speechRate": {
+    "message": "Tempo"
+  },
+  "speechVoice": {
+    "message": "Głos"
+  },
+  "voiceAuto": {
+    "message": "Automatycznie"
+  },
+  "voiceOther": {
+    "message": "Inne języki"
+  },
+  "speechHint": {
+    "message": "Zaznacz tekst lub kliknij, gdzie zacząć. Używane są tylko głosy z tego urządzenia."
+  },
+  "speechReading": {
+    "message": "Czytam na głos…"
+  },
+  "speechPaused": {
+    "message": "Wstrzymano."
+  },
+  "speechNoVoice": {
+    "message": "To urządzenie nie ma głosu dla tego języka. Głosy możesz dodać w ustawieniach mowy systemu."
+  },
+  "speechNoText": {
+    "message": "Nie ma tu tekstu do przeczytania."
+  },
+  "speechUnsupported": {
+    "message": "Ta przeglądarka nie potrafi czytać na głos."
+  },
+  "contextMenuRead": {
+    "message": "Czytaj na głos"
+  },
+  "commandReadAloud": {
+    "message": "Czytaj na głos, wstrzymaj lub wznów"
+  },
   "moreOptions": {
     "message": "Więcej opcji"
   },

@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Likusi dalis blankiau"
   },
+  "readAloud": {
+    "message": "Skaityti garsiai"
+  },
+  "speechPlay": {
+    "message": "Pradėti"
+  },
+  "speechPause": {
+    "message": "Pristabdyti"
+  },
+  "speechResume": {
+    "message": "Tęsti"
+  },
+  "speechStop": {
+    "message": "Sustabdyti"
+  },
+  "speechRate": {
+    "message": "Greitis"
+  },
+  "speechVoice": {
+    "message": "Balsas"
+  },
+  "voiceAuto": {
+    "message": "Automatinis"
+  },
+  "voiceOther": {
+    "message": "Kitos kalbos"
+  },
+  "speechHint": {
+    "message": "Pažymėkite tekstą arba spustelėkite, kur pradėti. Naudojami tik šio įrenginio balsai."
+  },
+  "speechReading": {
+    "message": "Skaitoma garsiai…"
+  },
+  "speechPaused": {
+    "message": "Pristabdyta."
+  },
+  "speechNoVoice": {
+    "message": "Šiame įrenginyje nėra šios kalbos balso. Balsų galite pridėti sistemos kalbos nustatymuose."
+  },
+  "speechNoText": {
+    "message": "Čia nėra teksto, kurį būtų galima skaityti."
+  },
+  "speechUnsupported": {
+    "message": "Ši naršyklė negali skaityti garsiai."
+  },
+  "contextMenuRead": {
+    "message": "Skaityti garsiai"
+  },
+  "commandReadAloud": {
+    "message": "Skaityti garsiai, pristabdyti arba tęsti"
+  },
   "moreOptions": {
     "message": "Daugiau parinkčių"
   },

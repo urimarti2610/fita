@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Nedton resten"
   },
+  "readAloud": {
+    "message": "Læs højt"
+  },
+  "speechPlay": {
+    "message": "Start"
+  },
+  "speechPause": {
+    "message": "Pause"
+  },
+  "speechResume": {
+    "message": "Fortsæt"
+  },
+  "speechStop": {
+    "message": "Stop"
+  },
+  "speechRate": {
+    "message": "Hastighed"
+  },
+  "speechVoice": {
+    "message": "Stemme"
+  },
+  "voiceAuto": {
+    "message": "Automatisk"
+  },
+  "voiceOther": {
+    "message": "Andre sprog"
+  },
+  "speechHint": {
+    "message": "Markér tekst, eller klik der, hvor du vil begynde. Kun stemmer på denne enhed bruges."
+  },
+  "speechReading": {
+    "message": "Læser højt …"
+  },
+  "speechPaused": {
+    "message": "Sat på pause."
+  },
+  "speechNoVoice": {
+    "message": "Denne enhed har ingen stemme til dette sprog. Du kan tilføje stemmer i systemets taleindstillinger."
+  },
+  "speechNoText": {
+    "message": "Der er ingen tekst at læse her."
+  },
+  "speechUnsupported": {
+    "message": "Denne browser kan ikke læse højt."
+  },
+  "contextMenuRead": {
+    "message": "Læs højt"
+  },
+  "commandReadAloud": {
+    "message": "Læs højt, sæt på pause eller fortsæt"
+  },
   "moreOptions": {
     "message": "Flere indstillinger"
   },

@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Pārējais blāvāks"
   },
+  "readAloud": {
+    "message": "Lasīt skaļi"
+  },
+  "speechPlay": {
+    "message": "Sākt"
+  },
+  "speechPause": {
+    "message": "Pauze"
+  },
+  "speechResume": {
+    "message": "Turpināt"
+  },
+  "speechStop": {
+    "message": "Apturēt"
+  },
+  "speechRate": {
+    "message": "Ātrums"
+  },
+  "speechVoice": {
+    "message": "Balss"
+  },
+  "voiceAuto": {
+    "message": "Automātiski"
+  },
+  "voiceOther": {
+    "message": "Citas valodas"
+  },
+  "speechHint": {
+    "message": "Atlasiet tekstu vai noklikšķiniet, kur sākt. Tiek izmantotas tikai šīs ierīces balsis."
+  },
+  "speechReading": {
+    "message": "Lasa skaļi…"
+  },
+  "speechPaused": {
+    "message": "Pauzēts."
+  },
+  "speechNoVoice": {
+    "message": "Šajā ierīcē nav balss šai valodai. Balsis varat pievienot sistēmas runas iestatījumos."
+  },
+  "speechNoText": {
+    "message": "Šeit nav lasāma teksta."
+  },
+  "speechUnsupported": {
+    "message": "Šī pārlūkprogramma nevar lasīt skaļi."
+  },
+  "contextMenuRead": {
+    "message": "Lasīt skaļi"
+  },
+  "commandReadAloud": {
+    "message": "Lasīt skaļi, pauzēt vai turpināt"
+  },
   "moreOptions": {
     "message": "Vairāk iespēju"
   },

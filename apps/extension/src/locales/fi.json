@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Häivytä loppuosa"
   },
+  "readAloud": {
+    "message": "Lue ääneen"
+  },
+  "speechPlay": {
+    "message": "Aloita"
+  },
+  "speechPause": {
+    "message": "Tauko"
+  },
+  "speechResume": {
+    "message": "Jatka"
+  },
+  "speechStop": {
+    "message": "Lopeta"
+  },
+  "speechRate": {
+    "message": "Nopeus"
+  },
+  "speechVoice": {
+    "message": "Ääni"
+  },
+  "voiceAuto": {
+    "message": "Automaattinen"
+  },
+  "voiceOther": {
+    "message": "Muut kielet"
+  },
+  "speechHint": {
+    "message": "Valitse tekstiä tai napsauta kohtaa, josta aloitetaan. Vain tämän laitteen ääniä käytetään."
+  },
+  "speechReading": {
+    "message": "Luetaan ääneen…"
+  },
+  "speechPaused": {
+    "message": "Tauolla."
+  },
+  "speechNoVoice": {
+    "message": "Tässä laitteessa ei ole ääntä tälle kielelle. Voit lisätä ääniä järjestelmän puheasetuksista."
+  },
+  "speechNoText": {
+    "message": "Täällä ei ole luettavaa tekstiä."
+  },
+  "speechUnsupported": {
+    "message": "Tämä selain ei osaa lukea ääneen."
+  },
+  "contextMenuRead": {
+    "message": "Lue ääneen"
+  },
+  "commandReadAloud": {
+    "message": "Lue ääneen, tauota tai jatka"
+  },
   "moreOptions": {
     "message": "Lisää asetuksia"
   },

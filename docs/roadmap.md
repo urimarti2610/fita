@@ -10,5 +10,4 @@ Each item becomes a GitHub issue labelled `roadmap` once the repository exists.
 | DOCX and PDF conversion | DOCX is XML in a zip, close to EPUB. PDF needs a different strategy (reflow or overlay). |
 | OpenType font with built-in emphasis | Contextual alternates to emphasize word starts without changing the text. |
 | Word, LibreOffice and Google Docs add-ons | |
-| Read aloud | Text-to-speech with the browser's own voices (no servers). |
 | Reading mode in the extension | Clean article view with `@mozilla/readability` (optional in v1, not built yet). |

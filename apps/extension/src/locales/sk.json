@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Stlmiť zvyšok"
   },
+  "readAloud": {
+    "message": "Čítanie nahlas"
+  },
+  "speechPlay": {
+    "message": "Spustiť"
+  },
+  "speechPause": {
+    "message": "Pozastaviť"
+  },
+  "speechResume": {
+    "message": "Pokračovať"
+  },
+  "speechStop": {
+    "message": "Zastaviť"
+  },
+  "speechRate": {
+    "message": "Rýchlosť"
+  },
+  "speechVoice": {
+    "message": "Hlas"
+  },
+  "voiceAuto": {
+    "message": "Automaticky"
+  },
+  "voiceOther": {
+    "message": "Iné jazyky"
+  },
+  "speechHint": {
+    "message": "Označte text alebo kliknite, kde začať. Používajú sa len hlasy z tohto zariadenia."
+  },
+  "speechReading": {
+    "message": "Čítam nahlas…"
+  },
+  "speechPaused": {
+    "message": "Pozastavené."
+  },
+  "speechNoVoice": {
+    "message": "Toto zariadenie nemá hlas pre tento jazyk. Hlasy môžete pridať v nastaveniach reči systému."
+  },
+  "speechNoText": {
+    "message": "Nie je tu žiadny text na čítanie."
+  },
+  "speechUnsupported": {
+    "message": "Tento prehliadač nevie čítať nahlas."
+  },
+  "contextMenuRead": {
+    "message": "Čítať nahlas"
+  },
+  "commandReadAloud": {
+    "message": "Čítať nahlas, pozastaviť alebo pokračovať"
+  },
   "moreOptions": {
     "message": "Ďalšie možnosti"
   },

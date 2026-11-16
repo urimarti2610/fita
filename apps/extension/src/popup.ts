@@ -9,11 +9,20 @@ import {
   requestGrant,
   type Settings,
   type SiteState,
+  type SpeechStateMessage,
   saveSettings,
   siteOrigin,
   updateSite,
 } from "./settings.js";
-import { getTabState, setTab } from "./tabs.js";
+import {
+  langBase,
+  loadSpeech,
+  localVoices,
+  type SpeechSettings,
+  type SpeechState,
+  saveSpeech,
+} from "./speech.js";
+import { getTabState, setTab, speakTab } from "./tabs.js";
 
 const t = (key: string, subs?: string) => chrome.i18n.getMessage(key, subs);
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -31,6 +40,12 @@ const maxWidth = $<HTMLSelectElement>("maxWidth");
 const ruler = $<HTMLSelectElement>("ruler");
 const custom = $<HTMLInputElement>("custom");
 const shortcuts = $<HTMLAnchorElement>("shortcuts");
+const speechPlay = $<HTMLButtonElement>("speechPlay");
+const speechStop = $<HTMLButtonElement>("speechStop");
+const speechStatus = $<HTMLParagraphElement>("speechStatus");
+const speechRate = $<HTMLInputElement>("speechRate");
+const speechRateValue = $<HTMLOutputElement>("speechRateValue");
+const speechVoice = $<HTMLSelectElement>("speechVoice");
 const styleInputs = [...document.querySelectorAll<HTMLInputElement>('input[name="style"]')];
 
 document.documentElement.lang = chrome.i18n.getUILanguage();
@@ -95,10 +110,147 @@ async function setEnabled(wanted?: boolean) {
   render();
 }
 
+let speech: SpeechSettings;
+let speechState: SpeechState = { status: "idle", lang: "" };
+let pageLang = "";
+
+function renderSpeech() {
+  const { status, error } = speechState;
+  speechPlay.textContent =
+    status === "playing"
+      ? t("speechPause")
+      : status === "paused"
+        ? t("speechResume")
+        : t("speechPlay");
+  speechStop.disabled = status === "idle";
+  const messages = {
+    noVoice: "speechNoVoice",
+    noText: "speechNoText",
+    unsupported: "speechUnsupported",
+  } as const;
+  speechStatus.textContent = error
+    ? t(messages[error])
+    : status === "playing"
+      ? t("speechReading")
+      : status === "paused"
+        ? t("speechPaused")
+        : t("speechHint");
+  speechRate.value = String(speech.rate);
+  speechRateValue.textContent = `${speech.rate.toFixed(1)}×`;
+}
+
+/** On-device voices only, the page's language first. */
+function renderVoices() {
+  const voices = localVoices(globalThis.speechSynthesis?.getVoices() ?? []);
+  const base = langBase(pageLang);
+  const chosen = speech.voices[base] ?? "";
+  const names = new Intl.DisplayNames([chrome.i18n.getUILanguage()], { type: "language" });
+  const languageName = (lang: string) => {
+    try {
+      return names.of(lang) ?? lang;
+    } catch {
+      return lang;
+    }
+  };
+  const option = (value: string, label: string) => {
+    const el = document.createElement("option");
+    el.value = value;
+    el.textContent = label;
+    return el;
+  };
+  const group = (label: string, list: SpeechSynthesisVoice[], withLang: boolean) => {
+    const el = document.createElement("optgroup");
+    el.label = label;
+    for (const v of list)
+      el.append(option(v.voiceURI, withLang ? `${v.name} (${languageName(v.lang)})` : v.name));
+    return el;
+  };
+  const same = voices.filter((v) => langBase(v.lang) === base);
+  const others = voices
+    .filter((v) => langBase(v.lang) !== base)
+    .sort((a, b) => a.lang.localeCompare(b.lang) || a.name.localeCompare(b.name));
+  speechVoice.replaceChildren(option("", t("voiceAuto")));
+  if (same.length > 0) speechVoice.append(group(languageName(pageLang || base), same, false));
+  if (others.length > 0) speechVoice.append(group(t("voiceOther"), others, true));
+  speechVoice.value = voices.some((v) => v.voiceURI === chosen) ? chosen : "";
+}
+
+async function speechAction() {
+  if (tabId === undefined) return;
+  const action =
+    speechState.status === "playing"
+      ? "pause"
+      : speechState.status === "paused"
+        ? "resume"
+        : "play";
+  try {
+    speechState = (await speakTab(tabId, action)) ?? speechState;
+  } catch {
+    showUnavailable();
+  }
+  renderSpeech();
+}
+
+async function setupSpeech() {
+  speech = await loadSpeech();
+  if (!globalThis.speechSynthesis) {
+    speechState = { status: "idle", lang: "", error: "unsupported" };
+    speechPlay.disabled = true;
+    speechRate.disabled = true;
+    speechVoice.disabled = true;
+    renderSpeech();
+    return;
+  }
+  const known = tabId === undefined ? null : await speakTab(tabId, "state");
+  if (known) speechState = known;
+  pageLang = known?.lang || (await tabLanguage()) || chrome.i18n.getUILanguage();
+  renderSpeech();
+  renderVoices();
+  speechSynthesis.addEventListener("voiceschanged", renderVoices);
+  chrome.runtime.onMessage.addListener((message: SpeechStateMessage, sender) => {
+    if (message.type !== "speech-state" || sender.tab?.id !== tabId) return;
+    speechState = message.state;
+    renderSpeech();
+  });
+}
+
+/** The page's declared language, read without injecting the content script. */
+async function tabLanguage(): Promise<string> {
+  if (tabId === undefined) return "";
+  try {
+    const [result] = await chrome.scripting.executeScript({
+      target: { tabId },
+      func: () => document.documentElement.lang,
+    });
+    return typeof result?.result === "string" ? result.result : "";
+  } catch {
+    return "";
+  }
+}
+
+speechPlay.addEventListener("click", () => speechAction());
+speechStop.addEventListener("click", async () => {
+  if (tabId === undefined) return;
+  speechState = (await speakTab(tabId, "stop").catch(() => null)) ?? speechState;
+  renderSpeech();
+});
+speechRate.addEventListener("input", () => {
+  speech.rate = Number(speechRate.value);
+  speechRateValue.textContent = `${speech.rate.toFixed(1)}×`;
+});
+speechRate.addEventListener("change", () => saveSpeech(speech));
+speechVoice.addEventListener("change", () => {
+  const base = langBase(pageLang);
+  if (speechVoice.value) speech.voices[base] = speechVoice.value;
+  else delete speech.voices[base];
+  saveSpeech(speech);
+});
+
 function showUnavailable() {
   unavailable.hidden = false;
   toggle.disabled = true;
   alwaysOn.disabled = true;
+  speechPlay.disabled = true;
 }
 
 toggle.addEventListener("click", () => setEnabled());
@@ -180,7 +332,7 @@ async function init() {
   if (tabId !== undefined) enabled = (await getTabState(tabId))?.enabled ?? false;
   if (tabId === undefined) showUnavailable();
   render();
-  await setupShortcutHint();
+  await Promise.all([setupShortcutHint(), setupSpeech()]);
 }
 
 init();

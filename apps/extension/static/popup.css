@@ -206,6 +206,30 @@ select {
 .sample-fade {
   color: color-mix(in srgb, currentColor 60%, transparent);
 }
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+.button {
+  flex: 1;
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 .hint {
   margin: 0;
   color: var(--muted);

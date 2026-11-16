@@ -6,9 +6,21 @@ import {
   type ContentReply,
   loadSiteState,
   type Settings,
+  type SpeechMessage,
+  type SpeechStateMessage,
   type StateMessage,
   siteOrigin,
 } from "./settings.js";
+import {
+  createReader,
+  DEFAULT_SPEECH,
+  loadSpeech,
+  SPEECH_HIGHLIGHT,
+  SPEECH_KEY,
+  type SpeechAction,
+  type SpeechSettings,
+  type SpeechState,
+} from "./speech.js";
 
 const LOADED_FLAG = `__${EXTENSION_BRAND.id}ContentLoaded`;
 const LINE_HEIGHT_ATTR = `data-${EXTENSION_BRAND.id}-lh`;
@@ -79,8 +91,18 @@ function main() {
     apply((await loadSiteState(origin)).settings);
   }
 
+  const speech = createSpeech();
+
   chrome.runtime.onMessage.addListener(
-    (message: ContentMessage, _sender, sendResponse: (reply: ContentReply) => void) => {
+    (
+      message: ContentMessage | SpeechMessage,
+      _sender,
+      sendResponse: (reply: ContentReply | SpeechState) => void,
+    ) => {
+      if (message.type === "speech") {
+        speech(message.action).then(sendResponse);
+        return true; // async response
+      }
       if (message.type === "get") {
         sendResponse({ enabled: controller !== null });
         return;
@@ -102,12 +124,87 @@ function main() {
   );
 
   // Settings changed elsewhere (popup, another device): follow them while active.
-  chrome.storage.onChanged.addListener((_changes, area) => {
-    if (area === "sync" && controller) enable();
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area !== "sync" || !controller) return;
+    if (Object.keys(changes).some((key) => key !== SPEECH_KEY)) enable();
   });
 
   // Auto-activation for "always on this site" / "on all sites".
   loadSiteState(origin).then((state) => {
     if (controller === null && (state.alwaysOn || state.allSites)) apply(state.settings);
   });
+}
+
+/** Read aloud with the browser's own voices. */
+function createSpeech(): (action: SpeechAction) => Promise<SpeechState> {
+  const synth = globalThis.speechSynthesis as SpeechSynthesis | undefined;
+  let settings: SpeechSettings = DEFAULT_SPEECH;
+  let reader: ReturnType<typeof createReader> | null = null;
+  const registry = (globalThis.CSS as { highlights?: HighlightRegistry } | undefined)?.highlights;
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+  function highlight(range: Range | null) {
+    try {
+      if (range) registry?.set(SPEECH_HIGHLIGHT, new Highlight(range));
+      else registry?.delete(SPEECH_HIGHLIGHT);
+    } catch {
+      // Highlight API missing or blocked: reading still works, without marking words.
+    }
+  }
+
+  function reveal(range: Range) {
+    const rect = range.getBoundingClientRect();
+    if (rect.height === 0 || (rect.top >= 0 && rect.bottom <= innerHeight)) return;
+    range.startContainer.parentElement?.scrollIntoView({
+      block: "center",
+      behavior: reducedMotion.matches ? "auto" : "smooth",
+    });
+  }
+
+  function waitForVoices(): Promise<void> {
+    if (!synth || synth.getVoices().length > 0) return Promise.resolve();
+    return new Promise((resolve) => {
+      const done = () => {
+        synth.removeEventListener("voiceschanged", done);
+        resolve();
+      };
+      synth.addEventListener("voiceschanged", done);
+      setTimeout(done, 1500);
+    });
+  }
+
+  function report(state: SpeechState) {
+    const message: SpeechStateMessage = { type: "speech-state", state };
+    chrome.runtime.sendMessage(message).catch(() => {});
+  }
+
+  if (synth) {
+    reader = createReader(document, {
+      synth,
+      createUtterance: (text) => new SpeechSynthesisUtterance(text),
+      settings: () => settings,
+      highlight,
+      reveal,
+      onState: report,
+      waitForVoices,
+    });
+    // Some browsers keep talking after the page is gone.
+    addEventListener("pagehide", () => reader?.stop());
+    chrome.storage.onChanged.addListener(async (changes, area) => {
+      if (area === "sync" && SPEECH_KEY in changes) settings = await loadSpeech();
+    });
+  }
+
+  return async (action) => {
+    if (!reader)
+      return { status: "idle", lang: document.documentElement.lang, error: "unsupported" };
+    if (action === "play" || (action === "toggle" && reader.state.status === "idle")) {
+      settings = await loadSpeech();
+      await reader.play();
+    } else if (action === "toggle") reader.toggle();
+    else if (action === "pause") reader.pause();
+    else if (action === "resume") reader.resume();
+    else if (action === "stop") reader.stop();
+    return reader.state;
+  };
 }

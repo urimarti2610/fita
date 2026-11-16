@@ -4,6 +4,10 @@ type TestHooks = {
   setTab(tabId: number, enabled?: boolean): Promise<{ enabled: boolean }>;
   syncRegistration(): Promise<void>;
   onCommand(command: string, tab?: chrome.tabs.Tab): Promise<void>;
+  speakTab(
+    tabId: number,
+    action: string,
+  ): Promise<{ status: string; lang: string; error?: string } | null>;
 };
 declare const fitaTest: TestHooks;
 
@@ -87,7 +91,9 @@ test("popup is translated and keyboard-usable", async ({ context, extensionId })
   await popup.goto(`chrome-extension://${extensionId}/popup.html`);
   const toggle = popup.getByRole("switch");
   await expect(toggle).toHaveAccessibleName(/.+/);
-  await expect(popup.getByRole("slider")).toHaveCount(1);
+  await expect(popup.getByRole("slider")).toHaveCount(2);
+  await expect(popup.getByRole("button", { name: "Start" })).toBeVisible();
+  await expect(popup.getByRole("button", { name: "Stop" })).toBeDisabled();
   await expect(popup.getByRole("radio")).toHaveCount(5);
   await popup.keyboard.press("Tab");
   await expect(toggle).toBeFocused();
@@ -125,4 +131,30 @@ test("line ruler follows the pointer and keyboard, and goes away with emphasis",
   await worker.evaluate((id) => fitaTest.setTab(id, false), tabId);
   await expect(ruler).toHaveCount(0);
   expect(await page.locator("body").innerHTML()).toBe(before);
+});
+
+test("read aloud starts and stops from the extension, leaving the page untouched", async ({
+  context,
+  worker,
+  baseURL,
+}) => {
+  const page = await context.newPage();
+  await page.goto(baseURL);
+  const before = await page.locator("body").innerHTML();
+  const tabId = await tabIdOf(worker, baseURL);
+
+  // Asking for the state never injects anything.
+  expect(await worker.evaluate((id) => fitaTest.speakTab(id, "state"), tabId)).toBeNull();
+
+  const started = await worker.evaluate((id) => fitaTest.speakTab(id, "play"), tabId);
+  expect(started?.lang).toBe("es");
+  // Test machines often have no on-device voice; then it must say so instead of
+  // falling back to an online one.
+  if (started?.status === "idle") expect(started.error).toBe("noVoice");
+  else expect(started?.status).toBe("playing");
+
+  const stopped = await worker.evaluate((id) => fitaTest.speakTab(id, "stop"), tabId);
+  expect(stopped?.status).toBe("idle");
+  expect(await page.locator("body").innerHTML()).toBe(before);
+  await expect(page.locator("fita-w")).toHaveCount(0);
 });

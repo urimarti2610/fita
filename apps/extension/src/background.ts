@@ -8,11 +8,13 @@ import {
   siteOrigin,
   updateSite,
 } from "./settings.js";
-import { CONTENT_CSS, CONTENT_JS, setTab } from "./tabs.js";
+import { CONTENT_CSS, CONTENT_JS, setTab, speakTab } from "./tabs.js";
 
 const AUTO_SCRIPT_ID = "auto";
 const MENU_ID = "enable-site";
+const MENU_READ = "read-aloud";
 const COMMAND = "toggle-emphasis";
+const COMMAND_READ = "read-aloud";
 
 const t = (key: string) => chrome.i18n.getMessage(key);
 
@@ -58,6 +60,11 @@ async function setupMenus() {
     title: t("contextMenuEnable"),
     contexts: ["page", "selection"],
   });
+  chrome.contextMenus.create({
+    id: MENU_READ,
+    title: t("contextMenuRead"),
+    contexts: ["page", "selection"],
+  });
 }
 
 async function activeTab(): Promise<chrome.tabs.Tab | undefined> {
@@ -74,13 +81,19 @@ chrome.runtime.onStartup.addListener(() => {
 });
 
 async function onCommand(command: string, tab?: chrome.tabs.Tab) {
-  if (command !== COMMAND) return;
+  if (command !== COMMAND && command !== COMMAND_READ) return;
   const target = tab?.id !== undefined ? tab : await activeTab();
-  if (target?.id !== undefined) await setTab(target.id).catch(() => {});
+  if (target?.id === undefined) return;
+  if (command === COMMAND) await setTab(target.id).catch(() => {});
+  else await speakTab(target.id, "toggle").catch(() => {});
 }
 chrome.commands?.onCommand.addListener(onCommand);
 
 chrome.contextMenus?.onClicked.addListener(async (info, tab) => {
+  if (info.menuItemId === MENU_READ && tab?.id !== undefined) {
+    await speakTab(tab.id, "play").catch(() => {});
+    return;
+  }
   if (info.menuItemId !== MENU_ID || tab?.id === undefined) return;
   const origin = siteOrigin(tab.url);
   // Must be called first, while the click still counts as a user gesture.
@@ -121,5 +134,5 @@ chrome.permissions.onAdded.addListener(() => {
 
 // Test hook: lets the Playwright suite drive the same code paths as the UI.
 if (process.env.E2E === "true") {
-  Object.assign(globalThis, { fitaTest: { setTab, syncRegistration, onCommand } });
+  Object.assign(globalThis, { fitaTest: { setTab, speakTab, syncRegistration, onCommand } });
 }

@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Prigušen ostatak"
   },
+  "readAloud": {
+    "message": "Čitanje naglas"
+  },
+  "speechPlay": {
+    "message": "Pokreni"
+  },
+  "speechPause": {
+    "message": "Pauza"
+  },
+  "speechResume": {
+    "message": "Nastavi"
+  },
+  "speechStop": {
+    "message": "Zaustavi"
+  },
+  "speechRate": {
+    "message": "Brzina"
+  },
+  "speechVoice": {
+    "message": "Glas"
+  },
+  "voiceAuto": {
+    "message": "Automatski"
+  },
+  "voiceOther": {
+    "message": "Drugi jezici"
+  },
+  "speechHint": {
+    "message": "Označite tekst ili kliknite gdje želite početi. Koriste se samo glasovi s ovog uređaja."
+  },
+  "speechReading": {
+    "message": "Čitam naglas…"
+  },
+  "speechPaused": {
+    "message": "Pauzirano."
+  },
+  "speechNoVoice": {
+    "message": "Ovaj uređaj nema glas za ovaj jezik. Glasove možete dodati u postavkama govora sustava."
+  },
+  "speechNoText": {
+    "message": "Ovdje nema teksta za čitanje."
+  },
+  "speechUnsupported": {
+    "message": "Ovaj preglednik ne može čitati naglas."
+  },
+  "contextMenuRead": {
+    "message": "Čitaj naglas"
+  },
+  "commandReadAloud": {
+    "message": "Čitaj naglas, pauziraj ili nastavi"
+  },
   "moreOptions": {
     "message": "Više opcija"
   },

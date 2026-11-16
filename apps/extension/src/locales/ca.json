@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Atenuar la resta"
   },
+  "readAloud": {
+    "message": "Llegir en veu alta"
+  },
+  "speechPlay": {
+    "message": "Comença"
+  },
+  "speechPause": {
+    "message": "Pausa"
+  },
+  "speechResume": {
+    "message": "Continua"
+  },
+  "speechStop": {
+    "message": "Atura"
+  },
+  "speechRate": {
+    "message": "Velocitat"
+  },
+  "speechVoice": {
+    "message": "Veu"
+  },
+  "voiceAuto": {
+    "message": "Automàtica"
+  },
+  "voiceOther": {
+    "message": "Altres llengües"
+  },
+  "speechHint": {
+    "message": "Selecciona text o fes clic on vulguis començar. Només s'usen les veus d'aquest dispositiu."
+  },
+  "speechReading": {
+    "message": "Llegint en veu alta…"
+  },
+  "speechPaused": {
+    "message": "En pausa."
+  },
+  "speechNoVoice": {
+    "message": "Aquest dispositiu no té cap veu per a aquesta llengua. Pots afegir-ne a la configuració de veu del sistema."
+  },
+  "speechNoText": {
+    "message": "Aquí no hi ha text per llegir."
+  },
+  "speechUnsupported": {
+    "message": "Aquest navegador no pot llegir en veu alta."
+  },
+  "contextMenuRead": {
+    "message": "Llegir en veu alta"
+  },
+  "commandReadAloud": {
+    "message": "Llegir en veu alta, pausar o continuar"
+  },
   "moreOptions": {
     "message": "Més opcions"
   },

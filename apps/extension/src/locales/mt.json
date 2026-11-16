@@ -47,6 +47,57 @@
   "styleFade": {
     "message": "Ċajpar il-bqija"
   },
+  "readAloud": {
+    "message": "Aqra b'leħen għoli"
+  },
+  "speechPlay": {
+    "message": "Ibda"
+  },
+  "speechPause": {
+    "message": "Pawża"
+  },
+  "speechResume": {
+    "message": "Kompli"
+  },
+  "speechStop": {
+    "message": "Waqqaf"
+  },
+  "speechRate": {
+    "message": "Veloċità"
+  },
+  "speechVoice": {
+    "message": "Leħen"
+  },
+  "voiceAuto": {
+    "message": "Awtomatiku"
+  },
+  "voiceOther": {
+    "message": "Lingwi oħra"
+  },
+  "speechHint": {
+    "message": "Agħżel test jew ikklikkja fejn trid tibda. Jintużaw biss il-vuċijiet ta' dan l-apparat."
+  },
+  "speechReading": {
+    "message": "Qed jaqra b'leħen għoli…"
+  },
+  "speechPaused": {
+    "message": "Ippawżat."
+  },
+  "speechNoVoice": {
+    "message": "Dan l-apparat m'għandux leħen għal din il-lingwa. Tista' żżid vuċijiet fis-settings tad-diskors tas-sistema."
+  },
+  "speechNoText": {
+    "message": "M'hawn l-ebda test x'taqra."
+  },
+  "speechUnsupported": {
+    "message": "Dan il-browser ma jistax jaqra b'leħen għoli."
+  },
+  "contextMenuRead": {
+    "message": "Aqra b'leħen għoli"
+  },
+  "commandReadAloud": {
+    "message": "Aqra b'leħen għoli, ippawża jew kompli"
+  },
   "moreOptions": {
     "message": "Aktar għażliet"
   },
