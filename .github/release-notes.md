@@ -29,4 +29,12 @@ Adds reading emphasis to the EPUB books in your calibre library.
 1. Download `fita-libreoffice-<version>.oxt`.
 2. In LibreOffice, open **Tools → Extension Manager → Add…**, choose the file and restart.
 
+## KOReader plugin
+
+Creates a copy of the book with emphasis (`Book.fita.epub`) right on your e-reader.
+
+1. Download `fita-koreader-<version>.zip` and unzip it into KOReader's `plugins` folder (you get `plugins/fita.koplugin/`).
+2. Restart KOReader.
+3. While reading: **Typeset → Reading emphasis → Create a copy with emphasis**, or long-press a book in the file browser.
+
 Found a problem? [Open an issue](https://github.com/urimarti2610/fita/issues/new/choose).

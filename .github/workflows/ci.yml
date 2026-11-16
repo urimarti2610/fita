@@ -26,6 +26,14 @@ jobs:
         run: |
           python3 -m unittest discover -s plugins/calibre/tests -v
           python3 plugins/calibre/build.py
+      - name: KOReader plugin
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends luajit
+          luajit plugins/koreader/spec/run.lua
+          # fita_unicode.lua must match the Python engine it is generated from.
+          python3 plugins/koreader/tools/gen_unicode.py
+          git diff --exit-code plugins/koreader/fita.koplugin/fita_unicode.lua
+          python3 plugins/koreader/build.py
       - run: pnpm --filter @fita/extension exec playwright install --with-deps chromium
       - run: pnpm e2e
       # The converter's EPUB output must pass the official validator.

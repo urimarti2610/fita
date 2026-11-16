@@ -31,6 +31,7 @@ jobs:
           python -m unittest discover -s fonts/tests
           zip -j "fita-sans-${GITHUB_REF_NAME#v}.zip" fonts/dist/*.ttf fonts/dist/*.woff2 fonts/OFL.txt fonts/README.md
       - run: python3 plugins/calibre/build.py
+      - run: python3 plugins/koreader/build.py "${GITHUB_REF_NAME#v}"
       # Attach the zips and the LibreOffice .oxt to the GitHub release. Store submission stays manual.
       # 0.x versions are previews: published as pre-releases, with install steps.
       - name: Create the release
@@ -39,6 +40,6 @@ jobs:
         run: |
           prerelease=""
           [[ "$GITHUB_REF_NAME" == v0.* ]] && prerelease="--prerelease"
-          gh release create "$GITHUB_REF_NAME" apps/extension/dist/*.zip fita-sans-*.zip plugins/calibre/dist/*.zip addons/libreoffice/dist/*.oxt \
+          gh release create "$GITHUB_REF_NAME" apps/extension/dist/*.zip fita-sans-*.zip plugins/calibre/dist/*.zip plugins/koreader/dist/*.zip addons/libreoffice/dist/*.oxt \
             --verify-tag --generate-notes $prerelease \
             --notes-file .github/release-notes.md
