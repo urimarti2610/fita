@@ -91,7 +91,7 @@ export const strings: Strings = {
       {
         q: "An féidir liom é a úsáid le mo ríomhleabhair?",
         a: [
-          "Is féidir. In “Tiontaigh leabhar”, roghnaíonn tú comhad EPUB, TXT, Markdown nó HTML agus íoslódálann tú cóip le béim. Déantar an tiontú i do bhrabhsálaí. Ní féidir leabhair a bhfuil DRM orthu a thiontú.",
+          "Is féidir. In “Tiontaigh leabhar”, roghnaíonn tú comhad EPUB, DOCX, TXT, Markdown nó HTML agus íoslódálann tú cóip le béim. Déantar an tiontú i do bhrabhsálaí. Ní féidir leabhair a bhfuil DRM orthu a thiontú.",
         ],
       },
       {
@@ -131,7 +131,7 @@ export const strings: Strings = {
         link: "Smaointe don seomra ranga agus don bhaile",
         lede: "Do mhúinteoirí, d’fhoirne tacaíochta foghlama agus do theaghlaigh ar mian leo go mbeadh an léitheoireacht beagán níos éasca, gan ábhar difriúil a ullmhú do gach dalta.",
         steps: [
-          "Oiriúnaigh an t-ábhar atá agat cheana: tiontaigh téacsanna léitheoireachta, nótaí nó leabhair in EPUB, TXT, Markdown nó HTML agus roinn iad mar atá.",
+          "Oiriúnaigh an t-ábhar atá agat cheana: tiontaigh téacsanna léitheoireachta, nótaí nó leabhair in EPUB, DOCX, TXT, Markdown nó HTML agus roinn iad mar atá.",
           "Sa rang, teilg an taispeántas le téacs an lae agus bainigí triail as nirt agus stíleanna éagsúla le chéile. Lig do gach dalta a rá cén ceann is compordaí dóibh.",
           "Ar ríomhairí na scoile, oibríonn an breiseán gan chuntais ná clárú, agus ní bhailíonn sé aon sonraí faoi na daltaí.",
           "Déan bileoga léitheoireachta le cló mór agus fráma cairdiúil in “Bileoga oibre”, ansin priontáil iad nó sábháil mar PDF iad.",
@@ -269,14 +269,19 @@ export const strings: Strings = {
       "Roghnaigh leabhar nó doiciméad agus íoslódáil cóip le béim. Ní fhágann an comhad do ghléas riamh: tarlaíonn gach rud sa bhrabhsálaí seo, gan teorainn le méid.",
     pick: "Roghnaigh comhad",
     drop: "nó scaoil anseo é",
-    formats: "EPUB, TXT, Markdown nó HTML",
+    formats: "EPUB, DOCX, TXT, Markdown nó HTML",
     pickFolder: "Roghnaigh fillteán",
     folderHint:
       "Markdown le híomhánna? Roghnaigh a fhillteán nó .zip agus rachaidh na híomhánna isteach.",
     bundleDocument: "Tiontófar {name}, lena íomhánna.",
     selected: "Comhad roghnaithe:",
     output: "Formáid aschuir",
-    outputs: { epub: "EPUB (ríomhleabhar)", html: "HTML (leathanach gréasáin)", md: "Markdown" },
+    outputs: {
+      epub: "EPUB (ríomhleabhar)",
+      html: "HTML (leathanach gréasáin)",
+      md: "Markdown",
+      docx: "Word (DOCX)",
+    },
     options: "Conas béim a chur",
     start: "Tiontaigh",
     progress: "Á thiontú: {n} %",
@@ -286,11 +291,13 @@ export const strings: Strings = {
     download: "Íoslódáil {name}",
     errors: {
       unsupported:
-        "Ní féidir an fhormáid seo a thiontú. Roghnaigh comhad EPUB, TXT, Markdown nó HTML.",
+        "Ní féidir an fhormáid seo a thiontú. Roghnaigh comhad EPUB, DOCX, TXT, Markdown nó HTML.",
       drm: "Tá DRM (cosaint ar chóipeáil) ar an leabhar seo, mar sin ní féidir é a thiontú. Má cheannaigh tú é, fiafraigh den siopa an féidir leo cóip gan DRM a thabhairt duit.",
       invalid:
         "Níorbh fhéidir an comhad seo a léamh. Seiceáil go n-osclaíonn sé i do léitheoir, nó bain triail as ceann eile.",
       noMarkdown: "Níl aon chomhad Markdown (.md) san fhillteán ná sa .zip seo.",
+      locked:
+        "Tá pasfhocal ar an doiciméad seo nó tá sé i seanfhormáid Word (.doc), mar sin ní féidir é a thiontú. Oscail é, sábháil mar .docx gan phasfhocal é agus bain triail eile as.",
       failed:
         "Theip ar an tiontú ({detail}). Má tharlaíonn sé arís, inis dúinn ar GitHub, le do thoil.",
     },

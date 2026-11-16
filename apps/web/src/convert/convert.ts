@@ -1,5 +1,6 @@
 import { BRAND, createMarkupEmphasizer, type EmphasisStyle, staticEmphasisCSS } from "@fita/core";
 import { bundleImagesForEpub, folderBundle, inlineImagesForHtml, zipBundle } from "./bundle.js";
+import { convertDocx, openDocx } from "./docx.js";
 import {
   addStyle,
   buildEpub,
@@ -12,8 +13,8 @@ import {
 import { emphasizeMarkdown, markdownToXhtml, splitChapters, textToXhtml } from "./text.js";
 
 /** "zip" and "folder" hold a Markdown document together with its images. */
-export type InputFormat = "epub" | "txt" | "md" | "html" | "zip" | "folder";
-export type OutputFormat = "epub" | "html" | "md";
+export type InputFormat = "epub" | "txt" | "md" | "html" | "zip" | "folder" | "docx";
+export type OutputFormat = "epub" | "html" | "md" | "docx";
 
 /** Output formats offered for each input. Plain text cannot hold emphasis, so TXT has no TXT output. */
 export const OUTPUTS: Record<InputFormat, OutputFormat[]> = {
@@ -23,6 +24,7 @@ export const OUTPUTS: Record<InputFormat, OutputFormat[]> = {
   html: ["html"],
   zip: ["epub", "html"],
   folder: ["epub", "html"],
+  docx: ["docx"],
 };
 
 export function detectFormat(name: string): InputFormat | null {
@@ -32,6 +34,7 @@ export function detectFormat(name: string): InputFormat | null {
   if (ext === "md" || ext === "markdown") return "md";
   if (ext === "html" || ext === "htm" || ext === "xhtml") return "html";
   if (ext === "zip") return "zip";
+  if (ext === "docx") return "docx";
   return null;
 }
 
@@ -58,6 +61,7 @@ const MIME: Record<OutputFormat, string> = {
   epub: "application/epub+zip",
   html: "text/html;charset=utf-8",
   md: "text/markdown;charset=utf-8",
+  docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 };
 
 /** Converts one file. Runs anywhere without a DOM (the converter's Web Worker, tests). */
@@ -68,6 +72,17 @@ export async function convert(request: ConvertRequest, progress: Progress): Prom
   const name = `${stem}.${BRAND.id}.${output}`;
   const css = `${staticEmphasisCSS(style)}\n`;
   const options = { strength: request.strength, every: request.every };
+
+  if (input === "docx") {
+    const docx = await openDocx(request.file);
+    const blob = await convertDocx(
+      docx,
+      { ...options, locale: docx.language ?? lang },
+      style,
+      progress,
+    );
+    return { blob, name };
+  }
 
   if (input === "epub") {
     const book = await openEpub(request.file);

@@ -91,7 +91,7 @@ export const strings: Strings = {
       {
         q: "Can I use it with my ebooks?",
         a: [
-          "Yes. In “Convert a book” you pick an EPUB, TXT, Markdown or HTML file and download a copy with emphasis. The conversion happens in your browser. Books with DRM cannot be converted.",
+          "Yes. In “Convert a book” you pick an EPUB, DOCX, TXT, Markdown or HTML file and download a copy with emphasis. The conversion happens in your browser. Books with DRM cannot be converted.",
         ],
       },
       {
@@ -129,7 +129,7 @@ export const strings: Strings = {
         link: "Ideas for the classroom and home",
         lede: "For teachers, learning support teams and families who want reading to take a little less effort, without preparing different material for every student.",
         steps: [
-          "Adapt the material you already have: convert readings, notes or books in EPUB, TXT, Markdown or HTML and share them as they are.",
+          "Adapt the material you already have: convert readings, notes or books in EPUB, DOCX, TXT, Markdown or HTML and share them as they are.",
           "In class, project the demo with the day's text and try different strengths and styles together. Let each student say what feels most comfortable.",
           "On school computers, the extension works without accounts or sign-ups and collects no student data.",
           "Make reading worksheets with large print and a friendly frame in “Worksheets”, then print them or save them as PDF.",
@@ -263,13 +263,13 @@ export const strings: Strings = {
       "Pick a book or a document and download a copy with emphasis. The file never leaves your device: everything happens in this browser, with no size limit.",
     pick: "Choose a file",
     drop: "or drop it here",
-    formats: "EPUB, TXT, Markdown or HTML",
+    formats: "EPUB, DOCX, TXT, Markdown or HTML",
     pickFolder: "Choose a folder",
     folderHint: "Markdown with images? Choose its folder or a .zip and the images go inside.",
     bundleDocument: "{name} will be converted, with its images.",
     selected: "Chosen file:",
     output: "Output format",
-    outputs: { epub: "EPUB (ebook)", html: "HTML (web page)", md: "Markdown" },
+    outputs: { epub: "EPUB (ebook)", html: "HTML (web page)", md: "Markdown", docx: "Word (DOCX)" },
     options: "How to emphasize",
     start: "Convert",
     progress: "Converting: {n} %",
@@ -278,11 +278,14 @@ export const strings: Strings = {
     done: "Done. Your file is ready.",
     download: "Download {name}",
     errors: {
-      unsupported: "This format can't be converted. Choose an EPUB, TXT, Markdown or HTML file.",
+      unsupported:
+        "This format can't be converted. Choose an EPUB, DOCX, TXT, Markdown or HTML file.",
       drm: "This book has DRM (copy protection), so it can't be converted. If you bought it, ask the store whether they can give you a DRM-free copy.",
       invalid:
         "This file couldn't be read. Check that it opens in your reader, or try another one.",
       noMarkdown: "There is no Markdown (.md) file in this folder or .zip.",
+      locked:
+        "This document has a password or uses the old Word format (.doc), so it can't be converted. Open it, save it as .docx without a password and try again.",
       failed: "The conversion failed ({detail}). If it happens again, please tell us on GitHub.",
     },
     labels: { part: "Part", contents: "Contents" },

@@ -92,7 +92,7 @@ export const strings: Strings = {
       {
         q: "Kan jeg bruge det med mine e-bøger?",
         a: [
-          "Ja. Under ”Konverter en bog” vælger du en EPUB-, TXT-, Markdown- eller HTML-fil og downloader en kopi med fremhævning. Konverteringen sker i din browser. Bøger med DRM kan ikke konverteres.",
+          "Ja. Under ”Konverter en bog” vælger du en EPUB-, DOCX-, TXT-, Markdown- eller HTML-fil og downloader en kopi med fremhævning. Konverteringen sker i din browser. Bøger med DRM kan ikke konverteres.",
         ],
       },
       {
@@ -130,7 +130,7 @@ export const strings: Strings = {
         link: "Idéer til klassen og hjemmet",
         lede: "Til lærere, læsevejledere, støttepersoner og familier, der gerne vil gøre læsning lidt mindre anstrengende uden at forberede særskilt materiale til hver elev.",
         steps: [
-          "Tilpas det materiale, du allerede har: konverter tekster, noter eller bøger i EPUB, TXT, Markdown eller HTML, og del dem, som de er.",
+          "Tilpas det materiale, du allerede har: konverter tekster, noter eller bøger i EPUB, DOCX, TXT, Markdown eller HTML, og del dem, som de er.",
           "Vis demoen i klassen med dagens tekst, og prøv forskellige styrker og stilarter sammen. Lad hver elev sige, hvad der føles mest behageligt.",
           "På skolens computere virker udvidelsen uden konti eller tilmelding og indsamler ingen data om eleverne.",
           "Lav læseark med stor skrift og en venlig ramme under ”Læseark”, og print dem eller gem dem som PDF.",
@@ -265,13 +265,13 @@ export const strings: Strings = {
       "Vælg en bog eller et dokument, og download en kopi med fremhævning. Filen forlader aldrig din enhed: alt sker i denne browser, uden grænse for størrelsen.",
     pick: "Vælg en fil",
     drop: "eller slip den her",
-    formats: "EPUB, TXT, Markdown eller HTML",
+    formats: "EPUB, DOCX, TXT, Markdown eller HTML",
     pickFolder: "Vælg en mappe",
     folderHint: "Markdown med billeder? Vælg mappen eller en .zip, så kommer billederne med.",
     bundleDocument: "{name} bliver konverteret med sine billeder.",
     selected: "Valgt fil:",
     output: "Outputformat",
-    outputs: { epub: "EPUB (e-bog)", html: "HTML (webside)", md: "Markdown" },
+    outputs: { epub: "EPUB (e-bog)", html: "HTML (webside)", md: "Markdown", docx: "Word (DOCX)" },
     options: "Sådan fremhæves",
     start: "Konverter",
     progress: "Konverterer: {n} %",
@@ -281,10 +281,12 @@ export const strings: Strings = {
     download: "Download {name}",
     errors: {
       unsupported:
-        "Dette format kan ikke konverteres. Vælg en EPUB-, TXT-, Markdown- eller HTML-fil.",
+        "Dette format kan ikke konverteres. Vælg en EPUB-, DOCX-, TXT-, Markdown- eller HTML-fil.",
       drm: "Denne bog har DRM (kopibeskyttelse), så den kan ikke konverteres. Hvis du har købt den, så spørg butikken, om du kan få en kopi uden DRM.",
       invalid: "Filen kunne ikke læses. Tjek, at den kan åbnes i din læser, eller prøv en anden.",
       noMarkdown: "Der er ingen Markdown-fil (.md) i denne mappe eller .zip.",
+      locked:
+        "Dette dokument har en adgangskode eller bruger det gamle Word-format (.doc), så det kan ikke konverteres. Åbn det, gem det som .docx uden adgangskode, og prøv igen.",
       failed:
         "Konverteringen mislykkedes ({detail}). Hvis det sker igen, så fortæl os det gerne på GitHub.",
     },

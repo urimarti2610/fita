@@ -92,7 +92,7 @@ export const strings: Strings = {
       {
         q: "Nista’ nużaha mal-kotba elettroniċi tiegħi?",
         a: [
-          "Iva. F’“Ikkonverti ktieb” tagħżel fajl EPUB, TXT, Markdown jew HTML u tniżżel kopja bl-enfasi. Il-konverżjoni ssir fil-browser tiegħek. Kotba bid-DRM ma jistgħux jiġu kkonvertiti.",
+          "Iva. F’“Ikkonverti ktieb” tagħżel fajl EPUB, DOCX, TXT, Markdown jew HTML u tniżżel kopja bl-enfasi. Il-konverżjoni ssir fil-browser tiegħek. Kotba bid-DRM ma jistgħux jiġu kkonvertiti.",
         ],
       },
       {
@@ -130,7 +130,7 @@ export const strings: Strings = {
         link: "Ideat għall-klassi u għad-dar",
         lede: "Għall-għalliema, it-timijiet ta’ appoġġ fit-tagħlim u l-familji li jridu li l-qari jkun ftit inqas iebes, mingħajr ma jippreparaw materjal differenti għal kull student.",
         steps: [
-          "Adatta l-materjal li diġà għandek: ikkonverti testi, noti jew kotba f’EPUB, TXT, Markdown jew HTML u aqsamhom kif inhuma.",
+          "Adatta l-materjal li diġà għandek: ikkonverti testi, noti jew kotba f’EPUB, DOCX, TXT, Markdown jew HTML u aqsamhom kif inhuma.",
           "Fil-klassi, ipproġetta d-demo bit-test tal-ġurnata u ippruvaw flimkien intensitajiet u stili differenti. Ħalli kull student jgħid liema hu l-aktar komdu għalih.",
           "Fuq il-kompjuters tal-iskola, l-estensjoni taħdem mingħajr kontijiet jew reġistrazzjoni u ma tiġbor l-ebda dejta tal-istudenti.",
           "Agħmel skedi tal-qari b’ittri kbar u qafas ħbiberija f’“Skedi”, imbagħad ipprintjahom jew issejvjahom bħala PDF.",
@@ -267,13 +267,18 @@ export const strings: Strings = {
       "Agħżel ktieb jew dokument u niżżel kopja bl-enfasi. Il-fajl qatt ma joħroġ mill-apparat tiegħek: kollox isir f’dan il-browser, mingħajr limitu fid-daqs.",
     pick: "Agħżel fajl",
     drop: "jew waqqgħu hawn",
-    formats: "EPUB, TXT, Markdown jew HTML",
+    formats: "EPUB, DOCX, TXT, Markdown jew HTML",
     pickFolder: "Agħżel folder",
     folderHint: "Markdown bl-istampi? Agħżel il-folder tiegħu jew .zip u l-istampi jidħlu ġewwa.",
     bundleDocument: "{name} se jinbidel, flimkien mal-istampi tiegħu.",
     selected: "Fajl magħżul:",
     output: "Format tar-riżultat",
-    outputs: { epub: "EPUB (ktieb elettroniku)", html: "HTML (paġna web)", md: "Markdown" },
+    outputs: {
+      epub: "EPUB (ktieb elettroniku)",
+      html: "HTML (paġna web)",
+      md: "Markdown",
+      docx: "Word (DOCX)",
+    },
     options: "Kif tenfasizza",
     start: "Ikkonverti",
     progress: "Qed jiġi kkonvertit: {n} %",
@@ -283,11 +288,13 @@ export const strings: Strings = {
     download: "Niżżel {name}",
     errors: {
       unsupported:
-        "Dan il-format ma jistax jiġi kkonvertit. Agħżel fajl EPUB, TXT, Markdown jew HTML.",
+        "Dan il-format ma jistax jiġi kkonvertit. Agħżel fajl EPUB, DOCX, TXT, Markdown jew HTML.",
       drm: "Dan il-ktieb għandu d-DRM (protezzjoni kontra l-ikkupjar), għalhekk ma jistax jiġi kkonvertit. Jekk xtrajtu, staqsi lill-ħanut jekk jistgħux jagħtuk kopja mingħajr DRM.",
       invalid:
         "Dan il-fajl ma setax jinqara. Iċċekkja li jinfetaħ fil-qarrej tiegħek, jew ipprova ieħor.",
       noMarkdown: "M’hemm l-ebda fajl Markdown (.md) f’dan il-folder jew .zip.",
+      locked:
+        "Dan id-dokument għandu password jew huwa fil-format il-qadim ta’ Word (.doc), allura ma jistax jinbidel. Iftħu, issejvjah bħala .docx mingħajr password u erġa’ pprova.",
       failed:
         "Il-konverżjoni ma rnexxietx ({detail}). Jekk jerġa’ jiġri, jekk jogħġbok għidilna fuq GitHub.",
     },

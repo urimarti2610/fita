@@ -91,7 +91,7 @@ export const strings: Strings = {
       {
         q: "Czy mogę używać tego z moimi e-bookami?",
         a: [
-          "Tak. W zakładce „Konwertuj książkę” wybierasz plik EPUB, TXT, Markdown lub HTML i pobierasz kopię z wyróżnieniem. Konwersja odbywa się w twojej przeglądarce. Książek z DRM nie da się przekonwertować.",
+          "Tak. W zakładce „Konwertuj książkę” wybierasz plik EPUB, DOCX, TXT, Markdown lub HTML i pobierasz kopię z wyróżnieniem. Konwersja odbywa się w twojej przeglądarce. Książek z DRM nie da się przekonwertować.",
         ],
       },
       {
@@ -131,7 +131,7 @@ export const strings: Strings = {
         link: "Pomysły do klasy i do domu",
         lede: "Dla nauczycieli, zespołów wsparcia i rodzin, które chcą, żeby czytanie wymagało trochę mniej wysiłku, bez przygotowywania osobnych materiałów dla każdego ucznia.",
         steps: [
-          "Dostosuj materiały, które już masz: przekonwertuj czytanki, notatki albo książki w formacie EPUB, TXT, Markdown lub HTML i udostępnij je od razu.",
+          "Dostosuj materiały, które już masz: przekonwertuj czytanki, notatki albo książki w formacie EPUB, DOCX, TXT, Markdown lub HTML i udostępnij je od razu.",
           "Na lekcji wyświetl demo z tekstem na dany dzień i razem wypróbujcie różne natężenia i style. Niech każdy uczeń powie, co jest dla niego najwygodniejsze.",
           "Na szkolnych komputerach rozszerzenie działa bez kont i rejestracji i nie zbiera żadnych danych uczniów.",
           "W zakładce „Karty pracy” przygotujesz karty do czytania z dużą czcionką i przyjazną ramką, a potem je wydrukujesz albo zapiszesz jako PDF.",
@@ -265,14 +265,19 @@ export const strings: Strings = {
       "Wybierz książkę albo dokument i pobierz kopię z wyróżnieniem. Plik nigdy nie opuszcza twojego urządzenia: wszystko dzieje się w tej przeglądarce, bez limitu rozmiaru.",
     pick: "Wybierz plik",
     drop: "albo upuść go tutaj",
-    formats: "EPUB, TXT, Markdown lub HTML",
+    formats: "EPUB, DOCX, TXT, Markdown lub HTML",
     pickFolder: "Wybierz folder",
     folderHint:
       "Markdown z obrazkami? Wybierz jego folder albo plik .zip, a obrazki trafią do środka.",
     bundleDocument: "Zostanie przekonwertowany {name} razem z obrazkami.",
     selected: "Wybrany plik:",
     output: "Format wyjściowy",
-    outputs: { epub: "EPUB (e-book)", html: "HTML (strona internetowa)", md: "Markdown" },
+    outputs: {
+      epub: "EPUB (e-book)",
+      html: "HTML (strona internetowa)",
+      md: "Markdown",
+      docx: "Word (DOCX)",
+    },
     options: "Jak wyróżniać",
     start: "Konwertuj",
     progress: "Konwertowanie: {n} %",
@@ -282,11 +287,13 @@ export const strings: Strings = {
     download: "Pobierz {name}",
     errors: {
       unsupported:
-        "Tego formatu nie da się przekonwertować. Wybierz plik EPUB, TXT, Markdown lub HTML.",
+        "Tego formatu nie da się przekonwertować. Wybierz plik EPUB, DOCX, TXT, Markdown lub HTML.",
       drm: "Ta książka ma DRM (zabezpieczenie przed kopiowaniem), więc nie da się jej przekonwertować. Jeśli ją kupiono, zapytaj w sklepie, czy mogą udostępnić kopię bez DRM.",
       invalid:
         "Nie udało się odczytać tego pliku. Sprawdź, czy otwiera się w twoim czytniku, albo spróbuj z innym.",
       noMarkdown: "W tym folderze ani pliku .zip nie ma pliku Markdown (.md).",
+      locked:
+        "Ten dokument ma hasło albo jest w starym formacie Worda (.doc), więc nie da się go przekonwertować. Otwórz go, zapisz jako .docx bez hasła i spróbuj ponownie.",
       failed:
         "Konwersja się nie powiodła ({detail}). Jeśli to się powtórzy, daj nam znać na GitHubie.",
     },

@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { expect, test } from "@playwright/test";
 import JSZip from "jszip";
-import { CHAPTER, makeEpub } from "../test/fixtures.js";
+import { CHAPTER, makeDocx, makeEpub, wordRun } from "../test/fixtures.js";
 
 const dir = mkdtempSync(join(tmpdir(), "fita-e2e-"));
 
@@ -53,11 +53,40 @@ test("explains DRM kindly", async ({ page }) => {
 });
 
 test("rejects unsupported formats before converting", async ({ page }) => {
-  const path = join(dir, "doc.pdf");
-  writeFileSync(path, "%PDF");
+  const path = join(dir, "doc.odt");
+  writeFileSync(path, "PK");
   await page.goto("/en/convert/");
   await page.getByLabel(/Choose a file/).setInputFiles(path);
   await expect(page.getByRole("alert")).toContainText("can't be converted");
+  await expect(page.getByRole("button", { name: "Convert" })).toBeDisabled();
+});
+
+test("converts a Word document and keeps it a Word document", async ({ page }) => {
+  const path = await save(
+    "Informe.docx",
+    await makeDocx(
+      `<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr>${wordRun("Informe anual")}</w:p><w:p>${wordRun("Un text llarg amb ", "<w:i/>")}${wordRun("paraules")}</w:p>`,
+    ),
+  );
+  await page.goto("/ca/convertir/");
+  await page.getByLabel(/Tria un fitxer/).setInputFiles(path);
+  await expect(page.locator("#cv-preview h3")).toContainText("Informe anual");
+  await expect(page.locator("#cv-preview .fita-e").first()).toHaveText("Inf");
+  await expect(page.locator("#output-row")).toBeHidden();
+  await page.getByRole("button", { name: "Convertir" }).click();
+  const link = page.getByRole("link", { name: /Informe\.fita\.docx/ });
+  const [download] = await Promise.all([page.waitForEvent("download"), link.click()]);
+  const zip = await JSZip.loadAsync(readFileSync(await download.path()));
+  const xml = (await zip.file("word/document.xml")?.async("string")) ?? "";
+  expect(xml).toContain('<w:rPr><w:b/><w:bCs/><w:i/></w:rPr><w:t xml:space="preserve">U</w:t>');
+});
+
+test("explains password-protected Word documents", async ({ page }) => {
+  const path = join(dir, "secret.docx");
+  writeFileSync(path, Buffer.from([0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1, 0, 0]));
+  await page.goto("/en/convert/");
+  await page.getByLabel(/Choose a file/).setInputFiles(path);
+  await expect(page.getByRole("alert")).toContainText("password");
   await expect(page.getByRole("button", { name: "Convert" })).toBeDisabled();
 });
 
