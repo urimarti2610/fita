@@ -80,6 +80,21 @@
   "width80": {
     "message": "Breit (80 Zeichen)"
   },
+  "ruler": {
+    "message": "Zeilenlineal"
+  },
+  "rulerOff": {
+    "message": "Aus"
+  },
+  "rulerBand": {
+    "message": "Zeile hervorheben"
+  },
+  "rulerDim": {
+    "message": "Rest abdunkeln"
+  },
+  "rulerHint": {
+    "message": "Folgt dem Mauszeiger, der Textmarke (F7) und dem Tastaturfokus."
+  },
   "siteSettings": {
     "message": "Diese Einstellungen nur auf dieser Website verwenden"
   },

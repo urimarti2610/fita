@@ -80,6 +80,21 @@
   "width80": {
     "message": "Wide (80 characters)"
   },
+  "ruler": {
+    "message": "Line ruler"
+  },
+  "rulerOff": {
+    "message": "Off"
+  },
+  "rulerBand": {
+    "message": "Highlight the line"
+  },
+  "rulerDim": {
+    "message": "Darken the other lines"
+  },
+  "rulerHint": {
+    "message": "Follows the pointer, the text cursor (F7) and keyboard focus."
+  },
   "siteSettings": {
     "message": "Use these settings only on this site"
   },

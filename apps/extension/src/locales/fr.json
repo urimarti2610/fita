@@ -80,6 +80,21 @@
   "width80": {
     "message": "Large (80 caractères)"
   },
+  "ruler": {
+    "message": "Règle de lecture"
+  },
+  "rulerOff": {
+    "message": "Désactivée"
+  },
+  "rulerBand": {
+    "message": "Surligner la ligne"
+  },
+  "rulerDim": {
+    "message": "Assombrir le reste"
+  },
+  "rulerHint": {
+    "message": "Suit le pointeur, le curseur de texte (F7) et le focus du clavier."
+  },
   "siteSettings": {
     "message": "Utiliser ces réglages uniquement sur ce site"
   },

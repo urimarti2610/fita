@@ -1,4 +1,5 @@
 import { DEFAULT_OPTIONS, DEFAULT_STYLE, type EmphasisStyle } from "@fita/core";
+import type { RulerMode } from "./ruler.js";
 
 export type Settings = {
   strength: number;
@@ -8,6 +9,8 @@ export type Settings = {
   lineHeight: number;
   /** Maximum line length in `ch`; 0 leaves the page's own. */
   maxWidth: number;
+  /** Line ruler that follows the pointer, caret and focus. */
+  ruler: RulerMode;
 };
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -16,6 +19,7 @@ export const DEFAULT_SETTINGS: Settings = {
   every: DEFAULT_OPTIONS.every,
   lineHeight: 0,
   maxWidth: 0,
+  ruler: "off",
 };
 
 /** Per-site entry, stored under its own key so the sync quota per item is never hit. */

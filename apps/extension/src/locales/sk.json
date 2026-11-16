@@ -80,6 +80,21 @@
   "width80": {
     "message": "Široký (80 znakov)"
   },
+  "ruler": {
+    "message": "Pravítko riadka"
+  },
+  "rulerOff": {
+    "message": "Vypnuté"
+  },
+  "rulerBand": {
+    "message": "Zvýrazniť riadok"
+  },
+  "rulerDim": {
+    "message": "Stmaviť ostatné riadky"
+  },
+  "rulerHint": {
+    "message": "Sleduje ukazovateľ, textový kurzor (F7) a fokus klávesnice."
+  },
   "siteSettings": {
     "message": "Použiť tieto nastavenia len na tomto webe"
   },

@@ -80,6 +80,21 @@
   "width80": {
     "message": "Ampia (80 caratteri)"
   },
+  "ruler": {
+    "message": "Righello di lettura"
+  },
+  "rulerOff": {
+    "message": "Disattivato"
+  },
+  "rulerBand": {
+    "message": "Evidenzia la riga"
+  },
+  "rulerDim": {
+    "message": "Scurisci il resto"
+  },
+  "rulerHint": {
+    "message": "Segue il puntatore, il cursore di testo (F7) e il focus della tastiera."
+  },
   "siteSettings": {
     "message": "Usa queste impostazioni solo su questo sito"
   },

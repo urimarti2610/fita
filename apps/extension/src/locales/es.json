@@ -80,6 +80,21 @@
   "width80": {
     "message": "Ancho (80 caracteres)"
   },
+  "ruler": {
+    "message": "Regla de línea"
+  },
+  "rulerOff": {
+    "message": "Desactivada"
+  },
+  "rulerBand": {
+    "message": "Resaltar la línea"
+  },
+  "rulerDim": {
+    "message": "Oscurecer el resto"
+  },
+  "rulerHint": {
+    "message": "Sigue el puntero, el cursor de texto (F7) y el foco del teclado."
+  },
   "siteSettings": {
     "message": "Usar estos ajustes solo en este sitio"
   },

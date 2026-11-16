@@ -80,6 +80,21 @@
   "width80": {
     "message": "Široko (80 znakova)"
   },
+  "ruler": {
+    "message": "Ravnalo retka"
+  },
+  "rulerOff": {
+    "message": "Isključeno"
+  },
+  "rulerBand": {
+    "message": "Istakni redak"
+  },
+  "rulerDim": {
+    "message": "Zatamni ostale retke"
+  },
+  "rulerHint": {
+    "message": "Prati pokazivač, tekstni kursor (F7) i fokus tipkovnice."
+  },
   "siteSettings": {
     "message": "Koristi ove postavke samo na ovom web-mjestu"
   },

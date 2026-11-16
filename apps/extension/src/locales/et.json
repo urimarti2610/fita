@@ -80,6 +80,21 @@
   "width80": {
     "message": "Lai (80 märki)"
   },
+  "ruler": {
+    "message": "Rea joonlaud"
+  },
+  "rulerOff": {
+    "message": "Väljas"
+  },
+  "rulerBand": {
+    "message": "Tõsta rida esile"
+  },
+  "rulerDim": {
+    "message": "Tumenda ülejäänud read"
+  },
+  "rulerHint": {
+    "message": "Järgib kursorit, tekstikursorit (F7) ja klaviatuuri fookust."
+  },
   "siteSettings": {
     "message": "Kasuta neid seadeid ainult sellel saidil"
   },

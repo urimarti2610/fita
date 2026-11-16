@@ -80,6 +80,21 @@
   "width80": {
     "message": "Breed (80 tekens)"
   },
+  "ruler": {
+    "message": "Leesliniaal"
+  },
+  "rulerOff": {
+    "message": "Uit"
+  },
+  "rulerBand": {
+    "message": "Regel markeren"
+  },
+  "rulerDim": {
+    "message": "Rest donkerder maken"
+  },
+  "rulerHint": {
+    "message": "Volgt de aanwijzer, de tekstcursor (F7) en de toetsenbordfocus."
+  },
   "siteSettings": {
     "message": "Deze instellingen alleen op deze website gebruiken"
   },

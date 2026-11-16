@@ -80,6 +80,21 @@
   "width80": {
     "message": "Zabala (80 karaktere)"
   },
+  "ruler": {
+    "message": "Lerro-erregela"
+  },
+  "rulerOff": {
+    "message": "Desaktibatuta"
+  },
+  "rulerBand": {
+    "message": "Nabarmendu lerroa"
+  },
+  "rulerDim": {
+    "message": "Ilundu gainerakoa"
+  },
+  "rulerHint": {
+    "message": "Erakuslea, testu-kurtsorea (F7) eta teklatuaren fokua jarraitzen ditu."
+  },
   "siteSettings": {
     "message": "Erabili ezarpen hauek gune honetan bakarrik"
   },

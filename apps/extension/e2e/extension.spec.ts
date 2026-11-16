@@ -92,3 +92,37 @@ test("popup is translated and keyboard-usable", async ({ context, extensionId })
   await popup.keyboard.press("Tab");
   await expect(toggle).toBeFocused();
 });
+
+test("line ruler follows the pointer and keyboard, and goes away with emphasis", async ({
+  context,
+  worker,
+  baseURL,
+}) => {
+  await worker.evaluate(() => chrome.storage.sync.set({ settings: { ruler: "band" } }));
+  const page = await context.newPage();
+  await page.goto(baseURL);
+  const before = await page.locator("body").innerHTML();
+  const tabId = await tabIdOf(worker, baseURL);
+  await worker.evaluate((id) => fitaTest.setTab(id, true), tabId);
+
+  const ruler = page.locator("fita-ruler");
+  await expect(ruler).toHaveCount(1);
+  await expect(ruler).toHaveAttribute("aria-hidden", "true");
+  await expect(ruler).toBeHidden(); // nothing to follow yet
+
+  const box = await page.locator("#p").boundingBox();
+  if (!box) throw new Error("no paragraph box");
+  await page.mouse.move(box.x + 10, box.y + box.height / 2);
+  await expect(ruler).toBeVisible();
+  // The overlay never takes the pointer.
+  expect(await ruler.evaluate((el) => getComputedStyle(el).pointerEvents)).toBe("none");
+
+  // Keyboard focus moves it too.
+  await page.mouse.move(box.x + 10, box.y + box.height + 300);
+  await page.locator("textarea").focus();
+  await expect(ruler).toBeVisible();
+
+  await worker.evaluate((id) => fitaTest.setTab(id, false), tabId);
+  await expect(ruler).toHaveCount(0);
+  expect(await page.locator("body").innerHTML()).toBe(before);
+});

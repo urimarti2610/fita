@@ -206,6 +206,11 @@ select {
 .sample-fade {
   color: color-mix(in srgb, currentColor 60%, transparent);
 }
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
 footer {
   font-size: 0.85rem;
   color: var(--muted);

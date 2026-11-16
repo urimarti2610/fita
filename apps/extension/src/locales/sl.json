@@ -80,6 +80,21 @@
   "width80": {
     "message": "Široka (80 znakov)"
   },
+  "ruler": {
+    "message": "Ravnilo za vrstico"
+  },
+  "rulerOff": {
+    "message": "Izklopljeno"
+  },
+  "rulerBand": {
+    "message": "Poudari vrstico"
+  },
+  "rulerDim": {
+    "message": "Zatemni ostale vrstice"
+  },
+  "rulerHint": {
+    "message": "Sledi kazalcu, besedilnemu kazalcu (F7) in fokusu tipkovnice."
+  },
   "siteSettings": {
     "message": "Te nastavitve uporabi samo na tej strani"
   },

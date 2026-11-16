@@ -80,6 +80,21 @@
   "width80": {
     "message": "Wiesgħa (80 karattru)"
   },
+  "ruler": {
+    "message": "Riga tal-linja"
+  },
+  "rulerOff": {
+    "message": "Mitfi"
+  },
+  "rulerBand": {
+    "message": "Enfasizza l-linja"
+  },
+  "rulerDim": {
+    "message": "Dallam il-linji l-oħra"
+  },
+  "rulerHint": {
+    "message": "Isegwi l-pointer, il-cursor tat-test (F7) u l-fokus tat-tastiera."
+  },
   "siteSettings": {
     "message": "Uża dawn is-settings fuq dan is-sit biss"
   },

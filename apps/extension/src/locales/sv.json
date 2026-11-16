@@ -80,6 +80,21 @@
   "width80": {
     "message": "Bred (80 tecken)"
   },
+  "ruler": {
+    "message": "Läslinjal"
+  },
+  "rulerOff": {
+    "message": "Av"
+  },
+  "rulerBand": {
+    "message": "Markera raden"
+  },
+  "rulerDim": {
+    "message": "Gör resten mörkare"
+  },
+  "rulerHint": {
+    "message": "Följer pekaren, textmarkören (F7) och tangentbordsfokus."
+  },
   "siteSettings": {
     "message": "Använd de här inställningarna bara på den här webbplatsen"
   },
