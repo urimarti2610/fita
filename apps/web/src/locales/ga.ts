@@ -38,7 +38,7 @@ export const strings: Strings = {
     chrome: "Cuir le Chrome nó Edge",
     firefox: "Cuir le Firefox",
     preview:
-      "Níl sé sna siopaí fós. Idir an dá linn, is féidir leat an leagan réamhamhairc a shuiteáil ó GitHub.",
+      "Níl sé i siopa Firefox fós. Idir an dá linn, is féidir leat an leagan réamhamhairc a shuiteáil ó GitHub.",
   },
   demo: {
     heading: "Bain triail as le do théacs féin",

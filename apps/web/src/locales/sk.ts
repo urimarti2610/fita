@@ -38,7 +38,7 @@ export const strings: Strings = {
     chrome: "Pridať do Chrome alebo Edge",
     firefox: "Pridať do Firefoxu",
     preview:
-      "Zatiaľ to nie je v obchodoch. Medzitým si môžeš nainštalovať skúšobnú verziu z GitHubu.",
+      "Zatiaľ to nie je v obchode Firefoxu. Medzitým si môžeš nainštalovať skúšobnú verziu z GitHubu.",
   },
   demo: {
     heading: "Vyskúšaj to na vlastnom texte",

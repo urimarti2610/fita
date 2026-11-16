@@ -37,7 +37,8 @@ export const strings: Strings = {
   install: {
     chrome: "Gehitu Chrome edo Edge-ri",
     firefox: "Gehitu Firefox-i",
-    preview: "Oraindik ez dago dendetan. Bitartean, proba-bertsioa GitHub-etik instala dezakezu.",
+    preview:
+      "Oraindik ez dago Firefox-en dendan. Bitartean, proba-bertsioa GitHub-etik instala dezakezu.",
   },
   demo: {
     heading: "Probatu zure testuarekin",

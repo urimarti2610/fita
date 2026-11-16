@@ -38,7 +38,7 @@ export const strings: Strings = {
     chrome: "Hozzáadás a Chrome-hoz vagy az Edge-hez",
     firefox: "Hozzáadás a Firefoxhoz",
     preview:
-      "Még nincs fent az áruházakban. Addig is telepítheted az előzetes verziót a GitHubról.",
+      "Még nincs fent a Firefox áruházában. Addig is telepítheted az előzetes verziót a GitHubról.",
   },
   demo: {
     heading: "Próbáld ki a saját szövegeddel",

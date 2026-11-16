@@ -2,6 +2,8 @@
 
 **Free, open-source reading aids for people with ADHD and dyslexia.** Website: [fitaread.com](https://fitaread.com)
 
+**Install:** [Chrome Web Store](https://chromewebstore.google.com/detail/fita/oejckcagfphojldhbdgedgpdfpkajpej) (Chrome, Edge and other Chromium browsers) · Firefox: coming soon; meanwhile, the [latest release](https://github.com/urimarti2610/fita/releases/latest).
+
 fita adds _anchor points_ to text: it gently emphasizes the beginning of each word to guide your eyes. It works where you already read — on the web and in your ebooks — and everything runs on your device.
 
 > We don't promise faster reading. Research does not show an average speed gain. We aim for reading that is **more comfortable, your way**.

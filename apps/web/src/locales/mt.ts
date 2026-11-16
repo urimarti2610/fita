@@ -38,7 +38,7 @@ export const strings: Strings = {
     chrome: "Żid ma’ Chrome jew Edge",
     firefox: "Żid ma’ Firefox",
     preview:
-      "Għadha mhix fil-ħwienet. Sadanittant, tista’ tinstalla l-verżjoni ta’ prova minn GitHub.",
+      "Għadha mhix fil-ħanut ta’ Firefox. Sadanittant, tista’ tinstalla l-verżjoni ta’ prova minn GitHub.",
   },
   demo: {
     heading: "Ipprovaha bit-test tiegħek",

@@ -37,7 +37,8 @@ export const strings: Strings = {
   install: {
     chrome: "Dodaj v Chrome ali Edge",
     firefox: "Dodaj v Firefox",
-    preview: "V trgovinah še ni na voljo. Do takrat lahko preizkusno različico namestiš z GitHuba.",
+    preview:
+      "V Firefoxovi trgovini še ni na voljo. Do takrat lahko preizkusno različico namestiš z GitHuba.",
   },
   demo: {
     heading: "Preizkusi na svojem besedilu",

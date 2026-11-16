@@ -16,7 +16,7 @@ const t = STRINGS[lang];
 const headline = toHTML(t.hero.headline, { strength: 0.5, locale: lang }, "fita-e");
 const chrome = WEB_BRAND.chromeStore ?? WEB_BRAND.releases;
 const firefox = WEB_BRAND.firefoxStore ?? WEB_BRAND.releases;
-const preview = !WEB_BRAND.chromeStore || !WEB_BRAND.firefoxStore;
+const preview = !WEB_BRAND.firefoxStore;
 ---
 
 <Base lang={lang}>

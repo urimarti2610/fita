@@ -38,7 +38,7 @@ export const strings: Strings = {
     chrome: "Engadir a Chrome ou Edge",
     firefox: "Engadir a Firefox",
     preview:
-      "Aínda non está nas tendas. Mentres tanto, podes instalar a versión de proba desde GitHub.",
+      "Aínda non está na tenda de Firefox. Mentres tanto, podes instalar a versión de proba desde GitHub.",
   },
   demo: {
     heading: "Próbao co teu texto",

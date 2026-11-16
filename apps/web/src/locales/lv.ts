@@ -38,7 +38,7 @@ export const strings: Strings = {
     chrome: "Pievienot Chrome vai Edge",
     firefox: "Pievienot Firefox",
     preview:
-      "Veikalos tas vēl nav pieejams. Pagaidām vari instalēt izmēģinājuma versiju no GitHub.",
+      "Firefox veikalā tas vēl nav pieejams. Pagaidām vari instalēt izmēģinājuma versiju no GitHub.",
   },
   demo: {
     heading: "Izmēģini ar savu tekstu",
