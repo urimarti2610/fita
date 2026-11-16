@@ -80,6 +80,21 @@
   "width80": {
     "message": "Plats (80 rakstzīmes)"
   },
+  "ruler": {
+    "message": "Rindas lineāls"
+  },
+  "rulerOff": {
+    "message": "Izslēgts"
+  },
+  "rulerBand": {
+    "message": "Izcelt rindu"
+  },
+  "rulerDim": {
+    "message": "Aptumšot pārējās rindas"
+  },
+  "rulerHint": {
+    "message": "Seko rādītājam, teksta kursoram (F7) un tastatūras fokusam."
+  },
   "siteSettings": {
     "message": "Izmantot šos iestatījumus tikai šajā vietnē"
   },

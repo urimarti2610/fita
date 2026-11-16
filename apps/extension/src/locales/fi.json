@@ -80,6 +80,21 @@
   "width80": {
     "message": "Leveä (80 merkkiä)"
   },
+  "ruler": {
+    "message": "Riviviivain"
+  },
+  "rulerOff": {
+    "message": "Pois"
+  },
+  "rulerBand": {
+    "message": "Korosta rivi"
+  },
+  "rulerDim": {
+    "message": "Tummenna muut rivit"
+  },
+  "rulerHint": {
+    "message": "Seuraa osoitinta, tekstikohdistinta (F7) ja näppäimistön kohdistusta."
+  },
   "siteSettings": {
     "message": "Käytä näitä asetuksia vain tällä sivustolla"
   },

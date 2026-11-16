@@ -80,6 +80,21 @@
   "width80": {
     "message": "Széles (80 karakter)"
   },
+  "ruler": {
+    "message": "Sorvonalzó"
+  },
+  "rulerOff": {
+    "message": "Ki"
+  },
+  "rulerBand": {
+    "message": "Sor kiemelése"
+  },
+  "rulerDim": {
+    "message": "A többi sor sötétítése"
+  },
+  "rulerHint": {
+    "message": "Követi az egérmutatót, a szövegkurzort (F7) és a billentyűzetfókuszt."
+  },
   "siteSettings": {
     "message": "Ezek a beállítások csak erre a webhelyre"
   },

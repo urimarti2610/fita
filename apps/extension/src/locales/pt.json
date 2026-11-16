@@ -80,6 +80,21 @@
   "width80": {
     "message": "Larga (80 carateres)"
   },
+  "ruler": {
+    "message": "Régua de leitura"
+  },
+  "rulerOff": {
+    "message": "Desativada"
+  },
+  "rulerBand": {
+    "message": "Realçar a linha"
+  },
+  "rulerDim": {
+    "message": "Escurecer o resto"
+  },
+  "rulerHint": {
+    "message": "Segue o ponteiro, o cursor de texto (F7) e o foco do teclado."
+  },
   "siteSettings": {
     "message": "Usar estas definições só neste site"
   },

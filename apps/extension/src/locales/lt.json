@@ -80,6 +80,21 @@
   "width80": {
     "message": "Platus (80 simbolių)"
   },
+  "ruler": {
+    "message": "Eilutės liniuotė"
+  },
+  "rulerOff": {
+    "message": "Išjungta"
+  },
+  "rulerBand": {
+    "message": "Paryškinti eilutę"
+  },
+  "rulerDim": {
+    "message": "Patamsinti kitas eilutes"
+  },
+  "rulerHint": {
+    "message": "Seka žymeklį, teksto žymeklį (F7) ir klaviatūros fokusą."
+  },
   "siteSettings": {
     "message": "Naudoti šiuos nustatymus tik šioje svetainėje"
   },

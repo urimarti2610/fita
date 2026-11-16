@@ -80,6 +80,21 @@
   "width80": {
     "message": "Szeroki (80 znaków)"
   },
+  "ruler": {
+    "message": "Linijka do czytania"
+  },
+  "rulerOff": {
+    "message": "Wyłączona"
+  },
+  "rulerBand": {
+    "message": "Podświetl wiersz"
+  },
+  "rulerDim": {
+    "message": "Przyciemnij pozostałe wiersze"
+  },
+  "rulerHint": {
+    "message": "Podąża za wskaźnikiem, kursorem tekstowym (F7) i fokusem klawiatury."
+  },
   "siteSettings": {
     "message": "Używaj tych ustawień tylko na tej stronie"
   },

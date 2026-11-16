@@ -80,6 +80,21 @@
   "width80": {
     "message": "Bred (80 tegn)"
   },
+  "ruler": {
+    "message": "Linjelineal"
+  },
+  "rulerOff": {
+    "message": "Fra"
+  },
+  "rulerBand": {
+    "message": "Fremhæv linjen"
+  },
+  "rulerDim": {
+    "message": "Gør resten mørkere"
+  },
+  "rulerHint": {
+    "message": "Følger markøren, tekstmarkøren (F7) og tastaturfokus."
+  },
   "siteSettings": {
     "message": "Brug kun disse indstillinger på dette websted"
   },

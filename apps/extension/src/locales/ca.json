@@ -80,6 +80,21 @@
   "width80": {
     "message": "Ampla (80 caràcters)"
   },
+  "ruler": {
+    "message": "Regle de línia"
+  },
+  "rulerOff": {
+    "message": "Desactivat"
+  },
+  "rulerBand": {
+    "message": "Ressaltar la línia"
+  },
+  "rulerDim": {
+    "message": "Enfosquir la resta"
+  },
+  "rulerHint": {
+    "message": "Segueix el punter, el cursor de text (F7) i el focus del teclat."
+  },
   "siteSettings": {
     "message": "Fer servir aquests ajustos només en aquest lloc"
   },

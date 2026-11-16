@@ -1,5 +1,6 @@
 import { applyToElement, type Controller, STYLE_ATTRIBUTE } from "@fita/core";
 import { EXTENSION_BRAND } from "../brand.js";
+import { createRuler } from "./ruler.js";
 import {
   type ContentMessage,
   type ContentReply,
@@ -26,11 +27,13 @@ function main() {
   const origin = siteOrigin(location.href);
   let controller: Controller | null = null;
   let applied = "";
+  const ruler = createRuler(document);
 
   function applyPageStyles(settings: Settings) {
     html.setAttribute(STYLE_ATTRIBUTE, settings.style);
     toggleVar(LINE_HEIGHT_ATTR, LINE_HEIGHT_VAR, settings.lineHeight, String(settings.lineHeight));
     toggleVar(MAX_WIDTH_ATTR, MAX_WIDTH_VAR, settings.maxWidth, `${settings.maxWidth}ch`);
+    ruler.set(settings.ruler);
   }
 
   function toggleVar(attr: string, variable: string, value: number, css: string) {
@@ -58,6 +61,7 @@ function main() {
     controller?.undo();
     controller = null;
     applied = "";
+    ruler.set("off");
     for (const attr of [STYLE_ATTRIBUTE, LINE_HEIGHT_ATTR, MAX_WIDTH_ATTR])
       html.removeAttribute(attr);
     html.style.removeProperty(LINE_HEIGHT_VAR);

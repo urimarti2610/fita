@@ -25,3 +25,11 @@ Record the result (date, versions, pass/fail, notes) in the release notes. Known
 
 - Extension popup: every control is reachable with `Tab`, toggles with `Space`, sliders with arrow keys. Visible focus ring.
 - `Alt+B` toggles emphasis on the current tab (changeable in the browser's shortcut settings).
+
+## Line ruler
+
+An optional reading guide in the extension ("More options" → "Line ruler"): it either highlights the current line or darkens the lines above and below it.
+
+- It follows the pointer (or a tap on touch screens), the text cursor when caret browsing is on (`F7` in Chrome and Firefox: move line by line with `↑/↓`), and keyboard focus (`Tab`).
+- It is a fixed overlay in a closed shadow root, outside `<body>`: page text, layout and the accessibility tree are untouched. It is `aria-hidden`, ignores the pointer (`pointer-events: none`) and is removed completely when emphasis is turned off.
+- Light and dark colour schemes have their own tints; in forced-colours mode (Windows high contrast) the band becomes a `Highlight` outline. With `prefers-reduced-motion: reduce` it jumps from line to line without animating.

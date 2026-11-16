@@ -80,6 +80,21 @@
   "width80": {
     "message": "Leathan (80 carachtar)"
   },
+  "ruler": {
+    "message": "Rialóir líne"
+  },
+  "rulerOff": {
+    "message": "As"
+  },
+  "rulerBand": {
+    "message": "Aibhsigh an líne"
+  },
+  "rulerDim": {
+    "message": "Dorchaigh na línte eile"
+  },
+  "rulerHint": {
+    "message": "Leanann sé an pointeoir, an cúrsóir téacs (F7) agus fócas an mhéarchláir."
+  },
   "siteSettings": {
     "message": "Úsáid na socruithe seo ar an suíomh seo amháin"
   },

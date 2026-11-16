@@ -1,4 +1,5 @@
 import { DEFAULT_STYLE, type EmphasisStyle } from "@fita/core";
+import type { RulerMode } from "./ruler.js";
 import {
   ALL_SITES_KEY,
   ALL_SITES_PATTERN,
@@ -27,6 +28,7 @@ const strengthValue = $<HTMLOutputElement>("strengthValue");
 const every = $<HTMLSelectElement>("every");
 const lineHeight = $<HTMLSelectElement>("lineHeight");
 const maxWidth = $<HTMLSelectElement>("maxWidth");
+const ruler = $<HTMLSelectElement>("ruler");
 const custom = $<HTMLInputElement>("custom");
 const shortcuts = $<HTMLAnchorElement>("shortcuts");
 const styleInputs = [...document.querySelectorAll<HTMLInputElement>('input[name="style"]')];
@@ -48,6 +50,7 @@ function readSettings(): Settings {
     every: Number(every.value),
     lineHeight: Number(lineHeight.value),
     maxWidth: Number(maxWidth.value),
+    ruler: ruler.value as RulerMode,
   };
 }
 
@@ -61,6 +64,7 @@ function render() {
   every.value = String(s.every);
   lineHeight.value = String(s.lineHeight);
   maxWidth.value = String(s.maxWidth);
+  ruler.value = s.ruler;
   alwaysOn.checked = state.alwaysOn;
   allSites.checked = state.allSites;
   custom.checked = state.custom;
@@ -136,7 +140,7 @@ allSites.addEventListener("change", async () => {
 
 strength.addEventListener("input", () => onSettingsInput(false));
 strength.addEventListener("change", () => onSettingsInput(true));
-for (const el of [...styleInputs, every, lineHeight, maxWidth]) {
+for (const el of [...styleInputs, every, lineHeight, maxWidth, ruler]) {
   el.addEventListener("change", () => onSettingsInput(true));
 }
 

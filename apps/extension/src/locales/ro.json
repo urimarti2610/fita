@@ -80,6 +80,21 @@
   "width80": {
     "message": "Lat (80 de caractere)"
   },
+  "ruler": {
+    "message": "Riglă de citire"
+  },
+  "rulerOff": {
+    "message": "Dezactivată"
+  },
+  "rulerBand": {
+    "message": "Evidențiază rândul"
+  },
+  "rulerDim": {
+    "message": "Întunecă restul"
+  },
+  "rulerHint": {
+    "message": "Urmărește indicatorul, cursorul de text (F7) și focalizarea tastaturii."
+  },
   "siteSettings": {
     "message": "Folosește aceste setări doar pe acest site"
   },
