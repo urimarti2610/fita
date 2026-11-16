@@ -6,7 +6,7 @@ export const WEB_BRAND = {
   chromeStore: "https://chromewebstore.google.com/detail/fita/oejckcagfphojldhbdgedgpdfpkajpej" as
     | string
     | null,
-  firefoxStore: null as string | null,
+  firefoxStore: "https://addons.mozilla.org/firefox/addon/fita/" as string | null,
   get releases() {
     return `${this.repository}/releases/latest`;
   },
