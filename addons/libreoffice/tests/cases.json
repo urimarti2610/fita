@@ -1,0 +1,437 @@
+[
+  {
+    "text": "Hola, ¿qué tal estás?",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Ho]la, ¿[q]ué [t]al [es]tás?"
+  },
+  {
+    "text": "El niño soñó",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[E]l [ni]ño [so]ñó"
+  },
+  {
+    "text": "La col·legiala",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[L]a [col·]legiala"
+  },
+  {
+    "text": "l'àvia d'una casa",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "l'[àv]ia d'[u]na [ca]sa"
+  },
+  {
+    "text": "L’home",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "L’[ho]me"
+  },
+  {
+    "text": "The quick brown fox",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[T]he [qu]ick [br]own [f]ox"
+  },
+  {
+    "text": "don't it's",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[do]n't [it]'s"
+  },
+  {
+    "text": "Съешь же ещё этих",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Съ]ешь [ж]е [е]щё [эт]их"
+  },
+  {
+    "text": "Zażółć gęślą jaźń",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Za]żółć [gę]ślą [ja]źń"
+  },
+  {
+    "text": "Καλημέρα κόσμε",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Καλ]ημέρα [κό]σμε"
+  },
+  {
+    "text": "مرحبا بالعالم",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[مر]حبا [بال]عالم"
+  },
+  {
+    "text": "שלום עולם",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[של]ום [עו]לם"
+  },
+  {
+    "text": "你好世界",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "你好世界"
+  },
+  {
+    "text": "こんにちは世界、カタカナ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "こんにちは世界、カタカナ"
+  },
+  {
+    "text": "ภาษาไทย",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "ภาษาไทย"
+  },
+  {
+    "text": "ພາສາລາວ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "ພາສາລາວ"
+  },
+  {
+    "text": "ភាសាខ្មែរ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "ភាសាខ្មែរ"
+  },
+  {
+    "text": "မြန်မာဘာသာ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "မြန်မာဘာသာ"
+  },
+  {
+    "text": "你好 hello",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "你好 [he]llo"
+  },
+  {
+    "text": "I ❤️ 👩‍👩‍👧 café",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[I] ❤️ 👩‍👩‍👧 [ca]fé"
+  },
+  {
+    "text": "ñ̃e̊xamp",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ñ̃e̊]xamp"
+  },
+  {
+    "text": "és",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[é]s"
+  },
+  {
+    "text": "ﬁnd",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ﬁ]nd"
+  },
+  {
+    "text": "Año 2024, 3D y 1.000",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[A]ño 2024, 3D [y] 1.000"
+  },
+  {
+    "text": "٣٤٥ mil",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "٣٤٥ [m]il"
+  },
+  {
+    "text": "and/or amigo(a)",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[a]nd/[o]r [am]igo([a])"
+  },
+  {
+    "text": "¡¡ ...",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "¡¡ ..."
+  },
+  {
+    "text": "  \n\t",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "  \n\t"
+  },
+  {
+    "text": "",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": ""
+  },
+  {
+    "text": "Mixed: café 你好 שלום 👩‍👩‍👧 https://x.y/z l'àvia\r\n2024 — ok",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Mi]xed: [ca]fé 你好 [של]ום 👩‍👩‍👧 https://x.y/z l'[àv]ia\r\n2024 — [o]k"
+  },
+  {
+    "text": "Flags 🇪🇸🇫🇷 and 👍🏽 thumbs",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Fl]ags 🇪🇸🇫🇷 [a]nd 👍🏽 [th]umbs"
+  },
+  {
+    "text": "Hello world from the café",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[He]llo [wo]rld [fr]om [t]he [ca]fé"
+  },
+  {
+    "text": "Reading is comfortable",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Rea]ding [i]s [comf]ortable"
+  },
+  {
+    "text": "e.g. U.S.A. version 3.14 or 1,000",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[e].g. [U.]S.A. [ver]sion 3.14 [o]r 1,000"
+  },
+  {
+    "text": "palabra https://example.com/path?q=1 palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra https://example.com/path?q=1 [pal]abra"
+  },
+  {
+    "text": "palabra http://ejemplo.cat palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra http://ejemplo.cat [pal]abra"
+  },
+  {
+    "text": "palabra www.example.org/page palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra www.example.org/page [pal]abra"
+  },
+  {
+    "text": "palabra persona@example.com palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra persona@example.com [pal]abra"
+  },
+  {
+    "text": "palabra nom.cognom@domini.cat palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra nom.cognom@domini.cat [pal]abra"
+  },
+  {
+    "text": "palabra /usr/local/bin palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra /usr/local/bin [pal]abra"
+  },
+  {
+    "text": "palabra ./src/index.ts palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra ./src/index.ts [pal]abra"
+  },
+  {
+    "text": "palabra ~/Documents/libro.epub palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra ~/Documents/libro.epub [pal]abra"
+  },
+  {
+    "text": "palabra C:\\Users\\docs palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra C:\\Users\\docs [pal]abra"
+  },
+  {
+    "text": "palabra `npm install` palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra `npm install` [pal]abra"
+  },
+  {
+    "text": "palabra foo() palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra foo() [pal]abra"
+  },
+  {
+    "text": "palabra console.log(x) palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra console.log(x) [pal]abra"
+  },
+  {
+    "text": "palabra snake_case_name palabra",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pal]abra snake_case_name [pal]abra"
+  },
+  {
+    "text": "casa elefante",
+    "options": {
+      "strength": 0.7,
+      "minWordLength": 5
+    },
+    "expected": "[c]asa [elefan]te"
+  },
+  {
+    "text": "uno dos 3 tres cuatro",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1,
+      "every": 2
+    },
+    "expected": "[u]no dos 3 [tr]es cuatro"
+  },
+  {
+    "text": "12345 3Dmax",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1,
+      "skipNumbers": false
+    },
+    "expected": "[12]345 [3D]max"
+  },
+  {
+    "text": "Leer de forma más cómoda, a tu manera: un ancla en cada palabra.",
+    "expected": "[Le]er [d]e [fo]rma [m]ás [cóm]oda, [a] [t]u [man]era: [u]n [an]cla [e]n [ca]da [pal]abra."
+  },
+  {
+    "text": "Llegir de manera més còmoda, a la teva manera: l'àncora d'una paraula.",
+    "expected": "[Lle]gir [d]e [man]era [m]és [còm]oda, [a] [l]a [te]va [man]era: l'[ànc]ora d'[u]na [par]aula."
+  },
+  {
+    "text": "Reading more comfortably, your way. Strength goes from lighter to stronger.",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Readi]ng [mor]e [comforta]bly, [you]r [w]ay. [Streng]th [goe]s [fro]m [light]er [t]o [strong]er."
+  },
+  {
+    "text": "Reading more comfortably, your way. Strength goes from lighter to stronger.",
+    "options": {
+      "strength": 0.2
+    },
+    "expected": "[R]eading [m]ore [co]mfortably, [y]our [w]ay. [St]rength [g]oes [f]rom [l]ighter [t]o [st]ronger."
+  },
+  {
+    "text": "a ab abc abcd abcde abcdef abcdefg abcdefgh abcdefghi abcdefghij",
+    "expected": "[a] [a]b [a]bc [ab]cd [ab]cde [abc]def [abc]defg [abcd]efgh [abcd]efghi [abcde]fghij"
+  },
+  {
+    "text": "a ab abc abcd abcde abcdef abcdefg abcdefgh abcdefghi abcdefghij",
+    "options": {
+      "strength": 0.5
+    },
+    "expected": "[a] [a]b [a]bc [ab]cd [abc]de [abc]def [abcd]efg [abcd]efgh [abcde]fghi [abcde]fghij"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "menuSettings": "Configuració…",
+  "menuDocument": "Destacar el document",
+  "menuSelection": "Destacar la selecció",
+  "menuRemove": "Treure l'èmfasi",
+  "intro": "Destaca suaument l'inici de cada paraula perquè la vista trobi on recolzar-se. Llegeix més còmode, a la teva manera.",
+  "strength": "Intensitat",
+  "lighter": "Més suau",
+  "stronger": "Més intensa",
+  "style": "Estil",
+  "styleBold": "Negreta",
+  "styleColor": "Color",
+  "styleUnderline": "Subratllat",
+  "working": "Processant…",
+  "done": "Fet: {count} paraules destacades.",
+  "removed": "Èmfasi tret.",
+  "noSelection": "Selecciona primer un text.",
+  "error": "Alguna cosa ha fallat: {message}",
+  "privacy": "Tot passa dins d'aquest document. No s'envia res enlloc.",
+  "help": "Treure l'èmfasi només treu el que ha afegit aquest complement: les teves negretes, colors i subratllats es queden."
+}
