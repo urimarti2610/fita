@@ -17,4 +17,12 @@ Preview build, not yet in the browser stores. Everything runs on your device.
 
 `fita-sans-<version>.zip` holds a font that emphasizes word starts by itself, for computers and e-readers. See the `README.md` inside for how to install it and where it works.
 
+## calibre plugin
+
+Adds reading emphasis to the EPUB books in your calibre library.
+
+1. Download `fita-calibre-<version>.zip`. Do not unzip it.
+2. In calibre: **Preferences → Plugins → Load plugin from file** and choose the zip, then restart calibre.
+3. Select books and click **Reading emphasis**.
+
 Found a problem? [Open an issue](https://github.com/urimarti2610/fita/issues/new/choose).

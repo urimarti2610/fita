@@ -5,7 +5,6 @@ Each item becomes a GitHub issue labelled `roadmap` once the repository exists.
 | Issue title | Notes |
 | --- | --- |
 | Mobile app | Android/iOS reader with the same emphasis engine (`@fita/core`). |
-| Calibre plugin | Convert books inside Calibre; can reuse `createMarkupEmphasizer`. |
 | KOReader plugin | Lua port of the algorithm or a CSS-based approach. |
 | PDF conversion | PDF needs a different strategy (reflow to EPUB/HTML or overlay). |
 | Word, LibreOffice and Google Docs add-ons | |
@@ -19,3 +18,4 @@ Each item becomes a GitHub issue labelled `roadmap` once the repository exists.
 - **Line ruler / focus line** (#8): extension, "More options" → "Line ruler".
 - **Read aloud** (#7): extension popup, on-device voices only.
 - **Reading mode in the extension** (#9): extension, "More options" → "Reading mode".
+- **Calibre plugin** (#2): [`plugins/calibre`](../plugins/calibre), a Python port of the core that adds emphasis to EPUB books in the library.

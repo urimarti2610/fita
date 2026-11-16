@@ -1,0 +1,2850 @@
+[
+  {
+    "text": "e.g. (s'n ",
+    "options": {},
+    "expected": "[e].g. ([s]'n "
+  },
+  {
+    "text": "Հայաստան/10:30/தமிழ். hola) ",
+    "options": {},
+    "expected": "[Հայա]ստան/10:30/[த]மிழ். [ho]la) "
+  },
+  {
+    "text": "_x-カタカナ; ",
+    "options": {},
+    "expected": "_x-カタカナ; "
+  },
+  {
+    "text": "e.g.. Ελλάδα\nZażółć — Straße s'n צ׳יפס 'quoted'  snake_case\n",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[e].g.. Ελλάδα\n[Z]ażółć — Straße s'n [צ]׳יפס 'quoted'  snake_case\n"
+  },
+  {
+    "text": "٣٤٥ precisamente — naïve: ",
+    "options": {},
+    "expected": "٣٤٥ [preci]samente — [na]ïve: "
+  },
+  {
+    "text": "aujourd'hui-café: qu'il/10:30: ¡sí!-Հայաստան) EU:n (",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[aujou]rd'hui-[ca]fé: [qu]'il/[1]0:[3]0: ¡[s]í!-[Հայա]ստան) [EU]:n ("
+  },
+  {
+    "text": "don't/",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[do]n't/"
+  },
+  {
+    "text": "ภาษาไทย ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "ภาษาไทย "
+  },
+  {
+    "text": "coöperate, EU:n. és Việt coöperate ¿qué? (Україна ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[coöper]ate, [EU:]n. [é]s [Việ]t [coöpera]te ¿[q]ué? ([Украї]на "
+  },
+  {
+    "text": "Україна: ~/a/b\n— Съешь, Việt/10:30 — ~/a/b\n10:30; ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Укр]аїна: ~/a/b\n— [Съ]ешь, [Vi]ệt/[1]0:[3]0 — ~/a/b\n[1]0:[3]0; "
+  },
+  {
+    "text": "বাংলা (Съешь-snake_case — Việt/カタカナ; s'n\nTiếng, हिन्दी-",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[বাং]লা (Съешь-snake_case — Việt/カタカナ; [s]'n\nTiếng, हिन्दी-"
+  },
+  {
+    "text": "ש״ס —; precisamente  a@b.cd ქართული, Tiếng 你好 Tiếng) ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[ש]״ס —; [preci]samente  a@b.cd[ ქარ]თული, [Ti]ếng 你好 [Ti]ếng) "
+  },
+  {
+    "text": "~/a/b. és) ",
+    "options": {},
+    "expected": "~/a/b. [é]s) "
+  },
+  {
+    "text": "gęślą, hola — 10:30 ❤️ (don't; ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[gę]ślą, [ho]la — [1]0:[3]0 ❤️ ([do]n't; "
+  },
+  {
+    "text": "qu'il\n한국어: 3D, ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[qu]'il\n[한]국어: [3]D, "
+  },
+  {
+    "text": "qu'il: ĳssel/1.000,5 (~/a/b: l'àvia  ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[q]u'il: ĳssel/1.000,5 (~/a/b: l'[à]via  "
+  },
+  {
+    "text": "مَرحبا-Zażółć ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[مَرحب]ا-[Zażó]łć "
+  },
+  {
+    "text": "col·legi (",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[co]l·legi ("
+  },
+  {
+    "text": "Ｆｕｌｌ; U.S.A.  aujourd'hui; x(), pa­la: 'quoted'; ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Ｆｕ]ｌｌ; [U.]S.A.  [aujou]rd'hui; x(), [pa]­la: '[quo]ted'; "
+  },
+  {
+    "text": "ש״ס (Україна ~/a/b a.b(c) ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[ש]״ס (Україна ~/a/b a.b(c) "
+  },
+  {
+    "text": "Tiếng-",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[T]iếng-"
+  },
+  {
+    "text": "EU:n d'una, ﬁn/❤️, ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[EU:n ]d'una, ﬁn/❤️, "
+  },
+  {
+    "text": "ĳssel\nहिन्दी (Հայաստան-",
+    "options": {},
+    "expected": "[ĳs]sel\n[हि]न्दी ([Հայա]ստան-"
+  },
+  {
+    "text": "٣٤٥, Zażółć, ¡sí!; aujourd'hui/Հայաստան\nnaïve, U.S.A. (",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "٣٤٥, [Z]ażółć, ¡sí!; [au]jourd'hui/Հայաստան\n[n]aïve, U.S.A. ("
+  },
+  {
+    "text": "és (…-カタカナ-ﬁn. hola  Việt o': https://x.y/z ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[é]s (…-カタカナ-[ﬁ]n. [hol]a  [Việ]t [o]': https://x.y/z "
+  },
+  {
+    "text": "gęślą (ﬁn  … (",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[gę]ślą ([ﬁ]n  … ("
+  },
+  {
+    "text": "snake_case) — 👩‍👩‍👧  ¡sí!  ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "snake_case) — 👩‍👩‍👧  ¡[s]í!  "
+  },
+  {
+    "text": "ภาษาไทย שלום/gęślą ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "ภาษาไทย [של]ום/[gę]ślą "
+  },
+  {
+    "text": "qu'il — …) ",
+    "options": {},
+    "expected": "[qu]'il — …) "
+  },
+  {
+    "text": "e.g., ¡sí!\nש״ס ქართული-¿qué?: ",
+    "options": {},
+    "expected": "[e].g., ¡[s]í!\n[ש]״ס [ქარ]თული-¿[q]ué?: "
+  },
+  {
+    "text": "カタカナ. ",
+    "options": {},
+    "expected": "カタカナ. "
+  },
+  {
+    "text": "és  Zażółć — Việt) Съешь: e.g.) ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[é]s  [Za]żółć — [Vi]ệt) [Съ]ешь: [e].g.) "
+  },
+  {
+    "text": "हिन्दी és precisamente-qu'il ¿qué?: snake_case-gęślą বাংলা ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[हि]न्दी [é]s [precisam]ente-[qu'i]l ¿[q]ué?: snake_case-[gęśl]ą [বাং]লা "
+  },
+  {
+    "text": "snake_case és\nՀայաստան — d'una ('quoted'. שלום ",
+    "options": {},
+    "expected": "snake_case[ ]és\n[Հայա]ստան — d'[u]na ('[quo]ted'. [של]ום "
+  },
+  {
+    "text": "és  Съешь, gęślą) ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[é]s  Съешь, gęślą) "
+  },
+  {
+    "text": "col·legi: 👩‍👩‍👧 — Հայաստան: Straße. Հայաստան ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[col]·legi: 👩‍👩‍👧 — [Հայ]աստան: [St]raße. [Հայ]աստան "
+  },
+  {
+    "text": "https://x.y/z (col·legi Ελλάδα\n",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "https://x.y/z ([col]·legi [Ελ]λάδα\n"
+  },
+  {
+    "text": "d'una … (EU:n: ¡sí! — ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "d'[u]na … ([EU]:n: ¡[s]í! — "
+  },
+  {
+    "text": "a.b(c) (Съешь ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "a.b(c) ([Съ]ешь "
+  },
+  {
+    "text": "'quoted' e.g. l'àvia (nota); שלום. ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "'[quo]ted' e.g. l'àvia ([n]ota); שלום. "
+  },
+  {
+    "text": "Україна insultantemente/it’s (",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Україна insultan]temente/[it’]s ("
+  },
+  {
+    "text": "~/a/b — gęślą; Việt (coöperate/٣٤٥. 3D ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "~/a/b — [g]ęślą; Việt ([co]öperate/٣٤٥. 3D "
+  },
+  {
+    "text": "10:30 gęślą-ქართული/",
+    "options": {},
+    "expected": "10:30 [gę]ślą-[ქარ]თული/"
+  },
+  {
+    "text": "한국어\nprecisamente (¡sí!, ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[한]국어\nprecisamente (¡sí!, "
+  },
+  {
+    "text": "d'una (ﬁn-",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "d'[u]na (ﬁn-"
+  },
+  {
+    "text": "Καλημέρα: Straße (3D (ภาษาไทย  🇪🇸 ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[Κα]λημέρα: Straße (3D (ภาษาไทย  🇪🇸 "
+  },
+  {
+    "text": "¡sí!\nΚαλημέρα a@b.cd, snake_case\n_x — ❤️: ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "¡[s]í!\n[Καλη]μέρα a@b.cd, snake_case\n_x — ❤️: "
+  },
+  {
+    "text": "EU:n: ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[EU:]n: "
+  },
+  {
+    "text": "col·legi, e.g. (🇪🇸, ",
+    "options": {},
+    "expected": "[col·]legi, [e].g. (🇪🇸, "
+  },
+  {
+    "text": "s'n hola-",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[s]'n [hol]a-"
+  },
+  {
+    "text": "precisamente\nﬁn (",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[preci]samente\n[ﬁ]n ("
+  },
+  {
+    "text": "👩‍👩‍👧  U.S.A.; ภาษาไทย-צ׳יפס: ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "👩‍👩‍👧  [U.S.]A.; ภาษาไทย-[צ׳יפ]ס: "
+  },
+  {
+    "text": "és — coöperate; és ((nota)-gęślą ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[é]s — coöperate; [é]s ((nota)-[g]ęślą "
+  },
+  {
+    "text": "한국어  你好/aujourd'hui/٣٤٥\ndon't, U.S.A.: ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[한]국어  你好/[aujou]rd'hui/[٣]٤٥\n[do]n't, [U.]S.A.: "
+  },
+  {
+    "text": "U.S.A. aujourd'hui: e.g., ~/a/b/naïve. Zażółć/",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[U.S.]A.[ aujourd]'hui: [e].g., ~/a/b/naïve. [Zażó]łć/"
+  },
+  {
+    "text": "Straße. 1.000,5; 👩‍👩‍👧: — — és — —-தமிழ்\n",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[St]raße. 1.000,5; 👩‍👩‍👧: — — [é]s — —-[த]மிழ்\n"
+  },
+  {
+    "text": "it’s — 🇪🇸 (és\nsnake_case) Việt ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[i]t’s — 🇪🇸 (és\nsnake_case) [V]iệt "
+  },
+  {
+    "text": "d'una (o' ქართული — カタカナ aujourd'hui pa­la: gęślą ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "d'[u]na ([o]' [ქართუ]ლი — カタカナ [aujourd']hui [pa­l]a: [gęśl]ą "
+  },
+  {
+    "text": "Україна ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Укр]аїна "
+  },
+  {
+    "text": "— (",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "— ("
+  },
+  {
+    "text": "👩‍👩‍👧 — Հայաստան-coöperate-EU:n — l'àvia ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "👩‍👩‍👧 — [Հայ]աստան-[coöp]erate-[EU]:n — l'[àv]ia "
+  },
+  {
+    "text": "— — d'una/",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "— — d'[u]na/"
+  },
+  {
+    "text": "s'n\nprecisamente  a@b.cd (l'àvia  1.000,5 — don't; pa­la) x() ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[s]'n\n[precisam]ente  a@b.cd (l'[àvi]a  1.000,5 — [don']t; [pa­l]a) x() "
+  },
+  {
+    "text": "Հայաստան ❤️  ",
+    "options": {},
+    "expected": "[Հայա]ստան ❤️  "
+  },
+  {
+    "text": "Հայաստան https://x.y/z (s'n. coöperate 'quoted' — ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Հայաստ]ան https://x.y/z ([s]'n. [coöper]ate '[quot]ed' — "
+  },
+  {
+    "text": "EU:n\n10:30 — ¿qué? 10:30, d'una; insultantemente\n",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[E]U:n\n10:30 — ¿qué? 10:30, d'[u]na; insultantemente\n"
+  },
+  {
+    "text": "precisamente\ns'n-Україна\nﬁn) ",
+    "options": {},
+    "expected": "[preci]samente\n[s]'n-[Укр]аїна\n[ﬁ]n) "
+  },
+  {
+    "text": "ש״ס s'n Ｆｕｌｌ; 你好-s'n (U.S.A.; e.g. ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[ש״ס s]'n [Ｆｕｌ]ｌ; 你好-[s]'n ([U.S.]A.; [e].g. "
+  },
+  {
+    "text": "https://x.y/z  a.b(c)/¿qué?-ĳssel ภาษาไทย) ﬁn ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "https://x.y/z  a.b(c)/¿[q]ué?-ĳssel ภาษาไทย) [ﬁ]n "
+  },
+  {
+    "text": "pa­la: s'n-👩‍👩‍👧 (ﬁn/",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[pa­l]a: [s]'n-👩‍👩‍👧 ([ﬁ]n/"
+  },
+  {
+    "text": "❤️ (U.S.A. — Ελλάδα (a@b.cd, 1.000,5 🇪🇸, שלום/Съешь\n",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "❤️ ([U.S.]A. — [Ελλά]δα (a@b.cd, 1.000,5 🇪🇸, [שלו]ם/[Съеш]ь\n"
+  },
+  {
+    "text": "❤️\ngęślą, Việt, ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "❤️\n[gę]ślą, [Vi]ệt, "
+  },
+  {
+    "text": "https://x.y/z ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "https://x.y/z "
+  },
+  {
+    "text": "10:30 (col·legi\ndon't (insultantemente (你好; ქართული, U.S.A., ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "10:30 ([col·]legi\ndon't (insultantemente (你好; [ქარ]თული, U.S.A., "
+  },
+  {
+    "text": "coöperate ",
+    "options": {},
+    "expected": "[coöp]erate "
+  },
+  {
+    "text": "gęślą) ¿qué? — ",
+    "options": {},
+    "expected": "[gę]ślą) ¿[q]ué? — "
+  },
+  {
+    "text": "qu'il. 你好: বাংলা. ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[qu]'il. 你好: [বাং]লা. "
+  },
+  {
+    "text": "don't aujourd'hui. precisamente, हिन्दी ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[d]on't aujourd'hui. [pr]ecisamente, हिन्दी "
+  },
+  {
+    "text": "insultantemente pa­la\nதமிழ் (EU:n  ﬁn ~/a/b  한국어 — 3D  ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[insultan]temente pa­la\n[த]மிழ் ([EU]:n  [ﬁ]n ~/a/b  [한]국어 — 3D  "
+  },
+  {
+    "text": "বাংলা. हिन्दी 🇪🇸 —\n",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[বাং]লা. हिन्दी 🇪🇸 —\n"
+  },
+  {
+    "text": "Ελλάδα EU:n (Việt\ngęślą; ❤️  🇪🇸 (",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Ελ]λάδα [EU]:n ([Vi]ệt\n[gę]ślą; ❤️  🇪🇸 ("
+  },
+  {
+    "text": "Việt: مَرحبا U.S.A./¿qué? 한국어; naïve — ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Vi]ệt: [مَرحبا] U.S.A./¿[q]ué? [한]국어; [na]ïve — "
+  },
+  {
+    "text": "…\nСъешь  ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "…\n[Съ]ешь  "
+  },
+  {
+    "text": "ש״ס (",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ש]״ס ("
+  },
+  {
+    "text": "ĳssel/Việt) ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ĳ]ssel/Việt) "
+  },
+  {
+    "text": "1.000,5 — ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "1.000,5 — "
+  },
+  {
+    "text": "ภาษาไทย: ",
+    "options": {},
+    "expected": "ภาษาไทย: "
+  },
+  {
+    "text": "¿qué? Καλημέρα צ׳יפס/",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "¿[q]ué? [Καλημέ]ρα צ׳יפס/"
+  },
+  {
+    "text": "o' 1.000,5\n",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[o]' 1.000,5\n"
+  },
+  {
+    "text": "U.S.A. naïve (nota): “cita” (",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[U.S.]A.[ naïv]e ([not]a): “[cit]a” ("
+  },
+  {
+    "text": "Καλημέρα; (nota)) https://x.y/z; a@b.cd/café) coöperate) Straße; ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Καλη]μέρα; ([no]ta)) https://x.y/z; a@b.cd/[ca]fé) [coöp]erate) [Str]aße; "
+  },
+  {
+    "text": "aujourd'hui. ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[au]jourd'hui. "
+  },
+  {
+    "text": "naïve/",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[na]ïve/"
+  },
+  {
+    "text": "“cita”-e.g.\nবাংলা-col·legi — x() (",
+    "options": {},
+    "expected": "“[ci]ta”-[e].g.\n[বাং]লা-[col·]legi — x() ("
+  },
+  {
+    "text": "ﬁn) צ׳יפס (x(); Україна/café/ภาษาไทย/",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ﬁ]n) צ׳יפס (x(); [У]країна/café/ภาษาไทย/"
+  },
+  {
+    "text": "hola. ~/a/b ¡sí!/x() (— — 한국어\nx() ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ho]la. ~/a/b ¡[s]í!/x() (— — [한]국어\nx() "
+  },
+  {
+    "text": "Tiếng (Съешь — ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[T]iếng (Съешь — "
+  },
+  {
+    "text": "s'n Съешь-a@b.cd EU:n snake_case  x() ש״ס\npa­la ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[s]'n Съешь-a@b.cd [EU:]n snake_case  x() [ש]״ס\n[pa­l]a "
+  },
+  {
+    "text": "coöperate\n",
+    "options": {},
+    "expected": "[coöp]erate\n"
+  },
+  {
+    "text": "“cita”; مَرحبا (gęślą. ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "“[ci]ta”; [مَر]حبا ([gę]ślą. "
+  },
+  {
+    "text": "naïve  (nota) l'àvia: ĳssel (你好; a.b(c), “cita”, ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[na]ïve  ([no]ta) l'[àv]ia: [ĳs]sel (你好; a.b(c), “[ci]ta”, "
+  },
+  {
+    "text": "qu'il/'quoted': … x(); ",
+    "options": {},
+    "expected": "[qu]'il/'[quo]ted': … x(); "
+  },
+  {
+    "text": "Zażółć  ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[Zaż]ółć  "
+  },
+  {
+    "text": "(nota)-coöperate-1.000,5 ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "([not]a)-[coöper]ate-1.000,5 "
+  },
+  {
+    "text": "aujourd'hui (café, hola-",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[au]jourd'hui (café, [h]ola-"
+  },
+  {
+    "text": "aujourd'hui Հայաստան ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[aujou]rd'hui [Հայա]ստան "
+  },
+  {
+    "text": "s'n — 한국어 d'una ¿qué?. café: (nota)\n",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[s]'n — [한]국어[ d']una ¿[q]ué?. [ca]fé: ([no]ta)\n"
+  },
+  {
+    "text": "٣٤٥ l'àvia 'quoted' ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "٣٤٥ l'àvia '[qu]oted' "
+  },
+  {
+    "text": "カタカナ. coöperate/3D) qu'il EU:n  ש״ס, hola) ٣٤٥, ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "カタカナ. [co]öperate/3D) qu'il [E]U:n  ש״ס, [h]ola) ٣٤٥, "
+  },
+  {
+    "text": "d'una; snake_case, Straße hola; és  ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "d'[u]na; snake_case, [St]raße [ho]la; [é]s  "
+  },
+  {
+    "text": "தமிழ்/ש״ס-ĳssel\nதமிழ்/தமிழ் Ｆｕｌｌ\n",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[த]மிழ்/ש״ס-[ĳ]ssel\nதமிழ்/[தமி]ழ் Ｆｕｌｌ\n"
+  },
+  {
+    "text": "coöperate\ne.g.-x()  col·legi. ﬁn snake_case Україна. ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[coöp]erate\ne.g.-x()  col·legi. [ﬁ]n snake_case Україна. "
+  },
+  {
+    "text": "x()/カタカナ. ĳssel, o' Ελλάδα. Ｆｕｌｌ (",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "x()/カタカナ. [ĳs]sel, [o]' [Ελλ]άδα. [Ｆｕ]ｌｌ ("
+  },
+  {
+    "text": "¡sí! — Tiếng. a.b(c) (Ｆｕｌｌ ~/a/b\nx()-বাংলা ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "¡[s]í! — [Ti]ếng. a.b(c) ([Ｆｕ]ｌｌ ~/a/b\nx()-[বাং]লা "
+  },
+  {
+    "text": "தமிழ்: aujourd'hui שלום) ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[த]மிழ்: [aujourd']hui [שלו]ם) "
+  },
+  {
+    "text": "s'n — ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[s]'n — "
+  },
+  {
+    "text": "ქართული. s'n\nqu'il — Zażółć/ĳssel (",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ქარ]თული. [s]'n\n[qu]'il — [Za]żółć/[ĳs]sel ("
+  },
+  {
+    "text": "Հայաստան (",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[Հա]յաստան ("
+  },
+  {
+    "text": "insultantemente-(nota) (Straße — col·legi  “cita”. a.b(c); Ελλάδα; ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[insult]antemente-([no]ta) ([St]raße — [col]·legi  “[ci]ta”. a.b(c); [Ελ]λάδα; "
+  },
+  {
+    "text": "s'n. precisamente 한국어  café. Ελλάδα  Việt) Zażółć ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[s]'n. [preci]samente [한]국어  [ca]fé. [Ελλ]άδα  [Vi]ệt) [Zaż]ółć "
+  },
+  {
+    "text": "Հայաստան. U.S.A.\n",
+    "options": {},
+    "expected": "[Հայա]ստան. [U.]S.A.\n"
+  },
+  {
+    "text": "ש״ס/'quoted' ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ש]״ס/'[qu]oted' "
+  },
+  {
+    "text": "ქართული  ภาษาไทย-a@b.cd-10:30 — https://x.y/z  你好 — “cita”, தமிழ்; ",
+    "options": {},
+    "expected": "[ქარ]თული  ภาษาไทย-a@b.cd-10:30 — https://x.y/z  你好 — “[ci]ta”, [த]மிழ்; "
+  },
+  {
+    "text": "👩‍👩‍👧  d'una naïve: ש״ס; aujourd'hui Tiếng; Zażółć ",
+    "options": {},
+    "expected": "👩‍👩‍👧  d'[u]na [na]ïve: [ש]״ס; [aujou]rd'hui [Ti]ếng; [Zaż]ółć "
+  },
+  {
+    "text": "ქართული, ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ქ]ართული, "
+  },
+  {
+    "text": "¿qué? (nota): ",
+    "options": {},
+    "expected": "¿[q]ué? ([no]ta): "
+  },
+  {
+    "text": "x() 🇪🇸) ٣٤٥\nবাংলা/ภาษาไทย don't — ",
+    "options": {},
+    "expected": "x() 🇪🇸) ٣٤٥\n[বাং]লা/ภาษาไทย don't — "
+  },
+  {
+    "text": "한국어) ¡sí! — हिन्दी-٣٤٥. https://x.y/z (Հայաստան\nСъешь (",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[한]국어) ¡[s]í! — [हि]न्दी-[٣]٤٥. https://x.y/z ([Հայա]ստան\n[Съ]ешь ("
+  },
+  {
+    "text": "Việt\nქართული ¡sí!. தமிழ், gęślą-",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Vi]ệt\n[ქართ]ული ¡[s]í!. [த]மிழ், [gę]ślą-"
+  },
+  {
+    "text": "¡sí!\ncafé-(nota) ~/a/b) 'quoted' ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "¡[s]í!\n[caf]é-([not]a) ~/a/b) '[quot]ed' "
+  },
+  {
+    "text": "'quoted': हिन्दी) ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "'[q]uoted': हिन्दी) "
+  },
+  {
+    "text": "ภาษาไทย — বাংলা/Tiếng) U.S.A.) Straße — l'àvia/gęślą: ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "ภาษาไทย — [বাং]লা/Tiếng) U.S.A.) [Str]aße — l'àvia/gęślą: "
+  },
+  {
+    "text": "¿qué?/EU:n insultantemente: naïve d'una-snake_case (",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "¿[q]ué?/[EU]:n [insulta]ntemente: [na]ïve d'[u]na-snake_case ("
+  },
+  {
+    "text": "café/",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[caf]é/"
+  },
+  {
+    "text": "¡sí!: Ｆｕｌｌ-¿qué? pa­la. שלום  it’s, مَرحبا ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "¡[s]í!: [Ｆｕｌ]ｌ-¿[q]ué? [pa­l]a. [שלו]ם  [it’]s, [مَرحب]ا "
+  },
+  {
+    "text": "ภาษาไทย مَرحبا\n👩‍👩‍👧  Հայաստան. café ש״ס  צ׳יפס) ĳssel ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "ภาษาไทย [مَر]حبا\n👩‍👩‍👧  [Հայ]աստան. [caf]é ש״ס  [צ׳]יפס) [ĳs]sel "
+  },
+  {
+    "text": "col·legi/_x: precisamente (தமிழ். مَرحبا: ٣٤٥, — x()) ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[co]l·legi/_x: precisamente ([த]மிழ். مَرحبا: ٣٤٥, — x()) "
+  },
+  {
+    "text": "ש״ס; ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[ש]״ס; "
+  },
+  {
+    "text": "EU:n; 🇪🇸/hola\nカタカナ/👩‍👩‍👧: a@b.cd\nnaïve (",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[EU]:n; 🇪🇸/[ho]la\nカタカナ/👩‍👩‍👧: a@b.cd\n[na]ïve ("
+  },
+  {
+    "text": "pa­la — 3D/snake_case ",
+    "options": {},
+    "expected": "[pa]­la — 3D/snake_case "
+  },
+  {
+    "text": "naïve: צ׳יפס — Ελλάδα  l'àvia — ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[na]ïve: [צ׳]יפס — [Ελλ]άδα  l'[àv]ia — "
+  },
+  {
+    "text": "… (don't. ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "… ([don']t. "
+  },
+  {
+    "text": "你好\ncafé-צ׳יפס don't; Zażółć/",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "你好\n[ca]fé-[צ׳יפ]ס don't; [Za]żółć/"
+  },
+  {
+    "text": "1.000,5. ¿qué? és: ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "1.000,5. ¿[q]ué? [é]s: "
+  },
+  {
+    "text": "insultantemente. a@b.cd/a.b(c) — coöperate  ❤️) _x/مَرحبا (Zażółć-",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[insult]antemente. a@b.cd/a.b(c) — [coöp]erate  ❤️) _x/[مَر]حبا ([Za]żółć-"
+  },
+  {
+    "text": "coöperate Съешь\n1.000,5\nViệt: ภาษาไทย. ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[coöper]ate [Съеш]ь\n1.000,5\n[Việ]t: ภาษาไทย. "
+  },
+  {
+    "text": "¡sí! Հայաստան  ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "¡[s]í! Հայաստան  "
+  },
+  {
+    "text": "_x\n👩‍👩‍👧 مَرحبا  snake_case/বাংলা  ~/a/b ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "_x\n👩‍👩‍👧[ مَ]رحبا  snake_case/[বাং]লা  ~/a/b "
+  },
+  {
+    "text": "col·legi — ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[col]·legi — "
+  },
+  {
+    "text": "e.g.  ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[e].g.  "
+  },
+  {
+    "text": "ქართული o' (don't gęślą-aujourd'hui 10:30 हिन्दी 'quoted'-",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[ქართუ]ლი [o]' ([don']t [gęśl]ą-[aujourd']hui 10:30 हिन्दी '[quot]ed'-"
+  },
+  {
+    "text": "¿qué? (Zażółć/Україна (한국어 ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "¿[q]ué? (Zażółć/Україна ([한]국어 "
+  },
+  {
+    "text": "বাংলা; ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[বাং]লা; "
+  },
+  {
+    "text": "Καλημέρα; ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Καλ]ημέρα; "
+  },
+  {
+    "text": "Україна  gęślą  ¡sí!  (nota): don't pa­la\nﬁn; l'àvia  ",
+    "options": {},
+    "expected": "[Укр]аїна  [gę]ślą  ¡[s]í!  ([no]ta): [do]n't [pa]­la\n[ﬁ]n; l'[àv]ia  "
+  },
+  {
+    "text": "Zażółć, Ελλάδα/👩‍👩‍👧-~/a/b Ｆｕｌｌ, ٣٤٥/বাংলা\nहिन्दी-",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[Z]ażółć, Ελλάδα/👩‍👩‍👧-~/a/b[ ]Ｆｕｌｌ, ٣٤٥/বাংলা\n[हि]न्दी-"
+  },
+  {
+    "text": "~/a/b  Ελλάδα: precisamente-ﬁn) 10:30\ne.g. “cita” ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "~/a/b  [Ελλ]άδα: precisamente-ﬁn) 10:30\n[e].g. “cita” "
+  },
+  {
+    "text": "你好-a@b.cd —, 한국어; a.b(c). don't\n",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "你好-a@b.cd —, [한]국어; a.b(c). [do]n't\n"
+  },
+  {
+    "text": "naïve-Việt …-snake_case 你好 Καλημέρα\nnaïve — ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[n]aïve-Việt …-snake_case 你好 Καλημέρα\n[n]aïve — "
+  },
+  {
+    "text": "ĳssel (s'n: ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[ĳ]ssel (s'n: "
+  },
+  {
+    "text": "Հայաստան  és …  שלום (👩‍👩‍👧. U.S.A./",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Հայա]ստան  [é]s …  [של]ום (👩‍👩‍👧. [U.]S.A./"
+  },
+  {
+    "text": "don't\n— _x, …/EU:n\nViệt (",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[d]on't\n— _x, …/EU:n\nViệt ("
+  },
+  {
+    "text": "👩‍👩‍👧\n—: ",
+    "options": {},
+    "expected": "👩‍👩‍👧\n—: "
+  },
+  {
+    "text": "Ελλάδα  precisamente: hola ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Ελλ]άδα  [preci]samente: [ho]la "
+  },
+  {
+    "text": "ש״ס ",
+    "options": {},
+    "expected": "[ש]״ס "
+  },
+  {
+    "text": "e.g. ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[e].g. "
+  },
+  {
+    "text": "d'una; ",
+    "options": {},
+    "expected": "d'[u]na; "
+  },
+  {
+    "text": "ภาษาไทย; ",
+    "options": {},
+    "expected": "ภาษาไทย; "
+  },
+  {
+    "text": "1.000,5; ~/a/b. Съешь — Tiếng ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "1.000,5; ~/a/b. [Съ]ешь — [Ti]ếng "
+  },
+  {
+    "text": "٣٤٥ (",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[٣]٤٥ ("
+  },
+  {
+    "text": "Tiếng カタカナ: Україна-צ׳יפס  ٣٤٥: “cita” — 한국어  hola, ",
+    "options": {},
+    "expected": "Tiếng カタカナ: [Укр]аїна-[צ׳]יפס  ٣٤٥: “[ci]ta” — [한]국어  [ho]la, "
+  },
+  {
+    "text": "s'n. Съешь ٣٤٥ pa­la ",
+    "options": {},
+    "expected": "[s]'n. [Съ]ешь ٣٤٥ [pa]­la "
+  },
+  {
+    "text": "x(): ~/a/b/தமிழ்  বাংলা; カタカナ — ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "x(): ~/a/b/தமி[ழ்]  [বাং]লা; カタカナ — "
+  },
+  {
+    "text": "(nota) 한국어, Հայաստան; ",
+    "options": {},
+    "expected": "([no]ta) [한]국어, [Հայա]ստան; "
+  },
+  {
+    "text": "1.000,5/Tiếng; ",
+    "options": {},
+    "expected": "1.000,5/[Ti]ếng; "
+  },
+  {
+    "text": "aujourd'hui) a.b(c)) x(). s'n  a@b.cd. 10:30 ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[aujo]urd'hui) a.b(c)) x(). [s]'n  a@b.cd. 10:30 "
+  },
+  {
+    "text": "カタカナ (Հայաստան  precisamente (és, ภาษาไทย\n10:30 Україна; 'quoted' — ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "カタカナ ([Հայաստ]ան  [precisam]ente ([é]s, ภาษาไทย\n10:30 [Украї]на; '[quot]ed' — "
+  },
+  {
+    "text": "שלום: Ελλάδα. o'  Ελλάδα; Հայաստան/🇪🇸-",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[שלו]ם: [Ελλά]δα. [o]'  [Ελλά]δα; [Հայաստ]ան/🇪🇸-"
+  },
+  {
+    "text": "~/a/b\n你好, —  Việt 3D: ¡sí!. ქართული: 1.000,5 (",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "~/a/b\n你好, —  [Vi]ệt 3D: ¡[s]í!. [ქარ]თული: 1.000,5 ("
+  },
+  {
+    "text": "a.b(c) ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "a.b(c) "
+  },
+  {
+    "text": "٣٤٥, 1.000,5 snake_case, ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "٣٤٥, 1.000,5 snake_case, "
+  },
+  {
+    "text": "don't; col·legi/insultantemente ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[d]on't; col·legi/[ins]ultantemente "
+  },
+  {
+    "text": "és (",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[é]s ("
+  },
+  {
+    "text": "l'àvia\nés — és; مَرحبا-ภาษาไทย. it’s 🇪🇸 — a.b(c): ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "l'[àv]ia\n[é]s — [é]s; [مَر]حبا-ภาษาไทย. [it]’s 🇪🇸 — a.b(c): "
+  },
+  {
+    "text": "বাংলা a@b.cd coöperate (❤️; Ελλάδα Съешь ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[বাং]লা a@b.cd [coöp]erate (❤️; [Ελλάδ]α Съешь "
+  },
+  {
+    "text": "カタカナ Україна ภาษาไทย, ",
+    "options": {},
+    "expected": "カタカナ Україна ภาษาไทย, "
+  },
+  {
+    "text": "Zażółć: שלום; Καλημέρα x(), ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Za]żółć: [של]ום; [Καλ]ημέρα x(), "
+  },
+  {
+    "text": "Ελλάδα) o'. ¡sí!. 👩‍👩‍👧; snake_case/Ελλάδα-e.g.-",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Ελλά]δα) [o]'. ¡[s]í!. 👩‍👩‍👧; snake_case/[Ελλά]δα-[e].g.-"
+  },
+  {
+    "text": "ש״ס. ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[ש]״ס. "
+  },
+  {
+    "text": "és مَرحبا: a@b.cd 10:30  coöperate  és, ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[é]s [مَرحب]ا: a@b.cd 10:30  [coöper]ate  [é]s, "
+  },
+  {
+    "text": "“cita” insultantemente  Հայաստան — insultantemente ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "“[ci]ta” [insulta]ntemente  [Հայա]ստան — [insulta]ntemente "
+  },
+  {
+    "text": "d'una/ภาษาไทย — ¿qué?. ภาษาไทย: צ׳יפס a@b.cd col·legi, ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "d'[u]na/ภาษาไทย — ¿[q]ué?. ภาษาไทย: [צ׳]יפס a@b.cd [col]·legi, "
+  },
+  {
+    "text": "hola, ภาษาไทย — 3D precisamente és  — (",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ho]la, ภาษาไทย — 3D [precis]amente és  — ("
+  },
+  {
+    "text": "café/s'n. _x  d'una-❤️/",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ca]fé/[s]'n. _x  d'[u]na-❤️/"
+  },
+  {
+    "text": "ש״ס-it’s — 👩‍👩‍👧 café 👩‍👩‍👧, a.b(c). Straße. ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ש]״ס-it’s — 👩‍👩‍👧[ ]café 👩‍👩‍👧, a.b(c). Straße. "
+  },
+  {
+    "text": "10:30: Καλημέρα\nl'àvia — ٣٤٥, _x-ĳssel (U.S.A.\n1.000,5\n",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "10:30: [Καλ]ημέρα\nl'[àv]ia — ٣٤٥, _x-[ĳs]sel ([U.]S.A.\n1.000,5\n"
+  },
+  {
+    "text": "বাংলা\nצ׳יפס 3D) 10:30\n¿qué? தமிழ்: Україна …-",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[বাং]লা\nצ׳יפס 3D) 10:30\n¿qué?[ ]தமிழ்: Україна …-"
+  },
+  {
+    "text": "你好. it’s: مَرحبا insultantemente — d'una\nΕλλάδα — Việt ქართული ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "你好. [it’]s: [مَرحب]ا [insultantem]ente — d'[u]na\n[Ελλά]δα — [Việ]t [ქართუ]ლი "
+  },
+  {
+    "text": "¡sí! don't. pa­la (naïve/x(): EU:n; ภาษาไทย ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "¡[s]í![ do]n't. [pa]­la ([na]ïve/x(): [EU]:n; ภาษาไทย "
+  },
+  {
+    "text": "_x\n_x: ٣٤٥/Καλημέρα. Việt, col·legi — Հայաստան (",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "_x\n_x: ٣٤٥/[Καλ]ημέρα. [Vi]ệt, [col]·legi — [Հայ]աստան ("
+  },
+  {
+    "text": "Հայաստան: hola; 'quoted': ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Հայա]ստան: [ho]la; '[quo]ted': "
+  },
+  {
+    "text": "gęślą  ქართული Ｆｕｌｌ (שלום; a.b(c) (nota)) বাংলা, ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[gę]ślą  [ქართუ]ლი Ｆｕｌｌ ([של]ום; a.b(c) ([no]ta)) [বাং]লা, "
+  },
+  {
+    "text": "தமிழ்: ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[த]மிழ்: "
+  },
+  {
+    "text": "(nota) aujourd'hui  café col·legi/aujourd'hui: d'una ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "([no]ta)[ aujo]urd'hui  [ca]fé [col]·legi/[aujo]urd'hui: d'[u]na "
+  },
+  {
+    "text": "x()-l'àvia-aujourd'hui ",
+    "options": {},
+    "expected": "x()-l'[àv]ia-[aujou]rd'hui "
+  },
+  {
+    "text": "🇪🇸) ¡sí!\nhttps://x.y/z; 🇪🇸 Straße 1.000,5\n—. ",
+    "options": {},
+    "expected": "🇪🇸) ¡[s]í!\nhttps://x.y/z; 🇪🇸 Straße 1.000,5\n—. "
+  },
+  {
+    "text": "தமிழ்\nहिन्दी/ĳssel\npa­la, pa­la  বাংলা coöperate; Tiếng) ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[த]மிழ்\n[हि]न्दी/[ĳs]sel\n[pa]­la, [pa]­la  [বাংলা co]öperate; [Ti]ếng) "
+  },
+  {
+    "text": "_x  precisamente-",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "_x  [preci]samente-"
+  },
+  {
+    "text": "Ｆｕｌｌ; Ελλάδα; ❤️ Zażółć-a.b(c)  ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Ｆｕ]ｌｌ; [Ελλ]άδα; ❤️ [Zaż]ółć-a.b(c)  "
+  },
+  {
+    "text": "pa­la. ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pa]­la. "
+  },
+  {
+    "text": "👩‍👩‍👧 বাংলা ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "👩‍👩‍👧[ ]বাংলা "
+  },
+  {
+    "text": "3D, naïve-你好. a@b.cd/és, — 10:30  ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "3D, [naïv]e-你好. a@b.cd/[é]s, — 10:30  "
+  },
+  {
+    "text": "👩‍👩‍👧 ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "👩‍👩‍👧 "
+  },
+  {
+    "text": "1.000,5) https://x.y/z 10:30\nx() — ĳssel — aujourd'hui) ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[1.0]00,5) https://x.y/z [1]0:[3]0\nx() — [ĳs]sel — [aujou]rd'hui) "
+  },
+  {
+    "text": "coöperate  10:30 Україна. snake_case — ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[coöp]erate  10:30 Україна. snake_case — "
+  },
+  {
+    "text": "Съешь हिन्दी ¡sí! — hola-צ׳יפס  snake_case — _x: ",
+    "options": {},
+    "expected": "[Съеш]ь हिन्दी ¡[s]í! — [ho]la-[צ׳]יפס  snake_case — _x: "
+  },
+  {
+    "text": "insultantemente-_x — Καλημέρα Việt — U.S.A.  _x (",
+    "options": {},
+    "expected": "[insulta]ntemente-_x — [Καλη]μέρα [Vi]ệt —[ U.]S.A.  _x ("
+  },
+  {
+    "text": "café. ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ca]fé. "
+  },
+  {
+    "text": "precisamente: Καλημέρα\n",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[preci]samente: Καλημέρα\n"
+  },
+  {
+    "text": "~/a/b; ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "~/a/b; "
+  },
+  {
+    "text": "o'-Հայաստան  ",
+    "options": {},
+    "expected": "[o]'-[Հայա]ստան  "
+  },
+  {
+    "text": "שלום  'quoted' ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[שלו]ם  '[quot]ed' "
+  },
+  {
+    "text": "٣٤٥: ש״ס — ภาษาไทย — 10:30 — (nota)) ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "٣٤٥: [ש]״ס — ภาษาไทย — 10:30 — (nota)) "
+  },
+  {
+    "text": "ש״ס x() — snake_case) ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[ש]״ס x() — snake_case) "
+  },
+  {
+    "text": "x() ",
+    "options": {},
+    "expected": "x() "
+  },
+  {
+    "text": "_x) ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "_x) "
+  },
+  {
+    "text": "(nota)  Ｆｕｌｌ, don't; it’s. Straße தமிழ்) ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "([not]a)  [Ｆｕｌ]ｌ, [don']t; [it’]s. [Stra]ße [த]மிழ்) "
+  },
+  {
+    "text": "Հայաստան (U.S.A.\n",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Հայ]աստան ([U.]S.A.\n"
+  },
+  {
+    "text": "naïve\n¡sí! s'n o') —) ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[na]ïve\n¡[s]í![ s]'n [o]') —) "
+  },
+  {
+    "text": "Straße — ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Stra]ße — "
+  },
+  {
+    "text": "বাংলা ❤️/U.S.A., — — বাংলা  Հայաստան ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[বাং]লা ❤️/[U.]S.A., — — [বাং]লা  [Հայա]ստան "
+  },
+  {
+    "text": "col·legi Zażółć: 한국어. precisamente; insultantemente ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[co]l·legi Zażółć: [한]국어. precisamente; [ins]ultantemente "
+  },
+  {
+    "text": "3D: ĳssel és ٣٤٥ pa­la. ",
+    "options": {},
+    "expected": "3D: [ĳs]sel [é]s ٣٤٥ [pa]­la. "
+  },
+  {
+    "text": "한국어\ndon't col·legi; …; Tiếng; ĳssel. Україна צ׳יפס (",
+    "options": {},
+    "expected": "[한]국어\n[don't ]col·legi; …; [Ti]ếng; [ĳs]sel. [Укр]аїна [צ׳]יפס ("
+  },
+  {
+    "text": "—  বাংলা-ש״ס-it’s ¿qué? ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "—  [বাং]লা-ש״ס-[i]t’s ¿qué? "
+  },
+  {
+    "text": "हिन्दी. ภาษาไทย\na@b.cd-insultantemente\nУкраїна/café (",
+    "options": {},
+    "expected": "[हि]न्दी. ภาษาไทย\na@b.cd-insultantemente\n[Укр]аїна/[ca]fé ("
+  },
+  {
+    "text": "Zażółć: தமிழ் (café; 🇪🇸 … ĳssel: snake_case  x()-",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Za]żółć: [த]மிழ் ([ca]fé; 🇪🇸 …[ ĳ]ssel: snake_case  x()-"
+  },
+  {
+    "text": "https://x.y/z (",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "https://x.y/z ("
+  },
+  {
+    "text": "👩‍👩‍👧 o'-d'una/3D precisamente naïve/",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "👩‍👩‍👧 [o]'-d'[u]na/[3]D [preci]samente [na]ïve/"
+  },
+  {
+    "text": "ש״ס-10:30: s'n; s'n\nУкраїна/és; Việt (Zażółć — ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ש]״ס-10:30: s'n; [s]'n\nУкраїна/[é]s; Việt ([Z]ażółć — "
+  },
+  {
+    "text": "ქართული: l'àvia precisamente — snake_case a@b.cd-ქართული; ",
+    "options": {},
+    "expected": "[ქარ]თული: l'[àvia pre]cisamente — snake_case a@b.cd-ქართული; "
+  },
+  {
+    "text": "qu'il — a@b.cd  Ελλάδα, ¡sí!/Ｆｕｌｌ (Việt  10:30; ¡sí! (",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[qu]'il — a@b.cd  [Ελ]λάδα, ¡[s]í!/[Ｆｕ]ｌｌ ([Vi]ệt  10:30; ¡[s]í! ("
+  },
+  {
+    "text": "… ~/a/b, l'àvia  你好; x()-❤️) مَرحبا. ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "… ~/a/b, l'[àvi]a  你好; x()-❤️) [مَرحب]ا. "
+  },
+  {
+    "text": "'quoted' e.g. (Καλημέρα; 10:30; qu'il/'quoted' Ｆｕｌｌ — coöperate) ",
+    "options": {},
+    "expected": "'[quo]ted' [e].g. ([Καλη]μέρα; 10:30; [qu]'il/'[quo]ted'[ Ｆ]ｕｌｌ — [coöp]erate) "
+  },
+  {
+    "text": "café-",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[c]afé-"
+  },
+  {
+    "text": "ﬁn a@b.cd, Tiếng  ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ﬁ]n a@b.cd, Tiếng  "
+  },
+  {
+    "text": "e.g./és …. e.g.-és  ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[e].g./[é]s …. [e].g.-[é]s  "
+  },
+  {
+    "text": "aujourd'hui s'n; a@b.cd: Україна; ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[aujou]rd'hui s'n; a@b.cd: Україна; "
+  },
+  {
+    "text": "EU:n  ٣٤٥; ~/a/b, don't  x()/",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[EU:]n  ٣٤٥; ~/a/b, [don']t  x()/"
+  },
+  {
+    "text": "❤️/10:30; café. a.b(c) Tiếng\n¿qué?-",
+    "options": {},
+    "expected": "❤️/10:30; [ca]fé. a.b(c)[ Ti]ếng\n¿[q]ué?-"
+  },
+  {
+    "text": "don't-Καλημέρα) Հայաստան\na.b(c) (3D\n",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[do]n't-[Καλ]ημέρα) [Հայ]աստան\na.b(c) (3D\n"
+  },
+  {
+    "text": "Ｆｕｌｌ-ﬁn. ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Ｆｕｌ]ｌ-[ﬁ]n. "
+  },
+  {
+    "text": "s'n/pa­la (",
+    "options": {},
+    "expected": "[s]'n/[pa]­la ("
+  },
+  {
+    "text": "o'/coöperate\nsnake_case  U.S.A. (Straße: ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[o]'/[coöp]erate\nsnake_case  [U.]S.A. ([St]raße: "
+  },
+  {
+    "text": "צ׳יפס, insultantemente 1.000,5 Ｆｕｌｌ 🇪🇸: precisamente  한국어-ĳssel, ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[צ]׳יפס, insultantemente 1.000,5 Ｆｕｌｌ 🇪🇸: [pr]ecisamente  한국어-[ĳ]ssel, "
+  },
+  {
+    "text": "“cita” — שלום, coöperate/צ׳יפס insultantemente, Ελλάδα — ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "“[c]ita” — שלום, coöperate/[צ]׳יפס insultantemente, Ελλάδα — "
+  },
+  {
+    "text": "हिन्दी U.S.A. — 你好-s'n. مَرحبا ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[हि]न्दी U.S.A. — 你好-s'n. [مَ]رحبا "
+  },
+  {
+    "text": "Tiếng  ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Tiến]g  "
+  },
+  {
+    "text": "U.S.A.-insultantemente — Tiếng/a.b(c) x(). — (it’s ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[U.]S.A.-[insult]antemente — [Ti]ếng/a.b(c) x(). — ([it]’s "
+  },
+  {
+    "text": "Україна 'quoted'\nСъешь (",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Укра]їна '[quo]ted'\n[Съ]ешь ("
+  },
+  {
+    "text": "don't. qu'il/—. ",
+    "options": {},
+    "expected": "[do]n't. [qu]'il/—. "
+  },
+  {
+    "text": "hola हिन्दी  👩‍👩‍👧, தமிழ் — U.S.A.. o'\n",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[hol]a हिन्दी  👩‍👩‍👧, [த]மிழ் — [U.]S.A.. [o]'\n"
+  },
+  {
+    "text": "¡sí!\naujourd'hui\n٣٤٥ Zażółć  ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "¡[s]í!\n[aujou]rd'hui\n[٣]٤٥ [Zaż]ółć  "
+  },
+  {
+    "text": "insultantemente) a@b.cd x()) 你好; Καλημέρα/a@b.cd ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ins]ultantemente) a@b.cd x()) 你好; Καλημέρα/a@b.cd "
+  },
+  {
+    "text": "a@b.cd தமிழ். ",
+    "options": {},
+    "expected": "a@b.cd[ த]மிழ். "
+  },
+  {
+    "text": "Tiếng — 🇪🇸-ქართული (hola — ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[T]iếng — 🇪🇸-ქართული ([h]ola — "
+  },
+  {
+    "text": "مَرحبا — café ﬁn/coöperate: café, 'quoted'. https://x.y/z/",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[مَرحب]ا — [caf]é [ﬁ]n/[coöper]ate: [caf]é, '[quot]ed'. https://x.y/z/"
+  },
+  {
+    "text": "U.S.A. “cita”; Съешь coöperate. col·legi (l'àvia) مَرحبا (ĳssel, ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[U].S.A. “cita”; [Съе]шь coöperate. col·legi (l'[à]via) مَرحبا ([ĳ]ssel, "
+  },
+  {
+    "text": "don't, Հայաստան\n… — 3D; snake_case. Հայաստան l'àvia\npa­la  ",
+    "options": {},
+    "expected": "[do]n't, [Հայա]ստան\n… — 3D; snake_case. [Հայա]ստան l'[àv]ia\n[pa]­la  "
+  },
+  {
+    "text": "ภาษาไทย; 3D: 你好\n❤️, o'  ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "ภาษาไทย; 3D: 你好\n❤️, [o]'  "
+  },
+  {
+    "text": "צ׳יפס: 'quoted'; Україна; ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[צ]׳יפס: 'quoted'; Україна; "
+  },
+  {
+    "text": "1.000,5: d'una — 你好 (s'n Zażółć (a@b.cd (",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "1.000,5: d'[u]na — 你好 (s'[n Z]ażółć (a@b.cd ("
+  },
+  {
+    "text": "col·legi; coöperate カタカナ. ",
+    "options": {},
+    "expected": "[col·]legi; [coöp]erate カタカナ. "
+  },
+  {
+    "text": "'quoted'; col·legi: مَرحبا  Ελλάδα) Straße; ĳssel\n—; Tiếng (",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "'[qu]oted'; [col]·legi: [مَر]حبا  [Ελ]λάδα) [St]raße; [ĳs]sel\n—; [Ti]ếng ("
+  },
+  {
+    "text": "বাংলা (és; Việt বাংলা שלום. snake_case, a@b.cd: e.g. ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[বাং]লা ([é]s; [Việt ]বাংলা שלום. snake_case, a@b.cd: [e].g. "
+  },
+  {
+    "text": "Straße https://x.y/z: (nota); o'\nViệt\nカタカナ — _x; ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[S]traße https://x.y/z: (nota); [o]'\nViệt\nカタカナ — _x; "
+  },
+  {
+    "text": "ﬁn a@b.cd; _x/it’s: ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[ﬁ]n a@b.cd; _x/it’s: "
+  },
+  {
+    "text": "a@b.cd ٣٤٥\nΕλλάδα  你好  qu'il-“cita”. カタカナ; ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "a@b.cd [٣]٤٥\n[Ελλ]άδα  你好  [qu]'il-“[ci]ta”. カタカナ; "
+  },
+  {
+    "text": "مَرحبا — ٣٤٥ ٣٤٥) ",
+    "options": {},
+    "expected": "[مَر]حبا — ٣٤٥ ٣٤٥) "
+  },
+  {
+    "text": "ﬁn, ภาษาไทย: qu'il; d'una; qu'il _x\n",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[ﬁ]n, ภาษาไทย: qu'il; d'una; qu'[i]l _x\n"
+  },
+  {
+    "text": "한국어; it’s: EU:n — 你好/",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[한]국어; [it]’s: [EU]:n — 你好/"
+  },
+  {
+    "text": "3D — Zażółć U.S.A. हिन्दी — café; ٣٤٥/aujourd'hui, Հայաստան-",
+    "options": {},
+    "expected": "3D — [Zaż]ółć [U.]S.A.[ ]हिन्दी — [ca]fé; ٣٤٥/[aujou]rd'hui, [Հայա]ստան-"
+  },
+  {
+    "text": "한국어, ",
+    "options": {},
+    "expected": "[한]국어, "
+  },
+  {
+    "text": "ĳssel: https://x.y/z; naïve. ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ĳ]ssel: https://x.y/z; naïve. "
+  },
+  {
+    "text": "हिन्दी: हिन्दी) EU:n  Straße) EU:n/~/a/b  हिन्दी\nカタカナ) ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[हि]न्दी: [हि]न्दी) [EU]:n  [Str]aße) [EU]:n/~/a/b  [हि]न्दी\nカタカナ) "
+  },
+  {
+    "text": "col·legi) pa­la/coöperate) naïve\nStraße, ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[col]·legi) [pa]­la/[coöp]erate) [na]ïve\n[St]raße, "
+  },
+  {
+    "text": "gęślą l'àvia ¿qué?; café/٣٤٥ ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[gęślą] l'àvia ¿qué?; café/٣٤٥ "
+  },
+  {
+    "text": "aujourd'hui/",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[aujou]rd'hui/"
+  },
+  {
+    "text": "ქართული/Zażółć — Съешь\n",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ქარ]თული/[Za]żółć — [Съ]ешь\n"
+  },
+  {
+    "text": "¿qué?\nl'àvia, Zażółć, カタカナ) हिन्दी EU:n: (nota) (हिन्दी — ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "¿[q]ué?\nl'[àv]ia, [Za]żółć, カタカナ) [हि]न्दी [EU]:n: ([no]ta) ([हि]न्दी — "
+  },
+  {
+    "text": "café Καλημέρα\ncoöperate Tiếng: 你好 “cita”; ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[café Καλη]μέρα\n[coöper]ate [Tiến]g: 你好 “[cit]a”; "
+  },
+  {
+    "text": "¿qué?/",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "¿[q]ué?/"
+  },
+  {
+    "text": "ภาษาไทย: x() ❤️: https://x.y/z\nhttps://x.y/z  Tiếng/col·legi; qu'il ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "ภาษาไทย: x() ❤️: https://x.y/z\nhttps://x.y/z  [T]iếng/col·legi; qu'[i]l "
+  },
+  {
+    "text": "'quoted' ¡sí!) 👩‍👩‍👧 (¡sí! U.S.A., ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "'[qu]oted' ¡[s]í!) 👩‍👩‍👧 (¡[s]í![ U].S.A., "
+  },
+  {
+    "text": "'quoted' ¿qué?. U.S.A.  ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "'[quo]ted' ¿[q]ué?. [U.]S.A.  "
+  },
+  {
+    "text": "हिन्दी-Καλημέρα\n~/a/b\npa­la (你好/தமிழ், 한국어: a@b.cd) ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[हि]न्दी-[Καλη]μέρα\n~/a/b\n[pa]­la (你好/[த]மிழ், [한]국어: a@b.cd) "
+  },
+  {
+    "text": "ĳssel (カタカナ/বাংলা, צ׳יפס ¡sí! (café ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ĳs]sel (カタカナ/[বাং]লা, [צ׳]יפס ¡[s]í! ([ca]fé "
+  },
+  {
+    "text": "https://x.y/z\nEU:n (Tiếng — ~/a/b Съешь — Καλημέρα, ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "https://x.y/z\n[E]U:n (Tiếng — ~/a/b Съешь — [Καλη]μέρα, "
+  },
+  {
+    "text": "Việt — Tiếng\nqu'il (EU:n (한국어 צ׳יפס qu'il  Καλημέρα, ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Vi]ệt — [Ti]ếng\n[qu]'il ([EU]:n ([한]국어 [צ׳]יפס [qu]'il  [Καλ]ημέρα, "
+  },
+  {
+    "text": "Съешь) pa­la বাংলা — ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Съеш]ь) [pa­l]a [বাং]লা — "
+  },
+  {
+    "text": "aujourd'hui  👩‍👩‍👧. aujourd'hui/हिन्दी, 10:30-a.b(c) — — (nota). ",
+    "options": {},
+    "expected": "[aujou]rd'hui  👩‍👩‍👧. [aujou]rd'hui/[हि]न्दी, 10:30-a.b(c) — — ([no]ta). "
+  },
+  {
+    "text": "café (カタカナ\n٣٤٥-~/a/b. தமிழ்: d'una 你好, ",
+    "options": {},
+    "expected": "[ca]fé (カタカナ\n٣٤٥-~/a/b. [த]மிழ்: d'[u]na 你好, "
+  },
+  {
+    "text": "مَرحبا Straße: हिन्दी  ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[مَرحبا] Straße: [हि]न्दी  "
+  },
+  {
+    "text": "U.S.A. — ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[U.]S.A. — "
+  },
+  {
+    "text": "1.000,5 (👩‍👩‍👧 — d'una; مَرحبا  ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "1.000,5 (👩‍👩‍👧 — d'[u]na; [مَرحب]ا  "
+  },
+  {
+    "text": "insultantemente; Հայաստան  👩‍👩‍👧: gęślą ❤️\n你好. カタカナ  ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[insultantem]ente; [Հայաստ]ան  👩‍👩‍👧: [gęśl]ą ❤️\n你好. カタカナ  "
+  },
+  {
+    "text": "a.b(c) pa­la, 'quoted'/qu'il/(nota) ❤️; カタカナ: ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "a.b(c) [p]a­la, 'quoted'/qu'il/([n]ota) ❤️; カタカナ: "
+  },
+  {
+    "text": "pa­la-❤️ (o'  Съешь ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[pa]­la-❤️ ([o]'  [Съ]ешь "
+  },
+  {
+    "text": "https://x.y/z\nＦｕｌｌ, és\n(nota)  it’s — ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "https://x.y/z\n[Ｆ]ｕｌｌ, és\n([n]ota)  it’s — "
+  },
+  {
+    "text": "1.000,5  l'àvia/(nota) o'; Ελλάδα  U.S.A.. مَرحبا) 'quoted' — ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "1.000,5  l'[àv]ia/([no]ta)[ ]o'; [Ελ]λάδα  [U.]S.A.. [مَر]حبا) '[qu]oted' — "
+  },
+  {
+    "text": "ภาษาไทย/한국어/",
+    "options": {},
+    "expected": "ภาษาไทย/[한]국어/"
+  },
+  {
+    "text": "s'n; ❤️ (U.S.A.\nСъешь  U.S.A.: naïve, ภาษาไทย-",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[s]'n; ❤️ (U.S.A.\n[С]ъешь  U.S.A.: [n]aïve, ภาษาไทย-"
+  },
+  {
+    "text": "צ׳יפס-https://x.y/z ",
+    "options": {},
+    "expected": "[צ׳]יפס-https://x.y/z "
+  },
+  {
+    "text": "Ελλάδα (¡sí!\n",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Ελλά]δα (¡[s]í!\n"
+  },
+  {
+    "text": "¿qué? ש״ס) o'; مَرحبا (a@b.cd\ncol·legi) ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "¿[q]ué? [ש]״ס) [o]'; [مَر]حبا (a@b.cd\n[col·]legi) "
+  },
+  {
+    "text": "Ｆｕｌｌ. ٣٤٥) ש״ס-ภาษาไทย) ",
+    "options": {},
+    "expected": "[Ｆｕ]ｌｌ. ٣٤٥) [ש]״ס-ภาษาไทย) "
+  },
+  {
+    "text": "col·legi  ¡sí!; ¡sí!) 👩‍👩‍👧 snake_case-col·legi/_x ש״ס (",
+    "options": {},
+    "expected": "[col·]legi  ¡[s]í!; ¡[s]í!) 👩‍👩‍👧 snake_case-[col·]legi/_x[ ש]״ס ("
+  },
+  {
+    "text": "it’s — Съешь  ภาษาไทย-ĳssel — 🇪🇸 Καλημέρα. ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[i]t’s — Съешь  ภาษาไทย-ĳssel — 🇪🇸 [Καλη]μέρα. "
+  },
+  {
+    "text": "Україна (…, hola. ٣٤٥ Việt: ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Украї]на (…, [hol]a. ٣٤٥ [Việ]t: "
+  },
+  {
+    "text": "insultantemente, Ｆｕｌｌ) ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ins]ultantemente, Ｆｕｌｌ) "
+  },
+  {
+    "text": "d'una — it’s. ĳssel — Straße, שלום café  d'una (தமிழ் — ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "d'[u]na — [it]’s. [ĳs]sel — [St]raße, [של]ום [ca]fé  d'[u]na ([த]மிழ் — "
+  },
+  {
+    "text": "aujourd'hui ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[aujou]rd'hui "
+  },
+  {
+    "text": "café — ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[c]afé — "
+  },
+  {
+    "text": "aujourd'hui) カタカナ カタカナ; ❤️; ",
+    "options": {},
+    "expected": "[aujou]rd'hui) カタカナ カタカナ; ❤️; "
+  },
+  {
+    "text": "x(), Ｆｕｌｌ e.g.-_x) שלום\nprecisamente, (nota) 你好/",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "x(), [Ｆｕｌ]ｌ e.g.-_x) [של]ום\n[preci]samente, ([no]ta) 你好/"
+  },
+  {
+    "text": "~/a/b) col·legi ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "~/a/b) [col·]legi "
+  },
+  {
+    "text": "हिन्दी\n— café (",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[हि]न्दी\n— café ("
+  },
+  {
+    "text": "pa­la: Съешь: Ελλάδα/és. a.b(c)-—) ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[p]a­la: Съешь: Ελλάδα/[é]s. a.b(c)-—) "
+  },
+  {
+    "text": "gęślą Հայաստան 10:30) insultantemente カタカナ; …: snake_case. ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[gęślą ]Հայաստան 10:30) [insult]antemente カタカナ; …: snake_case. "
+  },
+  {
+    "text": "Καλημέρα; naïve, ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[Καλη]μέρα; naïve, "
+  },
+  {
+    "text": "10:30 — insultantemente Καλημέρα) שלום (nota) ﬁn\n",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "10:30 — [insultantem]ente [Καλημέ]ρα) [שלו]ם ([not]a) [ﬁ]n\n"
+  },
+  {
+    "text": "don't — 1.000,5) Tiếng — Καλημέρα; naïve; ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[do]n't — 1.000,5) [Ti]ếng — [Καλ]ημέρα; [na]ïve; "
+  },
+  {
+    "text": "…/d'una — és\nﬁn (ภาษาไทย — ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "…/d'[u]na — [é]s\n[ﬁ]n (ภาษาไทย — "
+  },
+  {
+    "text": "— צ׳יפס a@b.cd — Съешь; o'  x(), ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "—[ צ׳]יפס a@b.cd —[ Съ]ешь; [o]'  x(), "
+  },
+  {
+    "text": "'quoted'-",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "'[q]uoted'-"
+  },
+  {
+    "text": "“cita”-",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "“[c]ita”-"
+  },
+  {
+    "text": "_x-precisamente\nবাংলা-1.000,5 ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "_x-[pr]ecisamente\nবাংলা-1.000,5 "
+  },
+  {
+    "text": "Việt, café. مَرحبا — ภาษาไทย: café: Việt: ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Việ]t, [caf]é. [مَرحب]ا — ภาษาไทย: [caf]é: [Việ]t: "
+  },
+  {
+    "text": "'quoted' ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "'[qu]oted' "
+  },
+  {
+    "text": "o'  தமிழ் don't. हिन्दी) Ελλάδα — a@b.cd (Ελλάδα\n",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[o]'  [த]மிழ் [do]n't. [हि]न्दी) [Ελλ]άδα — a@b.cd ([Ελλ]άδα\n"
+  },
+  {
+    "text": "a@b.cd; हिन्दी (o'-",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "a@b.cd; [हि]न्दी ([o]'-"
+  },
+  {
+    "text": "_x-❤️-aujourd'hui — insultantemente: ",
+    "options": {},
+    "expected": "_x-❤️-[aujou]rd'hui — [insulta]ntemente: "
+  },
+  {
+    "text": "¿qué?) Հայաստան-Съешь, ﬁn; ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "¿[q]ué?) [Հայ]աստան-[Съ]ешь, [ﬁ]n; "
+  },
+  {
+    "text": "צ׳יפס. ภาษาไทย; e.g. 10:30  Καλημέρα\nx()\nés (",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[צ׳]יפס. ภาษาไทย; [e].g. [1]0:[3]0  [Καλη]μέρα\nx()\n[é]s ("
+  },
+  {
+    "text": "10:30 (precisamente — x()/❤️/o'. ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[1]0:[3]0 ([preci]samente — x()/❤️/[o]'. "
+  },
+  {
+    "text": "s'n) ~/a/b https://x.y/z, Straße) ﬁn  مَرحبا) ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[s]'n) ~/a/b https://x.y/z, [Stra]ße) [ﬁ]n  [مَرحب]ا) "
+  },
+  {
+    "text": "ש״ס; l'àvia ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[ש]״ס; l'[àv]ia "
+  },
+  {
+    "text": "10:30-Zażółć-🇪🇸  ქართული, 你好\n¡sí! Հայաստան  it’s\n",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "10:30-[Za]żółć-🇪🇸  [ქარ]თული, 你好\n¡[s]í![ Հայ]աստան  [it]’s\n"
+  },
+  {
+    "text": "Straße — ¿qué?/Հայաստան, Съешь — U.S.A.\nU.S.A.-",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Str]aße — ¿[q]ué?/[Հայա]ստան, [Съ]ешь — [U.]S.A.\n[U.]S.A.-"
+  },
+  {
+    "text": "— 🇪🇸, don't ĳssel  ქართული https://x.y/z — Straße ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "— 🇪🇸, [d]on't ĳssel  [ქ]ართული https://x.y/z — Straße "
+  },
+  {
+    "text": "e.g./l'àvia; צ׳יפס. insultantemente. ٣٤٥) ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[e].g./l'[àv]ia; [צ׳]יפס. [insult]antemente. ٣٤٥) "
+  },
+  {
+    "text": "Україна. Україна Việt مَرحبا हिन्दी\nés; “cita” ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Украї]на. [Україна Việt ]مَرحبا [हि]न्दी\n[é]s; “[cit]a” "
+  },
+  {
+    "text": "٣٤٥ (gęślą, ĳssel-és qu'il (한국어, col·legi: ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "٣٤٥ ([g]ęślą, ĳssel-és [q]u'il (한국어, col·legi: "
+  },
+  {
+    "text": "צ׳יפס) EU:n  ภาษาไทย l'àvia — 🇪🇸-",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[צ׳יפ]ס) [EU:]n  ภาษาไทย l'[àvi]a — 🇪🇸-"
+  },
+  {
+    "text": "Καλημέρα; ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[Καλημέ]ρα; "
+  },
+  {
+    "text": "¡sí! 1.000,5) ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "¡[s]í! 1.000,5) "
+  },
+  {
+    "text": "a.b(c)\n",
+    "options": {},
+    "expected": "a.b(c)\n"
+  },
+  {
+    "text": "l'àvia\n",
+    "options": {},
+    "expected": "l'[àv]ia\n"
+  },
+  {
+    "text": "10:30/_x\n_x ĳssel 10:30  ĳssel\n",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "10:30/_x\n_x [ĳ]ssel 10:30  ĳssel\n"
+  },
+  {
+    "text": "s'n/don't  … — (nota) カタカナ\nU.S.A.. hola, 'quoted'\n",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[s]'n/[don']t  … — ([not]a) カタカナ\n[U.S.]A.. [hol]a, '[quot]ed'\n"
+  },
+  {
+    "text": "https://x.y/z  カタカナ; ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "https://x.y/z  カタカナ; "
+  },
+  {
+    "text": "l'àvia — e.g.\no' (1.000,5/l'àvia\n",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "l'[àv]ia — [e].g.\n[o]' (1.000,5/l'[àv]ia\n"
+  },
+  {
+    "text": "—: ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "—: "
+  },
+  {
+    "text": "l'àvia  és, e.g.  'quoted'; naïve ¡sí! (Straße/¡sí! ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "l'[àv]ia  [é]s, [e].g.  '[qu]oted'; [na]ïve ¡[s]í! ([St]raße/¡[s]í! "
+  },
+  {
+    "text": "coöperate  Հայաստան (¡sí!  हिन्दी (precisamente) हिन्दी) col·legi. ",
+    "options": {},
+    "expected": "[coöp]erate  [Հայա]ստան (¡[s]í!  [हि]न्दी ([preci]samente) [हि]न्दी) [col·]legi. "
+  },
+  {
+    "text": "… (한국어) 10:30) 'quoted'  Καλημέρα gęślą\nქართული — Україна — ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "… ([한]국어) [1]0:[3]0) '[quo]ted'  [Καλη]μέρα [gę]ślą\n[ქარ]თული — [Укр]аїна — "
+  },
+  {
+    "text": "Ελλάδα  Zażółć; ~/a/b/¿qué? (ภาษาไทย. ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "[Ελ]λάδα  [Za]żółć; ~/a/b/¿[q]ué? (ภาษาไทย. "
+  },
+  {
+    "text": "U.S.A.. café-x()) Україна. —; Україна ĳssel — ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[U].S.A.. café-x()) Україна. —; [Укр]аїна ĳssel — "
+  },
+  {
+    "text": "¡sí! (ქართული ",
+    "options": {},
+    "expected": "¡[s]í! ([ქართ]ული "
+  },
+  {
+    "text": "—/ש״ס — naïve\n",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "—/[ש]״ס — [na]ïve\n"
+  },
+  {
+    "text": "ﬁn, ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ﬁ]n, "
+  },
+  {
+    "text": "ქართული) ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[ქარ]თული) "
+  },
+  {
+    "text": "—/café) Съешь. a.b(c); ",
+    "options": {},
+    "expected": "—/[ca]fé) [Съ]ешь. a.b(c); "
+  },
+  {
+    "text": "coöperate, ¡sí!/it’s-",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[coöp]erate, ¡sí!/it’s-"
+  },
+  {
+    "text": "Ελλάδα-Հայաստան; Съешь. ",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[Ελλ]άδα-Հայաստան; Съешь. "
+  },
+  {
+    "text": "¡sí!, EU:n insultantemente; e.g. — … 你好) 'quoted' ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "¡[s]í!, EU:n [ins]ultantemente; e.g. — … 你好) '[q]uoted' "
+  },
+  {
+    "text": "a.b(c)) 🇪🇸. és  pa­la  ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "a.b(c)) 🇪🇸. [é]s  pa­la  "
+  },
+  {
+    "text": "مَرحبا-",
+    "options": {
+      "every": 3,
+      "minWordLength": 6
+    },
+    "expected": "[مَ]رحبا-"
+  },
+  {
+    "text": "10:30-¡sí!-10:30-ภาษาไทย) Հայաստան Հայաստան (",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "10:30-¡[s]í!-10:30-ภาษาไทย) [Հայ]աստան [Հայ]աստան ("
+  },
+  {
+    "text": "—) Zażółć ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "—) [Zaż]ółć "
+  },
+  {
+    "text": "¿qué? a.b(c). col·legi\nd'una — ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "¿[q]ué? a.b(c). [col·le]gi\nd'[u]na — "
+  },
+  {
+    "text": "Tiếng don't — ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[Ti]ếng [do]n't — "
+  },
+  {
+    "text": "snake_case: pa­la  x()  ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "snake_case: [pa]­la  x()  "
+  },
+  {
+    "text": "EU:n) a.b(c): a.b(c); مَرحبا  한국어; coöperate …\nहिन्दी/",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[EU:]n) a.b(c): a.b(c); [مَرحب]ا  [한]국어; [coöpera]te …\n[हि]न्दी/"
+  },
+  {
+    "text": "x() https://x.y/z) ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "x() https://x.y/z) "
+  },
+  {
+    "text": "10:30) שלום (한국어; don't-ĳssel, 你好 (",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "10:30) [שלו]ם ([한]국어; [don']t-[ĳsse]l, 你好 ("
+  },
+  {
+    "text": "'quoted'/U.S.A.\n",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "'[quo]ted'/[U.]S.A.\n"
+  },
+  {
+    "text": "col·legi col·legi 1.000,5 a.b(c)/3D. https://x.y/z — — ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[col]·legi col·legi 1.000,5 a.b(c)/3D. https://x.y/z — — "
+  },
+  {
+    "text": "hola — ¡sí!. ¡sí!\n1.000,5 — (nota)  a.b(c) ",
+    "options": {},
+    "expected": "[ho]la — ¡[s]í!. ¡[s]í!\n1.000,5 — ([no]ta)  a.b(c) "
+  },
+  {
+    "text": "ภาษาไทย, —. 3D 你好/snake_case\n",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "ภาษาไทย, —. 3D 你好/snake_case\n"
+  },
+  {
+    "text": "'quoted'. a@b.cd 🇪🇸. 3D (don't; coöperate\nqu'il — ",
+    "options": {},
+    "expected": "'[quo]ted'. a@b.cd 🇪🇸. 3D ([do]n't; [coöp]erate\n[qu]'il — "
+  },
+  {
+    "text": "a.b(c), qu'il, ",
+    "options": {
+      "strength": 0.4,
+      "minWordLength": 1
+    },
+    "expected": "a.b(c), [qu]'il, "
+  },
+  {
+    "text": "qu'il\nمَرحبا; ﬁn ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[qu'i]l\n[مَرحب]ا; [ﬁ]n "
+  },
+  {
+    "text": "U.S.A., it’s) Καλημέρα/a@b.cd — l'àvia/'quoted' — —; ",
+    "options": {
+      "skipNumbers": false
+    },
+    "expected": "[U.]S.A., [it]’s) [Καλη]μέρα/a@b.cd — l'[àv]ia/'[quo]ted' — —; "
+  },
+  {
+    "text": "٣٤٥ — ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "٣٤٥ — "
+  },
+  {
+    "text": "ﬁn (“cita”) col·legi (٣٤٥  ",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "[ﬁ]n (“cita”) [co]l·legi (٣٤٥  "
+  },
+  {
+    "text": "٣٤٥  ﬁn, l'àvia; हिन्दी — (nota): ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "٣٤٥  [ﬁ]n, l'[àvi]a; [हि]न्दी — ([not]a): "
+  },
+  {
+    "text": "مَرحبا\nქართული/你好; ¡sí! —  _x: مَرحبا: ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[مَرحب]ا\n[ქართუ]ლი/你好; ¡[s]í! —  _x: [مَرحب]ا: "
+  },
+  {
+    "text": "❤️: qu'il  aujourd'hui. Zażółć. ภาษาไทย/",
+    "options": {
+      "strength": 0.2,
+      "every": 2
+    },
+    "expected": "❤️: [q]u'il  aujourd'hui. [Z]ażółć. ภาษาไทย/"
+  },
+  {
+    "text": "தமிழ் — és  ",
+    "options": {
+      "strength": 0.7
+    },
+    "expected": "[த]மிழ் — [é]s  "
+  }
+]
