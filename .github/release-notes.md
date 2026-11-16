@@ -13,4 +13,8 @@ Preview build, not yet in the browser stores. Everything runs on your device.
 2. Open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on…** and choose the zip.
 3. It stays until you close Firefox.
 
+## Fita Sans font
+
+`fita-sans-<version>.zip` holds a font that emphasizes word starts by itself, for computers and e-readers. See the `README.md` inside for how to install it and where it works.
+
 Found a problem? [Open an issue](https://github.com/urimarti2610/fita/issues/new/choose).

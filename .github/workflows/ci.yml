@@ -37,3 +37,17 @@ jobs:
           unzip -q epubcheck.zip
           EPUB_SAMPLES_DIR="$PWD/epub-samples" pnpm --filter @fita/web exec vitest run test/epub-samples.test.ts
           for f in epub-samples/*.epub; do java -jar "epubcheck-${EPUBCHECK}/epubcheck.jar" "$f"; done
+
+  # The OpenType emphasis font (fonts/): build it and shape test text with HarfBuzz.
+  font:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: fonts/requirements.txt
+      - run: pip install -r fonts/requirements.txt
+      - run: python fonts/build.py
+      - run: python -m unittest discover -s fonts/tests -v
