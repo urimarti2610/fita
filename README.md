@@ -2,7 +2,7 @@
 
 **Free, open-source reading aids for people with ADHD and dyslexia.** Website: [fitaread.com](https://fitaread.com)
 
-**Install:** [Chrome Web Store](https://chromewebstore.google.com/detail/fita/oejckcagfphojldhbdgedgpdfpkajpej) (Chrome, Edge and other Chromium browsers) · [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/fita/) (Firefox, including Firefox for Android).
+**Install:** [Chrome Web Store](https://chromewebstore.google.com/detail/fita/oejckcagfphojldhbdgedgpdfpkajpej) (Chrome, Edge and other Chromium browsers) · [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/fita/) (Firefox, including Firefox for Android) · Reader app for phones: [fitaread.com/app](https://fitaread.com/app/) (installable web app, works offline; Android and iOS builds in [`apps/mobile`](docs/mobile.md)).
 
 fita adds _anchor points_ to text: it gently emphasizes the beginning of each word to guide your eyes. It works where you already read — on the web and in your ebooks — and everything runs on your device.
 
@@ -34,10 +34,11 @@ Regenerate the images with `node apps/extension/scripts/store-assets.mjs` (exten
 | [`plugins/calibre`](plugins/calibre) | [calibre](https://calibre-ebook.com) plugin: adds emphasis to the EPUB books in your library. Install: download `fita-calibre-<version>.zip` from the [releases](https://github.com/urimarti2610/fita/releases), then **Preferences → Plugins → Load plugin from file**. |
 | [`addons/google-docs`](addons/google-docs) | Google Docs add-on (Apps Script): emphasize the document or a selection, and remove it again. |
 | [`addons/libreoffice`](addons/libreoffice) | LibreOffice Writer extension (`.oxt`, Python): the same, with a character style you can edit. |
+| [`apps/mobile`](apps/mobile)       | Reader app for Android and iOS (Capacitor) and installable web app: opens EPUB, TXT, Markdown and HTML with emphasis. See [docs/mobile.md](docs/mobile.md). |
 
 ## Languages
 
-The website, the extension and the reading worksheets are available in 27 languages: Basque, Bulgarian, Catalan, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, Galician, German, Greek, Hungarian, Irish, Italian, Latvian, Lithuanian, Maltese, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish and Swedish. Emphasis itself works on text in any language with spaces between words.
+The website, the extension, the reader app and the reading worksheets are available in 27 languages: Basque, Bulgarian, Catalan, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, Galician, German, Greek, Hungarian, Irish, Italian, Latvian, Lithuanian, Maltese, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish and Swedish. Emphasis itself works on text in any language with spaces between words.
 
 Many translations were drafted with AI help and still need a native speaker's review (Irish and Maltese especially). Corrections are very welcome: open an issue or a pull request.
 
@@ -47,6 +48,7 @@ To add or fix a language, edit:
 - `apps/web/src/worksheet/texts/<lang>/README.md`: children's reading texts for the worksheets;
 - `apps/extension/src/locales/<lang>.json`: extension text (same keys as `en.json`);
 - `addons/google-docs/src/locales/<lang>.json` and `addons/libreoffice/extension/pythonpath/wordanchor/i18n.py`: Google Docs and LibreOffice add-ons (English, Spanish and Catalan so far);
+- `apps/mobile/src/locales/<lang>.ts`: reader app text (the shape is defined by `en.ts`);
 
 then register the code in `apps/web/src/i18n.ts` and `apps/extension/src/build-data.ts`.
 
@@ -73,11 +75,11 @@ pnpm e2e         # Playwright
 
 calibre plugin (Python 3, no dependencies): `python3 -m unittest discover -s plugins/calibre/tests` and `python3 plugins/calibre/build.py`.
 
-Per package: `pnpm dev:web` (local website at http://localhost:4321), `pnpm preview:web`, `pnpm build:extension` (outputs `apps/extension/dist/`), and `test:*`, `build:*`, `e2e:*` for `core`, `extension` and `web`.
+Per package: `pnpm dev:web` (local website at http://localhost:4321), `pnpm preview:web`, `pnpm build:extension` (outputs `apps/extension/dist/`), and `test:*`, `build:*`, `e2e:*` for `core`, `extension` and `web`. The reader app: `pnpm --filter @fita/mobile dev`; Android and iOS builds are described in [docs/mobile.md](docs/mobile.md).
 
 The font in `fonts/` is built with Python: `pip install -r fonts/requirements.txt && python fonts/build.py` (see [fonts/README.md](fonts/README.md)).
 
-Brand images (social preview, favicon, extension icons) are rendered from the wordmark with `node apps/web/scripts/og-image.mjs`; the outputs are committed.
+Brand images (social preview, favicon, extension and app icons) are rendered from the wordmark with `node apps/web/scripts/og-image.mjs`; the outputs are committed.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 

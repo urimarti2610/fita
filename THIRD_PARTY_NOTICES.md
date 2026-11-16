@@ -1,12 +1,13 @@
 # Third-party notices
 
-The fita website ships the following third-party components to visitors' browsers. Their licences require these notices. (The browser extension contains only fita's own code.)
+The fita website and the reader app (`apps/mobile`) ship the following third-party components. Their licences require these notices. (The browser extension contains only fita's own code.)
 
 | Component | Used for | Licence |
 | --- | --- | --- |
 | [JSZip](https://stuk.github.io/jszip/) | Reading and writing EPUB files in the converter | MIT (dual-licensed MIT or GPLv3; used under MIT) |
 | [marked](https://marked.js.org/) | Markdown to HTML in the converter | MIT |
 | [Atkinson Hyperlegible Next](https://github.com/googlefonts/atkinson-hyperlegible-next) | Typeface of the website and downloaded worksheets; base of the Fita Sans font in `fonts/` | SIL Open Font License 1.1 |
+| [Capacitor](https://capacitorjs.com/) (`@capacitor/core`, `android`, `ios`, `app`, `filesystem`) | Native Android and iOS shells of the reader app | MIT |
 
 ---
 
@@ -181,3 +182,31 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
+
+---
+
+## Capacitor
+
+The same MIT licence applies to `@capacitor/core`, `@capacitor/android`, `@capacitor/ios`, `@capacitor/app` and `@capacitor/filesystem`.
+
+MIT License
+
+Copyright (c) 2017-present Drifty Co.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

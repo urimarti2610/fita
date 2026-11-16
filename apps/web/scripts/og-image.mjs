@@ -4,8 +4,10 @@
 //   apps/web/public/favicon.png            32×32
 //   apps/web/public/apple-touch-icon.png   180×180
 //   apps/extension/static/icons/icon-N.png 16, 32, 48, 128
+//   apps/mobile/public/icons/              192, 512 and maskable 512 (installable web app)
+//   apps/mobile/android/…/res/             Android launcher icons and launch screens (if android/ exists)
 // Run with `node scripts/og-image.mjs` after changing the brand; outputs are committed.
-import { readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
@@ -78,6 +80,14 @@ body { width: ${size}px; height: ${size}px; display: grid; place-items: center; 
 ${size <= 32 ? ".swash { transform: none; height: 0.5em; }" : ""}
 </style></head><body><div class="tile">${marked(lead)}</div></body></html>`;
 
+// Full-bleed square for launchers that apply their own mask (Android adaptive icons,
+// "maskable" web app icons): letters kept inside the central safe zone.
+const fullBleed = (size, scale) => `<!doctype html><html><head><style>${css}
+html, body { background: transparent; }
+.tile { width: ${size}px; height: ${size}px; display: grid; place-items: center; background: ${C.paper}; }
+.lead { font-size: ${Math.round(size * scale)}px; line-height: 1; letter-spacing: -0.03em; }
+</style></head><body><div class="tile">${marked(lead)}</div></body></html>`;
+
 const out = (path) => fileURLToPath(new URL(path, import.meta.url));
 const browser = await chromium.launch();
 const page = await browser.newPage();
@@ -101,5 +111,50 @@ for (const [size, path] of icons) {
       content: `body { background: ${C.paper}; } .tile { border-radius: 0; box-shadow: none; }`,
     });
   await page.screenshot({ path: out(path), omitBackground: !opaque });
+}
+// Installable web app (apps/mobile): opaque tiles, plus a maskable one with more margin.
+const mobileIcons = [
+  [192, "../../mobile/public/icons/icon-192.png", 0.62],
+  [512, "../../mobile/public/icons/icon-512.png", 0.62],
+  [512, "../../mobile/public/icons/icon-maskable-512.png", 0.42],
+];
+for (const [size, path, scale] of mobileIcons) {
+  await page.setViewportSize({ width: size, height: size });
+  await page.setContent(fullBleed(size, scale));
+  await page.screenshot({ path: out(path) });
+}
+
+// Android launcher icons, when the native project exists: legacy square/round icons
+// and the adaptive icon's foreground (108 dp canvas, content in the inner 66 dp).
+const res = out("../../mobile/android/app/src/main/res/");
+if (existsSync(res)) {
+  const densities = { mdpi: 1, hdpi: 1.5, xhdpi: 2, xxhdpi: 3, xxxhdpi: 4 };
+  for (const [density, factor] of Object.entries(densities)) {
+    const dir = `${res}mipmap-${density}/`;
+    const legacy = Math.round(48 * factor);
+    await page.setViewportSize({ width: legacy, height: legacy });
+    await page.setContent(fullBleed(legacy, 0.6));
+    await page.screenshot({ path: `${dir}ic_launcher.png` });
+    await page.addStyleTag({ content: ".tile { border-radius: 50%; }" });
+    await page.screenshot({ path: `${dir}ic_launcher_round.png`, omitBackground: true });
+    const adaptive = Math.round(108 * factor);
+    await page.setViewportSize({ width: adaptive, height: adaptive });
+    await page.setContent(fullBleed(adaptive, 0.38));
+    await page.addStyleTag({ content: ".tile { background: transparent; }" });
+    await page.screenshot({ path: `${dir}ic_launcher_foreground.png`, omitBackground: true });
+  }
+  // Launch screens: keep each image's size (read from the PNG header), brand mark centred.
+  for (const dir of readdirSync(res).filter((d) => d.startsWith("drawable"))) {
+    const path = `${res}${dir}/splash.png`;
+    if (!existsSync(path)) continue;
+    const header = readFileSync(path);
+    const [width, height] = [header.readUInt32BE(16), header.readUInt32BE(20)];
+    await page.setViewportSize({ width, height });
+    await page.setContent(fullBleed(Math.min(width, height), 0.3));
+    await page.addStyleTag({
+      content: `body { width: ${width}px; height: ${height}px; display: grid; place-items: center; background: ${C.paper}; margin: 0; }`,
+    });
+    await page.screenshot({ path });
+  }
 }
 await browser.close();
