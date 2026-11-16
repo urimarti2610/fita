@@ -22,6 +22,10 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
+      # Python 3.12 (Unicode 15.0): fita_unicode.lua is generated with it.
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
       - name: calibre plugin
         run: |
           python3 -m unittest discover -s plugins/calibre/tests -v
@@ -30,7 +34,8 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends luajit
           luajit plugins/koreader/spec/run.lua
-          # fita_unicode.lua must match the Python engine it is generated from.
+          # fita_unicode.lua must match the Python engine it is generated from
+          # (regenerate with Python 3.12, whose unicodedata is Unicode 15.0).
           python3 plugins/koreader/tools/gen_unicode.py
           git diff --exit-code plugins/koreader/fita.koplugin/fita_unicode.lua
           python3 plugins/koreader/build.py

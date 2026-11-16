@@ -48,7 +48,7 @@ Books with DRM cannot be converted. The plugin says so and leaves them as they a
 ```sh
 sudo apt-get install luajit                 # or lua5.1
 luajit plugins/koreader/spec/run.lua        # tests, with KOReader stubbed out
-python3 plugins/koreader/tools/gen_unicode.py   # regenerate fita_unicode.lua
+python3 plugins/koreader/tools/gen_unicode.py   # regenerate fita_unicode.lua (Python 3.12)
 python3 plugins/koreader/build.py           # plugins/koreader/dist/fita-koreader-<version>.zip
 ```
 
