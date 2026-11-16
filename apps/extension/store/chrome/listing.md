@@ -23,6 +23,9 @@ Cómo funciona
 • Déjala siempre activa en los sitios que elijas, o en todos.
 • Elige la intensidad y el estilo: negrita y atenuar, negrita, color, subrayado o atenuar el resto.
 • Más opciones: destacar una de cada dos o tres palabras, interlineado y ancho de línea.
+• Regla de lectura: resalta la línea que estás leyendo u oscurece las demás.
+• Lectura en voz alta con las voces de tu propio dispositivo, resaltando cada palabra.
+• Modo lectura: muestra solo el artículo, limpio y con el énfasis aplicado.
 • Al desactivarla, la página queda exactamente como estaba.
 
 Privada de verdad
@@ -56,6 +59,9 @@ Com funciona
 • Deixa-la sempre activa als llocs que triïs, o a tots.
 • Tria la intensitat i l'estil: negreta i atenuar, negreta, color, subratllat o atenuar la resta.
 • Més opcions: destacar una de cada dues o tres paraules, interlineat i amplada de línia.
+• Regle de lectura: ressalta la línia que llegeixes o enfosqueix les altres.
+• Lectura en veu alta amb les veus del teu propi dispositiu, ressaltant cada paraula.
+• Mode lectura: mostra només l'article, net i amb l'èmfasi aplicat.
 • En desactivar-la, la pàgina queda exactament com estava.
 
 Privada de veritat
@@ -89,6 +95,9 @@ How it works
 • Keep it on for the sites you choose, or for every site.
 • Choose the strength and style: bold and fade, bold, colour, underline, or fade the rest.
 • More options: emphasize one in every two or three words, line spacing and line width.
+• Line ruler: highlight the line you are reading, or dim the others.
+• Read aloud with your device's own voices, highlighting each word.
+• Reading mode: just the article, clean and with emphasis applied.
 • Turn it off and the page is exactly as it was.
 
 Truly private
