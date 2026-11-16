@@ -90,7 +90,7 @@ export const strings: Strings = {
       {
         q: "Voinko käyttää sitä e-kirjojeni kanssa?",
         a: [
-          "Kyllä. Kohdassa ”Muunna kirja” valitset EPUB-, DOCX-, TXT-, Markdown- tai HTML-tiedoston ja lataat korostetun kopion. Muunnos tapahtuu selaimessasi. DRM-suojattuja kirjoja ei voi muuntaa.",
+          "Kyllä. Kohdassa ”Muunna kirja” valitset EPUB-, DOCX-, PDF-, TXT-, Markdown- tai HTML-tiedoston ja lataat korostetun kopion. Muunnos tapahtuu selaimessasi. DRM-suojattuja kirjoja ei voi muuntaa.",
         ],
       },
       {
@@ -128,7 +128,7 @@ export const strings: Strings = {
         link: "Ideoita luokkaan ja kotiin",
         lede: "Opettajille, erityisopettajille ja perheille, jotka haluavat lukemisen vaativan vähän vähemmän vaivaa ilman, että jokaiselle oppilaalle pitää valmistella omaa materiaalia.",
         steps: [
-          "Mukauta materiaalia, joka sinulla jo on: muunna lukutekstit, muistiinpanot tai kirjat EPUB-, DOCX-, TXT-, Markdown- tai HTML-muodossa ja jaa ne sellaisinaan.",
+          "Mukauta materiaalia, joka sinulla jo on: muunna lukutekstit, muistiinpanot tai kirjat EPUB-, DOCX-, PDF-, TXT-, Markdown- tai HTML-muodossa ja jaa ne sellaisinaan.",
           "Näytä tunnilla demoa päivän tekstillä ja kokeilkaa yhdessä eri voimakkuuksia ja tyylejä. Anna jokaisen oppilaan kertoa, mikä tuntuu mukavimmalta.",
           "Koulun tietokoneilla laajennus toimii ilman käyttäjätilejä tai rekisteröitymistä eikä kerää oppilaista mitään tietoja.",
           "Tee kohdassa ”Työarkit” lukutehtäviä, joissa on iso teksti ja hauska kehys, ja tulosta ne tai tallenna PDF:nä.",
@@ -263,10 +263,12 @@ export const strings: Strings = {
       "Valitse kirja tai asiakirja ja lataa korostettu kopio. Tiedosto ei koskaan lähde laitteeltasi: kaikki tapahtuu tässä selaimessa, ilman kokorajaa.",
     pick: "Valitse tiedosto",
     drop: "tai pudota se tähän",
-    formats: "EPUB, DOCX, TXT, Markdown tai HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown tai HTML",
     pickFolder: "Valitse kansio",
     folderHint: "Markdown kuvineen? Valitse sen kansio tai .zip, niin kuvat tulevat mukaan.",
     bundleDocument: "{name} muunnetaan kuvineen.",
+    pdfNote:
+      "PDF:stä otetaan teksti, ja siitä tehdään EPUB-kirja tai HTML-sivu. Taitto, kuvat ja taulukot eivät säily.",
     selected: "Valittu tiedosto:",
     output: "Tallennusmuoto",
     outputs: {
@@ -284,13 +286,17 @@ export const strings: Strings = {
     download: "Lataa {name}",
     errors: {
       unsupported:
-        "Tätä muotoa ei voi muuntaa. Valitse EPUB-, DOCX-, TXT-, Markdown- tai HTML-tiedosto.",
+        "Tätä muotoa ei voi muuntaa. Valitse EPUB-, DOCX-, PDF-, TXT-, Markdown- tai HTML-tiedosto.",
       drm: "Tässä kirjassa on DRM (kopiosuojaus), joten sitä ei voi muuntaa. Jos ostit sen, kysy kaupasta, voivatko he antaa sinulle DRM-vapaan kopion.",
       invalid:
         "Tiedostoa ei voitu lukea. Tarkista, avautuuko se lukulaitteessasi tai -sovelluksessasi, tai kokeile toista.",
       noMarkdown: "Tässä kansiossa tai .zip-tiedostossa ei ole Markdown-tiedostoa (.md).",
       locked:
         "Tässä asiakirjassa on salasana tai se on Wordin vanhassa muodossa (.doc), joten sitä ei voi muuntaa. Avaa se, tallenna .docx-muotoon ilman salasanaa ja yritä uudelleen.",
+      noText:
+        "Emme löytäneet tekstiä tästä PDF:stä. Jos se on skannattu asiakirja (kuvia sivuista), se tarvitsee ensin tekstintunnistuksen (OCR).",
+      pdfLocked:
+        "Tässä PDF:ssä on salasana, joten sitä ei voi muuntaa. Avaa se, tallenna ilman salasanaa ja yritä uudelleen.",
       failed:
         "Muunnos epäonnistui ({detail}). Jos niin käy uudelleen, kerro siitä meille GitHubissa.",
     },

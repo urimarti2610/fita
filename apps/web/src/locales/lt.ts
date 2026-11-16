@@ -90,7 +90,7 @@ export const strings: Strings = {
       {
         q: "Ar galiu tai naudoti su savo elektroninėmis knygomis?",
         a: [
-          "Taip. Skiltyje „Konvertuoti knygą“ pasirink EPUB, DOCX, TXT, Markdown ar HTML failą ir atsisiųsk kopiją su paryškinimu. Konvertuojama tavo naršyklėje. Knygų su DRM konvertuoti negalima.",
+          "Taip. Skiltyje „Konvertuoti knygą“ pasirink EPUB, DOCX, PDF, TXT, Markdown ar HTML failą ir atsisiųsk kopiją su paryškinimu. Konvertuojama tavo naršyklėje. Knygų su DRM konvertuoti negalima.",
         ],
       },
       {
@@ -130,7 +130,7 @@ export const strings: Strings = {
         link: "Idėjos klasei ir namams",
         lede: "Mokytojams, švietimo pagalbos specialistams ir šeimoms, norinčioms, kad skaitymas reikalautų šiek tiek mažiau pastangų, neruošiant atskiros medžiagos kiekvienam mokiniui.",
         steps: [
-          "Pritaikyk jau turimą medžiagą: konvertuok skaitinius, užrašus ar knygas EPUB, DOCX, TXT, Markdown ar HTML formatu ir dalinkis jais tokiais, kokie yra.",
+          "Pritaikyk jau turimą medžiagą: konvertuok skaitinius, užrašus ar knygas EPUB, DOCX, PDF, TXT, Markdown ar HTML formatu ir dalinkis jais tokiais, kokie yra.",
           "Per pamoką parodyk demonstraciją su dienos tekstu ir kartu išbandykite skirtingą stiprumą ir stilius. Tegul kiekvienas mokinys pasako, kuris variantas patogiausias.",
           "Mokyklos kompiuteriuose plėtinys veikia be paskyrų ir registracijos ir nerenka jokių mokinių duomenų.",
           "Skiltyje „Užduočių lapai“ sukurk skaitymo lapus su didelėmis raidėmis ir jaukiu rėmeliu, tada atsispausdink juos arba išsaugok kaip PDF.",
@@ -267,11 +267,13 @@ export const strings: Strings = {
       "Pasirink knygą ar dokumentą ir atsisiųsk kopiją su paryškinimu. Failas niekada neišeina iš tavo įrenginio: viskas vyksta šioje naršyklėje, be dydžio apribojimo.",
     pick: "Pasirinkti failą",
     drop: "arba nutempk jį čia",
-    formats: "EPUB, DOCX, TXT, Markdown arba HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown arba HTML",
     pickFolder: "Pasirink aplanką",
     folderHint:
       "Markdown su paveikslėliais? Pasirink jo aplanką arba .zip ir paveikslėliai bus įdėti.",
     bundleDocument: "Bus konvertuotas {name} kartu su paveikslėliais.",
+    pdfNote:
+      "Iš PDF ištraukiamas tekstas ir paverčiamas EPUB knyga arba HTML puslapiu. Maketas, paveikslėliai ir lentelės neišsaugomi.",
     selected: "Pasirinktas failas:",
     output: "Išvesties formatas",
     outputs: {
@@ -289,13 +291,17 @@ export const strings: Strings = {
     download: "Atsisiųsti {name}",
     errors: {
       unsupported:
-        "Šio formato konvertuoti negalima. Pasirink EPUB, DOCX, TXT, Markdown ar HTML failą.",
+        "Šio formato konvertuoti negalima. Pasirink EPUB, DOCX, PDF, TXT, Markdown ar HTML failą.",
       drm: "Ši knyga turi DRM (apsaugą nuo kopijavimo), todėl jos konvertuoti negalima. Jei ją pirkai, paklausk parduotuvės, ar ji gali duoti kopiją be DRM.",
       invalid:
         "Šio failo nepavyko perskaityti. Patikrink, ar jis atsidaro tavo skaityklėje, arba pabandyk kitą.",
       noMarkdown: "Šiame aplanke ar .zip faile nėra Markdown (.md) failo.",
       locked:
         "Šis dokumentas turi slaptažodį arba yra senuoju Word formatu (.doc), todėl jo konvertuoti negalima. Atidaryk jį, išsaugok kaip .docx be slaptažodžio ir bandyk dar kartą.",
+      noText:
+        "Šiame PDF neradome teksto. Jei tai nuskenuotas dokumentas (puslapių nuotraukos), pirmiausia reikia teksto atpažinimo (OCR).",
+      pdfLocked:
+        "Šis PDF turi slaptažodį, todėl jo konvertuoti negalima. Atidaryk jį, išsaugok be slaptažodžio ir bandyk dar kartą.",
       failed: "Konvertuoti nepavyko ({detail}). Jei tai pasikartos, parašyk mums GitHub.",
     },
     labels: { part: "Dalis", contents: "Turinys" },

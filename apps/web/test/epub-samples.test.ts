@@ -3,6 +3,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { type ConvertRequest, convert } from "../src/convert/convert.js";
+import { makePdf, page } from "./pdf-fixture.js";
 
 const dir = process.env.EPUB_SAMPLES_DIR;
 
@@ -54,6 +55,28 @@ describe.runIf(dir)("epubcheck samples", () => {
     );
     for (const [name, result] of [
       ["from-markdown-images.epub", withImages],
+      [
+        "from-pdf.epub",
+        await convert(
+          {
+            ...base(
+              makePdf(
+                [
+                  page([{ text: "Títol", y: 770, size: 20 }, "L'àvia & el nét <fi>."]),
+                  page(["Segona."]),
+                ],
+                {
+                  title: "Llibre",
+                },
+              ),
+              "llibre.pdf",
+              "epub",
+            ),
+            input: "pdf",
+          },
+          () => {},
+        ),
+      ],
       ["from-markdown.epub", fromMd],
       ["from-text.epub", fromTxt],
       ["converted.epub", converted],

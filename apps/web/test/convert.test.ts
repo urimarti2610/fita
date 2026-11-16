@@ -96,7 +96,7 @@ describe("text and Markdown", () => {
     expect(OUTPUTS.txt).not.toContain("txt" as never);
     expect(detectFormat("libro.MARKDOWN")).toBe("md");
     expect(detectFormat("x.htm")).toBe("html");
-    expect(detectFormat("x.pdf")).toBeNull();
+    expect(detectFormat("x.odt")).toBeNull();
   });
 
   it("turns plain text into an EPUB with chapters and a table of contents", async () => {

@@ -92,7 +92,7 @@ export const strings: Strings = {
       {
         q: "Kan jag använda det med mina e-böcker?",
         a: [
-          "Ja. Under ”Konvertera en bok” väljer du en EPUB-, DOCX-, TXT-, Markdown- eller HTML-fil och laddar ner en kopia med framhävning. Konverteringen sker i din webbläsare. Böcker med DRM kan inte konverteras.",
+          "Ja. Under ”Konvertera en bok” väljer du en EPUB-, DOCX-, PDF-, TXT-, Markdown- eller HTML-fil och laddar ner en kopia med framhävning. Konverteringen sker i din webbläsare. Böcker med DRM kan inte konverteras.",
         ],
       },
       {
@@ -130,7 +130,7 @@ export const strings: Strings = {
         link: "Idéer för klassrummet och hemmet",
         lede: "För lärare, specialpedagoger och familjer som vill att läsningen ska kräva lite mindre ansträngning, utan att förbereda olika material för varje elev.",
         steps: [
-          "Anpassa materialet du redan har: konvertera texter, anteckningar eller böcker i EPUB, DOCX, TXT, Markdown eller HTML och dela dem som de är.",
+          "Anpassa materialet du redan har: konvertera texter, anteckningar eller böcker i EPUB, DOCX, PDF, TXT, Markdown eller HTML och dela dem som de är.",
           "Visa demon i klassrummet med dagens text och prova olika styrkor och stilar tillsammans. Låt varje elev säga vad som känns skönast.",
           "På skolans datorer fungerar tillägget utan konton eller registrering och samlar inte in några uppgifter om eleverna.",
           "Gör läsblad med stor text och en vänlig ram under ”Läsblad”, och skriv ut dem eller spara dem som PDF.",
@@ -265,10 +265,12 @@ export const strings: Strings = {
       "Välj en bok eller ett dokument och ladda ner en kopia med framhävning. Filen lämnar aldrig din enhet: allt sker i den här webbläsaren, utan storleksgräns.",
     pick: "Välj en fil",
     drop: "eller släpp den här",
-    formats: "EPUB, DOCX, TXT, Markdown eller HTML",
+    formats: "EPUB, DOCX, PDF, TXT, Markdown eller HTML",
     pickFolder: "Välj en mapp",
     folderHint: "Markdown med bilder? Välj mappen eller en .zip så följer bilderna med.",
     bundleDocument: "{name} konverteras, med sina bilder.",
+    pdfNote:
+      "Texten tas ut ur PDF:en och blir en EPUB-bok eller en HTML-sida. Layout, bilder och tabeller behålls inte.",
     selected: "Vald fil:",
     output: "Utdataformat",
     outputs: { epub: "EPUB (e-bok)", html: "HTML (webbsida)", md: "Markdown", docx: "Word (DOCX)" },
@@ -281,13 +283,17 @@ export const strings: Strings = {
     download: "Ladda ner {name}",
     errors: {
       unsupported:
-        "Det här formatet kan inte konverteras. Välj en EPUB-, DOCX-, TXT-, Markdown- eller HTML-fil.",
+        "Det här formatet kan inte konverteras. Välj en EPUB-, DOCX-, PDF-, TXT-, Markdown- eller HTML-fil.",
       drm: "Den här boken har DRM (kopieringsskydd), så den kan inte konverteras. Om du har köpt den kan du fråga butiken om du kan få en kopia utan DRM.",
       invalid:
         "Filen kunde inte läsas. Kontrollera att den går att öppna i din läsare, eller prova en annan.",
       noMarkdown: "Det finns ingen Markdown-fil (.md) i den här mappen eller .zip-filen.",
       locked:
         "Det här dokumentet har ett lösenord eller använder det gamla Word-formatet (.doc), så det kan inte konverteras. Öppna det, spara det som .docx utan lösenord och försök igen.",
+      noText:
+        "Vi hittade ingen text i den här PDF:en. Om det är ett skannat dokument (foton av sidor) behöver det först textigenkänning (OCR).",
+      pdfLocked:
+        "Den här PDF:en har ett lösenord, så den kan inte konverteras. Öppna den, spara den utan lösenord och försök igen.",
       failed:
         "Konverteringen misslyckades ({detail}). Om det händer igen får du gärna berätta det för oss på GitHub.",
     },
