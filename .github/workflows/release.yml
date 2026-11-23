@@ -21,7 +21,7 @@ jobs:
       - run: pnpm test
       - run: pnpm build
       # The emphasis font (fonts/), zipped with its licence and instructions.
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Build the font
