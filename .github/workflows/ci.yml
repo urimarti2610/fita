@@ -23,7 +23,7 @@ jobs:
       - run: pnpm test
       - run: pnpm build
       # Python 3.12 (Unicode 15.0): fita_unicode.lua is generated with it.
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: calibre plugin
@@ -66,7 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
