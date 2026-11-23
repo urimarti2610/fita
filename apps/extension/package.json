@@ -15,12 +15,12 @@
     "@mozilla/readability": "0.6.0"
   },
   "devDependencies": {
-    "@playwright/test": "1.65.0",
+    "@playwright/test": "1.65.1",
     "@types/chrome": "0.3.7",
     "@types/node": "^26.6.6",
     "esbuild": "0.28.2",
     "happy-dom": "21.0.4",
     "jszip": "3.10.2",
-    "vitest": "5.1.0"
+    "vitest": "5.1.1"
   }
 }
